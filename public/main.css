@@ -1,0 +1,147 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+
+#main{
+    width: 1920px;
+    height: 931px;
+    position: relative;
+}
+
+#main_img{
+    width: 100%;
+    height: 100%;
+    background-color: cadetblue;
+}
+
+
+#header{
+    width: 1920px;
+    height: 111px;
+    position: absolute;
+}
+
+#header_inner{
+    width: 1200px;
+    height: 100%;
+    margin: 0px auto;
+    border-bottom: 1px solid #000;
+    display: flex;
+}
+
+.logo{
+    width: 233px;
+    height: 56px;
+    background-color: pink;
+    margin-top: 27px;
+}
+
+.language{
+    width: 53px;
+    height: 13px;
+    background-color: brown;
+    justify-content: flex-end;
+}
+
+.language a{
+    width: 100%;
+    height: 100%;
+}
+
+.nav{
+    width:  953px;
+    height: 16px;
+}
+
+.nav ul{
+    width:  100%;
+    height: 100%;
+    margin-top: 66px;
+    display: flex;
+}
+
+.nav ul li{
+    justify-content: space-between;
+}
+.nav ul li a{
+    font-size: 16px;
+}
+
+.search{
+    width: 34px;
+    height: 34px;
+    background-color: #000;
+}
+
+#visual{
+    /* width: 1920px;
+    height: 931px; */
+    display: flex;
+    margin: 0px auto;
+    /* position: absolute; */
+}
+
+
+#visual_title{
+    width: 400px;
+    height: 80px;
+    margin: 368px 760px 483px 760px;
+    text-align: center;
+    position: absolute;
+}
+
+#visual_search{
+    width: 500px;
+    height: 42px;
+    /* position: absolute; */
+}
+
+#visual_search p{
+    width: 42px;
+    height: 22px;
+    margin: 524px 1168px 385px 710px;
+    position: absolute;
+}
+
+#visual_search .btn{
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color: brown;
+    margin: 508px 713px 369px 1153px;
+}
+
+/* #visual_search .underline{
+    width: 500px;
+    height: 2px;
+    margin: 576px 710px 353px 710px;
+    border-bottom: 2px solid #000;
+} */
+
+/* .scroll{
+    width: 56px;
+    height: 11px;
+    margin-bottom: 40px;
+    position: absolute;
+} */
+
+#content{
+    width: 1920px;
+    height: 766px;
+    background-color: burlywood;
+    position: absolute;
+}
+
+#content_nav{
+    width: 392px;
+    height: 107px;
+    
+}
+
+
+
+
+
