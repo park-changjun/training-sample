@@ -1,33 +1,39 @@
 <html>
   <head>
     <title>Sample Page</title>
+    <!-- <style type="text/css">
+        a:link { color: none; text-decoration: none;}
+        a:visited { color: black; text-decoration: none;}
+        a:hover { color: blue; text-decoration: underline;}
+       </style> -->
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
 
 
-    <div id="main">
+    <main id="main">
         <div class="main_inner">
-            <div class="header_top">language
-                <img src="img/arrow.png" alt="버튼">
+            <div class="header_top">
+                <a href="#">language
+                    <img src="img/arrow.png" alt="버튼">
+                </a>
             </div>
 
-            <div class="header_bottom">
+            <header class="header_bottom">
                 <div class="logo">
-                    <a></a>
                 </div>
-                <ul class="nav_menu">
-                    <li><a>바른소개</a></li>
-                    <li><a>업무분야</a></li>
-                    <li><a>구성원</a></li>
-                    <li><a>자료실</a></li>
-                    <li><a>사회공헌</a></li>
-                    <li><a>인재채용</a></li>
-                    <li class="nav_search"><a>
-                        <img src="img/srch-button.png" alt="검색">
-                    </a></li>
-                </ul><!--nav_menu-->
-            </div><!--header_bottom-->
+                <nav class="nav_menu">
+                        <li><a href="#">바른소개</a></li>
+                        <li><a href="#">업무분야</a></li>
+                        <li><a href="#">구성원</a></li>
+                        <li><a href="#">자료실</a></li>
+                        <li><a href="#">사회공헌</a></li>
+                        <li><a href="#">인재채용</a></li>
+                        <li class="nav_search"><a href="#">
+                            <img src="img/srch-button.png" alt="검색">
+                        </a></li>
+                </nav><!--nav_menu-->
+            </header><!--header_bottom-->
             <hr class="underline">
 
             <div class="visual_title">WE DO THINGS RIGHT 
@@ -35,103 +41,139 @@
             </div>
 
             <div class="visual_search">
-                <p>가사</p>
+                <input type="search" id="search" placeholder="가사" />
+
                 <div class="search_btn">
-                    <img src="img/search-button-big.png" alt="검색">
+                    <a href="#"><img src="img/search-button-big.png" alt="검색">
+                    </a>
                 </div>
             </div>
 
-            <div class="scroll">scroll
-                <img src="img/arrow-down.png" alt="스크롤">
+            <div class="scroll">
+                <a href="#">scroll
+                    <img src="img/arrow-down.png" alt="스크롤">
+                </a>
             </div>
-        
-
-            
 
         </div><!--main_inner-->
-    </div><!--main-->
+    </main><!--main-->
 
 
 
-    <div id="content">
+    <section id="content" class="gradient_wrapper">
 
-        <p class="arrow_left">
-            <img src="img/tab-arrow-left.png" alt="버튼">
-        </p>
-        <p class="arrow_right">
-            <img src="img/tab-arrow-right.png" alt="버튼">
-        </p>
+        <!-- <p class="arrow_left">
+                    <a href="#">
+                        <img src="img/tab-arrow-left.png" alt="버튼">
+                    </a>
+                </p>
+                <p class="arrow_right">
+                    <a href="#">
+                        <img src="img/tab-arrow-right.png" alt="버튼">
+                    </a>
+                </p> -->
+                
+    
+            <div id="content_inner">
 
-        <div id="content_inner">
+                <!-- <div class="arrow">
+                    <a href="#" class="arrow_left">
+                        <img src="img/tab-arrow-left.png" alt="버튼">
+                    </a>
+                    <a href="#" class="arrow_right">
+                        <img src="img/tab-arrow-right.png" alt="버튼">
+                    </a>
+                </div> -->
 
-            <div class="content_nav">
-                <p class="under_txt">업무사례</p>
 
-                <ul>
-                    <li>바른뉴스</li>
-                    <li>업무사례</li>
-                    <li>언론보도</li>
+                <!-- <p class="arrow_left">
+                    <a href="#">
+                        <img src="img/tab-arrow-left.png" alt="버튼">
+                    </a>
+                </p>
+                <p class="arrow_right">
+                    <a href="#">
+                        <img src="img/tab-arrow-right.png" alt="버튼">
+                    </a>
+                </p> -->
+    
+
+                <nav class="content_nav">
+                    <h2 class="under_txt">업무사례</h2>
+                    
+                    <ul>
+                        <li>바른뉴스</li>
+                        <li>업무사례</li>
+                        <li>언론보도</li>
+                    </ul>
+                    <p class="more">+더보기</p>
+                </nav><!--content_nav-->
+    
+    
+                <div class="content_box">
+
+                
+                    <a href="#" class="arrow_left">
+                            <img src="img/tab-arrow-left.png" alt="버튼">
+                    </a>
+        
+
+                    <article class="box01">
+                        <a href="#">
+                            <h3 class="box_topic">M&A/기업지배구조</h3>
+                            <li class="box_title">교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받 아낸 사례</li>
+                            <li class="box_text">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</li>
+                            <li class="box_date">2021.07.01</li>
+                            <div class="box_img">
+                                <div class="img01"></div>
+                                <div class="img01"></div>
+                                <div class="img01"></div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="box">
+                        <a href="#">
+                            <h3 class="box_topic">엔타테인먼트</h3>
+                            <li class="box_title">교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받 아낸 사례</li>
+                            <li class="box_text">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</li>
+                            <li class="box_date">2021.07.01</li>
+                            <div class="box_img">
+                                <div class="img01"></div>
+                                <div class="img01"></div>
+                                <div class="img01"></div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="box">
+                        <a href="#">
+                            <h3 class="box_topic">M&A/기업지배구조</h3>
+                            <li class="box_title">교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받 아낸 사례</li>
+                            <li class="box_text">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</li>
+                            <li class="box_date">2021.07.01</li>
+                            <div class="box_img">
+                                <div class="img01"></div>
+                                <div class="img01"></div>
+                                <div class="img01"></div>
+                            </div>
+                        </a>
+                    </article>
+                    <a href="#" class="arrow_right">
+                        <img src="img/tab-arrow-right.png" alt="버튼">
+                    </a>
+                </div><!--content_box-->
+    
+                <ul class="slide_btn">
+                    <li></li>
+                    <li></li>
+                    <li></li>
                 </ul>
-                <p class="more">+더보기</p>
-            </div><!--content_nav-->
-
-
-            <div class="content_box">
-
-                <ul class="box01">
-                    <div class="box_topic">
-                        <p>M&A/기업지배구조</p>
-                    </div>
-                    <li class="box_title">교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받 아낸 사례</li>
-                    <li class="box_text">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</li>
-                    <li class="box_date">2021.07.01</li>
-                    <div class="box_img">
-                        <div class="img01"></div>
-                        <div class="img01"></div>
-                        <div class="img01"></div>
-                    </div>
-                </ul>
-                <ul class="box">
-                    <div class="box_topic">
-                        <p>M&A/기업지배구조</p>
-                    </div>
-                    <li class="box_title">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</li>
-                    <li class="box_text">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</li>
-                    <li class="box_date">2021.07.01</li>
-                    <div class="box_img">
-                        <div class="img01"></div>
-                        <div class="img01"></div>
-                        <div class="img01"></div>
-                    </div>
-                </ul>
-                <ul class="box">
-                    <div class="box_topic">
-                        <p>M&A/기업지배구조</p>
-                    </div>
-                    <li class="box_title">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</li>
-                    <li class="box_text">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</li>
-                    <li class="box_date">2021.07.01</li>
-                    <div class="box_img">
-                        <div class="img01"></div>
-                        <div class="img01"></div>
-                        <div class="img01"></div>
-                    </div>
-                </ul>
-            
-            </div><!--content_box-->
-
-            <ul class="slide_btn">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-
-        </div>
-    </div><!--content-->
+    
+            </div><!--content_inner-->
+    </section><!--content-->
 
 
 
-    <div id="news">
+    <section id="news">
         <div class="news_inner">
 
             <div class="news_left">
@@ -160,21 +202,21 @@
             </div>
 
         </div><!--news_inner-->
-    </div><!--news-->
+    </section><!--news-->
     <hr>
 
     <footer id="footer">
         <h1 id="logo">
             <a><img src="./img/gray-logo.png" alt="로고"></a>
         </h1>
-        <div class="footer_nav">
+        <nav class="footer_nav">
             <ul>
                 <li>면책공고</li>
                 <li>개인정보처리방침</li>
                 <li>오시는길</li>
                 <li>사이트맵</li>
             </ul>
-        </div>
+        </nav>
 
         <p class="address">
             서울강남구 테헤란로 92길 7 바른빌딩
