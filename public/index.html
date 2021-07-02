@@ -2,22 +2,35 @@
   <head>
     <link rel="stylesheet" href="main.css">
     <title>Sample Page</title>
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'imn2fjf',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
   </head>
   <body>
     <div class="top-container">
       <div class="top">
+
         <!-- 상단바 -->
-        <p class="lang">Language</p>
+        <p class="lang">Language  <span>∨</span></p>
         <nav class="nav">
-          <ul>Logo이미지</ul>
+          <div class="nav-logo">
+            <img src="toplogo.png" alt="">
+          </div>
           <div class="nav-list">
-            <ul>바론 소개</ul>
+            <ul>바른 소개</ul>
             <ul>업무분야</ul>
             <ul>구성원</ul>
             <ul>자료실</ul>
             <ul>사회공헌</ul>
             <ul>인재채용</ul>
-            <ul>🔍</ul>
+            <ul style="margin-block-start: 10px;"><img class="nav-search" src="nav-search.png" alt=""></ul>
           </div>
         </nav>
         <hr>
@@ -25,36 +38,41 @@
         <!-- 중앙 슬로건 -->
         <p class="slogan">WE DO THINGS RIGHT<br> FOR YOUR RIGHT</p>
         <div class="search">
-          <div>가사</div>
-          <button>🔍</button>
+          <input type="text" placeholder="가사"></input>
+          <button type="submit">
+            <img src="search.png" alt="" class="search-btn-img">
+          </button>
         </div>
         <hr class="search-underline">
   
         <!-- 스크롤 -->
-        <p class="scroll">SCROLL<br>∨</p>
+        <p class="scroll">SCROLL<br><img class="scroll-down-arrow" src="down-arrow.svg" alt=""></p>
       </div>
     </div>
     
     
     <div class="middle-container">
-      <div class="middle-gra">
-      </div>
+      <!-- 그라데이션 이미지 -->
+      <div class="middle-gra"></div>
+
       <div class="middle">
+        <!-- 캐러셀 상단 메뉴 -->  
         <div class="middle-back">업무사례</div>
         <div class="middle-nav">
           <div class="middle-nav-left">
-            <ul>바른뉴스</ul>
-            <ul>업무사례</ul>
-            <ul>언론보도</ul>
+            <ul class="middle-nav-menu">바른뉴스</ul>
+            <ul class="middle-nav-menu menu-active">업무사례</ul>
+            <ul class="middle-nav-menu">언론보도</ul>
           </div>
-          <ul>+더보기</ul>
+          <ul class="middle-plus"><p style="margin-bottom : 0;">+더보기</p><hr class="plus-hr"></ul>
         </div>
 
-        <!-- 가운데 네모 -->
-        <div class="middle-box">
-          <p><</p>
-          <div class="box active">
+        <!-- 가운데 네모박스 3개 -->
+        <section class="middle-box">
+          <p id="p1"><img src="left-arrow.svg" alt=""></p>
+          <article class="box active">
             <div class="box-top">엔터테인먼트</div>
+            <img class="flag" src="flag.svg" alt="">
             <p class="box-title">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</p>
             <p class="box-body">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</p>
             <p class="box-date">2021.07.01</p>
@@ -63,9 +81,10 @@
               <div></div>
               <div></div>
             </div>
-          </div>
-          <div class="box centerbox">
+          </article>
+          <article class="box centerbox">
             <div class="box-top">엔터테인먼트</div>
+            <img class="flag" src="flag.svg" alt="">
             <p class="box-title">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</p>
             <p class="box-body">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</p>
             <p class="box-date">2021.07.01</p>
@@ -74,9 +93,10 @@
               <div></div>
               <div></div>
             </div>
-          </div>
-          <div class="box">
+          </article>
+          <article class="box">
             <div class="box-top">엔터테인먼트</div>
+            <img class="flag" src="flag.svg" alt="">
             <p class="box-title">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</p>
             <p class="box-body">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</p>
             <p class="box-date">2021.07.01</p>
@@ -85,12 +105,12 @@
               <div></div>
               <div></div>
             </div>
-          </div>
-          <p>></p>
-        </div>
+          </article>
+          <p id="p2"><img src="right-arrow.svg" alt=""></p>
+        </section>
 
         <!-- 아래 점 3개 -->
-        <div class="dot">...</div>
+        <div class="dot-container"><span class="dot-active">·</span><span class="dot">·</span><span class="dot">·</span></div>
       </div>
     </div>
 
@@ -103,22 +123,24 @@
 
       <div class="bottom-right">
         <div class="bottom-box bottom-box-active">
-          <div class="bottom-box-date">2021.MARCH</div>
+          <div class="bottom-box-date date-active">2021.MARCH</div>
           <div class="bottom-box-title">
-            <div class="newsletter-title">법무법인(유한)바른 뉴스레터-제94호 (2021.03)</div>
-            <div class="right-arrow">></div>
+            <div class="newsletter-title title-active">법무법인(유한)바른 뉴스레터-제94호 (2021.03)</div>
+            <div class="right-arrow"><img src="bottom-arrow.svg" alt=""></div>
           </div>
         </div>
         <div class="bottom-box">
           <div class="bottom-box-date">2021.MARCH</div>
           <div class="bottom-box-title">
             <div class="newsletter-title">법무법인(유한)바른 뉴스레터-제94호 (2021.03)</div>
-            <div class="right-arrow">></div>
+            <div class="right-arrow" style="color : #333333; opacity: 0.2;"><img src="bottom-arrow.svg" alt=""></div>
           </div>
         </div>
       </div>
     </div>
     <hr class="hr">
+
+    <!-- footer -->
     <footer>
       <div class="logo"><img src="logo.png"></div>
       <div class="footer-list">
