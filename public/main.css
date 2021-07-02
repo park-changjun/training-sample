@@ -235,7 +235,7 @@ img[src="images/arrow.png"] {
 
 
 #wrapper__card__section {
-    background-image: url('images/tab-background.png');
+    background-image: linear-gradient( to bottom, rgba(255, 255, 255, 0.979), rgba(221, 221, 221, 0.103)), url('images/tab-background.png');
     /* background-repeat: no-repeat; */
     background-position: center;
 }
