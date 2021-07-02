@@ -47,6 +47,10 @@ header {
     border-bottom: 1px solid #ffffff73;
 }
 
+#header__left img {
+    cursor: pointer;
+}
+
 #header__right {
     color: #ffffff;
 
@@ -60,6 +64,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    cursor: pointer;
 }
 
 #header__right__top p {
@@ -94,6 +99,7 @@ img[src="images/arrow.png"] {
     letter-spacing: -1.2px;
     text-align: center;
     color: #ffffff;
+    cursor: pointer;
 }
 
 #header__right__bottom > button {
@@ -215,7 +221,8 @@ img[src="images/arrow.png"] {
 
 
 #bg__section__bottom > img {
-    padding-bottom: 22px;
+    margin-bottom: 22px;
+    cursor: pointer;
 }
 
 
@@ -344,14 +351,15 @@ img[src="images/arrow.png"] {
 
 .card__label__shadow {
     width: 5px;
-    height: 7px;
-    background-color: #7b6751;
+    height: 6px;
+
     position: absolute;
     left: -5px;
-    top: 77px;
+    top: 79px;
     border-radius: 0px 0px 0px 300px;
     opacity: 0.9;
 }
+
 
 .card__title {
     width: 324px;
@@ -432,6 +440,7 @@ img[src="images/arrow.png"] {
     background-color: #000000;
     opacity: 0.3;
     margin: 0 4px;
+    cursor: pointer;
 }
 
 .card__pagenation > button:first-child {
@@ -503,6 +512,7 @@ img[src="images/arrow.png"] {
 
 .show__more {
     font-weight: bold;
+    cursor: pointer;
 }
 
 #letter__section__right .letter__ractangle:first-child {
@@ -552,6 +562,7 @@ img[src="images/news-arrow.png"] {
     position: absolute;
     right: 29px;
     bottom: 44px;
+    cursor: pointer;
 }
 
 
