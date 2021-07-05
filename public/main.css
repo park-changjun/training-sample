@@ -18,12 +18,10 @@ body {
 color: white;
 width: 1200px;
 text-align: right;
-margin-top: 10px;
-margin-bottom: -20px;
+margin: 20px;
 }
 
-.header-items{
-  all: unset;
+.main-menu li{
     width: 54px;
     height: 34px;
     margin: 39px 50px 0px 20px;
@@ -37,6 +35,7 @@ margin-bottom: -20px;
     text-align: center;
     color: #ffffff;
 }
+
 
 .header{
     display: flex;
@@ -74,9 +73,10 @@ margin-bottom: -70px;
 }
 
 .scroll-wrap{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  all: unset;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .case-section{
@@ -119,7 +119,7 @@ margin-bottom: -70px;
       top: -142px;
      }
 
-     .categories{
+     .category-container li{
         height: 28px;
         font-family: 'Noto Sans KR', sans-serif;
         font-size: 30px;
@@ -132,7 +132,7 @@ margin-bottom: -70px;
         color: #999999;
      }
 
-     .selected-categories{
+     .category-container .active{
         color: black;
     }
 
@@ -239,12 +239,7 @@ margin-bottom: -70px;
   margin-top: 4px;
 }
 
-.profile-img-box{
-    width: 60px;
-    height: 60px;
-}
-
-  .case-title{
+.box-content h4{
   width: 380px;
   height: 83px;
   margin: 0 0 29px;
@@ -257,8 +252,11 @@ margin-bottom: -70px;
   letter-spacing: -1.8px;
   text-align: justify;
   color: #333333;
-    }
+}
 
+.profile-img-box-container img{
+    width: 60px;
+}
 
     .case-content{
         width: 370px;
@@ -292,7 +290,6 @@ margin-bottom: -70px;
     height: 2px;
     color: white;
     box-shadow: 0px 3px 14px 0 rgba(0, 0, 0, 0.08);
-    background-color: #ffffff;
     margin-bottom: 230px;
   }
 
@@ -335,6 +332,7 @@ margin-bottom: -70px;
     justify-content: space-around;
     border-bottom: outset;
     border-width: thin;
+    padding-bottom: 28px;
 }
 
 .header-logo{
@@ -349,10 +347,12 @@ margin-bottom: -70px;
 }
 
 .nav-bar{
-    display: inline;
-
+  display: flex;
+  align-items: center;
 }
-.scroll-btn{
+
+.scroll-wrap p{
+  all: unset;
   width: 56px;
   font-family: Montserrat;
   font-size: 14px;
@@ -373,12 +373,6 @@ margin-bottom: -70px;
   }
 
 
-  .logo {
-    width: 233px;
-    height: 56px;
-    margin: 1px 117px 28px 0;
-    object-fit: contain;
-  }
   
 
   .header-text-box{
@@ -405,6 +399,11 @@ margin-bottom: -70px;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 14px;
+    border-bottom: solid;
+    border-color: white;
+    border-width: 3px;
+    padding-bottom: 14px;
+}
   }
 
   .news-info-box{
@@ -418,7 +417,6 @@ margin-bottom: -70px;
   }
 
   .active-news-box{
-    width: 970px;
     height: 368px;
     display: flex;
     flex-direction: column;
@@ -426,6 +424,7 @@ margin-bottom: -70px;
   }
 
   .article-date{
+    margin: 0;
     font-family: Montserrat;
     font-size: 16px;
     font-weight: 300;
@@ -441,8 +440,8 @@ margin-bottom: -70px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    width: 1400px;
+    justify-content: space-around;
+    width: 1920px;
     height: 368px;
     }
 
