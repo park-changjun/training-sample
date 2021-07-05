@@ -4,40 +4,82 @@
     box-sizing: border-box;
     font-family: noto-sans-cjk-kr,Montserrat,sans-serif;
 }
-
-.top-container{
-    background: url("bg.png");
+body{
+    margin : 0;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.top{
+    background: url("img/bg.png");
     height: 931px;
     object-fit: cover;
     color: white;
     background-size: cover;
+    
 }
-.top{
+.top .container{
     width : 1200px;
     margin: 0 auto;
 }
+
+/* 상단바 */
 .lang{
-    width : 1200px;
     text-align: end;
+    padding-top: 13px;
+    cursor: pointer;
+}
+.lang span{
+    font-size: 14px;
+}
+.lang img{
+    display: inline-block;
+    width : 7px;
+    margin-left: 9px;
 }
 .nav{
     display : flex;
     justify-content: space-between;
     width : 1200px;
+    padding-bottom : 20px;
+    border-bottom : 1px solid white;
 }
 .nav-logo{
+    display: inline-block;
     width : 233px;
     position: relative;
-    top: -15px;
+    top: -10px;
 }
-.nav-list{
+.nav-menu{
+    display: flex;
+}
+.nav-menu ul{
     display: flex;
     font-weight: 500;
 }
-.nav-search{
+.nav-menu ul li{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 45px;
+}
+.nav-menu ul li a{
+    color: white;
+}
+.nav-menu button{
+    margin-left: 35px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding : 0;
+    cursor: pointer;
+}
+.nav-menu button img{
     width : 34px;
 }
 
+/* 중앙 슬로건 */
 .slogan{
     text-align: center;
     width: 400px;
@@ -54,7 +96,8 @@
     width: 500px;
     justify-content: space-between;
     margin: 0 auto;
-    margin-bottom : 10px;
+    padding-bottom : 10px;
+    border-bottom: 1px solid white;
 }
 input{
     border: none;
@@ -73,7 +116,7 @@ input:focus{
 input:focus::placeholder{
     color : transparent;
 }
-button{
+.search button{
     display :block;
     width : 54px;
     height : 54px;
@@ -81,13 +124,7 @@ button{
     outline: none;
     border: none;
     padding : 0;
-}
-.search-btn-img{
-    width : 100%;
-}
-.search-underline{
-    width : 500px;
-    margin : 0 auto;
+    cursor: pointer;
 }
 
 .scroll{
@@ -102,27 +139,28 @@ button{
     margin-top : 10px;
     width : 17px;
 }
-.middle-container{
+
+/* 중앙 캐러셀 */
+.middle{
     background-image: url("tab-background.png");
     object-fit: cover;
     height: 766px;
     background-size: cover;
 }
-.middle{
-    width : 1300px;
-    margin: 0 auto;
-    position: relative;
-    top: -271px;
-}
-.middle-gra{
+.middle-bg-gra{
     background-image: url(gra.png);
     object-fit: cover;
     width: 100%;
     height: 271px;
     position: relative;
 }
-.middle-back{
-  /* width: 392px; */
+.middle .container{
+    width : 1300px;
+    margin: 0 auto;
+    position: relative;
+    top: -271px;
+}
+.middle-bg-msg{
   height: 107px;
   opacity: 0.5;
   font-family: NotoSansCJKkr;
@@ -139,45 +177,55 @@ button{
   left: 40;
   z-index: 0;
 }
-.middle-nav{
+.middle-menu{
     display : flex;
     padding-left: 40px;
     justify-content: space-between;
+    z-index: 1;
 }
-.middle-nav-left{
+.middle-menu ul{
     display : flex;
     font-size: 20px;
+    padding-inline-start: 20px;
 }
-.middle-nav-menu{
+.middle-menu ul li{
+    padding-inline-start: 18px;
+    list-style-type: none;
+}
+.middle-menu ul li a{
     color: #aaaaaa;
     font-size : 30px;
     font-weight : normal;
     line-height: 1.47;
     letter-spacing: -1.5px;
-    padding-inline-start: 18px;
+    cursor: pointer;
 }
-.plus-hr{
-    background-color: rgb(138,110,79,0.8);
-    height: 6px;
-    border : none;
-    position: relative;
-    top: -15px;
-}
-.menu-active{
+.middle-menu ul .menu-active{
     color : black;
     font-weight : 600;
 }
+.middle-menu-plus{
+    display: inline-block;
+    color: black;
+    margin: auto 0;
+    text-decoration: underline rgb(138,110,79,0.8) 6px;
+}
+
+
 .middle-box{
     display : flex;
 }
 .middle-box p{
     margin : auto 30px;
 }
-#p1{
+.middle-box-arrow{
+    cursor: pointer;
+}
+#middle-box-left-arrow{
     margin-left : 0;
     margin-right : 30px;
 }
-#p2{
+#middle-box-right-arrow{
     margin-left : 30px;
     margin-right : 0;
 }
