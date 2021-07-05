@@ -115,9 +115,9 @@ margin-bottom: -70px;
       top: -142px;
      }
 
-     .category{
+     .categories{
         height: 28px;
-       font-family: 'Noto Sans KR', sans-serif;
+        font-family: 'Noto Sans KR', sans-serif;
         font-size: 30px;
         font-weight: 500;
         font-stretch: normal;
@@ -128,7 +128,7 @@ margin-bottom: -70px;
         color: #999999;
      }
 
-     .selected-category{
+     .selected-categories{
         color: black;
     }
 
@@ -298,7 +298,7 @@ margin-bottom: -70px;
       height: 107px;
       opacity: 0.1;
       font-family: NotoSansCJKkr;
-      font-size: 120px;
+      font-size: 90px;
       font-weight: 100;
       font-stretch: normal;
       font-style: normal;
