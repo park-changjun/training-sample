@@ -11,7 +11,7 @@ li{
 }
 
 body {
-    background-color: white;
+    margin: 0px;
 }
 
 .language{
@@ -41,15 +41,19 @@ margin-bottom: -20px;
 .header{
     display: flex;
     width: 1920px;
-    height: 931px;
+    height: 111px;
     flex-direction: column;
     align-items: center;
-    background-color: lightgray;
     justify-content: space-around;
-    background-image: url(img/bg.png);
 }
 
-.header-content{
+.hedaer-container{
+  background-image: url(img/bg.png);
+  width: 1920px;
+  height: 931px;
+}
+
+.main-section{
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -575,7 +579,7 @@ margin-bottom: -70px;
 .footer-items{
   height: 15px;
   margin: 29px 12px;
- font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
   font-weight: 400;
   font-stretch: normal;
