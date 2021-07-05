@@ -9,6 +9,11 @@ body{
     text-decoration: none;
     list-style: none;
 }
+.clear:after {
+    content:'';
+    display: block;
+    clear: both;
+}
 
 
 /* main , header */
@@ -39,17 +44,12 @@ body{
     width: 100%;
     display: flex;
     justify-content: space-between;
-}
-
-.underline{
-    color: #ffffff;
-    opacity: 0.2;
+    border-bottom: 1px solid rgba(255,255,255,0.4); 
 }
 
 .logo{
     width: 233px;
     height: 56px;
-    background-color pink;
     margin: 27px 0px 27px 0px;
     background-image: url(img/logo.png);
 }
@@ -91,7 +91,6 @@ body{
 
 
 /* visual */
-
 .visual_title{
     width: 400px;
     height: 80px;
@@ -161,7 +160,6 @@ body{
     /* position: relative; */
     /* padding: 0px 30px;
     box-sizing: border-box; */
-
     background-image: url(img/tab-background.png);
     background-size: cover;
 }
@@ -169,13 +167,13 @@ body{
 
 
 .gradient_wrapper {
-    position:relative;
-    z-index:1;
+    position:relative; /* 가상요소를 줄때는 반드시 해당 부모요소에 position:relative를 줘야함! */
+    z-index:1; /* before가 아니라 after라면 z-index를 줄 필요가 없다 */
 }
 
 .gradient_wrapper:before {
     content:'';
-    position:absolute;
+    position:absolute; /* 자식요소에는 position:absolute */
     left:0;
     top:0;
     right:0;
@@ -183,10 +181,6 @@ body{
     background-image: url(img/gradient.png);
 }
 
-/* .card_wrapper {
-    position: relative;
-    z-index:1;
-} */
 
 .content_inner{
     width: 1200px;
@@ -195,26 +189,6 @@ body{
     text-align: center;
     position: relative;
 }
-
-/* .arrow{
-    width: 1200px;
-    position: absolute;
-    top:425px;
-    left: 309px;
-    display: flex;
-    justify-content: space-between;
-} */
-
-/* .arrow_left, .arrow_right{
-    width: 1200px;
-    font-weight: bold;
-    position: absolute;
-    top:0px;
-} */
-
-/* .arrow_right{
-    text-align: right;
-} */
 
 .under_txt{
     width: 1200px;
@@ -226,19 +200,16 @@ body{
     font-weight: 100;
     opacity: 10;
     /* text-align: left; */
+    /* margin-bottom: -15px; */
 }
 
 .content_nav{
     width: 1200px;
     height: 107px;
-    /* float: left; */
-    /* margin-left: 60px; */
     display: flex;
     justify-content: space-between;
     margin: 0px auto;
     padding-top: 122px;
-    /* box-sizing: border-box; */
-    /* position: relative; */
 }
 
 .content_nav ul{
@@ -247,8 +218,6 @@ body{
     line-height: 107px;
     display: flex;
     justify-content: space-between;
-    /* position: relative; */
-    /* float: left; */
     margin-left: 14px;
 }
 
@@ -282,7 +251,7 @@ body{
 
 .more::after{
     content: "";
-    display: block;
+    display: none;
     width: 57px;
     height: 6px;
     background-color: #ce8b44;
@@ -290,19 +259,46 @@ body{
     bottom: 40px;
 }
 
-.content_box{
-    width: 1300px;
-    height: 436px;
-    display: flex;
-    justify-content: space-between;
-    /* position: relative; */
-    /* margin-top: 20px; */
-    margin: 0px auto;
-    /* position: relative; */
+.more:hover::after{
+    display: block;
 }
 
-.box01, .box{
-    /* width: 384px; */
+
+.content_box{
+    width:1300px;
+    height: 436px;
+    margin: 0px auto;
+    position:relative;
+}
+.list-wrapper {
+    overflow:hidden;
+    width:1200px;
+    margin:0 auto;
+}
+.list-wrapper ul {
+    margin-left:-15px;
+    margin-right:-15px;
+
+}
+
+.list-wrapper li {
+    width:33.3%;
+    /* height:436px; */
+    float:left;
+    
+}
+.list-wrapper .item {
+    height: 436px;
+    display: block;
+    margin:0 15px;
+    background-color: #fff;
+    border-radius: 35px 0px 35px 0px;
+    padding-top: 30px;
+    box-sizing: border-box;
+
+}
+
+/* .box{
     height: 100%;
     background-color: #fff;
     border: 3px solid #e3b583;
@@ -313,19 +309,20 @@ body{
 
 .box{
     border: none;
-}
-
-.arrow_right, .arrow_left{
-    margin-top: 200px;
-    margin-left:30px;
-}
-
-.arrow_left{
-    margin-left: 0px;
-}
-/* .box:last-child{
-    margin-right: 0px;
 } */
+
+
+.arrow {
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+}
+.arrow.left {
+    left:0;
+}
+.arrow.right {
+    right:0;
+}
 
 
 .box_topic{
@@ -446,14 +443,14 @@ body{
 }
 
 .news_left h4{
-    margin: 38px 0px 32px;
+    margin-top: 38px;
     font-size: 16px;
     line-height: 26px;
     color: #333333;
     letter-spacing: -1.2px;
 }
 
-.news_left p{
+.news_left .more{
     font-weight: bold;
     font-size: 18px;
 }
@@ -463,14 +460,15 @@ body{
     margin-top: 60px;
 }
 
-.letter01{
+.letter{
     height: 120px;
-    border: 2px solid #e3b583;
+    /* border: 2px solid #e3b583; */
 }
-.letter02{
+
+/* .letter02{
     height: 120px;
-    /* border: 1px solid #000; */
-}
+    border: 1px solid #000;
+} */
 
 
 .letter_date{
@@ -491,13 +489,13 @@ body{
 
 .news_btn{
     text-align: right;
-    color :#e3b583;
+    /* color :#e3b583; */
     margin-right: 30px;
 }
 
-.letter02 p{
+/* .letter p{
     color: #999999;
-}
+} */
 
 
 #footer{
