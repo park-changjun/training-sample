@@ -133,18 +133,17 @@ margin-bottom: -70px;
     }
 
      .category-container{
-        width: 392px;
-        height: 107px;
-       font-family: 'Noto Sans KR', sans-serif;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 0.37;
-        display: flex;
+    width: 392px;
+    height: 107px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.37;
+    display: flex;
     flex-direction: row;
     align-content: stretch;
     justify-content: space-evenly;
     align-items: flex-end;
-    margin-left: 30px;
      }
 
      .elements-box-container{
@@ -159,6 +158,32 @@ margin-bottom: -70px;
       margin: 115px 26px 229px 309px;
       object-fit: contain;
       background-color: #333333;
+    }
+
+    .dot-wrap{
+    user-select: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background-color: #000000;
+      margin-right: 10px;
+      border-radius: 6px;
+      opacity: 0.3;
+    }
+
+    .dot-active {
+      width: 12px;
+      height: 12px;
+      background-color: brown;
+      margin-right: 10px;
+      border-radius: 6px;
     }
 
      .elements-box{
@@ -255,6 +280,9 @@ margin-bottom: -70px;
          justify-content: space-between;
          align-items: flex-end;
      }
+     
+     
+
 .border {
     width: 500px;
     height: 2px;
@@ -262,6 +290,23 @@ margin-bottom: -70px;
     box-shadow: 0px 3px 14px 0 rgba(0, 0, 0, 0.08);
     background-color: #ffffff;
     margin-bottom: 230px;
+  }
+
+  .middle-nav-background-font{
+      position: absolute;
+      width: 392px;
+      height: 107px;
+      opacity: 0.1;
+      font-family: NotoSansCJKkr;
+      font-size: 120px;
+      font-weight: 100;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 0.37;
+      letter-spacing: -9px;
+      color: rgba(0, 0, 0, 1);
+      top: 50px;
+      padding-left: 45px;
   }
   
 .more-info {
@@ -358,9 +403,8 @@ margin-bottom: -70px;
     margin-bottom: 14px;
   }
 
-  .news-box1{
+  .news-info-box{
     display: flex;
-    align-items: center;
     flex-direction: column;
     justify-content: center;
     height: 368px;
@@ -369,7 +413,7 @@ margin-bottom: -70px;
     padding-right: 318px;
   }
 
-  .news-box2{
+  .active-news-box{
     width: 970px;
     height: 368px;
     display: flex;
@@ -389,7 +433,7 @@ margin-bottom: -70px;
     color: #999999;
   }
 
-  .section3{
+  .newsletter-section{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -416,11 +460,10 @@ margin-bottom: -70px;
   .footer-more-info{
     width: 272px;
     text-align: left;
-    padding-left: 30px;
     border:none;
   }
 
-  .new-info1{
+  .active-news-info{
     margin-top: 60px;
     width: 630px;
     height: 107px;
@@ -433,16 +476,31 @@ margin-bottom: -70px;
     align-items: center;
   }
 
-  .new-info2{
+  .news-info{
     margin-top: 30px;
     margin-bottom: 60px;
-    width: 660px;
+    width: 630px;
     height: 107px;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .active-news-date{
+    width: 96px;
+    height: 12px;
+    margin: 0 492px 13px 0;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.75;
+    letter-spacing: -0.8px;
+    text-align: left;
+    color: #1f344a;
   }
 
   .news-date{
@@ -458,10 +516,21 @@ margin-bottom: -70px;
     letter-spacing: -0.8px;
     text-align: left;
     color: #1f344a;
+    opacity: 0.9;
   }
 
-  .news-date2{
-    opacity: 0.9;
+  .active-news-cotent{
+    width: 450px;
+    height: 26px;
+   font-family: 'Noto Sans KR', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.83;
+    letter-spacing: -1.8px;
+    text-align: left;
+    color: #333333;
   }
 
   .news-cotent{
@@ -476,9 +545,6 @@ margin-bottom: -70px;
     letter-spacing: -1.8px;
     text-align: left;
     color: #333333;
-  }
-
-  .news-cotent2{
     opacity: 0.7;
   }
 
@@ -511,7 +577,7 @@ margin-bottom: -70px;
   margin: 29px 12px;
  font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.25;
