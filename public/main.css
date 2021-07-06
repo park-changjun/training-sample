@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat?family=Noto+Sans+KR:wght@300;400;500&display=swap');
 
 *{
     box-sizing: border-box;
-    font-family: noto-sans-cjk-kr,Montserrat,sans-serif;
+    font-family: 'Noto Sans KR', 'Montserrat', sans-serif;
 }
 body{
     margin : 0;
@@ -11,24 +11,27 @@ a{
     color: black;
     text-decoration: none;
 }
-.top{
-    background: url("img/bg.png");
-    height: 931px;
-    object-fit: cover;
-    color: white;
-    background-size: cover;
-    
-}
-.top .container{
-    width : 1200px;
-    margin: 0 auto;
-}
 
-/* 상단바 */
+/* 헤더 */
+header {
+    position : absolute; 
+    top : 0;
+    left : 0;
+    right : 0;
+    z-index : 1;
+}
+.container{
+    width : 1200px;
+    margin : 0 auto;
+}
 .lang{
-    text-align: end;
     padding-top: 13px;
-    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%);
+    color: white;
 }
 .lang span{
     font-size: 14px;
@@ -73,17 +76,30 @@ a{
     outline: none;
     border: none;
     padding : 0;
-    cursor: pointer;
 }
 .nav-menu button img{
     width : 34px;
 }
 
+
+/* top */
+.top{
+    background: url("img/bg.png");
+    height: 931px;
+    color: white;
+    background-size: cover;
+    position : relative;
+}
 /* 중앙 슬로건 */
+.visual-content {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
 .slogan{
     text-align: center;
     width: 400px;
-    padding-top: 256px;
     padding-bottom: 60px;
     margin: 0 auto;
     font-size: 40px;
@@ -126,67 +142,74 @@ input:focus::placeholder{
     padding : 0;
     cursor: pointer;
 }
-
+/* 스크롤 */
+.arr-down-display {
+    position: absolute;
+    bottom:20px;
+    left:50%;
+    transform: translateX(-50%); 
+}
 .scroll{
     padding: 0;
-    padding-top: 278px;
     text-align: center;
     font-size : 14px;
     margin: 0;
-    padding-bottom: 20px;
 }
 .scroll-down-arrow{
-    margin-top : 10px;
     width : 17px;
+    display: block;
+    margin:10px auto;
 }
 
-/* 중앙 캐러셀 */
+/* 중앙 */
 .middle{
-    background-image: url("tab-background.png");
-    object-fit: cover;
+    background-image: url("img/tab-background.png");
     height: 766px;
     background-size: cover;
+    position:relative;
 }
 .middle-bg-gra{
-    background-image: url(gra.png);
+    background-image: url(img/gra.png);
     object-fit: cover;
     width: 100%;
     height: 271px;
-    position: relative;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    z-index:0;
 }
-.middle .container{
-    width : 1300px;
-    margin: 0 auto;
-    position: relative;
-    top: -271px;
+.middle .container {
+    position:relative; 
+    z-index:1;
+    top: 142px;
 }
 .middle-bg-msg{
-  height: 107px;
-  opacity: 0.5;
-  font-family: NotoSansCJKkr;
-  font-size: 120px;
-  font-weight: 100;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 0.37;
-  letter-spacing: -9px;
-  text-align: left;
-  color: rgba(0, 0, 0, 0.1);
-  position: relative;
-  top: 155;
-  left: 40;
-  z-index: 0;
+    height: 107px;
+    opacity: 0.5;
+    font-family: NotoSansCJKkr;
+    font-size: 120px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.37;
+    letter-spacing: -9px;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 25;
+    left: -20;
+    z-index: 0;
 }
 .middle-menu{
     display : flex;
-    padding-left: 40px;
     justify-content: space-between;
     z-index: 1;
 }
 .middle-menu ul{
     display : flex;
     font-size: 20px;
-    padding-inline-start: 20px;
+    padding-inline-start: 0px;
 }
 .middle-menu ul li{
     padding-inline-start: 18px;
@@ -211,23 +234,42 @@ input:focus::placeholder{
     text-decoration: underline rgb(138,110,79,0.8) 6px;
 }
 
+/* 중앙 캐러셀 */
+.box-container{
+    width:100%;
+    height:436px;
+    overflow: hidden;
+}
+.box-container ul {
+    width:1200px;
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+.box-container li {
+    width:400px;
+    float: left;
+}
 
-.middle-box{
-    display : flex;
+
+
+
+
+
+.card-content-wrapper {
+    position:relative;
 }
-.middle-box p{
-    margin : auto 30px;
-}
+
 .middle-box-arrow{
-    cursor: pointer;
+    position:absolute;
+    top:50%;
+    transform: translateY(-50);
 }
-#middle-box-left-arrow{
-    margin-left : 0;
-    margin-right : 30px;
+.middle-box-arrow.left{
+    left:-50px;
 }
-#middle-box-right-arrow{
-    margin-left : 30px;
-    margin-right : 0;
+.middle-box-arrow.right{
+    right:-50px;
 }
 .box{
     width : 384px;
@@ -236,16 +278,22 @@ input:focus::placeholder{
     border-radius : 30px 0 30px 0;
     z-index: 1;
     box-shadow: 0px 10px 20px 0 rgba(0, 0, 0, 0.15);
+    border: solid 3px transparent;
+    transition-duration: .3s;
 }
-.active{
-    border: solid 3px #e3b583;
+.box:hover{
+    border-color: #e3b583;
+    transition-duration: .3s;
+}
+.box p{
+    margin: auto 20px;
 }
 .box-top{
     width: 181px;
     height: 50px;
     margin-top: 20px;
     position: relative;
-    left: -4px;;
+    left: -8px;
     background-color: #8a6e4f;
     line-height: 50px;
     color: white;
@@ -255,7 +303,8 @@ input:focus::placeholder{
 .flag{
     width : 4px;
     position: relative;
-    left: -4px;
+    left: -36.5px;
+    top: 22px;
 }
 .box-title{
     font-size: 20px;
@@ -273,14 +322,14 @@ input:focus::placeholder{
 .box-date{
     color :#999999;
 }
-.photo3{
+.photo{
     display : flex;
     justify-content: flex-end;
     padding-right : 30px;
     padding-top: 15px;
 
 }
-.photo3 div{
+.photo div{
     width : 60px;
     height : 60px;
     border-radius: 60px;
