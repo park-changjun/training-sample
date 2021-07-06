@@ -122,6 +122,7 @@ img[src="images/arrow.png"] {
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
+    position: relative;
 }
 
 #bg-section > p {
@@ -200,12 +201,15 @@ img[src="images/arrow.png"] {
 
 
 #bg-section-bottom {
-    padding-top: 291px;
+    /* padding-top: 291px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    bottom: 0;
 }
+
 
 #bg-section-bottom > p {
     width: 70px;
@@ -280,12 +284,16 @@ img[src="images/arrow.png"] {
     font-weight: 600;
     color: #aaaaaa;
     cursor: pointer;
-    z-index: 1;
+    position: relative;
+    z-index: 2;
+    transition: all ease-in 300ms;
 }
 
-.card-section-letter > ul > li > a.active {
+.card-section-letter > ul > li > a.active,
+.card-section-letter > ul > li > a:hover{
     color: #333333;
 }
+
 
 .card-showmore {
     all: unset;
@@ -322,22 +330,33 @@ img[src="images/arrow.png"] {
     width: 100%;
 }
 
-/* .cards-wrapper .card:first-child {
-    border: solid 3px #e3b583;
-} */
+.cards-wrapper > ul {
+    width: 100%;
+    display: -webkit-inline-box;
+    overflow: hidden;
+}
+.cards-wrapper > ul > li {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
 
 
 .card {
     width: 384px;
     height: 436px;
-    box-shadow: 0px 10px 20px 0 rgba(0, 0, 0, 0.15);
-
+    border: 3px solid transparent;
     background-color: #ffffff;
     border-radius: 30px 0 30px 0;
     position: relative;
+    transition: all ease-in 300ms;
+    float: left;
 }
 
-.card.active {
+.card.active,
+.card:hover {
     border: solid 3px #e3b583;
 }
 
@@ -521,8 +540,9 @@ img[src="images/arrow.png"] {
     cursor: pointer;
 }
 
-#letter-section-right .letter-ractangle.active {
-    border: solid 2px #e3b583;
+#letter-section-right .letter-ractangle.active,
+#letter-section-right .letter-ractangle:hover {
+    border-color: #e3b583;
 }
 
 #letter-section-right .letter-ractangle:first-child .ractangle-date,
@@ -539,6 +559,8 @@ img[src="images/arrow.png"] {
     /* box-shadow: 0 0 10px 0 rgb(0 0 0 / 8%); */
     background-color: #ffffff;
     position: relative;
+    border: 2px solid transparent;
+    transition: all ease-in 300ms;
 }
 
 .ractangle-date {
