@@ -17,59 +17,67 @@ body{
 
 
 /* main , header */
-
 #main{
     width: auto;
     height: 931px;
     background-image: url(img/bg.png);
-
+    position: relative;
 }
 
-.main_inner{
+.header{
+    width: 100%;
+}
+
+.header-container{
     width: 1200px;
-    height: 100%;
+    height: 111px;
     margin: 0px auto;
 }
 
-.header_top{
+.header-top{
     width: 1200px;
     text-align: right;
+    position:absolute;
 }
 
-.header_top a{
+.header-top a{
     color: #ffffff;
 }
 
-.header_bottom{
+.header-bottom{
     width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
     display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(255,255,255,0.4); 
+    justify-content: space-between; 
 }
 
 .logo{
     width: 233px;
     height: 56px;
-    margin: 27px 0px 27px 0px;
+    margin-top: 27px;
     background-image: url(img/logo.png);
 }
 
-.nav_menu{
+.header-nav{
+    /* padding-bottom: 25px; */
+    line-height: 34px;
+    position: relative;
+}
+.header-nav ul{
+    height: 111px;
     display: flex;
     align-items: flex-end;
-    padding-bottom: 25px;
-    line-height: 34px;
 }
-
-.nav_menu li{
+.header-nav ul li{
     margin-left: 50px;
     font-weight: bold;
+    margin-bottom: 29px;
 }
-.nav_menu li :first-child{
+.header-nav ul li :first-child{
     margin-left: 0px;
 }
 
-.nav_menu li a{
+.header-nav ul li a{
     color : #ffffff;
 }
 
@@ -91,6 +99,15 @@ body{
 
 
 /* visual */
+
+.visual{
+    width: 500px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%); 
+    position: relative;
+}
 .visual_title{
     width: 400px;
     height: 80px;
@@ -135,7 +152,7 @@ body{
     font-size: 14px;
     font-weight: bold;
     margin: 0px auto;
-    padding-top: 230px;
+    padding: 280px 0px 20px 0px;
     display: flex;
     justify-items: flex-end;
 }
