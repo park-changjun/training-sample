@@ -114,14 +114,22 @@ position:relative;
   background-image: url(img/gradient.png);
   position: absolute;
   height: 271px;
-  width: 100%;
+  width: 1920px;
+  z-index: 2;
+  top: 0;
 }
 
-/* 여기 작업 중 */
- .container{ 
+ .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
   z-index: 2;
-  position: relative;
-  top: -142px;
+  position: absolute;
+  top: 140px;
+ }
+
+ .category-container ul{
+   all: unset;
  }
 
  .category-container li{
@@ -135,6 +143,13 @@ position:relative;
   letter-spacing: -1.5px;
   text-align: left;
   color: #999999;
+ }
+
+ .card-wrap {
+  width: 1300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
  }
 
  .category-container .active{
@@ -151,11 +166,12 @@ position:relative;
  display: flex;
  flex-direction: row;
  align-content: stretch;
- justify-content: space-evenly;
- align-items: flex-end;
+ justify-content: flex-start;
+ align-items: center;
  }
 
  .elements-box-container{
+  all: unset;
  display: flex;
  flex-direction: row;
  align-items: center;
@@ -170,12 +186,12 @@ background-color: #333333;
 }
 
 .dot-wrap{
+margin-top: 30px;
 user-select: auto;
 display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
-margin-top: 30px;
 }
 
  .dot-wrap div {
@@ -192,15 +208,18 @@ margin-top: 30px;
       opacity: 1;
     }
 
-     .elements-box{
-        width: 384px !important;
-        height: 436px !important;
-        padding: 109px 30px 30px;
-        padding-top: 55px;
+    .dot-wrap div:hover {
+       opacity: 0.5;
+     }
+
+     .elements-box-container li{
+        width: 384px;
+        height: 430px;
         box-shadow: 0px 10px 20px 0 rgba(0, 0, 0, 0.15);
-        border: solid 3px #e3b583;
+        border: solid 3px #ffffff00;
         background-color: #ffffff;
-        margin: 30px;
+        margin-left: 12px;
+        margin-right: 12px;
         border-top-left-radius: 50px;
         border-bottom-right-radius: 50px;
         display: flex;
@@ -208,15 +227,22 @@ margin-top: 30px;
         justify-content: space-between;
         z-index: 1;
      }
-     
+
+
+     .elements-box-container li:hover{
+        border: solid 3px #e3b583;
+     }
+
      .category-block{
+        position: absolute;
+        all: unset;
         width: 181px;
         height: 50px;
         padding: 18px 29px 15px 35px;
         background-color: #8a6e4f;
         border-top-right-radius: 30px;     
         border-bottom-right-radius: 30px;
-       font-family: 'Noto Sans KR', sans-serif;
+        font-family: 'Noto Sans KR', sans-serif;
         font-size: 16px;
         font-weight: 500;
         font-stretch: normal;
@@ -225,36 +251,47 @@ margin-top: 30px;
         letter-spacing: -1.2px;
         text-align: center;
         color: #ffffff;
-        margin-left: -37px;
         border-bottom-left-radius: 1px;
         border-top-left-radius: 10px;
+        margin-left: -4px;
+        margin-top: 30px;
         }
 
 .profile-img-box-container{
+    width: 354px;
     display: flex;
     justify-content: flex-end;
+    padding-bottom: 30px;
 }
 
 .flag-back{
   width: 4px;
   height: 4px;
-  margin-left: -37px;
+  margin-left: -4px;
   margin-top: 4px;
 }
 
 .box-content h4{
-  width: 380px;
+  all: unset;
+  width: 324px;
   height: 83px;
-  margin: 0 0 29px;
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 26.6px;
+  font-size: 23px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.25;
   letter-spacing: -1.8px;
+  margin-top: 29px;
+  margin-left: 30px;
+  margin-right: 30px;
   text-align: justify;
   color: #333333;
+}
+
+.box-content p{
+  margin: 0;
+  width: 312px;
 }
 
 .profile-img-box-container img{
@@ -274,17 +311,37 @@ margin-top: 30px;
         color: #666666;
     }
 
+    .case-content p{
+      width: 312px;
+      height: 65px;
+      margin-top: 29px;
+      margin-left: 31px;
+      margin-right: 41px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: -1.2px;
+      text-align: left;
+      color: #666666;
+    }
+
     .box-content{
+        height: 406px;
         display: flex;
         flex-direction: column;
+        padding-top: 30px;
     }
 
      .middle-nav-bar{
          display: flex;
          flex-direction: row;
          justify-content: space-between;
-         align-items: flex-end;
-         margin-bottom: -30px;
+         align-items: center;
+         width: 1196px;
+         margin-bottom: -20px;
      }
      
      
@@ -310,9 +367,9 @@ margin-top: 30px;
       line-height: 0.37;
       letter-spacing: -9px;
       color: rgba(0, 0, 0, 1);
-      top: 50px;
-      padding-left: 45px;
-  }
+      transform: translateY(50%);
+    }
+    
   
 .more-info {
     height: 18px;
@@ -425,7 +482,7 @@ margin-top: 30px;
     padding-right: 318px;
   }
 
-  .active-news-box{
+  .news-box{
     height: 368px;
     display: flex;
     flex-direction: column;
@@ -433,7 +490,7 @@ margin-top: 30px;
   }
 
   .article-date{
-    margin: 0;
+    padding-left: 30px;
     font-family: Montserrat;
     font-size: 16px;
     font-weight: 300;
@@ -457,7 +514,7 @@ margin-top: 30px;
  
   .news-letter{
   width: 272px;
- font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: 40px;
   font-weight: 300;
   font-stretch: normal;
@@ -475,24 +532,19 @@ margin-top: 30px;
     border:none;
   }
 
-  .active-news-info{
-    margin-top: 60px;
-    width: 630px;
-    height: 107px;
+  .news-info:hover{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);
     border: solid 2px #e3b583;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 
   .news-info{
-    margin-top: 30px;
-    margin-bottom: 60px;
+    padding-top: 35px;
+    padding-bottom: 34px;
+    padding-left: 29px;
     width: 630px;
-    height: 107px;
+    height: 40px;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
+    border: solid 2px rgba(95, 158, 160, 0);
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
