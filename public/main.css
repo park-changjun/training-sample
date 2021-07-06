@@ -18,13 +18,11 @@ body {
 color: white;
 width: 1200px;
 text-align: right;
-margin: 20px;
 }
 
 .main-menu li{
-    width: 54px;
-    height: 34px;
-    margin: 39px 50px 0px 20px;
+    width: 60px;
+    margin-right: 42px;
    font-family: 'Noto Sans KR', sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -36,22 +34,21 @@ margin: 20px;
     color: #ffffff;
 }
 
-
-
-
 .header{
-    display: flex;
-    width: 1920px;
+    position: absolute;
+    width: 1200px;
     height: 111px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+    padding-top: 13px;
 }
 
-.hedaer-container{
+.header-container{
   background-image: url(img/bg.png);
   width: 1920px;
   height: 931px;
+  position: relative;
+  display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .main-section{
@@ -59,6 +56,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 margin-bottom: -70px;
+height: 931px;
+position:relative;
 }
 
 .search-text{
@@ -79,10 +78,13 @@ margin-bottom: -70px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: absolute;
+  transform: translateY(860px);
 }
 
 .case-section{
   width: 1920px;
+  height:766px;
   object-fit: contain;
   color: black;
   display: flex;
@@ -110,12 +112,13 @@ margin-bottom: -70px;
 
 .grad{
   background-image: url(img/gradient.png);
-  position: relative;
+  position: absolute;
   height: 271px;
   width: 100%;
 }
 
- .container{
+/* 여기 작업 중 */
+ .container{ 
   z-index: 2;
   position: relative;
   top: -142px;
@@ -330,7 +333,7 @@ margin-top: 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     border-bottom: outset;
     border-width: thin;
     padding-bottom: 28px;
@@ -344,12 +347,14 @@ margin-top: 30px;
 
 .main-menu{
   all: unset;
-  
+  display: flex;
+  align-items: center;
 }
 
 .nav-bar{
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  height: 85.23px;
 }
 
 .scroll-wrap p{
@@ -377,11 +382,11 @@ margin-top: 30px;
   
 
   .header-text-box{
+    all: unset;
     display: flex;
     justify-content: center;
     width: 400px;
     height: 80px;
-    margin: 200px 87px 150px 8px;
     font-family: Montserrat;
     font-size: 40px;
     font-weight: normal;
@@ -391,6 +396,8 @@ margin-top: 30px;
     letter-spacing: -3px;
     text-align: center;
     color: #ffffff;
+    position: absolute;
+    transform: translateY(353px);
   }
 
   .search-box{
@@ -404,8 +411,9 @@ margin-top: 30px;
     border-color: white;
     border-width: 3px;
     padding-bottom: 14px;
+    position: absolute;
+    transform: translateY(520px);
 }
-  }
 
   .news-info-box{
     display: flex;
