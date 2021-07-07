@@ -3,6 +3,7 @@
 
 body {
     margin: 0px;
+    overflow: hidden;
 }
 
 .language{
@@ -95,6 +96,7 @@ position:relative;
   object-fit: contain;
   position: absolute;
   left: 0px;
+  top: 300px;
 }
 
 .case-right-arrow {
@@ -102,6 +104,8 @@ position:relative;
   height: 38px;
   object-fit: contain;
   position: absolute;
+  right: 0px;
+  top:300px;
 }
      
 
@@ -172,15 +176,15 @@ position:relative;
  display: flex;
  flex-direction: row;
  align-items: center;
+ position: absolute;
+ top: 90px;
  }
 
-.tab-arrow-left {
-width: 21px;
-height: 38px;
-margin: 115px 26px 229px 309px;
-object-fit: contain;
-background-color: #333333;
-}
+ .card-wrap .second{
+ transform: translateX(200%);
+ }
+
+
 
 .dot-wrap{
 margin-top: 30px;

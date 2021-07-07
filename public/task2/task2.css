@@ -1,0 +1,572 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    margin: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+main{
+    margin: 0px;
+    width: 1920px;
+    height: 1080px;
+    background-image: url(img/pattern.png);
+    position: relative;
+}
+
+header{
+    width: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 28px;
+}
+
+.main-right-top{
+    position: absolute;
+    left: 992px;
+}
+
+main .container{
+    width: 1086px;
+    height: 1080px;
+    position: absolute;
+    left: 390px;
+    top: 0px;
+}
+
+main .container article{
+    width: 640px;
+    height: 943px;
+    background-color: aquamarine;
+    position: absolute;
+    left: 250px;
+    bottom: 0px;
+    z-index: 1;
+}
+
+main .container .logo{
+    width: 190px;
+    height: 44px;
+    background-color: white;
+}
+
+
+main .container nav ul{
+    all: unset;
+}
+
+main .container nav li{
+    all: unset;
+    margin-left: 50px;
+}
+
+main .container nav li a{
+    all: unset;
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -1.35px;
+    text-align: center;
+    color: rgba(51, 51, 51, 0.5);
+    opacity: 0.5;
+}
+
+main .container nav li .active{
+    color: black;
+    opacity:unset
+}
+
+main .container .circle-icon{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 2;
+}
+
+.microphone{
+    top: 208px;
+    left: 124px;
+}
+
+.headphones{
+    top: 538px;
+    left: 48px;
+}
+
+.www {
+top: 895px;
+left: 117px;
+}
+
+.share {
+top: 334px;
+right: 194px;
+}
+
+.speech{
+top: 667px;
+right: 80px;
+}
+
+.news{
+top: 813px;
+right: 224px;
+}
+
+.text-box{
+    width: 321px;
+    height: 111px;
+    background-color: white;
+    position:absolute;
+    font-size: 40px;
+    color: rgb(89, 139, 172);
+    font-weight: 700;
+    z-index: 2;
+}
+
+.left-top{
+    top: 367px;
+}
+
+.left-bottom{
+    top: 708px;
+}
+
+.right {
+    top: 529px;
+    right: 0;
+}
+
+.intro {
+    position: relative;
+    width: 1920px;
+    height: 820px;
+    overflow: hidden;
+}
+
+.intro .container{
+    position:absolute;
+    top: 77px;
+    width: 1060px;
+    height: 743px;
+    left: 390px;
+}
+
+.intro .left-top{
+    position:absolute;
+    width: 240px;
+    height: 180px;
+    top: 0;
+    left: 86px;
+}
+
+.intro .left-bottom{
+    position:absolute;
+    width: 530px;
+    height: 296px;
+    top: 524px;
+    left: 0;
+}
+
+.intro .right-bottom{
+    position:absolute;
+    width: 362px;
+    height: 362px;
+    right: 92px;
+    top: 684px;
+}
+
+
+.status-bar-wrap{
+    padding-left: 0px;
+}
+
+.status-bar-wrap li{
+all: unset;
+display: inline-block;
+width: 20px;
+height: 2px;
+margin: 2px;
+background-color: silver;
+}
+
+.intro .title{
+    position: absolute;
+    top: 98px;
+    left: 390px;
+    font-size: 34px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -2.55px;
+    text-align: center;
+}
+.intro .slogan-wrap{
+    position: absolute;
+    display: flex;
+    left: 535px;
+    top: 277px;
+}
+
+.slogan-wrap div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+s}
+
+
+.intro .slogan-wrap div .every::after {
+    content: "";
+    display: block;
+    clear: both;
+    width: inherit;
+    border-bottom: solid;
+    border-width: 1px;
+    opacity: 0.5;
+    margin-top: -40;
+}
+
+.intro .slogan-wrap div .anywhere::after {
+    content: "";
+    display: block;
+    clear: both;
+    width: inherit;
+    border-bottom: solid;
+    border-width: 1px;
+    opacity: 0.5;
+    margin-top: -40;
+}
+
+.intro .slogan-wrap div .anyone::after {
+    content: "";
+    display: block;
+    clear: both;
+    width: inherit;
+    border-bottom: solid;
+    border-width: 1px;
+    opacity: 0.5;
+    margin-top: -40;
+}
+
+.everyEng{
+  font-size: 28px;
+  width: 102px;
+  height: 28px;
+  opacity: 0.2;
+  font-family: Montserrat;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 4.29;
+  letter-spacing: -2.1px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.intro .slogan-wrap div p{
+    all: unset;
+}
+
+
+
+.intro .slogan-wrap .every{
+    all: unset;
+    font-size: 80px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: -6px;
+    text-align: left;
+    color: #3f5381;
+}
+
+
+.intro .slogan-wrap .anywhere{
+  font-size: 80px;
+  font-weight: 100;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: -6px;
+  text-align: left;
+  color: #f4af64;
+  padding-left: 75px;
+}
+
+.intro .slogan-wrap .anyone{
+    font-size: 80px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: -6px;
+    text-align: left;
+    color: #53c6d2;
+    padding-left: 76px;
+    padding-right: 62px;
+  }
+
+/* 축제소개 페이지 끝 */
+
+
+/* 프로그램 페이지 시작 */
+
+.program{
+    position: relative;
+    width: 1920px;
+    height: 1322px;
+}
+
+.program .container {
+    position: absolute;
+    width: 1140px;
+    top: 81px;
+    left: 390px;
+    bottom: 146px;
+}
+
+.program .title{
+    all: unset;
+    position: absolute;
+    font-size: 34px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -2.55px;
+    text-align: center;
+}
+
+.program .anytime-program-list{
+    all: unset;
+    position: absolute;
+    top: 186px;
+    right: 0px;
+    list-style-type:none;
+}
+
+.list-title{
+    overflow: hidden;
+}
+
+.list-title::after{
+    top: 38px;
+    right: -7.5px;
+    display: block;
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    transform: rotate(45deg);
+}
+
+
+.anytime-program-list li{
+    width: 285px;
+    padding: 11px 0px 11px 16px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #888888;
+    border-bottom: solid;
+    border-width: 1px;
+}
+
+
+.anytime-program-list .list-title{
+    width: 285px;
+    padding: 11px 0px 11px 16px;
+    background-color: #2d53a4;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #ffffff !important;
+    border-bottom-width: 0px;
+}
+
+
+
+
+.program .anywhere-program-list{
+    all: unset;
+    position: absolute;
+    top: 398px;
+    right: 0px;
+    list-style-type:none;
+
+}
+.anywhere-program-list li{
+    width: 285px;
+    padding: 11px 0px 11px 16px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #888888;
+    border-bottom: solid;
+    border-width: 1px;
+}
+.anywhere-program-list .list-title{
+    width: 285px;
+    padding: 11px 0px 11px 16px;
+    background-color: #ed6e01;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #ffffff !important;
+    border-bottom-width: 0px;
+}
+
+
+
+.program .anyone-program-list{
+    all: unset;
+    position: absolute;
+    top: 610px;
+    right: 0px;
+    list-style-type:none;
+
+}
+.anyone-program-list li{
+    width: 285px;
+    padding: 11px 0px 11px 16px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #888888;
+    border-bottom: solid;
+    border-width: 1px;
+}
+.anyone-program-list .list-title{
+    width: 285px;
+    padding: 11px 0px 11px 16px;
+    background-color: #23aab7;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #ffffff !important;
+    border-bottom-width: 0px;
+}
+
+
+
+/* 이벤트 페이지 시작 */
+
+.event{
+    width: 1920px;
+    height: 1120px;
+    background-color: tomato;
+    position: relative;
+}
+
+.event .container{
+   position: absolute;
+   top: 81px;
+   left: 397px;
+   right: 457px;
+   bottom: 147px;
+   background-color: blue;
+}
+
+/* 오시는길 */
+
+.map{
+    width: 1920px;
+    height: 1120px;
+    position: relative;
+}
+
+.map .status-bar-wrap{
+    position: absolute;
+    top: 81px;
+    left: 390px;
+    margin: 0px;
+}
+
+.map .title{
+    position: absolute;
+    top: 103px;
+    left: 390px;
+    height: 31px;
+    font-size: 34px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -2.55px;
+    text-align: center;
+    margin: 0px;;
+}
+
+.map img{
+    position:absolute;
+    top: 173px;
+}
+
+.map .path{
+    top: 751px;
+    left: 390px;
+    position:absolute;
+    height: 160px;
+    width: 370px;
+    background-color: yellow;
+}
+
+.map .loc{
+    top: 751px;
+    right: 598px;
+    position:absolute;
+    height: 160px;
+    width: 322px;
+    background-color: yellow;
+}
+
+/* 오시는길 끝 */
+
+footer{
+  width: 1920px;
+  height: 100px;
+  background-color: rgb(51, 48, 48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  font-family: NanumSquareB;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
