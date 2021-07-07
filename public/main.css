@@ -1,4 +1,7 @@
-@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+/* @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css); */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto&display=swap');
+
+
 body{
     font-family: 'Noto Sans KR', sans-serif; 
 }
@@ -161,7 +164,6 @@ body{
     color: #ffffff;
 }
 .scroll img{
-    /* width: 100%; */
     text-align: center;
     margin: 0px auto;
     margin-top: 10px;
@@ -171,21 +173,15 @@ body{
 /* content */
 #content{
     width: 100%;
-    /* width: 1920px; */
     height: 766px;
     background-color: #eee;
-    /* position: relative; */
-    /* padding: 0px 30px;
-    box-sizing: border-box; */
     background-image: url(img/tab-background.png);
     background-size: cover;
 }
 
-
-
 .gradient_wrapper {
-    position:relative; /* 가상요소를 줄때는 반드시 해당 부모요소에 position:relative를 줘야함! */
-    z-index:1; /* before가 아니라 after라면 z-index를 줄 필요가 없다 */
+    position : relative; /* 가상요소를 줄때는 반드시 해당 부모요소에 position:relative를 줘야함! */
+    z-index : 1; /* before가 아니라 after라면 z-index를 줄 필요가 없다 */
 }
 
 .gradient_wrapper:before {
@@ -196,6 +192,7 @@ body{
     right:0;
     height:270px;
     background-image: url(img/gradient.png);
+    z-index: -1;
 }
 
 
@@ -207,13 +204,14 @@ body{
     position: relative;
 }
 
-.under_txt{
+.content-under-txt{
     width: 1200px;
     height: 107px;
     font-size: 120px;
     color : rgba(0,0,0,0.1);
-    line-height: 44px;
+    line-height: 107px;
     position: absolute;
+    top: 130;
     font-weight: 100;
     opacity: 10;
     /* text-align: left; */
@@ -246,7 +244,7 @@ body{
 
 .content_nav ul li:nth-child(2){
     font-weight: bold;
-    color :#000;
+    color :#333;
 }
 
 .content_nav ul li:last-child{
@@ -255,10 +253,6 @@ body{
 
 /* +더보기 */
 .more{
-    /* width: 1080px; */
-    /* position: absolute; */
-    /* margin-top: -20px; */
-    /* float: right; */
     text-align: right;
     line-height: 107px;
     display: flex;
@@ -289,45 +283,44 @@ body{
 }
 .list-wrapper {
     overflow:hidden;
-    width:1200px;
+    width:1224px;
     margin:0 auto;
+    /* transform: translateX(-384px); */
 }
 .list-wrapper ul {
-    margin-left:-15px;
-    margin-right:-15px;
-
-}
-
-.list-wrapper li {
-    width:33.3%;
-    /* height:436px; */
-    float:left;
+    /* margin-left:-15px; */
+    /* margin-right:-15px; */
+    width: 100%;
     
 }
+
+.list-wrapper li{
+    /* width:33.3%; */
+    width: 384px;
+    /* height:436px; */
+    float:left;
+    margin : 0 12px;
+}
+
+/* .list-wrapper li:nth-child(3){
+    margin-right: -12px;
+} */
+
 .list-wrapper .item {
     height: 436px;
     display: block;
-    margin:0 15px;
+    /* margin:0 15px; */
     background-color: #fff;
     border-radius: 35px 0px 35px 0px;
     padding-top: 30px;
     box-sizing: border-box;
-
+    border: 3px solid transparent ;
 }
 
-/* .box{
-    height: 100%;
-    background-color: #fff;
+.list-wrapper .item:hover{
     border: 3px solid #e3b583;
-    border-radius: 35px 0px 35px 0px;
-    margin-left:30px;
-    margin-bottom: 104px;
+    transition-duration: 0.3s;
 }
-
-.box{
-    border: none;
-} */
-
 
 .arrow {
     position:absolute;
@@ -341,17 +334,24 @@ body{
     right:0;
 }
 
-
 .box_topic{
     width: 181px;
     height: 50px;
     background-color: #8a6e4f;
     margin-top: 30px;
-    border-radius: 10px 50px 50px 20px;
+    border-radius: 10px 50px 50px 0px;
     line-height: 50px;
+    padding: 17px 29px 16px 35px;
+    margin-left: -8px;
+    position: relative
 }
 
-.box_topic{
+.box-topic-img{
+    margin: 52px 0px 0px -193px;
+    position: absolute;
+}
+
+.box_topic span{
     color : #ffffff;
     font-size: 16px;
     font-weight: bold;
@@ -427,8 +427,9 @@ body{
 }
 
 
-.slide_btn li:first-child{
+.slide_btn li:hover{
     background-color: #8a6e4f;
+    transition-duration: 0.3s;
 }
 
 
@@ -479,13 +480,12 @@ body{
 
 .letter{
     height: 120px;
-    /* border: 2px solid #e3b583; */
+    border: 2px solid transparent;
 }
 
-/* .letter02{
-    height: 120px;
-    border: 1px solid #000;
-} */
+.letter:hover{
+    border: 2px solid #e3b583;
+}
 
 
 .letter_date{
