@@ -6,7 +6,7 @@
 
   <body>
     <header>
-      <!-- 헤더는 분리되도록! -->
+      <!-- 헤더 -->
       <div class="container">
         <a  href="#" class="lang"><span>Language</span><img src="img/lan-arrow.png" alt=""></a>
           <nav class="nav">
@@ -20,7 +20,7 @@
                 <li><a href="#">사회공헌</a></li>
                 <li><a href="#">인재채용</a></li>
               </ul>
-              <button><img class="nav-search" src="img/nav-search.png"></button>
+              <button type="button"><img class="nav-search" src="img/nav-search.png"></button>
             </div>
           </nav>
         </div>
@@ -54,7 +54,7 @@
 
       <!-- 중앙 캐러셀 -->
       <div class="container">
-        <!-- 캐러셀 상단 메뉴 -->  
+        <!-- 캐러셀 상단 메뉴 -->
         <div class="middle-bg-msg">업무사례</div>
         <div class="middle-menu">
           <ul>
@@ -62,110 +62,119 @@
             <li><a href="#" class="menu-active">업무사례</a></li>
             <li><a href="#">언론보도</a></li>
           </ul>
-          <a class="middle-menu-plus">+더보기</a>
+          <a class="middle-menu-plus" href="#">+더보기</a>
         </div>
 
+
         <!-- 캐러셀 -->
-        <section class="middle-box">
-          <div class="card-content-wrapper">
-            <a class="middle-box-arrow left"><img src="img/left-arrow.svg" alt=""></a>
-            <a class="middle-box-arrow right" id="right"><img src="img/right-arrow.svg" alt=""></a>
-            <div class="box-container" id="box-container">
-              <ul>
-                <li>
-                  <article class="box active">
-                    <div class="box-top">
-                      <img class="flag" src="img/flag.svg" alt="">
-                      <span>엔터테인먼트1</span>
-                    </div>
-                    <p class="box-title"><a href="#">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</a></p>
-                    <p class="box-body"><a href="#">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</a></p>
-                    <p class="box-date">2021.07.01</p>
-                    <div class="photo">
-                      <div><img></div>
-                      <div><img></div>
-                      <div><img></div>
-                    </div>
-                  </article>
-                </li>
-                <li>
-                  <article class="box active">
-                    <div class="box-top">
-                      <img class="flag" src="img/flag.svg" alt="">
-                      <span>엔터테인먼트2</span>
-                    </div>
-                    <p class="box-title"><a href="#">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</a></p>
-                    <p class="box-body"><a href="#">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</a></p>
-                    <p class="box-date">2021.07.01</p>
-                    <div class="photo">
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                    </div>
-                  </article>
-                </li>
-                <li>
-                  <article class="box active">
-                    <div class="box-top">
-                      <img class="flag" src="img/flag.svg" alt="">
-                      <span>엔터테인먼트3</span>
-                    </div>
-                    <p class="box-title"><a href="#">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</a></p>
-                    <p class="box-body"><a href="#">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</a></p>
-                    <p class="box-date">2021.07.01</p>
-                    <div class="photo">
-                      <div><img></div>
-                      <div><img></div>
-                      <div><img></div>
-                    </div>
-                  </article>
-                </li>
-                <li>
-                  <article class="box active">
-                    <div class="box-top">엔터테인먼트4</div>
+        <div class="box-content-wrapper">
+          <!-- 양 옆 화살표 -->
+          <a class="middle-box-arrow left"><img src="img/left-arrow.svg" alt=""></a>
+          <a class="middle-box-arrow right" id="right"><img src="img/right-arrow.svg" alt=""></a>
+          
+          <!-- 가운데 박스들 -->
+          <div class="box-container">
+            <ul>
+              <li>
+                <article class="box">
+                  <div class="box-top">
                     <img class="flag" src="img/flag.svg" alt="">
-                    <p class="box-title"><a href="#">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</a></p>
-                    <p class="box-body"><a href="#">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</a></p>
-                    <p class="box-date">2021.07.01</p>
-                    <div class="photo">
-                      <div><img></div>
-                      <div><img></div>
-                      <div><img></div>
-                    </div>
-                  </article>
-                </li>
-              </ul>
-            </div>
+                    <span>엔터테인먼트1</span>
+                  </div>
+                  <p class="box-title"><a href="#">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</a></p>
+                  <p class="box-body"><a href="#">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</a></p>
+                  <p class="box-date">2021.07.01</p>
+                  <div class="photo">
+                    <div><img></div>
+                    <div><img></div>
+                    <div><img></div>
+                  </div>
+                </article>
+              </li>
+              <li>
+                <article class="box">
+                  <div class="box-top">
+                    <img class="flag" src="img/flag.svg" alt="">
+                    <span>엔터테인먼트2</span>
+                  </div>
+                  <p class="box-title"><a href="#">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</a></p>
+                  <p class="box-body"><a href="#">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</a></p>
+                  <p class="box-date">2021.07.01</p>
+                  <div class="photo">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </article>
+              </li>
+              <li>
+                <article class="box">
+                  <div class="box-top">
+                    <img class="flag" src="img/flag.svg" alt="">
+                    <span>엔터테인먼트3</span>
+                  </div>
+                  <p class="box-title"><a href="#">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</a></p>
+                  <p class="box-body"><a href="#">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</a></p>
+                  <p class="box-date">2021.07.01</p>
+                  <div class="photo">
+                    <div><img></div>
+                    <div><img></div>
+                    <div><img></div>
+                  </div>
+                </article>
+              </li>
+              <li>
+                <article class="box">
+                  <div class="box-top">
+                    <img class="flag" src="img/flag.svg" alt="">
+                    <span>엔터테인먼트3</span>
+                  </div>
+                  <p class="box-title"><a href="#">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</a></p>
+                  <p class="box-body"><a href="#">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</a></p>
+                  <p class="box-date">2021.07.01</p>
+                  <div class="photo">
+                    <div><img></div>
+                    <div><img></div>
+                    <div><img></div>
+                  </div>
+                </article>
+              </li>
+            </ul>
           </div>
-        </section>
+        </div>
 
         <!-- 아래 점 3개 -->
         <div class="dot-container"><span class="dot-active">·</span><span class="dot">·</span><span class="dot">·</span></div>
       </div>
     </div>
 
+    <!-- 뉴스레터 -->
     <div class="bottom">
       <div class="bottom-left">
         <p class="left-newsletter">뉴스레터</p>
         <p class="left-newsletter-detail">법무바른은 월간 뉴스레터를 발행하여<br>법과 관련된 다양한 사례를 전합니다.</p>
-        <p class="plus">+더보기</p>
+        <a href="#"><p class="plus">+더보기</p></a>
       </div>
 
       <div class="bottom-right">
-        <div class="bottom-box bottom-box-active">
-          <div class="bottom-box-date date-active">2021.MARCH</div>
-          <div class="bottom-box-title">
-            <div class="newsletter-title title-active">법무법인(유한)바른 뉴스레터-제94호 (2021.03)</div>
-            <div class="right-arrow"><img src="img/bottom-arrow.svg" alt=""></div>
+        <a href="#">
+          <div class="bottom-box">
+            <div class="bottom-box-date date-active">2021.MARCH</div>
+            <div class="bottom-box-title">
+              <div class="newsletter-title">법무법인(유한)바른 뉴스레터-제94호 (2021.03)</div>
+              <div class="right-arrow"></div>
+            </div>
           </div>
-        </div>
-        <div class="bottom-box">
-          <div class="bottom-box-date">2021.MARCH</div>
-          <div class="bottom-box-title">
-            <div class="newsletter-title">법무법인(유한)바른 뉴스레터-제94호 (2021.03)</div>
-            <div class="right-arrow" style="color : #333333; opacity: 0.2;"><img src="img/bottom-arrow.svg" alt=""></div>
+        </a>
+        <a href="#">
+          <div class="bottom-box">
+            <div class="bottom-box-date">2021.MARCH</div>
+            <div class="bottom-box-title">
+              <div class="newsletter-title">법무법인(유한)바른 뉴스레터-제94호 (2021.03)</div>
+              <div class="right-arrow"></div>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
     <hr class="hr">
@@ -174,23 +183,29 @@
     <footer>
       <div class="logo"><img src="img/logo.png"></div>
       <div class="footer-list">
-        <ul>면책공고</ul>
-        <ul>|</ul>
-        <ul>개인정보처리방침</ul>
-        <ul>|</ul>
-        <ul>오시는길</ul>
-        <ul>|</ul>
-        <ul>사이트맵</ul>
+        <a href="#"><ul>면책공고</ul></a>
+        <a href="#"><ul>|</ul></a>
+        <a href="#"><ul>개인정보처리방침</ul></a>
+        <a href="#"><ul>|</ul></a>
+        <a href="#"><ul>오시는길</ul></a>
+        <a href="#"><ul>|</ul></a>
+        <a href="#"><ul>사이트맵</ul></a>
       </div>
       <p>서울 강남구 테헤란로 92길 7 바른빌딩</p>
-      <p style="font-size : 14px; color : #aaaaaa; padding : 18px 0;">Copyright. Barun Law LLC. All rights reserved</p>
+      <p class="copyright">Copyright. Barun Law LLC. All rights reserved</p>
     </footer>
+
+
     <script>
-      const right = document.getElementsById('right');
-      
-      right.addEventListener('onClick',function(){
-        document.getElementById('box-container').style.transform = "translateX(-400px)";
+      const right = document.querySelector('.right');
+      right.addEventListener('click', function(){
+        document.querySelector('.box-container ul').style.left = "-408px";
       });
+
+      const selectedMenu = document.querySelectorAll('.middle-menu ul li a');
+
+
+
     </script>
   </body>
 </html>
