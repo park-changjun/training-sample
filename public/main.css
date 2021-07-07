@@ -1,15 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
-a{
-  all:unset
-}
-
-li{
-  all: unset;
-}
-
 body {
     margin: 0px;
 }
@@ -21,9 +12,10 @@ text-align: right;
 }
 
 .main-menu li{
+    all: unset;
     width: 60px;
     margin-right: 42px;
-   font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 16px;
     font-weight: 500;
     font-stretch: normal;
@@ -101,12 +93,15 @@ position:relative;
   width: 21px;
   height: 38px;
   object-fit: contain;
+  position: absolute;
+  left: 0px;
 }
 
 .case-right-arrow {
   width: 21px;
   height: 38px;
   object-fit: contain;
+  position: absolute;
 }
      
 
@@ -133,6 +128,7 @@ position:relative;
  }
 
  .category-container li{
+  all:unset;
   height: 28px;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 30px;
@@ -150,6 +146,7 @@ position:relative;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
  }
 
  .category-container .active{
@@ -231,6 +228,7 @@ justify-content: center;
 
      .elements-box-container li:hover{
         border: solid 3px #e3b583;
+        transition: 0.7s
      }
 
      .category-block{
@@ -478,7 +476,6 @@ justify-content: center;
     justify-content: center;
     height: 368px;
     width: 850px;
-    padding-left: 365px;
     padding-right: 318px;
   }
 
@@ -507,8 +504,10 @@ justify-content: center;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    width: 1920px;
+    width: 1190px;
     height: 368px;
+    padding-left: 365px;
+    padding-right: 365px;
     }
 
  
@@ -535,6 +534,7 @@ justify-content: center;
   .news-info:hover{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);
     border: solid 2px #e3b583;
+    transition: 0.7s;
   }
 
   .news-info{
@@ -619,7 +619,7 @@ justify-content: center;
     height: 22px;
   }
 
-.footer{
+footer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -636,7 +636,8 @@ justify-content: center;
     height: 45px;
 }
 
-.footer-items{
+footer nav ul li{
+  all: unset;
   height: 15px;
   margin: 29px 12px;
   font-family: 'Noto Sans KR', sans-serif;
