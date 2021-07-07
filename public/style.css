@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto&display=swap');
+
+*{
+    margin: 0px;
+    padding : 0px;
+    list-style: none;
+    text-decoration: none;
+}
+
+#main{
+    width: 100%;
+    height: 1080px;
+    background-image: url(./img-test/pattern.png);
+    background-repeat: repeat;
+    position: relative;
+}
+.bg-point{
+    width: 240;
+    height: 180;
+    background-image: url(./img-test/stick.png);
+    background-size: cover;
+}
+.bg-point.top{
+    position: absolute;
+    right: 107;
+    z-index: 1
+}
+.bg-point.bottom{
+    position: absolute;
+    left: 86;
+    bottom: -180;
+    z-index: -1;
+}
+
+/*header*/
+.header{
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 28px 0px;
+    box-sizing: border-box;
+    position: fixed;
+    background-image: url(./img-test/pattern.png);
+    background-repeat: repeat;
+}
+
+.container{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; 
+}
+
+.logo{
+    width: 190px;
+    height: 44px;
+    background-color: rebeccapurple;
+}
+
+.logo a{
+    width: 100%;
+    height: 100%;
+    color : #fff;
+}
+
+.header-nav ul{
+    height: 100px;
+    display: flex;
+}
+
+.header-nav ul li{
+    margin-left: 50px;
+    line-height: 44px;
+
+}
+.header-nav ul li a{
+    font-size: 18px;
+    font-weight: bold;
+    /* font: 18px normal rgba(51, 51, 51, 0.5); */
+    color: #000;
+    opacity: 0.5;
+}
+.header-nav ul li a:hover{
+    opacity: 1;
+}
+
+
+/* visual */
+.visual{
+    width: 100%;
+}
+
+.visual-inner{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    top: 100;
+}
+
+.visual-center{
+    width: 640px;
+    height: 943px;
+    /* background-color: rosybrown; */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.visual-box{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.box{
+    width: 321px;
+    height: 111px;
+    background-color: seagreen;
+}
+.box.one{
+    /* width: 321px;
+    height: 111px; */
+    position: absolute;
+    top: 265;
+    left: 0;
+}
+.box.two{
+    /* width: 321px;
+    height: 111px; */
+    position: absolute;
+    bottom: 261;
+    left: 0;
+}
+.box.three{
+    /* width: 321px;
+    height: 111px; */
+    position: absolute;
+    top: 428;
+    right: 0;
+}
+
+.visual-sticker{
+    height: 943px;
+    position: relative;
+}
+.sticker-microphone{
+    width: 100px;
+    height: 100px;
+    background-image: url(./img-test/icon-news-microphone@3x.png);
+    background-size: cover;
+    position: absolute;
+    top: 107;
+    left: 124;
+}
+.sticker-headphones{
+    width: 100px;
+    height: 100px;
+    background-image: url(./img-test/icon-headphones@3x.png);
+    background-size: cover;
+    position: absolute;
+    top: 437;
+    left: 48;
+}
+.sticker-www{
+    width: 100px;
+    height: 100px;
+    background-image: url(./img-test/icon-www.png);
+    background-size: cover;
+    position: absolute;
+    bottom: 85;
+    left: 171;
+}
+.sticker-share{
+    width: 100px;
+    height: 100px;
+    background-image: url(./img-test/icon-share@3x.png);
+    background-size: cover;
+    position: absolute;
+    top: 233;
+    right: 194;
+}
+.sticker-speech{
+    width: 100px;
+    height: 100px;
+    background-image: url(./img-test/icon-speech.png);
+    background-size: cover;
+    position: absolute;
+    bottom: 313;
+    right: 80;
+}
+.sticker-news{
+    width: 100px;
+    height: 100px;
+    background-image: url(./img-test/icon-news.png);
+    background-size: cover;
+    position: absolute;
+    bottom: 167;
+    right: 224;
+}
+
+
+
+/*introduce*/
+.introduce{
+    width: 100%;
+    height: 820px;
+    position: relative;
+}
+.introduce-bg.left{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.introduce-bg.right{
+    position: absolute;
+    bottom: -240;
+    right: 0;
+    z-index: -1;
+}
+
+.introduce-inner{
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative
+}
+
+.clearfix{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.slide{
+    position: absolute;
+    top: 77;
+    left: 0;
+}
+.slide ul{
+    width: 1200;
+    float: left;
+}
+
+.slide ul li{
+    width: 30px;
+    height: 4px;
+    margin: auto 2px;
+    background-color: rgba(0, 0, 0, 0.4);
+    float: left;
+    margin-bottom: 20px;
+}
+.slide ul li:after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.slide ul li:hover{
+    background-color: rgba(0, 0, 0, 1);
+} 
+
+.slide-title{
+    font-size: 34px;
+    color:#333333;
+}
+
+.introduce-slogan{
+    position: absolute;
+    top: 277px;
+}
+
+.introduce-slogan ul{
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+}
+
+.introduce-slogan ul li{
+    font-size: 60px;
+    color: #3f5381;
+    margin-right: 75px;
+    text-align: center;
+    float: left;
+}
+
+.introduce-slogan ul li:nth-child(2){
+    color:#f4af64;
+}
+.introduce-slogan ul li:last-child{
+    margin-right: 0px;
+    color: #53c6d2;
+}
+
+.introduce-slogan ul li span{
+    font-size: 28px;
+    color :rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+
+.introduce-text{
+    position: absolute;
+    top: 526;
+    left: 50%;
+    transform: translateX(-50%);
+    /* float: left; */
+    display: flex;
+    justify-content: space-between;
+}
+.introduce-text p{
+    width: 450px;
+    height: 122px;
+    /* float: left; */
+    margin: 0 40px;
+    font-size: 16px;
+}
+
+.introduce-text p span{
+    font-weight: bold;
+
+}
+
+
+
+/*program*/
+.program{
+    width: 100%;
+    height: 1322px;
+    background-color: #fff;
+    z-index: 9;
+    position: relative;
+
+}
+.program-inner{
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.program-bg{
+    width: 807;
+    height: 1013;
+    /* margin: 148px 0px 161px; */
+    background-image: url(./img-test/vector-smart-object.png);
+    background-size: cover;
+    z-index: 1;
+    margin-top: 148;
+    float: left;
+
+}
+/* .program-bg-border{
+    width: 804;
+    height: 1013;
+    border: 1px solid #FFF;
+    position: absolute;
+    margin-top: 148px;
+    z-index: 1;
+} */
+
+
+.program-list{
+    width: 285px;
+    height: auto;
+    float: left;
+    margin-top: 148;
+    margin-left: 48px;
+}
+
+.program-list ul{
+    width: 285px;
+}
+
+.list p{
+    width: 285px;
+    /* height: 40px; */
+    padding: 11 0 11 15;
+    font-size: 16px;
+    background-color: #2d53a4;
+    color: #ffffff;
+    font-weight: bold;
+    position: relative;
+}
+
+.list p:after{
+    content: "";
+    clear: both;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    position: absolute;
+    right: -5;
+    bottom: -5;
+    transform: rotate(45deg);
+}
+
+.list:nth-child(2) p{
+    background-color: #ed6e01;
+}
+.list:nth-child(3) p{
+    background-color: #23aab7;
+}
+.list:nth-child(4) p{
+    background-color: #574f9f;
+}
+
+.list-items li{
+    font-size: 14px;
+    width: 270px;
+    /* height: 40px; */
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    color: #888888;
+    padding: 13 0 13 25;
+    font-weight: bold;
+}
+
+.program-side-btn{
+    width: 110px;
+    height: 110px;
+    background-image: url(./img-test/sticky.png);
+    background-size: cover;
+    position: absolute;
+    bottom: 179;
+    right: -200;
+}
+
+
+/*titme table*/
+.table-wrap{
+    width: 100%;
+    height: 1120px;
+    /* background-color: thistle; */
+}
+.table-wrap-inner{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 175 0 140 0;
+}
+
+.table-date{
+    display: flex;
+    justify-content: center;
+}
+.table-date ul{
+    display: flex;
+}
+.table-date ul li{
+    margin: auto 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaaaaa;
+}
+
+.table-date ul li:after{
+    content: "";
+    display: block;
+    clear : both;
+    width: inherit;
+    height: 2px;
+}
+.table-date ul li:hover{
+    color: #23aab7;
+}
+.table-date ul li:hover:after{
+    background-color: #23aab7;
+}
