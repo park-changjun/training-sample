@@ -331,7 +331,7 @@ background-color: silver;
 }
 
 
-.intro .slogan-wrap div .every::after {
+.intro .slogan-wrap div .anytime::after {
     content: "";
     display: block;
     clear: both;
@@ -364,7 +364,7 @@ background-color: silver;
     margin-top: -20px;
 }
 
-.everyEng{
+.anytimeEng{
   font-size: 28px;
   width: 102px;
   font-family: Montserrat;
@@ -408,7 +408,7 @@ background-color: silver;
 }
 
 
-.intro .slogan-wrap .every{
+.intro .slogan-wrap .anytime{
     position: absolute;
     all: unset;
     font-size: 80px;
@@ -457,7 +457,7 @@ background-color: silver;
     font-size: 16px;
     font-weight: 300;
     font-stretch: normal;
-  font-style: normal;
+    font-style: normal;
     line-height: 1.5;
     letter-spacing: -1.2px;
     text-align: justify;
@@ -574,7 +574,7 @@ background-color: silver;
 .program .anywhere-program-list{
     all: unset;
     position: absolute;
-    top: 400px;
+    top: 407px;
     right: 0px;
     list-style-type:none;
 }
@@ -609,7 +609,7 @@ background-color: silver;
 .program .anyone-program-list{
     all: unset;
     position: absolute;
-    top: 612px;
+    top: 627px;
     right: 0px;
     list-style-type:none;
 }
@@ -661,7 +661,7 @@ background-color: silver;
 .program .here-program-list{
     all: unset;
     position: absolute;
-    top: 927px;
+    top: 955px;
     right: 0px;
     list-style-type:none;
 }
@@ -1041,7 +1041,7 @@ font-size: 16px;
     list-style-type:none;
 }
 
-.schedule .anyone-program-list .top{
+.schedule .anyone-program-list .comma{
     font-size: 10px;
     width: 285px;
     height: 420px;
@@ -1068,7 +1068,7 @@ font-size: 16px;
     line-height: normal;
 }
 
-.schedule .anyone-program-list .bottom{
+.schedule .anyone-program-list .camping{
     font-size: 10px;
     width: 285px;
     height: 235px;
