@@ -23,7 +23,7 @@
 .bg-point.top{
     position: absolute;
     right: 107;
-    z-index: 9
+    z-index: 9;
 }
 .bg-point.bottom{
     position: absolute;
@@ -99,7 +99,7 @@
     top: 100;
 }
 
-.visual-center{
+.mobile{
     width: 640px;
     height: 943px;
     position: absolute;
@@ -110,27 +110,27 @@
     background-size: cover;
 }
 
-.visual-center h1{
+.mobile h1{
     font-size: 40px;
     font-weight: 700;
     letter-spacing: -3;
     color: #32cada;
     margin: 150 0 0 158;
 }
-.visual-center h1 span{
+.mobile h1 span{
     color: #000;
     font-size: 65;
     font-weight: 700;
 }
 
-.visual-center-title{
+.mobile-title{
     font-size: 28;
     font-weight: 700;
     color: #666666;
     margin: 20 0 0 160;
     letter-spacing: -3.5;
 }
-.visual-center-date{
+.mobile-date{
     width: 474;
     height: 53;
     border-radius: 30px;
@@ -145,14 +145,14 @@
     font-weight: 600;
 }
 
-.visual-center-text{
+.mobile-text{
     font-size: 22;
     letter-spacing: -1.6;
     color: #333333;
     text-align: center;
     margin: 40 0; 
 }
-.visual-center-text span{
+.mobile-text span{
     font-size: 24;
     letter-spacing: -1.8;
     color: #23aab7;
@@ -165,7 +165,7 @@
     background-size: cover;
     margin: 10 0 0 167;
 }
-.visual-center-btn{
+.mobile-btn{
     width: 350;
     height: 70;
     background: #23aab7;
@@ -179,7 +179,6 @@
     color: #fff;
     letter-spacing: -2;
     text-align: center;
-    
 }
 
 .visual-box{
@@ -272,7 +271,7 @@
     background-size: cover;
     position: absolute;
     bottom: 130;
-    right: 224;
+    right: 250;
 }
 
 
@@ -292,7 +291,7 @@
 .introduce-bg.right{
     position: absolute;
     bottom: -220;
-    right: 0;
+    right: 90;
     z-index: 1;
 }
 
@@ -309,35 +308,39 @@
     clear: both;
 }
 
-.slide{
+.map-check{
     position: absolute;
     top: 77;
     left: 0;
 }
-.slide ul{
+.map-check ul{
     width: 1200;
     float: left;
 }
 
-.slide ul li{
+.map-check ul li{
     width: 30px;
     height: 4px;
     margin: auto 2px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.2);
     float: left;
     margin-bottom: 20px;
 }
-.slide ul li:after{
+.map-check > ul > .check{
+    background-color: #000000;
+}
+
+/* .map-check ul li:after{
     content: "";
     clear: both;
     display: block;
 }
 
-.slide ul li:hover{
+.map-check ul li:hover{
     background-color: rgba(0, 0, 0, 1);
-} 
+}  */
 
-.slide-title{
+.map-check-title{
     font-size: 34px;
     color:#333333;
 }
@@ -374,28 +377,33 @@
     color :rgba(0, 0, 0, 0.2);
     font-weight: bold;
 }
-
+.introduce-text-box{
+    width: 1200px;
+    position: relative;
+    bottom: 0;
+}
 
 .introduce-text{
-    position: absolute;
+    width: 100%;
+    /* position: absolute;
     top: 526;
     left: 50%;
-    transform: translateX(-50%);
-    /* float: left; */
+    transform: translateX(-50%); */
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    text-align: justify;
+    margin: 0 -40;
 }
+
 .introduce-text p{
-    width: 450px;
-    height: 122px;
-    /* float: left; */
-    margin: 0 40px;
-    font-size: 18px; /*16*/
+    width: 50%;
+    padding: 0 40px;
+    font-size: 16px;
+
 }
 
 .introduce-text p span{
     font-weight: bold;
-
 }
 
 
@@ -423,7 +431,7 @@
     background-image: url(./img-test/vector-smart-object.png);
     background-size: cover;
     z-index: 1;
-    margin-top: 148;
+    margin-top: 160;
     float: left;
 }
 
@@ -431,8 +439,9 @@
     width: 285px;
     height: auto;
     float: left;
-    margin-top: 148;
+    margin-top: 160;
     margin-left: 48px;
+    position: relative;
 }
 
 .program-list ul{
@@ -479,19 +488,18 @@
     background-color: #fff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     color: #888888;
-    padding: 13 0 13 25;
+    padding: 11 0 12 25;
     font-weight: bold;
 }
-.list-items-sub{
+/* .list-items-sub{
     margin-bottom: -8;
-}
+} */
 .list-items-sub > ul{
     color: #888888;
-    font-size: 11;
+    font-size: 12;
     padding: 3 0 3 20;
     box-sizing: border-box;
     margin-top: 10;
-
 }
 
 .program-side-btn{
@@ -499,9 +507,10 @@
     height: 110px;
     background-image: url(./img-test/sticky.png);
     background-size: cover;
-    position: absolute;
-    bottom: 179;
-    right: -200;
+    position: fixed;
+    bottom: 100;
+    right: 0;
+    /* z-index: 9; */
 }
 
 
@@ -557,18 +566,20 @@
 
 .time{
     width: 92px;
-    height: 623px;
+    /* height: 623px; */
     padding-top: 35px;
     margin-right: 20;
 }
 .time li{
-    color: #000;
+    color: #333333;
+    font-weight: 700;
 }
+
 .time li:first-child::before{
     content: "";
     clear: both;
     display: block;
-    width: 1006;
+    width: 1009px;
     height: 19;
     border-bottom: 1px solid rgba(202, 202, 202, 0.534);
     margin-bottom: 19;
@@ -577,7 +588,7 @@
     content: "";
     clear: both;
     display: block;
-    width: 1006;
+    width: 1009px;
     height: 19;
     border-top: 1px solid rgba(202, 202, 202, 0.534);
     margin-top: 19;
@@ -653,7 +664,7 @@
 .table-title.a-nomal{
     width: 285px;
     height: 50px;
-    padding: 16 0 16 16;
+    padding: 14 0 16 16;
     box-sizing: border-box;
     border: 1px solid #2d53a4;
 }
@@ -728,7 +739,6 @@
 .map-wrap{
     width: 100%;
     height: 1120;
-    /* background-color: rosybrown; */
 }
 .map-bg{
     width: 100%;
@@ -745,29 +755,32 @@
     position: relative;
 }
 
-.map-bottom{
+.map-area{
     position: absolute;
     margin-top: 750;
     display: flex;
-    align-items: flex-start;
     font-size: 24px;
     color: #333333;
     letter-spacing: -1.8;
     font-weight: bold;
 }
 
-.map-bottom-left{
-    /* width: 500; */
+
+.map-area-left{
     margin-right: 240;
+    width: 50%;
+}
+.map-area-right{
+    width: 50%;
 }
 
-.map-bottom-left-subway, .map-bottom-right-locate{
+.map-area-left-subway, .map-area-right-locate{
     margin: 40 0;
     display: flex;
     align-content: flex-start;
 }
 
-.map-bottom-left-subway-icon{
+.map-area-left-subway-icon{
     margin-right: 35;
     width: 34;
     height: 34;
@@ -776,18 +789,14 @@
     color : #fff;
 }
 
-.map-bottom-left-subway-icon.top{
+.map-area-left-subway-icon.top{
     background-color: #3d61ae;
 }
-.map-bottom-left-subway-icon.bottom{
+.map-area-left-subway-icon.bottom{
     background-color: #71ce7f;
 }
 
-.map-bottom-left-subway-text{
-    font-size: 22;
-}
-
-.map-bottom-right-locate-icon{
+.map-area-right-locate-icon{
     margin-right: 35;
     width: 34;
     height: 34;
