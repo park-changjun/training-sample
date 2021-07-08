@@ -171,10 +171,10 @@ main .anywhere {
 }
 
 .phone .date{
-    position:absolute;
-    top: 333px;
-    width: 454px;
-    left: 83px;
+  position:absolute;
+  top: 333px;
+  width: 474px;
+  left: 83px;
   padding: 8px 0px 8px 0px;
   border-radius: 26.5px;
   background-color: #32cada;
@@ -253,6 +253,8 @@ main .anywhere {
     width: 1060px;
     height: 741px;
     left: 390px;
+    display: flex;
+    justify-content: center;
 }
 
 .intro .left-top{
@@ -285,6 +287,13 @@ main .anywhere {
     margin: 0;
 }
 
+.intro .status-bar-wrap {
+    position: absolute;
+    left: 0px;
+    padding-left: 0px;
+}
+    
+
 .status-bar-wrap li{
 all: unset;
 display: inline-block;
@@ -297,6 +306,7 @@ background-color: silver;
 
 .status-bar-wrap .current-page{
     background-color: black;
+    width: 30px;
 }
 
 .status-bar-wrap .page {
@@ -329,7 +339,6 @@ background-color: silver;
     flex-direction: column;
     align-items: center;
 }
-
 
 .intro .slogan-wrap div .anytime::after {
     content: "";
@@ -364,7 +373,7 @@ background-color: silver;
     margin-top: -20px;
 }
 
-.anytimeEng{
+.anytime-eng{
   font-size: 28px;
   width: 102px;
   font-family: Montserrat;
@@ -378,7 +387,7 @@ background-color: silver;
   margin-top: 0px;
 }
 
-.anywhereEng{
+.anywhere-eng{
     font-size: 28px;
     width: 120px;
     font-family: Montserrat;
@@ -393,7 +402,7 @@ background-color: silver;
     margin-left: 75px;
   }
 
-.anyoneEng{
+.anyone-eng{
   font-size: 28px;
   width: 84px;
   font-family: Montserrat;
@@ -449,10 +458,15 @@ background-color: silver;
   }
 
 
-.intro-left-content{
+.intro-content-container{
     position: absolute;
-    top: 526px;
-    left: 470px;
+    top: 450px;
+    width: 980px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.intro-content:nth-child(1){
     width: 450px;
     font-size: 16px;
     font-weight: 300;
@@ -463,14 +477,11 @@ background-color: silver;
     text-align: justify;
 }
 
-.intro-left-content span{
+.intro-content:nth-child(1) span{
     font-weight: normal;
 }
 
-.intro-right-content{
-    position: absolute;
-    top: 526px;
-    right: 470px;
+.intro-content:nth-child(2){
     width: 450px;
     font-size: 16px;
     font-weight: 300;
@@ -481,7 +492,7 @@ background-color: silver;
     text-align: justify;
 }
 
-.intro-right-content span{
+.intro-content:nth-child(2) span{
     font-weight: normal;
 }
 
@@ -502,7 +513,7 @@ background-color: silver;
     width: 1140px;
     top: 81px;
     left: 390px;
-    bottom: 146px;
+    bottom: 186px;
 }
 
 .program .title{
@@ -516,13 +527,22 @@ background-color: silver;
     letter-spacing: -2.55px;
     text-align: center;
 }
-
-.program .anytime-program-list{
-    all: unset;
+.program .program-list-wrap{
     position: absolute;
     top: 186px;
     right: 0px;
+    width: 285px;
+    height: 945px;
+}
+
+.program .anytime-program-list{
+    all: unset;
     list-style-type:none;
+    position: relative;
+}
+
+.program .program-list-wrap li:nth-last-child(1){
+    border: none;
 }
 
 .list-title{
@@ -532,7 +552,7 @@ background-color: silver;
 
 .list-title::after{
     top: 38px;
-    right: -7.5px;
+    left: 293px;
     display: block;
     position: absolute;
     content: "";
@@ -573,10 +593,8 @@ background-color: silver;
 
 .program .anywhere-program-list{
     all: unset;
-    position: absolute;
-    top: 407px;
-    right: 0px;
     list-style-type:none;
+    position: relative;
 }
 
 .program .anywhere-program-list li{
@@ -608,9 +626,7 @@ background-color: silver;
 }
 .program .anyone-program-list{
     all: unset;
-    position: absolute;
-    top: 627px;
-    right: 0px;
+    position: relative;
     list-style-type:none;
 }
 
@@ -660,12 +676,9 @@ background-color: silver;
 
 .program .here-program-list{
     all: unset;
-    position: absolute;
-    top: 955px;
-    right: 0px;
+    position: relative;
     list-style-type:none;
 }
-
 
 .here-program-list .list-title{
     width: 285px;
@@ -706,12 +719,14 @@ background-image: url(img/sticky.png);
 width: 118px;
 height: 118px;
 cursor: pointer;
+z-index: 3;
 }
 
 .program .anytime-program-list .active{
     color: #2d53a4;
     position: relative;
 }
+
 .program .anytime-program-list .active span{
     width: 14px;
     height: 14px;
@@ -724,7 +739,6 @@ cursor: pointer;
     background-color: white;
 }
 
-
 .program .anytime-program-list .active span:nth-child(2){
     border: solid 1px #2d53a4;
     position: absolute;
@@ -735,6 +749,7 @@ cursor: pointer;
     border-right: 0px;
     border-bottom: 0px;
     top: 22px;
+
     z-index: 0;
 }
 
@@ -747,7 +762,6 @@ cursor: pointer;
     height: 1120px;
     position: relative;
 }
-
 .schedule .container{
    position: absolute;
    top: 64px;
@@ -1167,14 +1181,18 @@ font-size: 16px;
 
 .map .status-bar-wrap{
     position: absolute;
-    top: 81px;
+    top: 78px;
     left: 390px;
     margin: 0px;
 }
 
+.map .status-bar-wrap li{
+    height: 3px;
+}
+
 .map .title{
     position: absolute;
-    top: 103px;
+    top: 100px;
     left: 390px;
     height: 31px;
     font-size: 34px;
