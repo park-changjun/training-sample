@@ -19,8 +19,9 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: absolute;
+    position:fixed;
     top: 28px;
+    z-index: 3;
 }
 
 .main-right-top{
@@ -29,7 +30,7 @@ header{
 }
 
 main .container{
-    width: 1086px;
+    width: 1139px;
     height: 1080px;
     position: absolute;
     left: 390px;
@@ -39,17 +40,16 @@ main .container{
 main .container article{
     width: 640px;
     height: 943px;
-    background-color: aquamarine;
     position: absolute;
     left: 250px;
     bottom: 0px;
     z-index: 1;
+    background-image: url(img/mobile.png);
 }
 
 main .container .logo{
     width: 190px;
     height: 44px;
-    background-color: white;
 }
 
 
@@ -73,6 +73,7 @@ main .container nav li a{
     text-align: center;
     color: rgba(51, 51, 51, 0.5);
     opacity: 0.5;
+    cursor: pointer;
 }
 
 main .container nav li .active{
@@ -120,7 +121,6 @@ right: 224px;
 .text-box{
     width: 321px;
     height: 111px;
-    background-color: white;
     position:absolute;
     font-size: 40px;
     color: rgb(89, 139, 172);
@@ -128,15 +128,19 @@ right: 224px;
     z-index: 2;
 }
 
-.left-top{
+main .anytime {
+    background-image: url(img/anytime-talk.png);
     top: 367px;
 }
 
-.left-bottom{
+main .anyone {
+    background-image: url(img/anyone-talk.png);
     top: 708px;
 }
 
-.right {
+main .anywhere {
+    background-image: url(img/anywhere-talk.png);
+    width: 360px;
     top: 529px;
     right: 0;
 }
@@ -151,12 +155,11 @@ right: 224px;
 }
 
 .phone .sub-title{
-    position:absolute;
-    top: 290px;
-    left: 169px;
-    width: 302px;
+  position:absolute;
+  top: 290px;
+  left: 169px;
+  width: 308px;
   height: 30px;
-  font-family: NotoSansCJKkr;
   font-size: 28px;
   font-weight: 500;
   font-stretch: normal;
@@ -170,7 +173,7 @@ right: 224px;
 .phone .date{
     position:absolute;
     top: 333px;
-    width: 474px;
+    width: 454px;
     left: 83px;
   padding: 8px 0px 8px 0px;
   border-radius: 26.5px;
@@ -216,14 +219,23 @@ right: 224px;
     height: 107px;
 }
 
-.phone .comment{
+.phone .comment-btn{
+    all: unset;
     position: absolute;
     top: 734px;
     left: 143px;
-    width: 350px;
-    height: 70px;
     border-radius: 5px;
     background-color: #23aab7;
+    font-size: 24px;
+    padding: 24px 93px 23px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.42;
+    letter-spacing: -1.8px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 /* 소개페이지 스타트 */
@@ -283,6 +295,14 @@ margin-right: 0px;
 background-color: silver;
 }
 
+.status-bar-wrap .current-page{
+    background-color: black;
+}
+
+.status-bar-wrap .page {
+    height: 2px;
+}
+
 .intro .title{
     position: absolute;
     top: 98px;
@@ -294,8 +314,8 @@ background-color: silver;
     line-height: normal;
     letter-spacing: -2.55px;
     text-align: center;
-    margin-top: 19px;
     margin-bottom: 0px;
+    margin-top: 0px;
 }
 .intro .slogan-wrap{
     position: absolute;
@@ -507,6 +527,7 @@ background-color: silver;
 
 .list-title{
     overflow: hidden;
+    font-size: 16px !important;
 }
 
 .list-title::after{
@@ -521,8 +542,7 @@ background-color: silver;
     transform: rotate(45deg);
 }
 
-
-.anytime-program-list li{
+.program .anytime-program-list li{
     width: 285px;
     padding: 11px 0px 11px 16px;
     color: white;
@@ -536,7 +556,6 @@ background-color: silver;
     border-bottom: solid;
     border-width: 1px;
 }
-
 
 .anytime-program-list .list-title{
     width: 285px;
@@ -552,18 +571,15 @@ background-color: silver;
     border-bottom-width: 0px;
 }
 
-
-
-
 .program .anywhere-program-list{
     all: unset;
     position: absolute;
-    top: 398px;
+    top: 400px;
     right: 0px;
     list-style-type:none;
-
 }
-.anywhere-program-list li{
+
+.program .anywhere-program-list li{
     width: 285px;
     padding: 11px 0px 11px 16px;
     color: white;
@@ -590,18 +606,30 @@ background-color: silver;
     color: #ffffff !important;
     border-bottom-width: 0px;
 }
-
-
-
 .program .anyone-program-list{
     all: unset;
     position: absolute;
-    top: 610px;
+    top: 612px;
     right: 0px;
     list-style-type:none;
-
 }
-.anyone-program-list li{
+
+.program img{
+    margin-top: 60px;
+}
+
+.program .anyone-program-list ul{
+    all: unset;
+}
+
+.program .anyone-program-list ul li{
+    border: 0px;
+    font-size: 12px;
+    padding-top: 3px;
+    padding-bottom: 0px;
+}
+
+.program .anyone-program-list li{
     width: 285px;
     padding: 11px 0px 11px 16px;
     color: white;
@@ -630,24 +658,504 @@ background-color: silver;
 }
 
 
+.program .here-program-list{
+    all: unset;
+    position: absolute;
+    top: 927px;
+    right: 0px;
+    list-style-type:none;
+}
 
-/* 이벤트 페이지 시작 */
 
-.event{
+.here-program-list .list-title{
+    width: 285px;
+    padding: 11px 0px 11px 16px;
+    background-color: #574f9f;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #ffffff !important;
+    border-bottom-width: 0px;
+}
+
+.here-program-list li{
+    width: 285px;
+    padding: 11px 0px 11px 16px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #888888;
+    border-bottom: solid;
+    border-width: 1px;
+}
+.sticky{
+all: unset;
+position: fixed;
+top: unset;
+left: unset;
+right: 39px;
+bottom: 179px;
+background-image: url(img/sticky.png);
+width: 118px;
+height: 118px;
+cursor: pointer;
+}
+
+.program .anytime-program-list .active{
+    color: #2d53a4;
+    position: relative;
+}
+.program .anytime-program-list .active span{
+    width: 14px;
+    height: 14px;
+    right: 13px;
+    border: solid 1px #2d53a4;
+    margin-left: 134px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+}
+
+
+.program .anytime-program-list .active span:nth-child(2){
+    border: solid 1px #2d53a4;
+    position: absolute;
+    border-radius: 0px;
+    right: 13px;
+    transform: rotate(45deg);
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    top: 22px;
+    z-index: 0;
+}
+
+/* 프로그램 페이지 끝 */
+
+/* 스케쥴 페이지 시작 */
+
+.schedule{
     width: 1920px;
     height: 1120px;
-    background-color: tomato;
     position: relative;
 }
 
-.event .container{
+.schedule .container{
    position: absolute;
-   top: 81px;
-   left: 397px;
+   top: 64px;
+   left: 387px;
    right: 457px;
    bottom: 147px;
-   background-color: blue;
+   background-color:white;
 }
+
+.schedule .status-bar-wrap li{ 
+    display: inline-block;
+}
+
+.schedule .time-wrap{
+    position: absolute;
+    top: 235px;
+    bottom: 0px;
+    height: 675px;
+    left: 16px;
+    margin: 0;
+    padding-left: 0px;
+    margin-right: 19px;
+}
+
+.schedule .time-wrap li{
+height: 62px;
+font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 3.81;
+  letter-spacing: -1.2px;
+  text-align: center;
+}
+
+.schedule .title{
+    all: unset;
+    position: absolute;
+    font-size: 34px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -2.55px;
+    text-align: center;
+}
+
+.schedule .first-day{
+    position: absolute;
+    width: 115px;
+    height: 24px;
+    border-bottom: solid 2px #23aab7;
+    top: 94px;
+    left: 440px;
+    font-size: 24px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -1.8px;
+  text-align: left;
+  color: #23aab7;
+  padding-bottom: 9px;
+    padding-top: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.schedule .second-day{
+    position: absolute;
+    width: 115px;
+    height: 24px;
+    border-bottom: solid 2px #aaaaaa;
+    top: 94px;
+    right: 375px;
+    font-size: 24px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -1.8px;
+  text-align: left;
+  color: #aaaaaa;
+  padding-bottom: 9px;
+    padding-top: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.schedule .anytime-program-list{
+    all: unset;
+    position: absolute;
+    top: 175px;
+    left: 133px;
+    list-style-type:none;
+}
+
+.schedule li{
+    display: flex;
+    align-items: center;
+}
+
+.schedule .anytime-program-list li:nth-child(2){
+  font-size: 10px;
+  width: 285px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.83;
+  letter-spacing: -1.35px;
+  text-align: left;
+  color: #2d53a4;
+  border: solid 1px #2d53a4;
+  background-color: #ffffff;
+  padding-left: 16px;
+  margin-bottom: 11px;
+}
+
+.schedule .anytime-program-list li:nth-child(3){
+    font-size: 10px;
+    width: 285px;
+    height: 111px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.83;
+    letter-spacing: -1.35px;
+    text-align: left;
+    color: #2d53a4;
+    border: solid 1px #2d53a4;
+    background-color: #ffffff;
+    padding-left: 16px;
+    margin-bottom: 11px;
+}
+.schedule .anytime-program-list li:nth-child(4){
+    font-size: 10px;
+    width: 285px;
+    height: 111px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.83;
+    letter-spacing: -1.35px;
+    text-align: left;
+    color: #2d53a4;
+    border: solid 1px #2d53a4;
+    background-color: #ffffff;
+    padding-left: 16px;
+    margin-bottom: 11px;
+}
+.schedule .anytime-program-list li:nth-child(5){
+    font-size: 10px;
+    width: 285px;
+    height: 111px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.83;
+    letter-spacing: -1.35px;
+    text-align: left;
+    color: #2d53a4;
+    border: solid 1px #2d53a4;
+    background-color: #ffffff;
+    padding-left: 16px;
+    margin-bottom: 11px;
+}
+.schedule .anytime-program-list li:nth-child(6){
+    font-size: 10px;
+    width: 285px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.83;
+    letter-spacing: -1.35px;
+    text-align: left;
+    color: #2d53a4;
+    border: solid 1px #2d53a4;
+    background-color: #ffffff;
+    padding-left: 16px;
+    margin-bottom: 11px;
+}
+.schedule .anytime-program-list li:nth-child(7){
+    font-size: 10px;
+    width: 285px;
+    height: 111px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.83;
+    letter-spacing: -1.35px;
+    text-align: left;
+    color: #2d53a4;
+    border: solid 1px #2d53a4;
+    background-color: #ffffff;
+    padding-left: 16px;
+    margin-bottom: 11px;
+}
+.schedule .anytime-program-list li:nth-child(8){
+    font-size: 10px;
+    width: 285px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.83;
+    letter-spacing: -1.35px;
+    text-align: left;
+    color: #2d53a4;
+    border: solid 1px #2d53a4;
+    background-color: #ffffff;
+    padding-left: 16px;
+    margin-bottom: 11px;
+}
+
+.schedule .anywhere-program-list{
+    all: unset;
+    position: absolute;
+    top: 175px;
+    left: 454px;
+    list-style-type:none;
+}
+
+.schedule .anywhere-program-list li:nth-child(2){
+    font-size: 10px;
+    width: 285px;
+    height: 233px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.83;
+    letter-spacing: -1.35px;
+    text-align: left;
+    color: #ed6e01;
+    border: solid 1px #ed6e01;
+    background-color: #ffffff;
+    padding-left: 16px;
+    margin-bottom: 14px;
+}
+
+.schedule .anywhere-program-list li:nth-child(3){
+    font-size: 10px;
+    width: 285px;
+    height: 233px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.83;
+    letter-spacing: -1.35px;
+    text-align: left;
+    color: #ed6e01;
+    border: solid 1px #ed6e01;
+    background-color: #ffffff;
+    padding-left: 16px;
+    margin-bottom: 14px;
+}
+
+.schedule .anywhere-program-list li:nth-child(4){
+    font-size: 10px;
+    width: 285px;
+    height: 172px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.83;
+    letter-spacing: -1.35px;
+    text-align: left;
+    color: #ed6e01;
+    border: solid 1px #ed6e01;
+    background-color: #ffffff;
+    padding-left: 16px;
+    margin-bottom: 11px;
+}
+
+.schedule .anyone-program-list{
+    all: unset;
+    position: absolute;
+    top: 175px;
+    left: 775px;
+    list-style-type:none;
+}
+
+.schedule .anyone-program-list .top{
+    font-size: 10px;
+    width: 285px;
+    height: 420px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.83;
+    letter-spacing: -1.35px;
+    text-align: left;
+    color:#23aab7;
+    border: solid 1px #23aab7;
+    background-color: #ffffff;
+    padding-left: 16px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.top ul li {
+    font-size: 13px;
+    line-height: normal;
+}
+
+.schedule .anyone-program-list .bottom{
+    font-size: 10px;
+    width: 285px;
+    height: 235px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.83;
+    letter-spacing: -1.35px;
+    text-align: left;
+    color: #23aab7;
+    border: solid 1px #23aab7;
+    background-color: #ffffff;
+    padding-left: 16px;
+    margin-bottom: 14px;
+}
+
+
+.schedule .anyone-program-list ul{
+    all: unset;
+}
+
+.schedule .list-title{
+    margin-bottom: 16px;
+}
+
+.schedule .anytime-program-list .content{
+    position: relative;
+}
+
+
+.schedule .anytime-program-list .cotent div{
+    overflow: hidden;
+    position: relative;
+}
+
+.schedule .anytime-program-list .content::after{
+    clear: both;
+    right: -9px;
+    bottom: -8px;
+    display: block;
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-left: solid 1px #2d53a4;
+    background-color: white;
+    transform: rotate(45deg);
+}
+
+.schedule .anywhere-program-list .content{
+    position: relative;
+}
+
+.schedule .anywhere-program-list .content::after{
+    position: absolute;
+    clear: both;
+    right: -9px;
+    bottom: -8px;
+    display: block;
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-left: solid 1px #ed6e01;
+    background-color: white;
+    transform: rotate(45deg);
+}
+
+.schedule .anyone-program-list .content{
+    position: relative;
+}
+
+.schedule .anyone-program-list .content::after{
+    position: absolute;
+    clear: both;
+    right: -9px;
+    bottom: -8px;
+    display: block;
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-left: solid 1px #23aab7;
+    background-color: white;
+    transform: rotate(45deg);
+}
+
+
 
 /* 오시는길 */
 
@@ -690,7 +1198,6 @@ background-color: silver;
     position:absolute;
     height: 160px;
     width: 370px;
-    background-color: yellow;
 }
 
 .map .loc{
@@ -699,7 +1206,6 @@ background-color: silver;
     position:absolute;
     height: 160px;
     width: 322px;
-    background-color: yellow;
 }
 
 /* 오시는길 끝 */
@@ -714,6 +1220,7 @@ footer{
 }
 
 footer p {
+  all: unset;
   font-family: NanumSquareB;
   font-size: 12px;
   font-weight: normal;
@@ -724,3 +1231,156 @@ footer p {
   text-align: center;
   color: #ffffff;
 }
+
+.path .line1-wrap{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.path .line2-wrap{
+    display: flex;
+    align-items: center;
+    margin-top: 30px
+}
+
+
+.path .title{
+    all: unset;
+    font-size: 24px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -1.8px;
+}
+
+.loc .title{
+    all: unset;
+    font-size: 24px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -1.8px;
+}
+
+.line1-wrap .circle{
+  width: 34px;
+  height: 34px;
+  background-color: #3d61ae;
+  text-align: center;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.7;
+  letter-spacing: -1.5px;
+  text-align: center;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  border-radius: 17px;
+  margin-right: 22px;
+}
+
+.line2-wrap .circle{
+    width: 34px;
+    height: 34px;
+    background-color: #71ce7f;
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.7;
+    letter-spacing: -1.5px;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    border-radius: 17px;
+    margin-right: 22px;
+  }
+
+  .path .content{
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.55;
+  letter-spacing: -1.65px;
+  text-align: justify;
+  }
+
+ .loc .addr-wrap{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.loc .tel-wrap{
+    display: flex;
+    align-items: center;
+    margin-top: 30px
+}
+
+.addr-wrap .circle{
+    display: flex;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.7;
+    letter-spacing: -1.5px;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    border-radius: 17px;
+    margin-right: 22px;
+    border: solid 1px #23aab7;
+    border-radius: 17px;
+  }
+ 
+  .tel-wrap .circle{
+    display: flex;
+    align-items: center;
+      width: 34px;
+      height: 34px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.7;
+      letter-spacing: -1.5px;
+      text-align: center;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      border-radius: 17px;
+      margin-right: 22px;
+      border: solid 1px #23aab7;
+    border-radius: 17px;
+    }
+
+    .loc img{
+        all: unset;
+        width: 18px;
+        height: 18px;
+    }
+
+    .loc .content{
+        font-size: 20px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.55;
+        letter-spacing: -1.65px;
+        text-align: justify;
+        }

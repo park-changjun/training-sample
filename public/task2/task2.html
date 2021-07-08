@@ -10,7 +10,7 @@
     <main>
         <div class="container">
             <header>
-                <img class="logo" src="#" alt="함께서울정착박람회">
+                <img class="logo" src="img/main-logo.png" alt="함께서울정착박람회">
                 <nav>
                     <ul>
                         <li><a class="active">축제소개</a></li>
@@ -26,11 +26,11 @@
             <img class="circle-icon share" src="img/icon-share.png">
             <img class="circle-icon speech" src="img/icon-speech.png">
             <img class="circle-icon news" src="img/icon-news.png">
-            <div class="text-box left-top">그림일까, 글자일까</div>
-            <div class="text-box left-bottom">그림일까, 글자일까</div>
-            <div class="text-box right">그림일까, 글자일까</div>
+            <div class="text-box anytime"></div>
+            <div class="text-box anyone"></div>
+            <div class="text-box anywhere"></div>
             <article class="phone">
-                <img class="title" src="img/2019_함께_서울.png">
+                <img class="title" src="img/2019_with_seoul.png">
                 <div class="sub-title">
                     언제 어디서나, 민주주의 서울
                 </div>
@@ -46,8 +46,8 @@
                     <br><br>
                     <span>언제, 어디서나, 민주주의 서울</span>
                 </div>
-                <img class="char" src="#" alt=" 가족사진 ">
-                <div class="comment"></div>
+                <img class="char" src="img/family.png" alt=" 가족사진 ">
+                <button class="comment-btn">정책제안 하러가기</button>
         </div>
         </article>
         </div>
@@ -58,7 +58,7 @@
     <section class="intro">
         <div class="container">
             <ul class="status-bar-wrap">
-                <li></li>
+                <li class="current-page"></li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -100,7 +100,7 @@
         <div class="container">
             <ul class="status-bar-wrap">
                 <li></li>
-                <li></li>
+                <li class="current-page"></li>
                 <li></li>
                 <li></li>
             </ul>
@@ -108,7 +108,7 @@
             <img src="img/vector-smart-object.png">
             <ul class="anytime-program-list">
                 <li class="list-title"><a>언제나, 민주주의 프로그램</a></li>
-                <li><a>서울 정책 오픈마이크</a></li>
+                <li class="active"><a>서울 정책 오픈마이크</a><span></span><span></span></li>
                 <li><a>서울 협치 공론</a></li>
                 <li><a>마을 민주주의 토론</a></li>
                 <li><a>서울정책, 노래해요</a></li>
@@ -133,11 +133,68 @@
                         <li>- 정책낱말</li>
                     </ul>
             </ul>
+            <ul class="here-program-list">
+                <li class="list-title"><a>여기서도, 민주주의 편의시설</a></li>
+                <li><a>종합안내소</a></li>
+                <li><a>운영본부</a></li>
+                <li><a>응급부스</a></li>
+                <li><a>통역부스</a></li>
+            </ul>
         </div>
-
+        <button class="sticky"></button>
     </section>
-    <section class="event">
+    <section class="schedule">
         <div class="container">
+            <ul class="status-bar-wrap">
+                <li></li>
+                <li></li>
+                <li class="current-page"></li>
+                <li></li>
+            </ul>
+            <h1 class="title">행사일정</h1>
+            <div class="first-day"><span>9월 20일(금)</span></div>
+            <div class="second-day"><span>9월 21일(토)</span></div>
+            <ul class="time-wrap">
+                <li>11:00 ~ 12:00</li>
+                <li>12:00 ~ 13:00</li>
+                <li>13:00 ~ 14:00</li>
+                <li>14:00 ~ 15:00</li>
+                <li>15:00 ~ 16:00</li>
+                <li>16:00 ~ 17:00</li>
+                <li>17:00 ~ 18:00</li>
+                <li>18:00 ~ 18:30</li>
+                <li>18:30 ~ 19:00</li>
+                <li>19:00 ~ 20:00</li>
+                <li>20:00 ~ 21:00</li>
+            </ul>
+            <ul class="anytime-program-list">
+                <li class="list-title"><a>언제나, 민주주의 프로그램</a></li>
+                <li class="content"><div><a>서울 정책 오픈 마이크</a></span></div></li>
+                <li class="content"><a>축하공연</a></li>
+                <li class="content"><a>서울정책 오픈마이크</a></li>
+                <li class="content"><a>서울시민 공론장</a></li>
+                <li class="content"><a>나도 서울시 정책 제안가로서 말해요</a></li>
+                <li class="content"><a>서울시민 토론회</a></li>
+                <li class="content"><div><a>서울정책, 노래해요</a></div></li>
+            </ul>
+            <ul class="anywhere-program-list">
+                <li class="list-title"><a>어디서나, 민주주의 프로그램</a></li>
+                <li class="content"><a>내가 그리는 민주주의</a></li>
+                <li class="content"><a>나도 서울시 정책제안가</a></li>
+                <li class="content"><a>서울시민포럼</a></li>
+            </ul>
+            <ul class="anyone-program-list">
+                <li class="list-title"><a>누구나, 민주주의 프로그램</a></li>
+                <li class="top content"><a>서울정책 쉼표마당</a>
+                    <ul>
+                        <li>- 정책알리미</li>
+                        <li>- 정책휴대폰</li>
+                        <li>- 정책전시</li>
+                        <li>- 정책보드게임</li>
+                    </ul>
+                    <a>정책홍보부스</a></li>
+                    <li class="bottom content"><a>서울 속 정책캠핑</a></li>
+            </ul>
         </div>
     </section>
     <section class="map">
@@ -146,22 +203,41 @@
                 <li></li>
                 <li></li>
                 <li></li>
-                <li></li>
+                <li class="current-page"></li>
             </ul>
             <h1 class="title">오시는길</h1>
         </div>
         <img src="img/layer-8.png">
         <div class="path">
-
+            <h4 class="title">오시는길</h4>
+            <div class="line1-wrap">
+                <div class="circle"><span>1</span></div>
+                <div class="content">1호선 시청역 5번출구 서울광장</div>
+            </div>
+            <div class="line2-wrap">
+                <div class="circle"><span>2</span></div>
+                <div class="content">2호선 을지로 입구역 8번출구 서울광장</div>
+            </div>
         </div>
 
         <div class="loc">
+            <h4 class="title">위치정보</h4>
 
+            <div class="addr-wrap">
+                <div class="circle"><img src="img/placeholder.png"></div>
+                <div class="content">서울특별시 중구 태평로2가 17-2</div>
+            </div>
+
+            <div class="tel-wrap">
+                <div class="circle"><img src="img/phone-call.png"></div>
+                <div class="content">070. 4498. 8542</div>
+            </div>
+            
         </div>
     </section>
 
     <footer>
-        <p></p>
+        <p>Copyright 2019. Life is a Festival. All rights reserved.</p>
     </footer>
 
 </body>
