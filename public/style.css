@@ -309,9 +309,9 @@
 }
 
 .map-check{
-    position: absolute;
+    position: relative;
     top: 77;
-    left: 0;
+    /* left: 0; */
 }
 .map-check ul{
     width: 1200;
@@ -364,6 +364,17 @@
     float: left;
 }
 
+.introduce-slogan ul li:after{
+    content: "";
+    clear: both;
+    display: block;
+    width: inherit;
+    height: 1;
+    background: #2f4475;
+    margin-top: -50;
+    opacity: 0.2;
+}
+
 .introduce-slogan ul li:nth-child(2){
     color:#f4af64;
 }
@@ -378,13 +389,14 @@
     font-weight: bold;
 }
 .introduce-text-box{
-    width: 1200px;
+    /* width: 1200px; */
     position: relative;
-    bottom: 0;
+    bottom: -526;
+    margin: 0 100;
 }
 
 .introduce-text{
-    width: 100%;
+    /* width: 100%; */
     /* position: absolute;
     top: 526;
     left: 50%;
@@ -392,7 +404,7 @@
     display: flex;
     /* justify-content: space-between; */
     text-align: justify;
-    margin: 0 -40;
+    /* margin: 0 -40; */
 }
 
 .introduce-text p{
@@ -524,12 +536,13 @@
     width: 1200px;
     margin: 0 auto;
     position: relative;
-    padding: 175 0 140 0;
+    /* padding: 175 0 140 0; */
 }
 
 .table-date{
     display: flex;
     justify-content: center;
+    margin-top: 120;
 }
 .table-date ul{
     display: flex;
@@ -537,6 +550,7 @@
 .table-date ul li{
     margin: auto 15px;
     font-size: 24px;
+    /* height: 24; */
     font-weight: bold;
     color: #aaaaaa;
 }
@@ -756,7 +770,7 @@
 }
 
 .map-area{
-    position: absolute;
+    position: relative;
     margin-top: 750;
     display: flex;
     font-size: 24px;
