@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    margin: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+main{
+ height: 1080px; 
+ background-image:url(img/pattern.png);  
+ display: flex;
+ justify-content: center;
+ align-items: flex-end;
+ position: relative;
+}
+
+main .background-stick{
+    position:absolute;
+    top: 0;
+    right: 5.6%;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #32cada;
+    z-index: 3;
+}
+
+header .logo{
+    margin-left: 20%;
+}
+
+header nav{
+    margin-right: 20%;
+}
+
+header > nav > ul{
+    display: flex;
+    list-style-type: none;
+}
+
+header > nav > ul >li{
+    margin-left: 50px;
+    width: 61px;
+    height: 17px;
+}
+
+header > nav > ul >li >a{
+  width: 61px;
+  height: 17px;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -1.35px;
+  text-align: center;
+  color: rgba(51, 51, 51, 0.5);
+}
+
+main .container{
+ display: flex;
+ position: relative;
+ flex-direction: row;
+ justify-content: center;
+ width: 1141px;
+ height: 943px;
+}
+
+
+main .container .icon{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+}
+
+.container > .mic{
+    top: 67px;
+    left: 124px;
+}
+
+.container > .headphone{
+    top: 397px;
+    left: 49px;
+}
+
+.container > .earth{
+    top: 754px;
+    left: 172px;
+}
+
+.container > .share{
+    top: 193px;
+    right: 195px;
+}
+
+.container > .msg{
+    top: 526px;
+    right: 81px;
+}
+.container > .newspaper{
+    top: 672px;
+    right: 225px;
+}
+
+main .container .anytime{
+    position: absolute;
+    width: 322px;
+    height: 112px;
+    left: 0px;
+    top: 225px;
+    z-index: 2;
+}
+
+main .container .anyone{
+    position: absolute;
+    width: 322px;
+    height: 112px;
+    left: 0px;
+    top: 566px;
+    z-index: 2;
+}
+
+main .container .anywhere{
+    position: absolute;
+    width: 361px;
+    height: 112px;
+    right: 0px;
+    top: 387px;
+    z-index: 2;
+}
+
+main .container .phone{
+    position: absolute;
+    left: 250px;
+}
+
+
+main .container .content-wrap{
+    position:absolute;
+    top: 150px;
+    bottom: 139px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+main .container .phone-title {
+    width: 322px;
+    height: 119px;
+}
+
+main .container .phone-sub {
+  width: 304px;
+  height: 30px;
+  margin-top: 21px;
+  margin-bottom: 21px;
+  font-size: 28px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -2.1px;
+  text-align: center;
+  color: #666666;
+}
+
+main .container .date{
+  width: 474px;
+  left: 83px;
+  padding: 8px 0px 8px 0px;
+  border-radius: 26.5px;
+  background-color: #32cada;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
+  font-size: 26px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -1.95px;
+  text-align: center;
+  color: #ffffff;
+}
+
+main .container .content{
+    margin-top: 35px;
+    width: 270px;
+    height: 145px;
+    font-size: 22px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.55;
+    letter-spacing: -1.65px;
+    text-align: center;
+}
+
+main .container .content span{
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -1.8px;
+    color: #23aab7;
+}
+
+main .container .family{
+    padding-top: 54px;
+}
+
+main .container .submit {
+    all: unset;
+    width: 350px;
+    height: 70px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    background-color: #23aab7;
+}
+
+/* 메인 끝 */
+
+/* 인트로 시작 */
+
+.intro {
+    position: relative;
+    background-image:url(img/layer-4);
+    height: 820px;
+    object-fit: contain;
+}
+
+.intro .container{
+    position: absolute;
+    height: 628px;
+    width: 51%;
+    bottom: 0;
+    left: 24.5%;
+    right: 24.5%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.intro .slogan-wrap{
+    display: flex;
+    justify-content: space-around;
+}
+
+.intro .container .anytime{
+    width: 216px;
+    height: 144px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro .container .anytime h4{
+    all: unset;
+    font-size: 80px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: -6px;
+    text-align: left;
+    color: #3f5381;
+    height: 79px;
+    margin-top: 0px;
+    margin-bottom: 45px;
+}
+
+.intro .container .anytime div{
+  width: 102px;
+  height: 28px;
+  opacity: 0.2;
+  font-family: Montserrat;
+  font-size: 28px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 4.29;
+  letter-spacing: -2.1px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.intro .container .anyone{
+    width: 283px;
+    height: 144px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro .container .anyone h4{
+    all: unset;
+    font-size: 80px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: -6px;
+    text-align: left;
+    color: #f4af64;
+    height: 79px;
+    margin-top: 0px;
+    margin-bottom: 45px;
+}
+
+.intro .container .anyone div{
+  width: 102px;
+  height: 28px;
+  opacity: 0.2;
+  font-family: Montserrat;
+  font-size: 28px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 4.29;
+  letter-spacing: -2.1px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.intro .container .anywhere{
+    width: 216px;
+    height: 144px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro .container .anywhere h4{
+    all: unset;
+    font-size: 80px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: -6px;
+    text-align: left;
+    color: #3f5381;
+    height: 79px;
+    margin-top: 0px;
+    margin-bottom: 45px;
+}
+
+.intro .container .anywhere div{
+  width: 102px;
+  height: 28px;
+  opacity: 0.2;
+  font-family: Montserrat;
+  font-size: 28px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 4.29;
+  letter-spacing: -2.1px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.intro .comment{
+    width: 100%;
+    height: 122px;
+}
+
+/* 인트로 끝 */
+
+.schedule {
+    position: relative;
+    height: 1322px;
+}
+
+.schedule .container{
+}
