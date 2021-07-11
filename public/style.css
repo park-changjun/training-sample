@@ -109,26 +109,29 @@ body{
 
 .container{
     width: 1200px;
-    /* height: 100%; */
+    height: 100%;
     margin: 0px auto;
     /* position: relative;
     top: 100px; */
-}
-
-.center-box{
-    /* width: 100%; */
-    margin: 0px auto;
-    /* width: 1200px; */
-    height: 100%;
+    /* display: flex;
+    justify-content: space-between; */
     position: relative;
 }
+.container.map{
+    height: 173px;
+}
+/* .center-box{
+    margin: 0px auto;
+    height: 100%;
+    position: relative;
+} */
 
 .mobile{
     width: 640px;
     height: 943px;
-    position: absolute;
-    /* top: 40px; */
-    bottom: 0px;
+    position: relative;
+    top: 140px;
+    /* bottom: 0px; */
     left: 50%;
     transform: translateX(-50%);
     background-image: url(./img-test/mobile.png);
@@ -193,7 +196,9 @@ body{
     font-family: NotoSansCJKkr-Regular;
 }
 
-
+.box{
+    z-index: 1;
+}
 
 .box.one{
     position: absolute;
@@ -206,7 +211,7 @@ body{
 }
 .box.two{
     position: absolute;
-    bottom: 261px;
+    bottom: 239px;
     left: 0px;
     width: 340px;
     height: 120px;
@@ -223,18 +228,13 @@ body{
     background-size: cover;
 }
 
-.visual-sticker{
-    height: 943px;
-    position: relative;
-    bottom: -100px;
-}
 .sticker-microphone{
     width: 100px;
     height: 100px;
     background-image: url(./img-test/icon-news-microphone@3x.png);
     background-size: cover;
     position: absolute;
-    top: 107px;
+    top: 228px;
     left: 124px;
 }
 .sticker-headphones{
@@ -243,7 +243,7 @@ body{
     background-image: url(./img-test/icon-headphones@3x.png);
     background-size: cover;
     position: absolute;
-    top: 437px;
+    top: 559px;
     left: 48px;
 }
 .sticker-www{
@@ -252,7 +252,7 @@ body{
     background-image: url(./img-test/icon-www.png);
     background-size: cover;
     position: absolute;
-    bottom: 40px;
+    bottom: 80px;
     left: 171px;
 }
 .sticker-share{
@@ -261,7 +261,7 @@ body{
     background-image: url(./img-test/icon-share@3x.png);
     background-size: cover;
     position: absolute;
-    top: 233px;
+    top: 334px;
     right: 194px;
 }
 .sticker-speech{
@@ -270,7 +270,7 @@ body{
     background-image: url(./img-test/icon-speech.png);
     background-size: cover;
     position: absolute;
-    bottom: 270px;
+    bottom: 313px;
     right: 80px;
 }
 .sticker-news{
@@ -279,7 +279,7 @@ body{
     background-image: url(./img-test/icon-news.png);
     background-size: cover;
     position: absolute;
-    bottom: 130px;
+    bottom: 170px;
     right: 250px;
 }
 
@@ -321,7 +321,6 @@ body{
 .map-check{
     padding-top: 70;
     /* display: inline-block; */
-    z-index: 9;
     
 }
 .map-check ul{
@@ -483,6 +482,8 @@ body{
     color: #ffffff;
     font-weight: bold;
     position: relative;
+    font-family: NotoSansCJKkr-Medium;
+    font-weight: 500;
 }
 
 .list p:after{
@@ -516,6 +517,9 @@ body{
     color: #888888;
     padding: 11px 14px 12px 25px;
     font-weight: bold;
+    font-family: NotoSansCJKkr-DemiLight;
+    font-weight: 300;
+    letter-spacing: 0.65px;
 }
 .list-items.check li:first-child{
     color: #2d53a4;
