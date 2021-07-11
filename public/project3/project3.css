@@ -10,6 +10,10 @@ body{
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+a{
+    cursor: pointer;
+}
+
 /* 메인시작 */
 
 main{
@@ -231,6 +235,7 @@ main .container .submit {
     color: white;
     font-size: 24px;
     background-color: #23aab7;
+    cursor: pointer;
 }
 
 /* 메인 끝 */
@@ -271,6 +276,7 @@ main .container .submit {
     margin-right: 2px;
     background-color:silver;
     margin-bottom: 19px;
+    cursor: pointer;
 }
 
 .status-bar div .active{
@@ -1170,9 +1176,11 @@ footer div{
   color: #ffffff;
 }
 
-footer img{
+footer button{
+    all: unset;
     position: fixed;
     right: 30px;
-    bottom: 30px
+    bottom: 30px;
+    cursor: pointer;
 }
 
