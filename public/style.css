@@ -908,3 +908,12 @@ body{
     color: #fff;
     font-family: NanumSquareB;
 }
+
+
+
+
+@media screen and (max-width:1200px){
+    .header-container, .container, .container.map, .program-box, .map-container{
+        width: 95%;
+    }
+}
