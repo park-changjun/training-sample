@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+*{
+    box-sizing: border-box;
+}
+
 body{
     margin: 0px;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+/* 메인시작 */
+
 main{
+ width: 100%;
  height: 1080px; 
  background-image:url(img/pattern.png);  
  display: flex;
@@ -19,6 +26,7 @@ main .background-stick{
     position:absolute;
     top: 0;
     right: 5.6%;
+    z-index: 2;
 }
 
 header{
@@ -30,9 +38,10 @@ header{
     align-content: center;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #32cada;
+    border-bottom: 1px solid #32c9da11;
     z-index: 3;
 }
+
 
 header .logo{
     margin-left: 20%;
@@ -66,6 +75,10 @@ header > nav > ul >li >a{
   color: rgba(51, 51, 51, 0.5);
 }
 
+header > nav > ul >li >a:hover{
+    color: black;
+  }
+
 main .container{
  display: flex;
  position: relative;
@@ -85,38 +98,38 @@ main .container .icon{
 
 .container > .mic{
     top: 67px;
-    left: 124px;
+   right: 917px;
 }
 
 .container > .headphone{
     top: 397px;
-    left: 49px;
+    right: 992px;
 }
 
 .container > .earth{
     top: 754px;
-    left: 172px;
+    right: 869px;
 }
 
 .container > .share{
     top: 193px;
-    right: 195px;
+    left: 846px;
 }
 
 .container > .msg{
     top: 526px;
-    right: 81px;
+    left: 960px;
 }
 .container > .newspaper{
     top: 672px;
-    right: 225px;
+    left: 816px;
 }
 
 main .container .anytime{
     position: absolute;
     width: 322px;
     height: 112px;
-    left: 0px;
+    right: 819px;
     top: 225px;
     z-index: 2;
 }
@@ -125,7 +138,7 @@ main .container .anyone{
     position: absolute;
     width: 322px;
     height: 112px;
-    left: 0px;
+    right: 819px;
     top: 566px;
     z-index: 2;
 }
@@ -134,14 +147,9 @@ main .container .anywhere{
     position: absolute;
     width: 361px;
     height: 112px;
-    right: 0px;
+    left: 819px;
     top: 387px;
     z-index: 2;
-}
-
-main .container .phone{
-    position: absolute;
-    left: 250px;
 }
 
 
@@ -199,7 +207,6 @@ main .container .content{
     font-weight: 300;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.55;
     letter-spacing: -1.65px;
     text-align: center;
 }
@@ -232,26 +239,132 @@ main .container .submit {
 
 .intro {
     position: relative;
-    background-image:url(img/layer-4);
+    background-image:url(img/layer-4.png);
     height: 820px;
     object-fit: contain;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* 스태이터스 바 */
+.status-bar{
+    position: absolute;
+    top:77px;
+    left: 390px;
+    width: 112px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.status-bar div{
+    display: flex;
+    width: 112px;
+}
+
+.status-bar div span{
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin-right: 2px;
+    background-color:silver;
+    margin-bottom: 19px;
+}
+
+.status-bar div .active{
+    width: 30px;
+    background-color: black;
+}
+.status-bar .current-title{
+    width: 112px;
+  height: 32px;
+  font-size: 33px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -2.55px;
+  text-align: center;
+}
+
+
+.intro .background-stick{
+    position: absolute;
+    left: 86px;
+    width: 240px;
+    height: 180px;
+    background-image: url(img/stick.png);
+}
+
+.intro .background-upstick{
+    position: absolute;
+    top: 684px;
+    right: 0;
+    width: 362px;
+    height: 362px;
+}
+
+.intro .cutting-circle{
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .intro .container{
     position: absolute;
     height: 628px;
-    width: 51%;
-    bottom: 0;
-    left: 24.5%;
-    right: 24.5%;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
+    width: 980px;
+    top: 250px;
 }
 
 .intro .slogan-wrap{
+    margin-left: 64px;
+    margin-right: 62px;
+    height: 270px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.slogan-wrap h4{
+    position: relative;
+}
+
+.slogan-wrap .anytime h4::after{
+        position:absolute;
+        content: '';
+        display: block;
+        width: inherit;
+        width: 215px;
+        height: 1px;
+        opacity: 0.2;
+        top: 100px;
+        background-color: #2f4475;
+}
+
+.slogan-wrap .anywhere h4::after{
+    position:absolute;
+    content: '';
+    display: block;
+    width: inherit;
+    width: 283px;
+    height: 1px;
+    opacity: 0.2;
+    top: 100px;
+    background-color: #f4af64;
+}
+
+.slogan-wrap .anyone h4::after{
+    position:absolute;
+    content: '';
+    display: block;
+    width: inherit;
+    width: 215px;
+    height: 1px;
+    opacity: 0.2;
+    top: 100px;
+    background-color: #3f5381;
 }
 
 .intro .container .anytime{
@@ -268,16 +381,14 @@ main .container .submit {
     font-weight: 100;
     font-stretch: normal;
     font-style: normal;
-    line-height: 2;
     letter-spacing: -6px;
     text-align: left;
     color: #3f5381;
     height: 79px;
     margin-top: 0px;
-    margin-bottom: 45px;
 }
 
-.intro .container .anytime div{
+.intro .container .anytime h1{
   width: 102px;
   height: 28px;
   opacity: 0.2;
@@ -286,52 +397,14 @@ main .container .submit {
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 4.29;
   letter-spacing: -2.1px;
   text-align: left;
   color: rgba(0, 0, 0, 0.7);
-}
-
-.intro .container .anyone{
-    width: 283px;
-    height: 144px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.intro .container .anyone h4{
-    all: unset;
-    font-size: 80px;
-    font-weight: 100;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 2;
-    letter-spacing: -6px;
-    text-align: left;
-    color: #f4af64;
-    height: 79px;
-    margin-top: 0px;
-    margin-bottom: 45px;
-}
-
-.intro .container .anyone div{
-  width: 102px;
-  height: 28px;
-  opacity: 0.2;
-  font-family: Montserrat;
-  font-size: 28px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 4.29;
-  letter-spacing: -2.1px;
-  text-align: left;
-  color: rgba(0, 0, 0, 0.7);
+  margin-top: 60px;
 }
 
 .intro .container .anywhere{
-    width: 216px;
+    width: 283px;
     height: 144px;
     display: flex;
     flex-direction: column;
@@ -344,16 +417,14 @@ main .container .submit {
     font-weight: 100;
     font-stretch: normal;
     font-style: normal;
-    line-height: 2;
     letter-spacing: -6px;
     text-align: left;
-    color: #3f5381;
+    color: #f4af64;
     height: 79px;
     margin-top: 0px;
-    margin-bottom: 45px;
 }
 
-.intro .container .anywhere div{
+.intro .container .anywhere h1{
   width: 102px;
   height: 28px;
   opacity: 0.2;
@@ -362,23 +433,746 @@ main .container .submit {
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 4.29;
   letter-spacing: -2.1px;
   text-align: left;
   color: rgba(0, 0, 0, 0.7);
+  margin-top: 60px;
+}
+
+.intro .container .anyone{
+    width: 216px;
+    height: 144px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro .container .anyone h4{
+    all: unset;
+    font-size: 80px;
+    font-weight: 100;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -6px;
+    text-align: left;
+    color: #3f5381;
+    height: 79px;
+    margin-top: 0px;
+}
+
+.intro .container .anyone h1{
+  width: 102px;
+  height: 28px;
+  opacity: 0.2;
+  font-family: Montserrat;
+  font-size: 28px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -2.1px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.7);
+  margin-top: 60px;
 }
 
 .intro .comment{
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     height: 122px;
 }
 
+.comment > div{
+    all: unset;
+    width: 450px;
+    text-align: justify;
+    font-size: 16px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.7px;
+}
+
+.comment > div > span {
+    font-weight: normal;
+}
+
 /* 인트로 끝 */
 
-.schedule {
+.program {
     position: relative;
     height: 1322px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.program .container{
+    position: absolute;
+    width: 1140px;
+    top: 148px;
+    bottom: 109px;
+    display: flex;
+}
+
+.program .container img{
+    width: 807px;
+    height: 1031px;
+}
+
+.program .program-list-wrap {
+margin-top: 120px;
+margin-left: 48px;
+display: flex;
+flex-direction: column;
+width: inherit;
+}
+
+.program .program-list-wrap li {
+    list-style-type: none;
+}
+
+.anytime-program-list {
+    all: unset;
+    height: 208px;
+}
+
+.anytime-program-list .list-title{
+    padding: 11px 111px 11px 16px;
+    background-color: #2d53a4;
+    border-bottom: none;
+}
+
+.anytime-program-list li a:hover{
+    color: #2d53a4;
+}
+
+.anytime-program-list li a div{
+    display: flex;
+    position: absolute;
+    width: 285px;
+    height: 18px;
+    top: 13px;
+    opacity: 0;
+}
+
+.anytime-program-list li a div:hover{
+    display: flex;
+    opacity: 1;
+}
+
+.anytime-program-list .icon span:nth-child(1){
+    width: 14px;
+    height: 14px;
+    border: 1px solid #2d53a4;
+    border-radius: 50%;
+    position: absolute;
+    left: 254px;
+    z-index: 2;
+    background-color: #ffffff;
+}
+
+.anytime-program-list .icon span:nth-child(2){
+    width: 14px;
+    height: 14px;
+    border-left: 1px solid #2d53a4;
+    position: absolute;
+    transform: rotate(45deg);
+    top: 8px;
+    left: 254px;
+    z-index: 1px;
+}
+
+
+.anywhere-program-list {
+    all: unset;
+}
+
+.anywhere-program-list a:hover{
+    color: #ed6e01;
+}
+
+.anywhere-program-list .list-title{
+    padding: 11px 98px 11px 16px;
+    background-color: #ed6e01;
+    border-bottom: none;
+}
+
+
+.anywhere-program-list li a div{
+    display: flex;
+    position: absolute;
+    width: 285px;
+    height: 18px;
+    top: 13px;
+    opacity: 0;
+}
+
+.anywhere-program-list li a div:hover{
+    display: flex;
+    opacity: 1;
+}
+
+.anywhere-program-list .icon span:nth-child(1){
+    width: 14px;
+    height: 14px;
+    border: 1px solid #ed6e01;
+    border-radius: 50%;
+    position: absolute;
+    left: 254px;
+    z-index: 2;
+    background-color: #ffffff;
+}
+
+.anywhere-program-list .icon span:nth-child(2){
+    width: 14px;
+    height: 14px;
+    border-left: 1px solid #ed6e01;
+    position: absolute;
+    transform: rotate(45deg);
+    top: 8px;
+    left: 254px;
+    z-index: 1px;
+}
+
+.anyone-program-list {
+    all: unset;
+}
+
+.anyone-program-list a:hover{
+    color: #23aab7;
+}
+
+.anyone-program-list .list-title{
+    padding: 11px 111px 11px 16px;
+    background-color: #23aab7;
+    border-bottom: none;
+}
+
+.anyone-program-list > li > ul{
+        all: unset;
+        font-size: 12px;
+        line-height: 2px;
+}
+
+.anyone-program-list > li > ul > li:nth-child(1) {
+    margin-top: 4px;
+}
+
+.anyone-program-list li a div{
+    display: flex;
+    position: absolute;
+    width: 285px;
+    height: 18px;
+    top: 13px;
+    opacity: 0;
+}
+
+.anyone-program-list li a div:hover{
+    display: flex;
+    opacity: 1;
+}
+
+.anyone-program-list .icon span:nth-child(1){
+    width: 14px;
+    height: 14px;
+    border: 1px solid #23aab7;
+    border-radius: 50%;
+    position: absolute;
+    left: 254px;
+    z-index: 2;
+    background-color: #ffffff;
+}
+
+.anyone-program-list .icon span:nth-child(2){
+    width: 14px;
+    height: 14px;
+    border-left: 1px solid #23aab7;
+    position: absolute;
+    transform: rotate(45deg);
+    top: 8px;
+    left: 254px;
+    z-index: 1px;
+}
+
+.here-program-list {
+    all: unset;
+}
+
+.here-program-list a:hover{
+    color: #574f9f;
+}
+
+.here-program-list .list-title{
+    padding: 11px 98px 11px 16px;
+    background-color: #574f9f;
+    border-bottom: none;
+}
+
+.here-program-list li a div{
+    display: flex;
+    position: absolute;
+    width: 285px;
+    height: 18px;
+    top: 13px;
+    opacity: 0;
+}
+
+.here-program-list li a div:hover{
+    display: flex;
+    opacity: 1;
+}
+
+.here-program-list .icon span:nth-child(1){
+    width: 14px;
+    height: 14px;
+    border: 1px solid #574f9f;
+    border-radius: 50%;
+    position: absolute;
+    left: 254px;
+    z-index: 2;
+    background-color: #ffffff;
+}
+
+.here-program-list .icon span:nth-child(2){
+    width: 14px;
+    height: 14px;
+    border-left: 1px solid #574f9f;
+    position: absolute;
+    transform: rotate(45deg);
+    top: 8px;
+    left: 254px;
+    z-index: 1px;
+}
+
+.program .program-list-wrap ul li{
+    padding: 11px 0px 11px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #888888;
+    border-width: 1px;
+    position: relative;
+}
+
+.program .program-list-wrap ul li a::after{
+    content: "";
+    display: block;
+    border-bottom: solid;
+    border-width: 1px;
+    position: absolute;
+    width: -webkit-fill-available;
+    bottom: 0px;
+    right: 0px;
+    opacity: 0.2;
+}
+
+.program .program-list-wrap .list-title a::after{
+    border-bottom: none;
+}
+
+.program .program-list-wrap ul li:nth-last-child(1) a::after{
+    border: none;
+}
+
+.list-title a{
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #ffffff !important;
+    border-bottom-width: 0px;
+}
+
+.list-title::after{
+    content : '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 39px;
+    right: -6px;
+    background-color: white;
+}
+
+
+/* program 끝  */
+
+
+/* schedule 시작 */
+.schedule{
+    width: 100%;
+    height: 1120px;
+    position: relative;
+    background-image: url(img/layer-4.png);
 }
 
 .schedule .container{
+    position: relative;
+    margin: 0 auto;
+    top: 258px;
+    height: 722px;
+    bottom: 140px;
+    width: 1016px;
 }
+
+.time-line{
+    position: absolute;
+    width: 111px;
+    left: 0px;
+    bottom: 0;
+    height: 672px;
+    width: 100px;
+    display: flex;
+    user-select: auto;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.schedule .anytime{
+    position: absolute;
+    height: 722px;
+    top: 0px;
+    bottom: 0px;
+    left: 119px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.schedule .title{
+    width: 285px;
+    height: 40px;
+    line-height: 40px;
+    color: #ffffff;
+    font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -1.2px;
+}
+
+.anytime > .event {
+    
+}
+
+.anytime .title{
+    background-color: #2d53a4;
+}
+
+.schedule .anytime .one-time{
+    margin-top: 11px;
+    height: 48px;
+    line-height: 48px;
+    background-color: #ffffff;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.35px;
+    color: #2d53a4;
+}
+
+.schedule .anytime .two-time{
+    height: 109px;
+    line-height: 109px;
+    background-color: #ffffff;
+    margin-top: 11px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.35px;
+    color: #2d53a4;
+}
+
+.schedule .anytime .event:nth-child(2){
+    margin-top: 16px;
+}
+
+.schedule .anytime .event:last-child{
+    margin-bottom: 6px;
+}
+
+.schedule .anywhere {
+    position: absolute;
+    height: 100%;
+    left: 424px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.anywhere > .event{
+    
+}
+
+.anywhere .title{
+    background-color: #ed6e01;
+}
+
+.schedule .anywhere .event:nth-child(2){
+    margin-top: 16px;
+}
+
+.schedule .anywhere .four-time{
+    height: 231px;
+    line-height: 231px;
+    background-color: #ffffff;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.35px;
+    color: #ed6e01;
+    margin-top: 11px;
+}
+
+.schedule .anywhere .event:last-child{
+    height: 170px;
+    line-height: 170px;
+    background-color: #ffffff;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.35px;
+    color: #ed6e01;
+    margin-top: 11px;
+    margin-bottom: 6px;
+}
+
+.schedule .anyone {
+    position: absolute;
+    height: 100%;
+    left: 729px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.anyone > .event{
+    
+}
+
+.anyone .title{
+    background-color: #23aab7;
+}
+
+.schedule .anyone .seven-time{
+    height: 414px;
+    line-height: 414px;
+    background-color: #ffffff;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.35px;
+    color: #23aab7;
+    margin-top: 16px;
+}
+
+.schedule .anyone .three-time{
+    height: 231px;
+    line-height: 231px;
+    background-color: #ffffff;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.35px;
+    color: #23aab7;
+    margin-top: 11px;
+    margin-bottom: 6px;
+}
+
+.event > div{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding-left: 11px;
+}
+
+.anywhere .event > div {
+    border: solid 1px #ed6e01;
+}
+
+.anytime .event > div {
+    border: solid 1px #2d53a4;
+}
+
+.anyone .event > div {
+    border: solid 1px #23aab7;
+}
+
+.event{
+    position: relative;
+    overflow: hidden;
+}
+
+.anytime .event::after{
+    content : '';
+    display: block;
+    background: url(img/layer-4.png);
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    position: absolute;
+    bottom: -7.5px;
+    right: -7.5px;
+    border-left: solid 1px #2d53a4;
+    background-color: white;
+}
+
+.anywhere .event::after{
+    content : '';
+    display: block;
+    background: url(img/layer-4.png);
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    position: absolute;
+    bottom: -7.5px;
+    right: -7.5px;
+    border-left: solid 1px #ed6e01;
+    background-color: white;
+}
+
+.anyone .event::after{
+    content : '';
+    display: block;
+    background: url(img/layer-4.png);
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    position: absolute;
+    bottom: -7.5px;
+    right: -7.5px;
+    border-left: solid 1px #23aab7;
+    background-color: white;
+}
+
+
+/* schedule 끝*/
+/* path 시작 */
+.path{
+    width: 100%;
+    height: 1120px;
+    position:relative;
+}
+
+.map{
+    position: absolute;
+    top: 173px;
+    width: 100%;
+    height: 530px;
+}
+
+.path .container{
+    position: relative;
+    width: 1140px;
+    height: 417px;
+    top: 703px;
+    margin: auto;
+    display: flex;
+}
+
+.path .content-wrap{
+    position: absolute;
+    top: 48px;
+    height: 210px;
+    width: 370px;
+}
+
+.path .content-wrap:first-child{
+    left: 0px;
+}
+
+.path .content-wrap:last-child{
+    right: 208px;
+}
+
+.path .title{
+    width: 100%;
+    height: 29px;
+    line-height: 29px;
+    font-size: 24px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -1.8px;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.path .content{
+    height: 30px;
+    font-size: 22px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.65px;
+    text-align: justify;
+    line-height: 30px;
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.path .content div{
+ width: 34px;
+ height: 34px;
+ color: #ffffff;
+ text-align: center;
+ border-radius: 50%;
+ margin-right: 22px;
+ 
+}
+
+.line-1{
+    background-color: #3d61ae;
+}
+.line-2{
+    background-color: #71ce7f;
+}
+
+.placeholder, .call{
+    border: solid 1px #23aab7;
+}
+
+/* path 끝 */
+
+/* footer 시작 */
+
+footer{
+    height: 100px;
+    background-color: black;
+    display: flex;
+}
+
+footer div{
+  margin: auto;
+    font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+footer img{
+    position: fixed;
+    right: 30px;
+    bottom: 30px
+}
+
