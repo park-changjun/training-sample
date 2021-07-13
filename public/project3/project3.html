@@ -10,8 +10,9 @@
 
 <body>
     <header>
-        <img class="logo" src="img/main-logo.png" alt="함께서울정착박람회">
-        <nav>
+        <div class="container">
+            <img class="logo" src="img/main-logo.png" alt="함께서울정착박람회">
+        <nav class>
             <ul>
                 <li><a class="active">축제소개</a></li>
                 <li><a>프로그램</a></li>
@@ -19,6 +20,7 @@
                 <li><a>오시는길</a></li>
             </ul>
         </nav>
+    </div>
     </header>
     <main>
         <img class="background-stick" src="img/stick.png">
@@ -58,16 +60,17 @@
         <img class="background-stick" src="img/stick.png">
         <img class="cutting-circle" src="img/intro-left-bottom.png">
         <img class="background-upstick" src="img/intro-right-bottom.png">
-        <div class="status-bar">
-            <div>
-                <span class="active"></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="current-title">축제소개</div>
-        </div>
+        
         <div class="container">
+            <div class="status-bar">
+                <div>
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="current-title">축제소개</div>
+            </div>
             <div class="slogan-wrap">
                 <div class="anytime">
                     <h4>언제나, </h4>
@@ -96,16 +99,17 @@
     </section>
 
     <section class="program">
-        <div class="status-bar">
-            <div>
-                <span></span>
-                <span class="active"></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="current-title">프로그램</div>
-        </div>
         <div class="container">
+            <div class="status-bar">
+                <div>
+                    <span></span>
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="current-title">프로그램</div>
+            </div>
+            <div class="program-wrap">
             <img src="img/vector-smart-object.png" alt="">
             <div class="program-list-wrap">
                 <ul class="anytime-program-list">
@@ -145,18 +149,25 @@
                 </ul>
             </div>
         </div>
+        </div>
     </section>
     <section class="schedule">
-        <div class="status-bar">
-            <div>
-                <span></span>
-                <span></span>
-                <span class="active"></span>
-                <span></span>
-            </div>
-            <div class="current-title">행사일정</div>
-        </div>
         <div class="container">
+            <div class="status-bar">
+                <div>
+                    <span></span>
+                    <span></span>
+                    <span class="active"></span>
+                    <span></span>
+                </div>
+                <div class="current-title">행사일정</div>
+            </div>
+            <div class="date">
+                <div>9월 20일(금)</div>
+                <div>9월 21일(토)</div>
+            </div>
+            
+        <div class="timetable-wrap">
             <div class="time-line">
                 <div>11:00 ~ 12:00</div>
                 <div>12:00 ~ 13:00</div>
@@ -221,20 +232,22 @@
                     <div>서울 속 정책캠핑</div>
                 </div>
             </div>
+            </div>
         </div>
     </section>
     <section class="path">
-        <div class="status-bar">
-            <div>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span class="active"></span>
-            </div>
-            <div class="current-title">오시는길</div>
-        </div>
-        <img class="map" src="img/layer-8.png">
+        <div class="map"><img src="img/layer-8.png"></div>
         <div class="container">
+            <div class="status-bar">
+                <div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span class="active"></span>
+                </div>
+                <div class="current-title">오시는길</div>
+            </div>
+            <div class="content-container">
             <div class="content-wrap">
                 <div class="title">오시는길</div>
                 <div class="loute">
@@ -257,6 +270,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <footer>

@@ -46,27 +46,28 @@ header{
     z-index: 3;
 }
 
-
-header .logo{
-    margin-left: 20%;
-}
-
-header nav{
-    margin-right: 20%;
-}
-
-header > nav > ul{
+header .container {
+    margin: auto;
+    width: 1140px;
+    height: 100px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header  nav  ul{
+    display: flex;
+    align-items: center;
     list-style-type: none;
 }
 
-header > nav > ul >li{
+header  nav  ul li{
     margin-left: 50px;
     width: 61px;
     height: 17px;
 }
 
-header > nav > ul >li >a{
+header nav ul li a{
   width: 61px;
   height: 17px;
   font-size: 18px;
@@ -79,17 +80,18 @@ header > nav > ul >li >a{
   color: rgba(51, 51, 51, 0.5);
 }
 
-header > nav > ul >li >a:hover{
+header  nav  ul li a:hover{
     color: black;
   }
+
+
 
 main .container{
  display: flex;
  position: relative;
  flex-direction: row;
  justify-content: center;
- width: 1141px;
- height: 943px;
+ width: 1140px;
 }
 
 
@@ -151,7 +153,7 @@ main .container .anywhere{
     position: absolute;
     width: 361px;
     height: 112px;
-    left: 819px;
+    left: 779px;
     top: 387px;
     z-index: 2;
 }
@@ -255,13 +257,11 @@ main .container .submit {
 
 /* 스태이터스 바 */
 .status-bar{
-    position: absolute;
-    top:77px;
-    left: 390px;
-    width: 112px;
+    position: relative;
+    width: 1140px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .status-bar div{
@@ -283,6 +283,7 @@ main .container .submit {
     width: 30px;
     background-color: black;
 }
+
 .status-bar .current-title{
     width: 112px;
   height: 32px;
@@ -293,6 +294,11 @@ main .container .submit {
   line-height: normal;
   letter-spacing: -2.55px;
   text-align: center;
+}
+
+.intro .status-bar{
+    margin-top: 77px;
+    margin-bottom: 147px;
 }
 
 
@@ -319,10 +325,10 @@ main .container .submit {
 }
 
 .intro .container{
-    position: absolute;
-    height: 628px;
-    width: 980px;
-    top: 250px;
+    position: relative;
+    margin: auto;
+    width: 1140px;
+    z-index: 2;
 }
 
 .intro .slogan-wrap{
@@ -333,7 +339,7 @@ main .container .submit {
     justify-content: space-between;
 }
 
-.slogan-wrap h4{
+.slogan-wrap div{
     position: relative;
 }
 
@@ -345,8 +351,8 @@ main .container .submit {
         width: 215px;
         height: 1px;
         opacity: 0.2;
-        top: 100px;
         background-color: #2f4475;
+        top: 95px;
 }
 
 .slogan-wrap .anywhere h4::after{
@@ -357,8 +363,8 @@ main .container .submit {
     width: 283px;
     height: 1px;
     opacity: 0.2;
-    top: 100px;
     background-color: #f4af64;
+    top: 95px;
 }
 
 .slogan-wrap .anyone h4::after{
@@ -369,8 +375,8 @@ main .container .submit {
     width: 215px;
     height: 1px;
     opacity: 0.2;
-    top: 100px;
     background-color: #3f5381;
+    top: 95px;
 }
 
 .intro .container .anytime{
@@ -486,6 +492,7 @@ main .container .submit {
     justify-content: space-between;
     width: 100%;
     height: 122px;
+    margin-bottom: 209px;
 }
 
 .comment > div{
@@ -515,19 +522,26 @@ main .container .submit {
 
 
 .program .container{
-    position: absolute;
+    margin: auto;
     width: 1140px;
-    top: 148px;
-    bottom: 109px;
     display: flex;
+    flex-direction: column;
 }
 
 .program .container img{
-    width: 807px;
-    height: 1031px;
+    flex: 1;
+}
+
+.program .status-bar{
+    width: 1140px;
+}
+
+.program-wrap{
+    display: flex;
 }
 
 .program .program-list-wrap {
+width: 285px;
 margin-top: 120px;
 margin-left: 48px;
 display: flex;
@@ -820,19 +834,54 @@ width: inherit;
     height: 1120px;
     position: relative;
     background-image: url(img/layer-4.png);
+    display: flex;
+    align-items: center;
 }
 
 .schedule .container{
-    position: relative;
     margin: 0 auto;
-    top: 258px;
-    height: 722px;
-    bottom: 140px;
-    width: 1016px;
+    width: 1140px;
+}
+
+.schedule .status-bar{
+    margin-bottom: 41px;
+}
+
+.schedule .date{
+    display: flex;
+    justify-content: center;
+    width: 1140px;
+}
+
+.schedule .date div{
+    width: 115px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.8px;
+    text-align: left;
+    color: #aaaaaa;
+    margin-bottom: 60px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.schedule .date div:hover{
+    color: #23aab7;
+}
+
+
+.timetable-wrap{
+    margin: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .time-line{
-    position: absolute;
     width: 111px;
     left: 0px;
     bottom: 0;
@@ -842,17 +891,16 @@ width: inherit;
     user-select: auto;
     flex-direction: column;
     justify-content: space-around;
+    margin-right: 20px;
 }
 
 .schedule .anytime{
-    position: absolute;
     height: 722px;
-    top: 0px;
-    bottom: 0px;
     left: 119px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin-right: 20px;
 }
 
 .schedule .title{
@@ -867,9 +915,6 @@ width: inherit;
   letter-spacing: -1.2px;
 }
 
-.anytime > .event {
-    
-}
 
 .anytime .title{
     background-color: #2d53a4;
@@ -910,16 +955,12 @@ width: inherit;
 }
 
 .schedule .anywhere {
-    position: absolute;
-    height: 100%;
+    height: 722px;
     left: 424px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-}
-
-.anywhere > .event{
-    
+    margin-right: 20px;
 }
 
 .anywhere .title{
@@ -958,16 +999,11 @@ width: inherit;
 }
 
 .schedule .anyone {
-    position: absolute;
-    height: 100%;
+    height: 722px;
     left: 729px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-}
-
-.anyone > .event{
-    
 }
 
 .anyone .title{
@@ -1080,21 +1116,33 @@ width: inherit;
     position: absolute;
     top: 173px;
     width: 100%;
+}
+
+.map img{
+    width: inherit;
     height: 530px;
 }
 
 .path .container{
     position: relative;
     width: 1140px;
-    height: 417px;
-    top: 703px;
     margin: auto;
     display: flex;
+    flex-direction: column;
+}
+
+.path .status-bar{
+    margin-top: 81px;
+    margin-bottom: 617px;
+}
+
+.path .content-container{
+    width: 1140px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .path .content-wrap{
-    position: absolute;
-    top: 48px;
     height: 210px;
     width: 370px;
 }
@@ -1108,10 +1156,10 @@ width: inherit;
 }
 
 .path .title{
-    width: 100%;
-    height: 29px;
-    line-height: 29px;
-    font-size: 24px;
+  width: 100%;
+  height: 29px;
+  line-height: 29px;
+  font-size: 24px;
   font-weight: 400;
   font-stretch: normal;
   font-style: normal;
@@ -1140,7 +1188,6 @@ width: inherit;
  text-align: center;
  border-radius: 50%;
  margin-right: 22px;
- 
 }
 
 .line-1{
@@ -1166,7 +1213,7 @@ footer{
 
 footer div{
   margin: auto;
-    font-size: 12px;
+  font-size: 12px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -1180,7 +1227,7 @@ footer button{
     all: unset;
     position: fixed;
     right: 30px;
-    bottom: 30px;
+    bottom: 110px;
     cursor: pointer;
 }
 
