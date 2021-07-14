@@ -11,13 +11,33 @@ a{
     text-decoration: none;
 }
 
+.cover{
+    display: none;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+}
+.cover-active{
+    display: block;
+}
+
 /* 헤더 */
 header {
-    position : absolute; 
+    position : fixed; 
     top : 0;
     left : 0;
     right : 0;
-    z-index : 1;
+    z-index : 2;
+}
+.header-active{
+    background-color: black;
 }
 .container{
     width : 1200px;
@@ -31,6 +51,10 @@ header {
     left: 100%;
     transform: translateX(-100%);
     color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 3;
 }
 .lang span{
     font-size: 14px;
@@ -40,12 +64,25 @@ header {
     width : 7px;
     margin-left: 9px;
 }
+.lang-list{
+    background-color: rgba(0, 0, 0, 0.452);
+    color: white;
+    position: absolute;
+    display: none;
+}
+.lang-list ul{
+    z-index: 5;
+    padding : 0;
+    width: 91px;
+    list-style-type: none;
+}
 .nav{
     display : flex;
     justify-content: space-between;
     width : 1200px;
     padding-bottom : 20px;
     border-bottom : 1px solid white;
+    z-index: 1;
 }
 .nav-logo{
     display: inline-block;
@@ -69,22 +106,48 @@ header {
 .nav-menu ul li a{
     color: white;
 }
-.nav-menu button{
+.nav-menu .nav-search{
+    height: 100%;
+    display: flex;
+    align-items: center;
     margin-left: 35px;
     background-color: transparent;
     outline: none;
     border: none;
     padding : 0;
+    position: relative;
 }
-.nav-menu button img{
+.nav-search img{
+    z-index: 0;
     width : 34px;
 }
-
+.nav-search button{
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+}
+.search-input{
+    display: none;
+    width: 0px;
+    height: 60%;
+    background-color: white;
+    position: absolute;
+    right: 37px;
+    color: black;
+    z-index: 2;
+}
+.search-animated{
+    transition: all .6s ease-in-out;
+}
 
 /* top */
 .top{
+    width: 100%;
     background: url("img/bg.png");
-    height: 931px;
+    height: 100vh;
     color: white;
     background-size: cover;
     position : relative;
@@ -163,7 +226,7 @@ input:focus::placeholder{
 /* 중앙 */
 .middle{
     background-image: url("img/tab-background.png");
-    height: 766px;
+    height: 100vh;
     background-size: cover;
     position:relative;
 }
@@ -179,9 +242,11 @@ input:focus::placeholder{
     z-index:0;
 }
 .middle .container {
-    position:relative; 
+    position:absolute; 
     z-index:1;
-    top: 142px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 .middle-bg-msg{
     height: 107px;
@@ -261,6 +326,7 @@ input:focus::placeholder{
     width:2000px;
     margin:0;
     padding:0;
+    left: 0px;
     list-style-type:none;
     transform: translateX(4px);
     position: relative;
@@ -345,6 +411,7 @@ input:focus::placeholder{
     color: #000000;
 }
 .dot-active{
+    opacity: 1;
     color: #8a6e4f;
 }
 

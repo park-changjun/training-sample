@@ -1,16 +1,27 @@
 <html>
   <head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
     <link rel="stylesheet" href="main.css">
     <title>Sample Page</title>
   </head>
 
   <body>
     <header>
-      <!-- 헤더 -->
+      <!-- header -->
       <div class="container">
-        <a  href="#" class="lang"><span>Language</span><img src="img/lan-arrow.png" alt=""></a>
+        <button class="lang" onclick="langDropdown()">
+          <span>Language</span><img src="img/lan-arrow.png" alt="">
+          <div class="lang-list">
+            <ul>
+              <li onclick="alert('페이지 영어로 바꾸기');">English</li>
+              <li onclick="alert('페이지 한글로 바꾸기');">한국어</li>
+            </ul>
+          </div>
+        </button>
           <nav class="nav">
-            <img class="nav-logo" src="img/toplogo.png" alt="">
+            <a href="index.html">
+              <img class="nav-logo" src="img/toplogo.png" alt="">
+            </a>
             <div class="nav-menu">
               <ul>
                 <li><a href="#">바른 소개</a></li>
@@ -20,10 +31,14 @@
                 <li><a href="#">사회공헌</a></li>
                 <li><a href="#">인재채용</a></li>
               </ul>
-              <button type="button"><img class="nav-search" src="img/nav-search.png"></button>
+              <div class="nav-search" type="button">
+                <div class="cover"></div>
+                <input class="search-input" type="text">
+                <button type="submit"><img src="img/nav-search.png"></button>
+              </div>
             </div>
           </nav>
-        </div>
+        <!-- </div> -->
       </div>
     </header>
 
@@ -58,9 +73,9 @@
         <div class="middle-bg-msg">업무사례</div>
         <div class="middle-menu">
           <ul>
-            <li><a href="#">바른뉴스</a></li>
-            <li><a href="#" class="menu-active">업무사례</a></li>
-            <li><a href="#">언론보도</a></li>
+            <li><a id="바른뉴스">바른뉴스</a></li>
+            <li><a class="menu-active" id="업무사례">업무사례</a></li>
+            <li><a id="언론보도">언론보도</a></li>
           </ul>
           <a class="middle-menu-plus" href="#">+더보기</a>
         </div>
@@ -127,7 +142,7 @@
                 <article class="box">
                   <div class="box-top">
                     <img class="flag" src="img/flag.svg" alt="">
-                    <span>엔터테인먼트3</span>
+                    <span>엔터테인먼트4</span>
                   </div>
                   <p class="box-title"><a href="#">교정시설에 녹화장비 반입한 독립PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</a></p>
                   <p class="box-body"><a href="#">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하</a></p>
@@ -144,7 +159,10 @@
         </div>
 
         <!-- 아래 점 3개 -->
-        <div class="dot-container"><span class="dot-active">·</span><span class="dot">·</span><span class="dot">·</span></div>
+        <div class="dot-container">
+          <span class="dot dot-active">·</span>
+          <span class="dot">·</span>
+        </div>
       </div>
     </div>
 
@@ -157,7 +175,7 @@
       </div>
 
       <div class="bottom-right">
-        <a href="#">
+        <a href="https://barunlaw.com/letter/97/newsletter97.html">
           <div class="bottom-box">
             <div class="bottom-box-date date-active">2021.MARCH</div>
             <div class="bottom-box-title">
@@ -166,11 +184,11 @@
             </div>
           </div>
         </a>
-        <a href="#">
+        <a href="https://barunlaw.com/letter/97/newsletter97.html">
           <div class="bottom-box">
-            <div class="bottom-box-date">2021.MARCH</div>
+            <div class="bottom-box-date">2021.FEB</div>
             <div class="bottom-box-title">
-              <div class="newsletter-title">법무법인(유한)바른 뉴스레터-제94호 (2021.03)</div>
+              <div class="newsletter-title">법무법인(유한)바른 뉴스레터-제93호 (2021.02)</div>
               <div class="right-arrow"></div>
             </div>
           </div>
@@ -196,16 +214,6 @@
     </footer>
 
 
-    <script>
-      const right = document.querySelector('.right');
-      right.addEventListener('click', function(){
-        document.querySelector('.box-container ul').style.left = "-408px";
-      });
-
-      const selectedMenu = document.querySelectorAll('.middle-menu ul li a');
-
-
-
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
