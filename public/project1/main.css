@@ -16,9 +16,6 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-bottom: outset;
-  border-width: thin;
-  padding-bottom: 20px;
 }
 
 
@@ -90,16 +87,19 @@ position: relative;
     color: #ffffff;
 }
 
-.header{
+header{
     width: 100%;
     height: 110px;
     left: 0;
-    top: 13px;
-    z-index: 1;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    z-index: 3;
     position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 1s;
+    border-bottom: solid 1px #ffffff1f;
 }
 
 .header-text-box{
@@ -503,8 +503,7 @@ justify-content: center;
 
 .nav-bar{
   display: flex;
-  align-items: flex-end;
-  height: 85.23px;
+  align-items: center;
 }
 
 .scroll-wrap p{

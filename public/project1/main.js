@@ -186,3 +186,15 @@ const searchFilter = () => {
 }
 
 searchInput.addEventListener('keyup', searchFilter);
+
+// 스크롤시 header 속성 변경
+const header = document.querySelector('header');
+const test = () => {
+    if ((window.scrollY) >= 110) {
+        header.style.backgroundColor = '#0000009e';
+        } else{
+            header.style.backgroundColor = 'unset';
+        }
+}
+
+document.addEventListener('scroll',test);
