@@ -6,8 +6,6 @@
 </head>
 
 <body>
-
-
     <main id="main">
 
         <header class="header">
@@ -63,21 +61,27 @@
         </header>
 
         <div class="visual">
-            <div class="visual_title">WE DO THINGS RIGHT<br>FOR YOUR RIGHT</div>
-            <div class="visual_search">
-                <input onclick="input_click()" type="search" id="search" placeholder="" />
 
-                <div class="search_btn">
-                    <a href="#"><img src="img/search-button-big.png" alt="검색"></a>
+            <div class="visual_box">
+                <div class="visual_title">WE DO THINGS RIGHT<br>FOR YOUR RIGHT</div>
+                <div class="visual_search">
+                    <input type="search" id="search" placeholder="" />
+                    <!-- <input  onclick="input_click()" type="search" id="search" placeholder="" /> -->
+
+                    <div class="search_btn">
+                        <a href="#"><img src="img/search-button-big.png" alt="검색"></a>
+                    </div>
                 </div>
+                <!--visual_search-->
             </div>
-            <!--visual_search-->
 
-            <div class="scroll">
+            <div class="scroll_btn">
                 <a href="#">scroll
                     <img src="img/arrow-down.png" alt="스크롤">
                 </a>
             </div>
+
+
         </div>
         <!--visual-->
     </main>
@@ -92,10 +96,18 @@
                 <h2 class="content-under-txt">업무사례</h2>
 
                 <ul>
-                    <li><a href="#">바른뉴스</a></li>
-                    <li><a href="#">업무사례</a></li>
-                    <li><a href="#">언론보도</a></li>
+                    <li class="content_manu1">바른뉴스</li>
+                    <li class="content_manu2">업무사례</li>
+                    <li class="content_manu3">언론보도</li>
                 </ul>
+
+                <!-- <div class="content_manu">
+                    <button class="content_nav_manu" onclick="chacgeBtnName()">바른뉴스</button>
+                    <button class="content_nav_manu" onclick="chacgeBtnName()">바른뉴스</button>
+                    <button class="content_nav_manu" onclick="chacgeBtnName()">바른뉴스</button>
+                </div> -->
+
+
                 <a href="https://barunlaw.com/barunnews/S" class="more">+더보기</a>
             </nav>
             <!--content_nav-->

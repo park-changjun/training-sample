@@ -29,23 +29,36 @@ body{
 
 .header{
     width: 100%;
+    position: fixed;
+    z-index: 9;
 }
 
 .header-container{
     width: 1200px;
-    height: 111px;
+    /* height: 111px; */
     margin: 0px auto;
 }
 
-/* .header-top{
-    width: 1200px;
-    text-align: right;
-    position:absolute;
+
+/* 헤더 스크롤 */
+.scroll{
+    background:rgba(0,0,0, 0.6) !important;  
+    height: 100px;
+}
+.scroll .logo{
+    margin: 20px auto;
+}
+.scroll .header-nav ul{
+    display: none;
+}
+.scroll .language_dropdown{
+    display: none;
 }
 
-.header-top a{
-    color: #ffffff;
-} */
+.scroll .header-bottom{
+    height: 100px;
+}
+
 
 
 /* 헤더 드롭다운바 */
@@ -159,17 +172,25 @@ body{
 /* visual */
 
 .visual{
-    width: 500px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%); 
-    position: relative;
+    width: 100%;
+    height: 100%;
+    /* position: relative; */
 }
+
+.visual_box{
+    /* width: 500px; */
+    /* height: 560px; */
+    position: absolute;
+    bottom: 353px;
+    left: 50%;
+    transform: translateX(-50%); 
+
+}
+
 .visual_title{
     width: 400px;
-    height: 80px;
-    padding: 256px 0px 0px 0px;
+    /* height: 80px; */
+    padding-bottom: 60px;
     font-size: 36px;
     text-align: center;
     margin: 0px auto;
@@ -178,15 +199,8 @@ body{
 
 .visual_search{
     width: 500px;
-    /* height: 42px; */
     display: flex;
-    justify-content: space-between;
-    margin: 55px auto 0px;
     border-bottom: 1px solid #ffffff;
-    /* text-align: right; */
-    /* justify-content: flex-end; */
-    line-height: 50px;
-    padding-bottom: 15px;
 }
 
 .visual_search input{
@@ -209,21 +223,29 @@ input:focus {
     border-radius: 50%;
 }
 
-.scroll{
+.search_btn a{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.scroll_btn{
     width: 56px;
     text-align: center;
     font-size: 14px;
     font-weight: bold;
     margin: 0px auto;
     padding: 280px 0px 20px 0px;
-    display: flex;
-    justify-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.scroll a{
+.scroll_btn a{
     color: #ffffff;
 }
-.scroll img{
+.scroll_btn img{
     text-align: center;
     margin: 0px auto;
     margin-top: 10px;
@@ -258,7 +280,6 @@ input:focus {
 
 .content_inner{
     width: 1200px;
-    height: auto;
     margin: 0px auto;
     text-align: center;
     position: relative;
@@ -271,7 +292,7 @@ input:focus {
     color : rgba(0,0,0,0.1);
     line-height: 107px;
     position: absolute;
-    top: 130;
+    /* top: 130; */
     font-weight: 100;
     opacity: 10;
     z-index: -1;
@@ -279,17 +300,31 @@ input:focus {
     /* margin-bottom: -15px; */
 }
 
+/* .content_manu{
+    width: 1200px;
+    height: 107px;
+    display: flex;
+    margin: 122px auto 0px;
+}
+
+.content_nav_manu{
+    width: 106px;
+    line-height: 107px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 14px;
+} */
+
+
 .content_nav{
     width: 1200px;
     height: 107px;
     display: flex;
     justify-content: space-between;
-    margin: 0px auto;
-    padding-top: 122px;
+    margin: 122px auto 0px;
 }
 
 .content_nav ul{
-    /* width: 400px; */
     height: 107px;
     line-height: 107px;
     display: flex;
@@ -299,24 +334,36 @@ input:focus {
 
 .content_nav ul li{
     margin-right: 18px;
+    color: #999999;
+    z-index: 9;
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
 }
-
+/* 
 .content_nav ul li a{
     color: #999999;
     z-index: 9;
     display: block;
     font-size: 30px;
 
-}
+} */
 
-.content_nav ul li:nth-child(2) a{
+/* .content_nav ul li:nth-child(2) a{
     font-weight: bold;
     color :#333;
-}
+} */
 
 .content_nav ul li:last-child{
     margin-right: 0px;
 }
+
+/* .content_nav .active{
+    font-weight: bold;
+    color :#333;
+}
+ */
+
 
 /* +더보기 */
 .more{
@@ -368,6 +415,7 @@ input:focus {
     /* overflow:hidden; */
     position: relative;
     left: 0;
+    transition: 1s;
 }
 
 .list-wrapper-slider li{
@@ -389,6 +437,7 @@ input:focus {
     cursor: pointer;
     border: none;
     background:transparent;
+    display: none;
 }
 .next {
     right:0;
@@ -400,7 +449,13 @@ input:focus {
     background:transparent;
 }
 
+.next.disabled{
+    display: none;
+}
 
+.prev.disabled{
+    display: block;
+}
 
  /* .slide_btn{
     width: 52px;
