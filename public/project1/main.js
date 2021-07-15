@@ -7,31 +7,36 @@ const elementsBox = document.getElementsByClassName('elements-box');
 const prvBtn = document.getElementById('prvBtn');
 const nextBtn = document.getElementById('nextBtn');
 let currentTransform = 0;
-const TRANSFORM_UNIT = 408
+const TRANSFORM_UNIT = 408;
 
-const cardSlider = () => {
+const cardSliderPrv = () => {
     if (currentTransform < 6) {
         currentTransform++;
         for (let i = 0; i < elementsBox.length; i++) {
-            elementsBox[i].style.transform = `translateX(-${currentTransform * 408}px)`;
+            elementsBox[i].style.transform = `translateX(-${currentTransform * TRANSFORM_UNIT}px)`;
         }
     }
 }
 
-const cardSlider2 = () => {
+const cardSliderNext = () => {
     if (currentTransform > 0) {
         currentTransform--;
         for (let i = 0; i < elementsBox.length; i++) {
-            elementsBox[i].style.transform = `translateX(-${currentTransform * 408}px)`;
+            elementsBox[i].style.transform = `translateX(-${currentTransform * TRANSFORM_UNIT}px)`;
         }
     }
 }
 
-prvBtn.addEventListener('click', cardSlider);
-nextBtn.addEventListener('click', cardSlider2);
-
-
+prvBtn.addEventListener('click', cardSliderPrv);
+nextBtn.addEventListener('click', cardSliderNext);
 /* 슬라이드 루프 추가해야함 */
+
+
+
+/* opacity를 조정하는 상수 */
+const VISIBLE = '1';
+const INVISIBLE = '0';
+
 
 /* 드롭다운 */
 
@@ -39,7 +44,7 @@ const dropdown = document.getElementById('headerDropdown');
 const language = document.getElementById('language');
 let dropdownStatus = false;
 const menuToggle = () => {
-    const currentView = dropdownStatus === false ? '1' : '0';
+    const currentView = dropdownStatus === false ? VISIBLE : INVISIBLE;
     dropdown.style.opacity = currentView;
     dropdownStatus = !dropdownStatus;
 }
@@ -49,29 +54,32 @@ language.addEventListener('click', menuToggle);
 /* 드롭다운 끝 */
 
 
+
 /* 검색시 나오는 모달창 */
 const modal = document.getElementById('modal');
 const search = document.getElementById('search');
 let modalStatus = false;
+const BACK ='0';
+const FRONT = '3'
 const modalToggle = () => {
-    modal.style.opacity = modalStatus === false ? '1' : '0';
-    modal.style.zIndex = modalStatus === false ? '3' : '0';
+    modal.style.opacity = modalStatus === false ? VISIBLE : INVISIBLE;
+    modal.style.zIndex = modalStatus === false ? FRONT : BACK;
     dropdownStatus = !dropdownStatus;
 }
 search.addEventListener('click', modalToggle);
 
-// 스크롤이 감지되면 모달창을 꺼준다.
+
 const closeModal = () => {
-    modal.style.opacity = '0';
-    modal.style.zIndex = '0';
+    modal.style.opacity = INVISIBLE;
+    modal.style.zIndex = BACK;
     dropdownStatus = false;
-    console.log(10000);
 }
+
+// 스크롤이 감지되면 모달창을 꺼준다.
 window.addEventListener('scroll', closeModal);
 
 // 모달 배경 영역을 클리하면 모달창을 꺼준다.
 modal.addEventListener('click', closeModal);
-
 /* 모달창 정리 끝 */
 
 
