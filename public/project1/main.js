@@ -56,7 +56,7 @@ const cardSliderNext = () => {
             dotArr[1].classList.remove('active');
             dotArr[2].classList.add('active');
             break;
-
+        // 7번째, 8번째, 9번째 기사가 보여직 있을때 다음 버튼을 클릭하면 초기화면으로 돌아간다.
         case 6:
             elementsBoxs.forEach(item => {
                 item.style.transition = '1.5s';
