@@ -15,17 +15,6 @@
     background-size: cover;
 }
 
-/* #main-back-img {
-    width: 1920px;
-    height: 931px;
-    margin: 0 auto;
-    object-fit: contain;
-    position: absolute;
-    top: 0;
-    left: -25%;
-    z-index: -1;
-} */
-
 header,
 section,
 footer {
@@ -34,25 +23,51 @@ footer {
 }
 
 
+.modal-mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.336);
+}
 
 
-
+.modal-mask.active {
+    display: block;
+    z-index: 5;
+}
 
 
 
 /*********************************** header ***********************************/
+#wrapper-header {
+    width: 100%;
+    position: fixed;
+    border-bottom: 1px solid #ffffff73;
+    z-index: 5;
+}
+
+
 header {
+    margin: 0 auto;
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 110px;
     justify-content: space-between;
-    border-bottom: 1px solid #ffffff73;
 }
 
-#header-left img {
+#header-left {
+    padding: 30px 0 32px;
+    width: 236px;
     cursor: pointer;
+    background-image: url(./images/logo.png);
+    object-fit: contain;
+    background-repeat: no-repeat;
 }
 
 #header-right {
@@ -65,6 +80,7 @@ header {
     top: 5px;
     right: 6px;
     height: 20px;
+    padding: 8px 0;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -75,9 +91,11 @@ header {
     margin-right: 10px;
 }
 
-img[src="images/arrow.png"] {
-    height: 6px;
+#header-right-top i {
+    font-size: 11px;
 }
+
+
 
 
 #header-right-bottom,
@@ -85,16 +103,24 @@ img[src="images/arrow.png"] {
     display: flex;
     align-items: center;
     width: 607px;
+    z-index: 2;
 }
 
-#header-right-bottom {
-    padding-top: 37px;
+#header-right-bottom > ul > li,
+#header-right-bottom > ul > li > ul {
+    display: flex;
+    flex-direction: column;
 }
 
-#header-right-bottom ul li > a{
-    width: 60px;
-    height: 16px;
-    margin-right: 35px;
+#header-right-bottom > ul > li {
+    position: relative;
+}
+
+#header-right-bottom > ul > li > ul {
+    position: absolute;
+    top: 0;
+    width: fit-content;
+    /* margin-right: 35px; */
     font-size: 16px;
     font-weight: 600;
     font-stretch: normal;
@@ -105,14 +131,130 @@ img[src="images/arrow.png"] {
     color: #ffffff;
     cursor: pointer;
     transition: all ease-in 300ms;
+    margin-top: 62px;
+    display: none;
 }
 
-#header-right-bottom ul li > a:hover {
+#header-right-bottom > ul > li > ul.show {
+    display: block;
+}
+
+.show-flex {
+    display: flex;
+}
+
+#header-right-bottom > ul > li > a{
+    width: 60px;
+    height: 70px;
+    line-height: 70px;
+    padding: 0 23px 0 12px;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.2px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+#header-right-bottom > ul > li > ul > li {
+    transition: all ease-in 300ms;
+}
+
+#header-right-bottom > ul > li > ul > li:first-child {
+    padding-top: 10px;
+}
+
+
+#header-right-bottom {
+    padding-top: 37px;
+}
+
+#header-right-top > ul {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: 35px;
+    left: 7px;
+    overflow: hidden;
+    transition: all ease-in 300ms;
+    z-index: 3;
+}
+
+#header-right-top > ul.active {
+    height: 82px;
+}
+
+#header-right-top > ul > li {
+    padding-left: 10px;
+    width: 100%;
+    height: 41px;
+    background: rgba(0,0,0,0.8);
+    border-top: 1px solid #888;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+#header-right-top > ul > li > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 15px 14px 15px 0;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    text-align: center;
+    z-index: 11;
+}
+
+
+#header-right-bottom > ul > li > ul > li > a {
+    display: block;
+    width: 60px;
+    height: 70px;
+    line-height: 70px;
+    padding-right: 25px;
+    padding-left: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.2px;
+    text-align: center;
+    color: #666;
+    cursor: pointer;
+    transition: all ease-in 300ms;
+    border: 1px solid #eee;
+    margin-top: -1px;
+    background-color: #fff;
+}
+
+#header-right-bottom > ul > li > ul > li > a:hover {
+    background: #fafafa;
+    color: #1a4978;
+    font-weight: 600;
+}
+
+#header-right-bottom ul li a:hover {
     color: #e2b480;
 }
 
-#header-right-bottom > button {
+.toggle-search-button {
     all:unset;
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+}
+
+.toggle-search-button > div {
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+    background-image: url(./images/sch_icon_sub.png);
+    border-radius: 50%;
+    background-color:white;
 }
 
 
@@ -120,8 +262,81 @@ img[src="images/arrow.png"] {
     cursor: pointer;
 }
 
+.search-box.active {
+    z-index: 11;
+}
 
 
+.search-input-wrapper {
+    width: 0;
+    position: absolute;
+    bottom: 12px;
+    right: -13px;
+    height: 48px;
+    background: #fff;
+    color: #555;
+    font-size: 14px;
+    box-sizing: border-box;
+    opacity: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    transition: all ease-in 200ms;
+    z-index: -1;
+    overflow:hidden;
+}
+
+.search-input-wrapper.active {
+    width: 320px;
+    /* z-index: 11; */
+    opacity: 1;
+}
+
+.search-input {
+    width: 100%;
+    height: 48px;
+    padding: 15px;
+    background: #fff;
+    border: 2px solid #1a4978;
+    color: #555;
+    float: left;
+    font-size: 14px;
+    box-sizing: border-box;
+    opacity: 1;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+
+
+
+/* header-wrapper.active */
+#wrapper-header.active {
+    background-color: white;
+    border-bottom: 1px #1a4978 solid;
+}
+
+#wrapper-header.active #header-right-top i {
+    color: #555;
+}
+
+#wrapper-header.active > header > #header-left {
+    background-image: url(./images/logo_sub.png);
+}
+
+#wrapper-header.active .toggle-search-button > div {
+    background: #1a4978 url(../images/sch_icon.png) no-repeat center center;
+    background-size: contain;
+}
+
+#wrapper-header.active > header > #header-right > #header-right-top > p {
+    color: #555;
+}
+
+#wrapper-header.active > header > #header-right > #header-right-bottom > ul > li > a{
+    color: #555;
+}
 
 
 
@@ -341,12 +556,27 @@ img[src="images/arrow.png"] {
 }
 
 .cards-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    position:absolute;
-    bottom: 104;
+    display: block;
+    /* flex-direction: row; */
+    /* justify-content: space-around; */
+    position: absolute;
+    bottom: 104px;
     width: 100%;
+    overflow: hidden;
+    left: 0;
+    transition: all ease-in 300ms;
+}
+
+
+.cards-box {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    display: flex;
+}
+
+.cards-box.animated {
+    transition: all ease-in 300ms;
 }
 
 .cards-wrapper > ul {
@@ -366,13 +596,14 @@ img[src="images/arrow.png"] {
 
 
 .card {
-    width: 384px;
+    width: fit-content;
     height: 436px;
     border: 3px solid transparent;
     background-color: #ffffff;
     border-radius: 30px 0 30px 0;
     position: relative;
     transition: all ease-in 300ms;
+    margin: 0px 19px;
     float: left;
 }
 
@@ -394,19 +625,17 @@ img[src="images/arrow.png"] {
 }
 
 .card-label-shadow {
-    width: 5px;
-    height: 6px;
-
+    width: 4px;
+    height: 4px;
+    background-image: url(./images/flag-back.png);
     position: absolute;
     left: -5px;
     top: 79px;
-    border-radius: 0px 0px 0px 300px;
-    opacity: 0.9;
 }
 
 
 .card-title {
-    width: 324px;
+    width: 325px;
     height: 83px;
     margin: 0 0 29px;
     font-family: NotoSansCJKkr;
@@ -454,9 +683,9 @@ img[src="images/arrow.png"] {
 
 .card-img-wrapper {
     position: absolute;
-    bottom: 30;
+    bottom: 30px;
     display: flex;
-    right: 20;
+    right: 20px;
 }
 
 .card-img {

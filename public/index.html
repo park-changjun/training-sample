@@ -1,5 +1,10 @@
-<html>
+<!DOCTYPE html>
+<html lang="ko">
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <title>Sample Page</title>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="main.css" />
@@ -14,9 +19,10 @@
       })(document);
     </script>
     <link rel="Stylesheet" href="font.css" />
+    <script src="https://kit.fontawesome.com/5c7b32b093.js" crossorigin="anonymous"></script>
+    <script defer src="main.js"></script>
   </head>
   <body>
-
 
     <!-- all wrapper -->
     <div id="wrapper">
@@ -25,30 +31,96 @@
       <div id="wrapper-header-search">
 
         <!-- header -->
-        <header>
-          <div id="header-left">
-            <img src="images/logo.png" />
-          </div>
-          <div id="header-right">
-            <div id="header-right-top">
-              <p>Language</p>
-              <img src="images/arrow.png" />
+        <div id="wrapper-header">
+          <header>
+            <a id="header-left">
+              <!-- <img src="images/logo.png" /> -->
+            </a>
+            <div id="header-right">
+              <div id="header-right-top">
+                <p>language</p>
+                <i class="fas fa-chevron-down"></i>
+                <ul>
+                  <li><a>KOREAN</a></li>
+                  <li><a>ENGLISH</a></li>
+                </ul>
+              </div>
+              <div id="header-right-bottom">
+                <ul>
+                  <li class="header-list">
+                    <a href="#">바른소개</a>
+                    <ul>
+                      <li><a>바른소개</a></li>
+                      <li><a>바른소개</a></li>
+                      <li><a>바른소개</a></li>
+                      <li><a>바른소개</a></li>
+                      <li><a>바른소개</a></li>
+                    </ul>
+                  </li>
+                  <li class="header-list">
+                    <a href="#">업무분야</a>
+                    <ul>
+                      <li><a>업무분야</a></li>
+                      <li><a>업무분야</a></li>
+                      <li><a>업무분야</a></li>
+                    </ul>
+                  </li>
+                  <li class="header-list">
+                    <a href="#">구성원</a>
+                    <ul>
+                      <!-- <li><a>구성원</a></li>
+                      <li><a>구성원</a></li>
+                      <li><a>구성원</a></li>
+                      <li><a>구성원</a></li>
+                      <li><a>구성원</a></li> -->
+                    </ul>
+                  </li>
+                  <li class="header-list">
+                    <a href="#">자료실</a>
+                    <ul>
+                      <li><a>자료실</a></li>
+                      <li><a>자료실</a></li>
+                      <li><a>자료실</a></li>
+                      <li><a>자료실</a></li>
+                      <li><a>자료실</a></li>
+                      <li><a>자료실</a></li>
+                      <li><a>자료실</a></li>
+                    </ul>
+                  </li>
+                  <li class="header-list">
+                    <a href="#">사회공원</a>
+                    <ul>
+                      <li><a>사회공원</a></li>
+                      <li><a>사회공원</a></li>
+                      <li><a>사회공원</a></li>
+                      <li><a>사회공원</a></li>
+                    </ul>
+                  </li>
+                  <li class="header-list">
+                    <a href="#">인재채용</a>
+                    <ul>
+                      <li><a>인재채용</a></li>
+                      <li><a>인재채용</a></li>
+                      <li><a>인재채용</a></li>
+                      <li><a>인재채용</a></li>
+                      <li><a>인재채용</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <div class="search-box">
+                  <div class="search-input-wrapper">
+                    <input class="search-input" placeholder="검색어를 입력하세요">
+                  </div>
+                  <button class="toggle-search-button">
+                    <div></div>
+                  </button>
+                </div>
+                <div class="modal-mask"></div>
+              </div>
             </div>
-            <div id="header-right-bottom">
-              <ul>
-                <li><a href="#">바른소개</a></li>
-                <li><a href="#">업무분야</a></li>
-                <li><a href="#">구성원</a></li>
-                <li><a href="#">자료실</a></li>
-                <li><a href="#">사회공원</a></li>
-                <li><a href="#">인재채용</a></li>
-              </ul>
-              <button>
-                <img src="images/srch-button.png" alt="srch-button"/>
-              </button>
-            </div>
-          </div>
-        </header>
+          </header>
+        </div>
+
         <!-- header end -->
 
         <!-- search-section -->
@@ -79,21 +151,20 @@
       <div id="wrapper-card-section">
         <section id="card-section">
           <div class="card-section-letter">
-            <p>업무사례</p>
+            <p></p>
             <ul>
-              <li><a href="#">바른뉴스</a></li>
-              <li><a href="#">업무사례</a></li>
-              <li><a href="#">언론보도</a></li>
+              <li><a>바른뉴스</a></li>
+              <li><a>업무사례</a></li>
+              <li><a>언론보도</a></li>
             </ul>
           </div>
           <button class="card-showmore"><p>+ 더보기</p></button>
           <div class="cards-wrapper">
-            <ul>
-              <li>
+              <div class="cards-box">
                 <article class="card">
-                  <div class="card-label">M&A/기업지배구조</div>
+                  <div class="card-label">M&A/기업지배구조 1</div>
                   <div class="card-label-shadow">
-                    <img src="images/flag-back.png" alt="flag-back"/>
+                    <!-- <img src="images/flag-back.png" alt="flag-back"/> -->
                   </div>
                   <p class="card-title">교정시설에 녹화 장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</p>
                   <p class="card-content">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하 “</p>
@@ -105,9 +176,9 @@
                   </div>
                 </article>
                 <article class="card">
-                  <div class="card-label">M&A/기업지배구조</div>
+                  <div class="card-label">M&A/기업지배구조 2</div>
                   <div class="card-label-shadow">
-                    <img src="images/flag-back.png" alt="flag-back"/>
+                    <!-- <img src="images/flag-back.png" alt="flag-back"/> -->
                   </div>
                   <p class="card-title">교정시설에 녹화 장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</p>
                   <p class="card-content">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하 “</p>
@@ -119,9 +190,9 @@
                   </div>
                 </article>
                 <article class="card">
-                  <div class="card-label">M&A/기업지배구조</div>
+                  <div class="card-label">M&A/기업지배구조 3</div>
                   <div class="card-label-shadow">
-                    <img src="images/flag-back.png" alt="flag-back"/>
+                    <!-- <img src="images/flag-back.png" alt="flag-back"/> -->
                   </div>
                   <p class="card-title">교정시설에 녹화 장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</p>
                   <p class="card-content">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하 “</p>
@@ -132,96 +203,7 @@
                     <div class="card-img"><img /></div>
                   </div>
                 </article>
-              </li>
-              <li>
-                <article class="card">
-                  <div class="card-label">M&A/기업지배구조</div>
-                  <div class="card-label-shadow">
-                    <img src="images/flag-back.png" alt="flag-back"/>
-                  </div>
-                  <p class="card-title">교정시설에 녹화 장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</p>
-                  <p class="card-content">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하 “</p>
-                  <p class="card-date">2021.04.01</p>
-                  <div class="card-img-wrapper">
-                    <div class="card-img"><img /></div>
-                    <div class="card-img"><img /></div>
-                    <div class="card-img"><img /></div>
-                  </div>
-                </article>
-                <article class="card">
-                  <div class="card-label">M&A/기업지배구조</div>
-                  <div class="card-label-shadow">
-                    <img src="images/flag-back.png" alt="flag-back"/>
-                  </div>
-                  <p class="card-title">교정시설에 녹화 장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</p>
-                  <p class="card-content">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하 “</p>
-                  <p class="card-date">2021.04.01</p>
-                  <div class="card-img-wrapper">
-                    <div class="card-img"><img /></div>
-                    <div class="card-img"><img /></div>
-                    <div class="card-img"><img /></div>
-                  </div>
-                </article>
-                <article class="card">
-                  <div class="card-label">M&A/기업지배구조</div>
-                  <div class="card-label-shadow">
-                    <img src="images/flag-back.png" alt="flag-back"/>
-                  </div>
-                  <p class="card-title">교정시설에 녹화 장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</p>
-                  <p class="card-content">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하 “</p>
-                  <p class="card-date">2021.04.01</p>
-                  <div class="card-img-wrapper">
-                    <div class="card-img"><img /></div>
-                    <div class="card-img"><img /></div>
-                    <div class="card-img"><img /></div>
-                  </div>
-                </article>
-              </li>
-              <li>
-                <article class="card">
-                  <div class="card-label">M&A/기업지배구조</div>
-                  <div class="card-label-shadow">
-                    <img src="images/flag-back.png" alt="flag-back"/>
-                  </div>
-                  <p class="card-title">교정시설에 녹화 장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</p>
-                  <p class="card-content">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하 “</p>
-                  <p class="card-date">2021.04.01</p>
-                  <div class="card-img-wrapper">
-                    <div class="card-img"><img /></div>
-                    <div class="card-img"><img /></div>
-                    <div class="card-img"><img /></div>
-                  </div>
-                </article>
-                <article class="card">
-                  <div class="card-label">M&A/기업지배구조</div>
-                  <div class="card-label-shadow">
-                    <img src="images/flag-back.png" alt="flag-back"/>
-                  </div>
-                  <p class="card-title">교정시설에 녹화 장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</p>
-                  <p class="card-content">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하 “</p>
-                  <p class="card-date">2021.04.01</p>
-                  <div class="card-img-wrapper">
-                    <div class="card-img"><img /></div>
-                    <div class="card-img"><img /></div>
-                    <div class="card-img"><img /></div>
-                  </div>
-                </article>
-                <article class="card">
-                  <div class="card-label">M&A/기업지배구조</div>
-                  <div class="card-label-shadow">
-                    <img src="images/flag-back.png" alt="flag-back"/>
-                  </div>
-                  <p class="card-title">교정시설에 녹화 장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</p>
-                  <p class="card-content">법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널  주식회사(이하 “</p>
-                  <p class="card-date">2021.04.01</p>
-                  <div class="card-img-wrapper">
-                    <div class="card-img-wrapper"><img /></div>
-                    <div class="card-img-wrapper"><img /></div>
-                    <div class="card-img-wrapper"><img /></div>
-                  </div>
-                </article>
-              </li>
-            </ul>
+              </div>
           </div>
           <div class="card-pagenation">
             <button></button>
@@ -250,16 +232,20 @@
             <div class="show-more">+ 더보기</div>
           </div>
           <div id="letter-section-right">
-            <div class="letter-ractangle">
-              <p class="ractangle-date">2021.MARCH</p>
-              <p class="ractangle-content">법무법인(유한)바른 뉴스레터-제94호(2021.03)</p>
-              <img src="images/news-arrow-hover.png" alt="news-arrow-hover"/>
-            </div>
-            <div class="letter-ractangle">
-              <p class="ractangle-date">2021.MARCH</p>
-              <p class="ractangle-content">법무법인(유한)바른 뉴스레터-제94호(2021.03)</p>
-              <img src="images/news-arrow.png" alt="arrow-ui"/>
-            </div>
+            <a href="https://barunlaw.com/letter/96/newsletter96.html" target="_blank">
+              <div class="letter-ractangle">
+                <p class="ractangle-date">2021.MARCH</p>
+                <p class="ractangle-content">법무법인(유한)바른 뉴스레터-제94호(2021.03)</p>
+                <img src="images/news-arrow-hover.png" alt="news-arrow-hover"/>
+              </div>
+            </a>
+            <a href="https://barunlaw.com/letter/96/newsletter96.html" target="_blank">
+              <div class="letter-ractangle">
+                <p class="ractangle-date">2021.MARCH</p>
+                <p class="ractangle-content">법무법인(유한)바른 뉴스레터-제94호(2021.03)</p>
+                <img src="images/news-arrow.png" alt="arrow-ui"/>
+              </div>
+            </a>  
           </div>
         </section>
       </div>
@@ -285,6 +271,9 @@
 
     </div>
     <!-- all wrapper end -->
+
+
+    <!-- <div class="modal-mask"></div> -->
 
 
   </body>

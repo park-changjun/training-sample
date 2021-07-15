@@ -1,6 +1,7 @@
 a {
 	all:unset;
 	cursor: pointer;
+	color: black;
 }
 
 html, body, div, span, applet, object, iframe,
