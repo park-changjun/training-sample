@@ -15,8 +15,8 @@ a{
     display: none;
     position: fixed;
     overflow: hidden;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     top: 0;
     bottom: 0;
     left: 0;
@@ -83,6 +83,9 @@ header {
     padding-bottom : 20px;
     border-bottom : 1px solid white;
     z-index: 1;
+}
+.nav-active{
+    border-bottom : 1px solid black;
 }
 .nav-logo{
     display: inline-block;
@@ -158,6 +161,7 @@ header {
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
+    z-index: 1;
 }
 .slogan{
     text-align: center;
@@ -176,6 +180,17 @@ header {
     margin: 0 auto;
     padding-bottom : 10px;
     border-bottom: 1px solid white;
+}
+.search-result{
+    display: none;
+    background-color: white;
+    margin-top: 10px;
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top: 225px;
+    left: 0;
+    color: black;
 }
 input{
     border: none;
@@ -209,7 +224,8 @@ input:focus::placeholder{
     position: absolute;
     bottom:20px;
     left:50%;
-    transform: translateX(-50%); 
+    transform: translateX(-50%);
+    z-index: 1;
 }
 .scroll{
     padding: 0;
@@ -416,12 +432,11 @@ input:focus::placeholder{
 }
 
 /* 뉴스레터 */
-.bottom{
-    width : 1200px;
+.bottom .container{
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    margin-top: 60px;
+    padding-top: 60px;
 }
 /* 왼쪽 */
 .bottom-left{

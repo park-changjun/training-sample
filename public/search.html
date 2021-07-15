@@ -1,1 +1,72 @@
-<h1>Search</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      transition-duration: 0.8s;
+    }
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    div{
+      width: 100%;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <div class="section" style="background-color: white;">1</div>
+  <div class="section" style="background-color: skyblue;">2</div>
+  <div class="section" style="background-color: pink;">3</div>
+  <div class="section" style="background-color: palegoldenrod;">4</div>
+  <div class="section" style="background-color: violet;">5</div>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script>
+    window.onload = function(){
+      const elm = document.querySelectorAll('.section');
+      elm.forEach(function(item, index){
+        item.addEventListener('mousewheel', function(event){
+          event.preventDefault();
+          let delta = 0;
+
+          if (!event) event = window.event;
+          if (event.wheelDelta) {
+              delta = event.wheelDelta / 120;
+              if (window.opera) delta = -delta;
+          } 
+          else if (event.detail)
+              delta = -event.detail / 3;
+
+          let moveTop = window.scrollY;
+          let elmSelector = elm[index];
+          console.log(delta,moveTop,elmSelector, elmSelector.nextElementSibling);
+
+          if (delta < 0){
+            if (elmSelector !== 4){
+              try{
+                moveTop = window.pageYOffset + elmSelector.nextElementSibling.getBoundingClientRect().top;
+              }catch(e){}
+            }
+          }
+          else{
+            if (elmSelector !== 0){
+              try{
+                moveTop = window.pageYOffset + elmSelector.previousElementSibling.getBoundingClientRect().top;
+              }catch(e){}
+            }
+          }
+
+          const body = document.querySelector('html');
+          window.scrollTo({top:moveTop, left:0, behavior:'smooth'});
+        });
+      });
+    }
+  </script>
+</body>
+</html>

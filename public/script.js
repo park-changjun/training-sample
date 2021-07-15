@@ -43,7 +43,7 @@ function updateWidth(){
 
 function setInitialPosition(){
   const initialTranslateValue = -(slideWidth + slideMargin)*slideCount;
-  slides.style.transform = `translateX(${initialTranslateValue}px)`;
+  slides.style.transform = `translateX(${initialTranslateValue + 4}px)`;
 }
 
 nextBtn.addEventListener('click', function(){
@@ -128,19 +128,19 @@ function dotMove(currentIndex){
 // search-icon in nav bar
 const navSearchBtn = document.querySelector('.nav-search button');
 const searchDisplay = document.querySelector('.search-input');
-const cover = document.querySelector('.cover');
+const navCover = document.querySelector('.nav-search .cover');
 
 navSearchBtn.onclick = function searchOpen(){
   if (window.getComputedStyle(searchDisplay).display === "none") {
     searchDisplay.style.display = "block";
     searchDisplay.classList.add('search-animated');
-    cover.classList.add('cover-active');
+    navCover.classList.add('cover-active');
     document.querySelector('.lang').style.zIndex = 0;
     setTimeout(()=>searchDisplay.style.width = "300px", 10);
   }
   else {
     searchDisplay.style.width = "0px";
-    cover.classList.remove('cover-active');
+    navCover.classList.remove('cover-active');
     document.querySelector('.lang').style.zIndex = 3;
     setTimeout(()=>{
       searchDisplay.style.display = "none";
@@ -159,15 +159,93 @@ dropdown.onclick = function openList(){
 }
 
 // When scrolled, change the background color of header
-// source : https://wiki.jjagu.com/?p=51
+// src : https://wiki.jjagu.com/?p=51
 const header = document.querySelector('header');
+const nav = document.querySelector('.nav');
 const viewHeight = window.innerHeight - 111;
 
 window.addEventListener('scroll', function(){
   if (window.scrollY > viewHeight){
     header.classList.add('header-active');
+    nav.classList.add('nav-active');
   }
   else{
     header.classList.remove('header-active');
+    nav.classList.remove('nav-active');
   }
 });
+
+
+// When scrolled, move to the next section
+// src : http://2nusa.blogspot.com/2016/10/jquery-mouse-wheel.html
+window.onload = function(){
+  const elm = document.querySelectorAll('.section');
+  const elmCount = elm.length;
+  elm.forEach(function(item, index){
+    item.addEventListener('mousewheel', function(event){
+      event.preventDefault();
+      let delta = 0;
+
+      if (!event) event = window.event;
+      if (event.wheelDelta) {
+          delta = event.wheelDelta / 120;
+          if (window.opera) delta = -delta;
+      } 
+      else if (event.detail)
+          delta = -event.detail / 3;
+
+      let moveTop = window.scrollY;
+      let elmSelector = elm[index];
+
+      // wheel down : move to next section
+      if (delta < 0){
+        if (index !== elmCount-1){
+          try{
+            moveTop = window.pageYOffset + elmSelector.nextElementSibling.getBoundingClientRect().top;
+          }catch(e){}
+        }
+      }
+      // wheel up : move to previous section
+      else{
+        if (index !== 0){
+          try{
+            moveTop = window.pageYOffset + elmSelector.previousElementSibling.getBoundingClientRect().top;
+          }catch(e){}
+        }
+      }
+
+      if (index === 0) inputShow();
+
+      const body = document.querySelector('html');
+      window.scrollTo({top:moveTop, left:0, behavior:'smooth'});
+    });
+  });
+}
+
+
+// input에 text 입력시 아래 네모에서 보이게
+const inputBox = document.querySelector('.search input');
+const searchResultBox = document.querySelector('.search-result');
+const inputCover = document.querySelector('.top .cover');
+
+inputBox.addEventListener('focus', function(){
+  searchResultBox.style.display = 'block';
+  inputCover.classList.add('cover-active');
+});
+
+// input박스 이외의 영역 클릭 시 cover, 자동완성 박스 비활성화
+inputCover.onclick = function (){
+  if (inputCover.classList.contains('cover-active')){
+    inputCover.classList.remove('cover-active');
+    searchResultBox.style.display = 'none';
+    inputBox.blur();
+  }
+}
+
+function inputShow(){
+  if (inputCover.classList.contains('cover-active')){
+    inputCover.classList.remove('cover-active');
+    searchResultBox.style.display = 'none';
+    inputBox.blur();
+  }
+}
