@@ -248,3 +248,13 @@ function inputShow(){
     inputBox.blur();
   }
 }
+
+
+//메뉴 클릭시 하위 메뉴 나오게 하기
+const navMenu = document.querySelectorAll('.nav-menu-li');
+const navMenuDropdown = document.querySelectorAll('.nav-menu-dropdown');
+navMenu.forEach((item, index) => {
+  item.addEventListener('mouseover',function(){
+    navMenuDropdown.classList.add('nav-menu-dropdown-active');
+  });
+})

@@ -80,7 +80,6 @@ header {
     display : flex;
     justify-content: space-between;
     width : 1200px;
-    padding-bottom : 20px;
     border-bottom : 1px solid white;
     z-index: 1;
 }
@@ -102,12 +101,39 @@ header {
 }
 .nav-menu ul li{
     list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    margin-left: 45px;
+    padding-left: 45px;
+    color: white;
+    position : relative;
 }
 .nav-menu ul li a{
     color: white;
+}
+.nav-menu-li:hover .nav-menu-dropdown{
+    opacity: 1;
+    transition-duration: 0.3s;
+}
+.nav-menu .nav-menu-dropdown{
+    color: white;
+    display: block;
+    opacity: 0;
+    position : absolute;
+    padding: 0;
+    margin: 0;
+    width: 100px;
+}
+.nav-menu-dropdown li{
+    padding : 10px 5px !important;
+    top: 18px;
+    background-color: white;
+    color:rgb(53, 53, 53) !important;
+    font-weight: 300;
+    font-size: 14px;
+}
+.nav-menu .nav-menu-dropdown li a{
+    color: black;
+}
+.nav-menu .nav-menu-dropdown li a:hover{
+    color: rgb(0, 2, 131);
 }
 .nav-menu .nav-search{
     height: 100%;
@@ -200,8 +226,8 @@ input{
     color : white;
 }
 input::placeholder {
-    color : white;
-    font-size: 20px;
+    color : black;
+    font-size: 14px;
 }
 input:focus{
     outline : none;
@@ -436,7 +462,7 @@ input:focus::placeholder{
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    padding-top: 60px;
+    padding: 60px 0;
 }
 /* 왼쪽 */
 .bottom-left{
