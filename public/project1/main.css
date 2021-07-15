@@ -93,7 +93,7 @@ header{
     left: 0;
     padding-top: 13px;
     padding-bottom: 13px;
-    z-index: 3;
+    z-index: 5;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -761,7 +761,7 @@ opacity: 0.2;
 .copyright{
   width: 267px;
   height: 14px;
-  font-family: Montserrat;
+  font-family: Monterrat;
   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;

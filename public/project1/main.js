@@ -21,7 +21,7 @@ const cardSliderPrv = () => {
         }
     } else if (currentTransform === 0) {
         for (let i = 0; i < elementsBox.length; i++) {
-            elementsBox[i].style.transform = `translateX(-${11}px)`;
+            elementsBox[i].style.transform = `translateX(-${10}px)`;
         }
         setTimeout(() => {
             for (let i = 0; i < elementsBox.length; i++) {
@@ -77,16 +77,68 @@ const cardSliderNext = () => {
     }
 }
 
+const showFirstGroup = () => {
+    dotArr[0].classList.add('active');
+    dotArr[1].classList.remove('active');
+    dotArr[2].classList.remove('active');
+    for (let i = 0; i < elementsBox.length; i++) {
+        elementsBox[i].style.transition = '0.7s';
+        elementsBox[i].style.transform = `translateX(${0}px)`;
+        currentTransform = 0;
+    }
+    setTimeout(() => {
+        for (let i = 0; i < elementsBox.length; i++) {
+            elementsBox[i].style.transition = '0.5s';
+        }
+    }, 700);
+}
+
+const showSecondGroup = () => {
+    dotArr[0].classList.remove('active');
+    dotArr[1].classList.add('active');
+    dotArr[2].classList.remove('active');
+    for (let i = 0; i < elementsBox.length; i++) {
+        elementsBox[i].style.transition = '0.7s';
+        elementsBox[i].style.transform = `translateX(-1224px)`;
+        currentTransform = 3;
+    }
+    setTimeout(() => {
+        for (let i = 0; i < elementsBox.length; i++) {
+            elementsBox[i].style.transition = '0.5s';
+        }
+    }, 700);
+};
+
+const showthirdGroup = () => {
+    dotArr[0].classList.remove('active');
+    dotArr[1].classList.remove('active');
+    dotArr[2].classList.add('active');
+    for (let i = 0; i < elementsBox.length; i++) {
+        elementsBox[i].style.transition = '0.7s';
+        elementsBox[i].style.transform = `translateX(-2448px)`;
+        currentTransform = 6;
+    }
+    setTimeout(() => {
+        for (let i = 0; i < elementsBox.length; i++) {
+            elementsBox[i].style.transition = '0.5s';
+        }
+    }, 700);
+};
+
+dotArr[0].addEventListener('click', showFirstGroup);
+dotArr[1].addEventListener('click', showSecondGroup);
+dotArr[2].addEventListener('click', showthirdGroup);
 
 prvBtn.addEventListener('click', cardSliderPrv);
 nextBtn.addEventListener('click', cardSliderNext);
-/* 슬라이드 루프 추가해야함 */
+/* 슬라이드 끝 */
 
 
 
 /* opacity를 조정하는 상수 */
 const VISIBLE = '1';
 const INVISIBLE = '0';
+/* opacity를 조정하는 상수 */
 
 
 /* 드롭다운 */
@@ -158,7 +210,7 @@ report.addEventListener('click', () => {
 });
 /* 클릭시 클래스 부여하고 뒷배경 바꾸기 끝 */
 
-/* 인풋창에 글씨 입력시 모달창에 자동으로 입력 */
+/* 필터링 */
 const searchInput = document.querySelector('.search-text');
 const searchOutput = document.querySelector('.modal-text');
 
@@ -186,15 +238,16 @@ const searchFilter = () => {
 }
 
 searchInput.addEventListener('keyup', searchFilter);
+/* 필터링 끝 */
 
-// 스크롤시 header 속성 변경
+/* 스크롤시 header 속성 변경*/
 const header = document.querySelector('header');
-const test = () => {
+const changeHeaderBg = () => {
     if ((window.scrollY) >= 110) {
         header.style.backgroundColor = '#0000009e';
-        } else{
-            header.style.backgroundColor = 'unset';
-        }
+    } else {
+        header.style.backgroundColor = 'unset';
+    }
 }
-
-document.addEventListener('scroll',test);
+document.addEventListener('scroll', changeHeaderBg);
+/* 스크롤시 header 속성 변경끝*/
