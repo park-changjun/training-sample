@@ -9,7 +9,22 @@ body {
   box-sizing: border-box;
 }
 
+
+.nav-container{
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: outset;
+  border-width: thin;
+  padding-bottom: 20px;
+}
+
+
 /* 1페이지 시작 */
+
+
 
 main{
   width: 100%;
@@ -19,12 +34,17 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-size: cover;
 }
 
 .language{
 color: white;
 width: 1200px;
 text-align: right;
+}
+
+.language img{
+  cursor: pointer;
 }
 
 .language .content li{
@@ -71,10 +91,15 @@ position: relative;
 }
 
 .header{
-    width: 1200px;
-    height: 111px;
-    padding-top: 13px;
+    width: 100%;
+    height: 110px;
+    left: 0;
+    top: 13px;
     z-index: 1;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .header-text-box{
@@ -98,7 +123,7 @@ main .container{
   flex-direction: column;
   align-items: center;
   height: 563px;
-  margin-top: 287px;
+  margin-top: 398px;
   z-index: 4;
 }
 
@@ -141,21 +166,27 @@ main .container{
 
 
 .case-left-arrow {
+  all: unset;
+  cursor: pointer;
   width: 21px;
   height: 38px;
   object-fit: contain;
   position: absolute;
   left: 0px;
   top: 300px;
+  background-image: url(img/tab-arrow-left.png);
 }
 
 .case-right-arrow {
+  all: unset;
+  cursor: pointer;
   width: 21px;
   height: 38px;
   object-fit: contain;
   position: absolute;
   right: 0px;
   top:300px;
+  background-image: url(img/tab-arrow-right.png);
 }
      
 
@@ -207,6 +238,10 @@ main .container{
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.category-container > ul >  .active{
+  color: black;
 }
 
  .category-container > ul >  li:hover{
@@ -452,16 +487,7 @@ justify-content: center;
     border-width: thick;
 }
 
-.nav-container{
-    width: 1200px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: outset;
-    border-width: thin;
-    padding-bottom: 28px;
-}
+
 
 .header-logo{
     width: 233px;
@@ -604,6 +630,7 @@ justify-content: center;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.08);
     border: solid 2px #e3b583;
     transition: 0.7s;
+    opacity: 1;
   }
 
   .news-info{
@@ -619,13 +646,14 @@ justify-content: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    opacity: 0.7;
   }
 
   .news-info div{
     display: flex;
   }
 
-  .active-news-date{
+  /* .news-date{
     width: 96px;
     height: 12px;
     margin: 0 492px 13px 0;
@@ -637,7 +665,7 @@ justify-content: center;
     letter-spacing: -0.8px;
     text-align: left;
     color: #1f344a;
-  }
+  } */
 
   .news-date{
     width: 96px;
@@ -655,20 +683,6 @@ justify-content: center;
     opacity: 0.9;
   }
 
-  .active-news-cotent{
-    width: 450px;
-    height: 26px;
-   font-family: 'Noto Sans KR', sans-serif;
-    font-size: 24px;
-    line-height: 24px;
-    font-weight: 300;
-    font-stretch: normal;
-    font-style: normal;
-    letter-spacing: -1.8px;
-    text-align: left;
-    color: #333333;
-  }
-
   .news-cotent{
     width: 450px;
     height: 26px;
@@ -681,7 +695,6 @@ justify-content: center;
     letter-spacing: -1.8px;
     text-align: left;
     color: #333333;
-    opacity: 0.7;
   }
 
   .right-arrow{
@@ -767,24 +780,26 @@ opacity: 0.2;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.95);
   opacity: 0;
-  z-index: 0;
+  z-index: -1;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.2s;
 }
 
-.modal div{
+.modal .modal-text{
   width: 500px;
   height: 100px;
   color: white;
-  background-color: rgba(128, 128, 128, 0.507);
+  background-color: rgba(128, 128, 128, 0.6);
   border-radius: 5px;
   position: absolute;
   margin: auto;
-  top: 570px;
+  top: 620px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 1s;
 }

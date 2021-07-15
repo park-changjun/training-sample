@@ -7,35 +7,35 @@
 
 <body>
 
+  <header class="header">
+    <div class="language dropdown">Language <img src="img/arrow-down.svg" alt="" id="language">
+      <div class="content" id="headerDropdown">
+        <li><a href="KOREAN">KOREAN</a></li>
+        <li><a href="ENGLISH">ENGLISH</a></li>
+      </div>
+    </div>
+    <div class="nav-container">
+      <img src="img/logo.png" class="logo">
+      <nav class="nav-bar">
+        <ul class="main-menu">
+          <li><a>바론소개</a></li>
+          <li><a>업무분야</a></li>
+          <li><a>구성원</a></li>
+          <li><a>자료실</a></li>
+          <li><a>사회공헌</a></li>
+          <li><a>인재채용</a></li>
+        </ul>
+        <img src="img/srch-button.png" class="srch_button">
+      </nav>
+    </div>
+  </header>
   <main>
-    <header class="header">
-      <div class="language dropdown" id="language">Language <img src="img/arrow-down.svg" alt="">
-        <div class="content" id="headerDropdown">
-          <li><a href="KOREAN">KOREAN</a></li>
-          <li><a href="ENGLISH">ENGLISH</a></li>
-        </div>
-      </div>
-      <div class="nav-container">
-        <img src="img/logo.png" class="logo">
-        <nav class="nav-bar">
-          <ul class="main-menu">
-            <li><a>바론소개</a></li>
-            <li><a>업무분야</a></li>
-            <li><a>구성원</a></li>
-            <li><a>자료실</a></li>
-            <li><a>사회공헌</a></li>
-            <li><a>인재채용</a></li>
-          </ul>
-          <img src="img/srch-button.png" class="srch_button">
-        </nav>
-      </div>
-    </header>
     <div class="container">
-      <div class="header-text-box">
+      <div class="main-text-box">
         WE DO THINGS RIGHT<br>FOR YOUR RIGHT
       </div>
       <div class="search-box" id="search">
-        <input class="search-text" value="가사">
+        <input class="search-text" value="">
         <span><img src="img/search-button-big.png" class="search_button-big"></span>
       </div>
       <button class="scroll-wrap">
@@ -50,10 +50,10 @@
     <div class="grad"></div>
     <div class="container">
       <div class="middle-nav-bar">
-        <div class="middle-nav-background-font" id="bgFont">업무사례</div>
+        <div class="middle-nav-background-font" id="bgFont">바른뉴스</div>
         <nav class="category-container" id="categoryContainer">
           <ul>
-            <li id="barunNews">바른뉴스</li>
+            <li class="active" id="barunNews">바른뉴스</li>
             <li id="workCase">업무사례</li>
             <li id="report">언론보도</li>
           </ul>
@@ -61,13 +61,13 @@
         <div class="more-info">+ 더보기</div>
       </div>
       <div class="card-wrap">
-        <img src="img/tab-arrow-left.png" class="case-left-arrow" id="prvBtn">
+        <button class="case-left-arrow" id="prvBtn"></button>
         <div class="box-wrap">
           <ul class="elements-box-container" id="first">
             <li class="elements-box">
               <div class="box-content">
                 <div>
-                  <a class="category-block">M&A/기업지배구조</a>
+                  <a class="category-block">M&A/기업지배구조1</a>
                   <br>
                   <img class="flag-back" src="img/flag-back.png" class="flag_back">
                 </div>
@@ -86,7 +86,7 @@
             <li class="elements-box">
               <div class="box-content">
                 <div>
-                  <a class="category-block">M&A/기업지배구조</a>
+                  <a class="category-block">M&A/기업지배구조2</a>
                   <br>
                   <img class="flag-back" src="img/flag-back.png" class="flag_back">
                 </div>
@@ -105,7 +105,7 @@
             <li class="elements-box">
               <div class="box-content">
                 <div>
-                  <a class="category-block">M&A/기업지배구조</a>
+                  <a class="category-block">M&A/기업지배구조3</a>
                   <br>
                   <img class="flag-back" src="img/flag-back.png" class="flag_back">
                 </div>
@@ -124,7 +124,7 @@
             <li class="elements-box">
               <div class="box-content">
                 <div>
-                  <a class="category-block">M&A/기업지배구조</a>
+                  <a class="category-block">M&A/기업지배구조4</a>
                   <br>
                   <img class="flag-back" src="img/flag-back.png" class="flag_back">
                 </div>
@@ -143,7 +143,7 @@
             <li class="elements-box">
               <div class="box-content">
                 <div>
-                  <a class="category-block">M&A/기업지배구조</a>
+                  <a class="category-block">M&A/기업지배구조5</a>
                   <br>
                   <img class="flag-back" src="img/flag-back.png" class="flag_back">
                 </div>
@@ -162,7 +162,7 @@
             <li class="elements-box">
               <div class="box-content">
                 <div>
-                  <a class="category-block">M&A/기업지배구조</a>
+                  <a class="category-block">M&A/기업지배구조6</a>
                   <br>
                   <img class="flag-back" src="img/flag-back.png" class="flag_back">
                 </div>
@@ -181,7 +181,7 @@
             <li class="elements-box">
               <div class="box-content">
                 <div>
-                  <a class="category-block">M&A/기업지배구조</a>
+                  <a class="category-block">M&A/기업지배구조7</a>
                   <br>
                   <img class="flag-back" src="img/flag-back.png" class="flag_back">
                 </div>
@@ -200,7 +200,7 @@
             <li class="elements-box">
               <div class="box-content">
                 <div>
-                  <a class="category-block">M&A/기업지배구조</a>
+                  <a class="category-block">M&A/기업지배구조8</a>
                   <br>
                   <img class="flag-back" src="img/flag-back.png" class="flag_back">
                 </div>
@@ -219,7 +219,7 @@
             <li class="elements-box">
               <div class="box-content">
                 <div>
-                  <a class="category-block">M&A/기업지배구조</a>
+                  <a class="category-block">M&A/기업지배구조9</a>
                   <br>
                   <img class="flag-back" src="img/flag-back.png" class="flag_back">
                 </div>
@@ -237,7 +237,7 @@
             </li>
           </ul>
         </div>
-        <img src="img/tab-arrow-right.png" class="case-right-arrow" id="nextBtn">
+        <button class="case-right-arrow" id="nextBtn">
       </div>
       <div class="dot-wrap">
         <div class="active"></div>
@@ -257,9 +257,9 @@
       </div>
       <div class="news-box">
         <div class="news-info">
-          <a class="active-news-date">2021. March</a>
+          <a class="news-date">2021. March</a>
           <div>
-            <a class="active-news-cotent">법무법인(유한) 바른 뉴스레터 - 제 94호 (2021.03)</a><img class="right-arrow"
+            <a class="news-cotent">법무법인(유한) 바른 뉴스레터 - 제 94호 (2021.03)</a><img class="right-arrow"
               src="img/news-arrow-hover.png">
           </div>
         </div>
@@ -267,7 +267,7 @@
           <a class="news-date">2021. March</a>
           <div>
             <a class="news-cotent">법무법인(유한) 바른 뉴스레터 - 제 94호 (2021.02)</a><img class="right-arrow"
-              src="img/news-arrow.png">
+              src="img/news-arrow-hover.png">
           </div>
         </div>
       </div>
@@ -291,8 +291,8 @@
   </footer>
 
   <section class="modal" id="modal">
-    <div>
-      자동 완성되는 영역
+    <div class="modal-text">
+      어떤 법률적 자문이 필요하신가요?
     </div>    
   </section>
 
