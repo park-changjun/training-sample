@@ -223,7 +223,7 @@ window.onload = function(){
 }
 
 
-// input에 text 입력시 아래 네모에서 보이게
+// When we click input box, result box and cover open.
 const inputBox = document.querySelector('.search input');
 const searchResultBox = document.querySelector('.search-result');
 const inputCover = document.querySelector('.top .cover');
@@ -233,7 +233,7 @@ inputBox.addEventListener('focus', function(){
   inputCover.classList.add('cover-active');
 });
 
-// input박스 이외의 영역 클릭 시 cover, 자동완성 박스 비활성화
+// When we click outside of the input box, result box and cover disappear.
 inputCover.onclick = function (){
   if (inputCover.classList.contains('cover-active')){
     inputCover.classList.remove('cover-active');
@@ -241,7 +241,6 @@ inputCover.onclick = function (){
     inputBox.blur();
   }
 }
-
 function inputShow(){
   if (inputCover.classList.contains('cover-active')){
     inputCover.classList.remove('cover-active');
