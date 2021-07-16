@@ -8,9 +8,9 @@ const articleWidth = 399;
 const cardsBox = document.querySelector('.cards-box');
 const cards = Array.from(document.querySelectorAll('.card'));
 let cardsLength = cards.length;
+const shouldShownCardsNum = 3;
 const tabNextButton = document.querySelector('.tab-arrow-right');
 const tabPrevButton = document.querySelector('.tab-arrow-left');
-const cardPagenation = document.querySelector('.card-pagenation');
 const headerList = document.querySelectorAll('.header-list');
 const cardSectionLetters = Array.from(document.querySelector('.card-section-letter > ul').children);
 const letterP = document.querySelector('.card-section-letter > p');
@@ -21,6 +21,33 @@ const searchBox = document.querySelector('.search-box');
 const searchInput = document.querySelector('.search-input');
 const languageToggleBtn = document.querySelector('#header-right-top > ul');
 const heaferLanguageBox = document.querySelector('#header-right-top');
+const cardPagenationBtn = [];
+
+// card pagenation button
+const buttonNumber = parseInt(cardsLength / shouldShownCardsNum);
+const cardPagenation = document.querySelector('.card-pagenation');
+
+
+function pagenation() {
+
+    for(let i = 0; i < buttonNumber; i++ ) {
+        let btn = document.createElement('button');
+        cardPagenationBtn.push(btn);
+        cardPagenation.append(btn);
+    
+    }
+
+    for(let i = 0; i < cardPagenation.children.length; i++) {
+        console.log(cardPagenation.children[i]);
+        cardPagenation.children[i].addEventListener('click', () => {
+            moveCard(i * shouldShownCardsNum);
+        })
+    }
+
+}
+
+
+pagenation();
 
 heaferLanguageBox.addEventListener('click', ()=> {
     console.log('clicked');
@@ -43,11 +70,10 @@ window.addEventListener('scroll', () => {
 
 function changeHeader(num) {
     let headerWrapper = document.querySelector('#wrapper-header')
-    if(num) {
-        headerWrapper.classList.add('active');
-    } else {
-        headerWrapper.classList.remove('active');
-    }
+    num ?
+    headerWrapper.classList.add('active')
+    : 
+    headerWrapper.classList.remove('active')
 }
 
 headerSearchBtn.addEventListener('click', openSearchBox);
@@ -110,20 +136,47 @@ cardsBox.style.transform = `translateX(-${articleWidth}px)`;
 console.log(cardsBox.style.left);
 
 function makeClone() {
-    for (let i =0; i < cards.length; i++) {
-        cardsBox.append(cards[i].cloneNode(true));
+    let cloned;
+    for (let i =0; i < shouldShownCardsNum; i++) {
+        cloned =cards[i].cloneNode(true);
+        cloned.classList.add('cloned');
+        cardsBox.append(cloned);
     }
-    cardsBox.prepend(cards[cards.length - 1].cloneNode(true));
+
+    cloned = cards[cards.length - 1].cloneNode(true)
+    cloned.classList.add('cloned');
+    cardsBox.prepend(cloned);
 }
 
 
 function moveCard(index) {
+    console.log('index',index);
     if(!cardsBox.classList.contains('animated')) cardsBox.classList.add('animated');
     cardsBox.style.left =  -index*articleWidth + 'px';
+    currentSlideIndex = index;
     setTimeout(() => {
         indexCheck(index);
     }, 500);
+    let activeBtnNum;  
+    console.log('cardsLength', cardsLength)
+    if(index < 0) activeBtnNum = cardPagenationBtn.length - 1
+    else if(index >= cardsLength) activeBtnNum = parseInt(0);
+    else activeBtnNum = parseInt(index / shouldShownCardsNum);
+    console.log('activeBtnNum',activeBtnNum)
+    removeOneActiveBtn(activeBtnNum);
 }
+
+
+function removeOneActiveBtn(activeBtnNum) {
+    for(btn of cardPagenationBtn) {
+        if(btn.classList.contains('active')) {
+            btn.classList.remove('active');
+            break;
+        }
+    }
+    cardPagenationBtn[activeBtnNum].classList.add('active');
+}
+
 
 function indexCheck(index) {    
     if(index > 0 && index < cardsLength) return;
@@ -142,18 +195,40 @@ function indexCheck(index) {
 }
 
 
+// 메인 검색 기능
+const mainInputWrapper = document.querySelector('.input-wrapper');
+const searchedList = document.querySelector('#search-section > ul');
+const searchMainModal =  document.querySelector('.search-modal-mask')
+console.log(searchedList);
 
+mainInputWrapper.addEventListener('click', openMainModal);
+
+function openMainModal() {
+    mainInputWrapper.classList.add('active');
+    searchMainModal.classList.add('active');
+    searchedList.classList.add('active');
+    window.addEventListener('scroll', scrollModalDown);
+}
+
+function scrollModalDown() {
+    mainInputWrapper.classList.remove('active');
+    searchMainModal.classList.remove('active');
+    searchedList.classList.remove('active');
+    window.removeEventListener('scroll', scrollModalDown);
+}
 
 
 // 함수 호출 부분
+
+removeOneActiveBtn(0);
 makeClone();
 
 
 
 // event 등록
 tabPrevButton.addEventListener('click', () => {
-    moveCard(--currentSlideIndex);
+    moveCard(currentSlideIndex - 1);
 })
 tabNextButton.addEventListener('click', () => {
-    moveCard(++currentSlideIndex);
+    moveCard(currentSlideIndex + 1);
 })

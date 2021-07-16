@@ -23,7 +23,8 @@ footer {
 }
 
 
-.modal-mask {
+.modal-mask,
+.search-modal-mask {
     display: none;
     position: fixed;
     top: 0;
@@ -326,7 +327,7 @@ header {
 }
 
 #wrapper-header.active .toggle-search-button > div {
-    background: #1a4978 url(../images/sch_icon.png) no-repeat center center;
+    background: #1a4978 url(./images/sch_icon.png) no-repeat center center;
     background-size: contain;
 }
 
@@ -383,8 +384,13 @@ header {
     align-items: center;
 }
 
+.input-wrapper.active {
+    z-index: 11;
+}
+
 .input-wrapper > input {
     all:unset;
+    flex: 1;
     height: 42px;
     background-color: transparent;
     line-height: 42px;    
@@ -458,10 +464,43 @@ header {
     cursor: pointer;
 }
 
+#search-section > ul {
+    display: none;
+    margin-top: 16px;
+    width: 100%;
+    height: fit-content;
+    max-height: 300px;
+    background-color: white;
+    overflow-y:auto;
+    z-index:11;
+}
+
+#search-section > ul.active {
+    display: block;
+}
+
+#search-section > ul > li {
+    padding: 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(158, 157, 157);
+}
 
 
 
 
+#search-section > ul > li > a {
+    font-size: 22px;
+    color: rgb(114, 114, 114);
+}
+
+.search-modal-mask {
+    display:none;
+    z-index: 5;
+}
+
+.search-modal-mask.active {
+    display:block;
+}
 
 
 
