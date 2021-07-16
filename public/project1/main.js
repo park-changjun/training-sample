@@ -209,16 +209,16 @@ const searchOutput = document.querySelector('.modal-text');
 const sampleArr = ['노동법률', '노동자', '노동 전문가', '근로', '근로 기준', '근로법', '형사', '형사법', '형사사건'];
 
 // keyup 이벤트시 실행될 함수
-const searchFilter = () => {
+const searchFilter = (e) => {
+    console.log(e);
     // 인풋에 입력된 value값을 들고와서 판단해주는 정규표현식
     const globalRegex = new RegExp(`${searchInput.value}/*`);
     const filteredArr = sampleArr.filter(filterd => globalRegex.test(filterd) && filterd);
-
-    searchOutput.innerHTML = (filteredArr.length === sampleArr.length || filteredArr.length == 0) ? 
-    '어떤 법률적 자문이 필요하신가요?' : filteredArr;
+    searchOutput.innerHTML = (filteredArr.length === sampleArr.length || filteredArr.length == 0) ? '어떤 법률적 자문이 필요하신가요?' : filteredArr;
 }
 
-searchInput.addEventListener('keyup', searchFilter);
+// keyon이나 keydown이 집 세팅에서는 먹히지 않는다. 왜 일까??
+searchInput.addEventListener('keypress', searchFilter);
 /* 필터링 끝 */
 
 
