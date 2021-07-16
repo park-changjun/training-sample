@@ -9,8 +9,6 @@ const nextBtn = document.querySelector('.right');
 
 let currentIndex = 0;
 
-console.log(slide);
-
 makeClone();
 
 function makeClone(){
@@ -252,3 +250,13 @@ function inputShow(){
     inputBox.blur();
   }
 }
+
+// Random movie play
+const movieArr = ['movie/movie1.mp4','movie/movie2.mp4' ];
+
+function showMovie(){
+  let randomNum = Math.round(Math.random());
+  let objMovie = document.querySelector('video');
+  objMovie.src = movieArr[randomNum];
+}
+showMovie();

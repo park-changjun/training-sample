@@ -10,7 +10,11 @@ a{
     color: black;
     text-decoration: none;
 }
-
+video{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 .cover{
     display: none;
     position: fixed;
@@ -176,10 +180,10 @@ header {
 /* top */
 .top{
     width: 100%;
-    background: url("img/bg.png");
+    /* background: url("img/bg.png"); */
     height: 100vh;
     color: white;
-    background-size: cover;
+    /* background-size: cover; */
     position : relative;
 }
 /* 중앙 슬로건 */
@@ -199,9 +203,6 @@ header {
     line-height: 1.25;
     letter-spacing: -3px;;
     font-family: 'Montserrat';
-}
-.light::before{
-    
 }
 .search{
     display : flex;
