@@ -83,7 +83,7 @@ const cardSliderNext = () => {
 
 const showByGroup = (e) => {
     switch (e.target.id) {
-        case 'firstDot':
+        case '0':
             dotArr[0].classList.add('active');
             dotArr[1].classList.remove('active');
             dotArr[2].classList.remove('active');
@@ -93,7 +93,7 @@ const showByGroup = (e) => {
                 currentTransform = 0;
             });
             break;
-        case 'secondDot':
+        case '1':
             dotArr[0].classList.remove('active');
             dotArr[1].classList.add('active');
             dotArr[2].classList.remove('active');
