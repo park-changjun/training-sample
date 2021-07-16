@@ -1,5 +1,5 @@
 
-//헤더 드롭다운바
+// header dropdown bar
 function dropdown_menu() {
     document.getElementById("myLanguage").classList.toggle("show");
 }
@@ -22,7 +22,7 @@ window.click = function (event) {
 }
 
 
-//헤더 스크롤
+// header scroll
     const contents = document.querySelector("#main");
     const h = document.querySelector("header");
     let Header_height ;
@@ -47,7 +47,7 @@ window.click = function (event) {
       }
     }
   
-    window.onload = function(){
+    window.onload = () => {
       onScroll();
       seTopPadding();
     };
@@ -56,7 +56,7 @@ window.click = function (event) {
 
 
 
-//input 경고창
+// visual search
 // function input_click() {
 //     alert("검색할 수 없습니다.")
 // }
@@ -65,45 +65,47 @@ window.click = function (event) {
 
 
 
-//슬라이드 메뉴 
-document.querySelector(".content_manu1").addEventListener('click', function(){
-    //https://anko3899.tistory.com/218 해보기
-    document.querySelector(".content-under-txt").innerHTML = "바른뉴스";
+//content slide menu
+const contentNews = document.querySelector(".content_manu_news");
+const contentWork = document.querySelector(".content_manu_work");
+const contentMedia = document.querySelector(".content_menu_media");
+const contentBgtext = document.querySelector(".content-bg-txt");
 
-});
-document.querySelector(".content_manu2").addEventListener('click', function(){
-    document.querySelector(".content-under-txt").innerHTML = "업무사례";
-});
-document.querySelector(".content_manu3").addEventListener('click', function(){
-    document.querySelector(".content-under-txt").innerHTML = "언론보도";
-});
+contentNews.addEventListener('click', ()=> {
+    contentBgtext.innerHTML = "바른뉴스";
+    contentNews.classList.add('on');
+    contentWork.classList.remove('on');
+    contentMedia.classList.remove('on');
+})
+contentWork.addEventListener('click', () => {
+    contentBgtext.innerHTML = "업무사례";
+    contentNews.classList.remove('on');
+    contentWork.classList.add('on');
+    contentMedia.classList.remove('on');
+})
+contentMedia.addEventListener('click', () => {
+    contentBgtext.innerHTML = "언론보도";
+    contentNews.classList.remove('on');
+    contentWork.classList.remove('on');
+    contentMedia.classList.add('on');
+})
 
 
 
 
-
-
-
-
-
-//슬라이드
+// content slide
 const slideWrapper = document.querySelector('.list-wrapper-slider');
 const slider = document.querySelector('.list-wrapper-slider ul');
 const slides = document.querySelectorAll('.list-wrapper-slider ul li');
 const totalSlides = slides.length/3;
-
 const nextBtn = document.querySelector('.next');
 const prevBtn = document.querySelector('.prev');
 
-
-
-console.log('slideWrapper',slideWrapper)
+// console.log('slideWrapper',slideWrapper)
 const sliderWidth = slideWrapper.clientWidth; // list-wrapper-slider width
 let slideIndex = 0;
 
-
 slider.style.width = sliderWidth * totalSlides + 'px';
-
 
 function showSlides(n) {
     slideIndex = n;
@@ -119,11 +121,9 @@ function showSlides(n) {
     // console.log(slideIndex);
 }
 
-
-
 function plusSlides(n){
     showSlides(slideIndex += n);  //next버튼을 클릭했을 때 현재 인덱스번호 +1을 대입한 li를 보여준다
-    console.log(slideIndex);
+    // console.log(slideIndex);
 
     slideIndex == totalSlides - 1 ? nextBtn.classList.add('disabled') :  nextBtn.classList.remove('disabled');
     slideIndex > 0 ?  prevBtn.classList.add('disabled') :  prevBtn.classList.remove('disabled');
@@ -133,14 +133,6 @@ function plusSlides(n){
     //     nextBtn.classList.remove('disabled');
     // }
 }
-  
-// function currentSlide(n) {
-//     showSlides(slideIndex = n);
-//     console.log(slideIndex);
-//     // slideIndex > 0 ?  prevBtn.classList.add('disabled') :  prevBtn.classList.remove('disabled');
-
-// }
-
 
 nextBtn.addEventListener('click', function () {
     plusSlides(1);
