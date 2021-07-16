@@ -11,8 +11,6 @@
         <header class="header">
             <div class="header-container">
                 <div class="header-top">
-
-
                     <!--헤더 드롭다운바-->
                     <div class="language_dropdown">
                         <button onclick="dropdown_menu()" class="dropbtn">
@@ -25,17 +23,16 @@
                         </div>
                     </div>
                     <!--language_dropdown-->
-
-
-
                 </div>
                 <!--header-top-->
+
+
                 <div class="header-bottom">
                     <a href="#" class="logo"></a>
                     <nav class="header-nav">
-                        <ul>
+                        <ul class="header-nav-dep">
                             <li><a href="#">바른소개</a>
-                                <ul>
+                                <ul class="header-nav-sub-dep">
                                     <li><a href="#">바른소개</a></li>
                                     <li><a href="#">바른연락</a></li>
                                     <li><a href="#">오시는길</a></li>
@@ -44,7 +41,7 @@
                                 </ul>
                             </li>
                             <li><a href="#">업무분야</a>
-                                <ul>
+                                <ul class="header-nav-sub-dep">
                                     <li><a href="#">분야별</a></li>
                                     <li><a href="#">산업별</a></li>
                                     <li><a href="#">국가별</a></li>
@@ -52,7 +49,7 @@
                             </li>
                             <li><a href="#">구성원</a></li>
                             <li><a href="#">소삭/자료</a>
-                                <ul>
+                                <ul class="header-nav-sub-dep">
                                     <li><a href="#">바른뉴스</a></li>
                                     <li><a href="#">언론보도</a></li>
                                     <li><a href="#">최근업무사례</a></li>
@@ -62,37 +59,42 @@
                                 </ul>
                             </li>
                             <li><a href="#">아카데미</a>
-                                <ul>
+                                <ul class="header-nav-sub-dep">
                                     <li><a href="#">연구회</a></li>
                                     <li><a href="#">강좌</a></li>
                                     <li><a href="#">연구자료</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">공익활동</a>
-                                <ul>
+                                <ul class="header-nav-sub-dep">
                                     <li><a href="#">사단법인 정</a></li>
                                     <li><a href="#">사회공헌활동</a></li>
                                     <li><a href="#">사회공헌소식</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">인재채용</a>
-                                <ul>
+                                <ul class="header-nav-sub-dep">
                                     <li><a href="#">채용안내</a></li>
                                     <li><a href="#">채용점수</a></li>
                                     <li><a href="#">채용게시판</a></li>
                                 </ul>
                             </li>
 
-
-                            <li class="nav_search">
-                                <a href="#">
-                                    <img src="img/srch-button.png" alt="검색">
-                                </a>
-                            </li>
-
-                            <!-- <input type="text" name = "header-search" placeholder=""> -->
-
                         </ul>
+
+
+                        <li class="nav_search">
+                            <a href="#" class="nav_search_btn"></a>
+                            <!-- <button class="search-btn" img src="img/srch-button.png"></button > -->
+
+                            <div class="search">
+                                <input type="text" placeholder="검색어를 입력하세요">
+                                <!-- <button class="search-box"><a href="#"></a></button> -->
+                            </div>
+                        </li>
+
+
+
                     </nav>
                 </div>
                 <!--header-bottom-->
@@ -100,6 +102,9 @@
             <!--header-container-->
         </header>
 
+
+
+        
         <div class="visual">
 
             <div class="visual_box">

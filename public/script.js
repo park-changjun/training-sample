@@ -1,5 +1,6 @@
 
-// header dropdown bar
+// header dropdown bar  > 새로 하기
+
 function dropdown_menu() {
     document.getElementById("myLanguage").classList.toggle("show");
 }
@@ -7,14 +8,12 @@ function dropdown_menu() {
 window.click = function (event) {
     if (!event.target.matches('.dropbtn')) {
 
-        const language_dropdown = document.getElementsByClassName("language-content");
+        const languageContent = document.getElementsByClassName("language-content");
         let i;
-        for (i = 0; i < language_dropdown; i++) {
-            const openDropdown = language_dropdown[i];
+        for (i = 0; i < languageContent; i++) {
+            const openDropdown = languageContent[i];
 
-
-            
-            if (openDropdown.classList.contains('show')) {
+            if (openDropdown.classList.add('show')) { //contains
                 openDropdown.classList.remove('show')
             }
         }
@@ -22,37 +21,52 @@ window.click = function (event) {
 }
 
 
+
+
+
+//header nav search
+const navSearch = document.querySelector(".nav_search_btn");
+const searchBox = document.querySelector(".search input");
+navSearch.addEventListener('click', () => {
+    searchBox.classList.toggle('on');
+
+    // console.log(navSearch);
+})
+
+
+
+
 // header scroll
-    const contents = document.querySelector("#main");
-    const h = document.querySelector("header");
-    let Header_height ;
-  
-    function seTopPadding(){
-     Header_height = h.offsetHeight;  //header의 높이값을 가져옴
-     content.style.paddingTop = Header_height + "px";
-    }
-  
-    function onScroll(){
-      window.addEventListener("scroll", callbackFnc);
-      function callbackFnc(){
+const contents = document.querySelector("#main");
+const h = document.querySelector("header");
+let Header_height;
+
+function seTopPadding() {
+    Header_height = h.offsetHeight;  //header의 높이값을 가져옴
+    content.style.paddingTop = Header_height + "px";
+}
+
+function onScroll() {
+    window.addEventListener("scroll", callbackFnc);
+    function callbackFnc() {
         const y = window.pageYOffset;  //수직으로 스크롤 된 만큼의 픽셀값을 계산(pageYOffset)
 
 
-        y > 300 ? h.classList.add("scroll") : h.classList.remove("scroll");
+        y > 150 ? h.classList.add("scroll") : h.classList.remove("scroll");
         // if(y > 300){
         //   h.classList.add("scroll");
         // } else {
         //   h.classList.remove("scroll");
         // }
-      }
     }
-  
-    window.onload = () => {
-      onScroll();
-      seTopPadding();
-    };
-  
- 
+}
+
+window.onload = () => {
+    onScroll();
+    seTopPadding();
+};
+
+
 
 
 
@@ -71,7 +85,7 @@ const contentWork = document.querySelector(".content_manu_work");
 const contentMedia = document.querySelector(".content_menu_media");
 const contentBgtext = document.querySelector(".content-bg-txt");
 
-contentNews.addEventListener('click', ()=> {
+contentNews.addEventListener('click', () => {
     contentBgtext.innerHTML = "바른뉴스";
     contentNews.classList.add('on');
     contentWork.classList.remove('on');
@@ -110,7 +124,7 @@ slider.style.width = sliderWidth * totalSlides + 'px';
 function showSlides(n) {
     slideIndex = n;
 
-    (slideIndex == -1) ?  slideIndex = totalSlides - 1 : (slideIndex === totalSlides) ? slideIndex = 0 : slideIndex = n;
+    (slideIndex == -1) ? slideIndex = totalSlides - 1 : (slideIndex === totalSlides) ? slideIndex = 0 : slideIndex = n;
     // if (slideIndex == -1) {
     //     slideIndex = totalSlides - 1;
     // } else if (slideIndex === totalSlides) {
@@ -121,12 +135,12 @@ function showSlides(n) {
     // console.log(slideIndex);
 }
 
-function plusSlides(n){
+function plusSlides(n) {
     showSlides(slideIndex += n);  //next버튼을 클릭했을 때 현재 인덱스번호 +1을 대입한 li를 보여준다
     // console.log(slideIndex);
 
-    slideIndex == totalSlides - 1 ? nextBtn.classList.add('disabled') :  nextBtn.classList.remove('disabled');
-    slideIndex > 0 ?  prevBtn.classList.add('disabled') :  prevBtn.classList.remove('disabled');
+    slideIndex == totalSlides - 1 ? nextBtn.classList.add('disabled') : nextBtn.classList.remove('disabled');
+    slideIndex > 0 ? prevBtn.classList.add('disabled') : prevBtn.classList.remove('disabled');
     // if(slideIndex == totalSlides - 1){
     //     nextBtn.classList.add('disabled');
     // }else{
@@ -143,6 +157,11 @@ prevBtn.addEventListener('click', function () {
 });
 
 
+
+
+
+//content slide pagination
+// const slidedots = new Swiper('.slide_pagination')
 
 
 
