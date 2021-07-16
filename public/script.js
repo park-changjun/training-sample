@@ -9,20 +9,27 @@ const nextBtn = document.querySelector('.right');
 
 let currentIndex = 0;
 
+console.log(slide);
+
 makeClone();
 
 function makeClone(){
-  for (let i = 0; i < slideCount; i++){
-    let cloneSlide = slide[i].cloneNode(true);
+
+  // Clonning elements at the end.
+  slide.forEach((item)=> {
+    let cloneSlide = item.cloneNode(true);
     cloneSlide.classList.add('clone');
     slides.appendChild(cloneSlide);
-  }
+  });
 
-  for (let i = slideCount-1; i >= 0; i--){
-    let cloneSlide = slide[i].cloneNode(true);
+  // Clonning elements at the start.
+  let reversedSlide = Array.prototype.slice.call(slide).reverse();
+
+  reversedSlide.forEach((item)=> {
+    let cloneSlide = item.cloneNode(true);
     cloneSlide.classList.add('clone');
     slides.prepend(cloneSlide);
-  }
+  });
 
   updateWidth();
   setInitialPosition();
@@ -90,7 +97,7 @@ function moveSlide(num){
   },300);
 }
 
-// Cnange the message of the middle carousel
+// Change the message of the middle carousel
 let menu = document.querySelectorAll('.middle-menu ul li a');
 let bgMsg = document.querySelector('.middle-bg-msg');
 
@@ -139,13 +146,10 @@ navSearchBtn.onclick = function searchOpen(){
     setTimeout(()=>searchDisplay.style.width = "300px", 10);
   }
   else {
+    searchDisplay.style.display = "none";
     searchDisplay.style.width = "0px";
     navCover.classList.remove('cover-active');
     document.querySelector('.lang').style.zIndex = 3;
-    setTimeout(()=>{
-      searchDisplay.style.display = "none";
-      searchDisplay.classList.remove('search-animated');
-    }, 500);
   }
 }
 
@@ -248,13 +252,3 @@ function inputShow(){
     inputBox.blur();
   }
 }
-
-
-//메뉴 클릭시 하위 메뉴 나오게 하기
-const navMenu = document.querySelectorAll('.nav-menu-li');
-const navMenuDropdown = document.querySelectorAll('.nav-menu-dropdown');
-navMenu.forEach((item, index) => {
-  item.addEventListener('mouseover',function(){
-    navMenuDropdown.classList.add('nav-menu-dropdown-active');
-  });
-})

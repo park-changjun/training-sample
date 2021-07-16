@@ -134,6 +134,7 @@ header {
 }
 .nav-menu .nav-menu-dropdown li a:hover{
     color: rgb(0, 2, 131);
+    font-weight: 500;
 }
 .nav-menu .nav-search{
     height: 100%;
@@ -198,6 +199,9 @@ header {
     line-height: 1.25;
     letter-spacing: -3px;;
     font-family: 'Montserrat';
+}
+.light::before{
+    
 }
 .search{
     display : flex;
