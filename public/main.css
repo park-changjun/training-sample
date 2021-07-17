@@ -19,6 +19,8 @@ body{
 }
 
 
+
+
 /* main , header */
 #main{
     width: auto;
@@ -51,10 +53,13 @@ body{
 .scroll .header-nav ul{
     display: none;
 }
-.scroll .language_dropdown{
+.scroll .dropdown {
     display: none;
 }
 .scroll .nav_search{
+    display: none;
+}
+.scroll .nav_search_wrap{
     display: none;
 }
 
@@ -84,11 +89,11 @@ body{
     margin-left: 7px;
 }
 
-.dropbtn:hover, .dropbtn:focus{
+/* .dropbtn:hover, .dropbtn:focus{
     color: #d4d4d4;
-}
+} */
 
-.language_dropdown{
+.dropdown{
     /* width: 1200px; */
     position: absolute;
     right: 0;
@@ -98,7 +103,7 @@ body{
     z-index: 1;
 }
 
-.language-content{
+.dropdown-menu{
     display: none;
     position: absolute;
     background: rgba(0,0,0,0.7);
@@ -107,16 +112,16 @@ body{
     margin-top: 35px;
 }
 
-.language-content a{
+.dropdown-menu a{
     color: #d4d4d4;
     padding: 14px 15px;
     display: block;
     font-size: 14;
 }
-.language-content a:hover{
+.dropdown-menu a:hover{
     color: #fff;
-    
 }
+
 .show{
     display: block;
 }
@@ -124,11 +129,12 @@ body{
 
 
 .header-bottom{
-    width: 100%;
+    width: 1200px;
     border-bottom: 1px solid rgba(255,255,255,0.4);
     display: flex;
     justify-content: space-between; 
     position: relative;
+    margin: 0 auto;
 }
 
 .logo{
@@ -204,35 +210,71 @@ body{
 
 
 
+
+
 /* nav search */
-.nav_search{
-    height: 34px;
+.nav_search_wrap{
     display: inline-block;
 }
 .nav_search_btn{
-    width: 34px;
-    height: 34px;
-    background-image: url(./img/srch-button.png);
-    background-size: cover;
     border-radius: 50%;
     position: relative;
-    right: 0;
-    bottom: -10px;
-    display: block;
+    right: 3px;
+    top: 8px;
+    cursor: pointer;
 }
-.search input{
-    position: absolute;
-    top: 10px;
+/* .nav_search_btn a{
+    display: block;
+    width: 100%;
+    height: 100%;
+} */
+.modal{
+    position: fixed;
+    top: 0;
     right: 0;
-    width: 300px;
-    height: 45px;
-    font-size: 18px;
-    padding: 5px;
+    width: 1920px;
+    height: 400px;
+    /* box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.5); */
+}
+.modal_overlay{
+    width: 1920px;
+    height: 1000px;
+    /* background-color: rgba(0,0,0,0.2); */
+    background: transparent;
+    position: fixed;
+    left: -800;
+    top:-40px;
+}
+
+.hidden{
     display: none;
 }
-.search input .on{
-    display: block;
+
+.modal_search_box_btn{
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    border-radius: 50%;
+    border: none;
 }
+.modal_search_box{
+    width: 350px;
+    height: 50px;
+    position: absolute;
+    top: 3px;
+    right: 0;
+    /* box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.5); */
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 18px;
+    padding: 5px;
+    /* display: none; */
+    /* transition: box-shadow 0.5s ease-in-out; */
+    /* transition:1s ease .5s;   */
+    /* transition-timing-function: linear; */
+}
+
+
 
 
 
@@ -529,7 +571,7 @@ input:focus {
     display: block;
 }
 
- /* .slide_btn{
+ .slide_btn{
     width: 52px;
     text-align: center;
     display: flex;
@@ -545,10 +587,26 @@ input:focus {
     opacity: 0.5;
     border-radius: 50%;
     margin-top: 30px;
+    cursor: pointer;
+}
+
+.dots1 .active{
+    background-color: #8a6e4f;
+    transition-duration: 0.3s;
+}
+.dots2 .active{
+    background-color: #8a6e4f;
+    transition-duration: 0.3s;
+}
+
+.dots3 .active{
+    background-color: #8a6e4f;
+    transition-duration: 0.3s;
 }
 
 
-.slide_btn li:hover{
+
+/* .slide_btn li:hover{
     background-color: #8a6e4f;
     transition-duration: 0.3s;
 }  */

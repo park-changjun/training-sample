@@ -1,37 +1,34 @@
 
-// header dropdown bar  > 새로 하기
+// header dropdown bar 
+const dropDown = document.querySelector('.dropdown');
+const dropBtn = document.querySelector('.dropbtn');
+const dropMenu = document.querySelector('.dropdown-menu');
 
-function dropdown_menu() {
-    document.getElementById("myLanguage").classList.toggle("show");
-}
-
-window.click = function (event) {
-    if (!event.target.matches('.dropbtn')) {
-
-        const languageContent = document.getElementsByClassName("language-content");
-        let i;
-        for (i = 0; i < languageContent; i++) {
-            const openDropdown = languageContent[i];
-
-            if (openDropdown.classList.add('show')) { //contains
-                openDropdown.classList.remove('show')
-            }
-        }
-    }
-}
-
+dropBtn.addEventListener('click', () => {
+    dropMenu.classList.toggle('show');
+})
 
 
 
 
 //header nav search
-const navSearch = document.querySelector(".nav_search_btn");
-const searchBox = document.querySelector(".search input");
-navSearch.addEventListener('click', () => {
-    searchBox.classList.toggle('on');
 
-    // console.log(navSearch);
-})
+const searchBtn = document.querySelector('.nav_search_btn');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.modal_overlay');
+const closeBtn = document.querySelector('.modal_search_box_btn');
+const openModal = () => {
+    modal.classList.remove('hidden');
+}
+const closeModal = () => {
+    modal.classList.add('hidden');
+}
+
+overlay.addEventListener('click', closeModal);
+closeBtn.addEventListener('click', closeModal);
+searchBtn.addEventListener('click', openModal);
+
+
 
 
 
@@ -67,12 +64,16 @@ window.onload = () => {
 };
 
 
-
-
-
 // visual search
 // function input_click() {
 //     alert("검색할 수 없습니다.")
+// }
+
+
+
+// //page scroll
+// function pageScroll(){
+//     window.scrollTo(1000,0);
 // }
 
 
@@ -124,16 +125,37 @@ slider.style.width = sliderWidth * totalSlides + 'px';
 function showSlides(n) {
     slideIndex = n;
 
-    (slideIndex == -1) ? slideIndex = totalSlides - 1 : (slideIndex === totalSlides) ? slideIndex = 0 : slideIndex = n;
+    (slideIndex == -1) ? slideIndex = totalSlides - 1 : (slideIndex == totalSlides) ? slideIndex = 0 : slideIndex = n;
     // if (slideIndex == -1) {
     //     slideIndex = totalSlides - 1;
     // } else if (slideIndex === totalSlides) {
     //     slideIndex = 0;
     // } //조건부연산자로 변경
 
+
     slider.style.left = -(sliderWidth * slideIndex) + 'px';
     // console.log(slideIndex);
 }
+
+
+const slidePagination = document.querySelector('.slide_btn');
+const slideDots1 = document.querySelector('.dots1');
+const slideDots2 = document.querySelector('.dots2');
+const slideDots3 = document.querySelector('.dots3');
+
+
+// function showDots(a){
+//     slideIndex = a;
+
+//     if(slideIndex == 0){
+//         slidesdots1.classList.add('active');
+//     }else if(slideIndex == 1){
+//         slidesdots2.classList.add('active');
+//     }else if(slideIndex == 2){
+//         slidesdots3.classList.add('active');
+//     }slidePagination.classList.remove('sctive');
+
+// }
 
 function plusSlides(n) {
     showSlides(slideIndex += n);  //next버튼을 클릭했을 때 현재 인덱스번호 +1을 대입한 li를 보여준다
@@ -147,21 +169,14 @@ function plusSlides(n) {
     //     nextBtn.classList.remove('disabled');
     // }
 }
-
 nextBtn.addEventListener('click', function () {
     plusSlides(1);
 });
-
 prevBtn.addEventListener('click', function () {
     plusSlides(-1);
 });
 
 
-
-
-
-//content slide pagination
-// const slidedots = new Swiper('.slide_pagination')
 
 
 

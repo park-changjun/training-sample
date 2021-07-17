@@ -6,105 +6,118 @@
 </head>
 
 <body>
+
     <main id="main">
+
+        
 
         <header class="header">
             <div class="header-container">
                 <div class="header-top">
                     <!--헤더 드롭다운바-->
-                    <div class="language_dropdown">
-                        <button onclick="dropdown_menu()" class="dropbtn">
-                            <p>language</p>
-                            <img src="img/arrow.png" alt="버튼">
-                        </button>
-                        <div id="myLanguage" class="language-content">
-                            <a href="#">Korean</a>
-                            <a href="#">English</a>
-                        </div>
+                    <div class="dropdown">
+                        <button type="button" class="dropbtn">language<img src="img/arrow.png" alt="버튼"></button>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Korean</a></li>
+                            <li><a href="#">English</a></li>
+                        </ul>
                     </div>
-                    <!--language_dropdown-->
                 </div>
                 <!--header-top-->
+            </div>
+            <!--header-container-->
 
 
-                <div class="header-bottom">
-                    <a href="#" class="logo"></a>
-                    <nav class="header-nav">
-                        <ul class="header-nav-dep">
-                            <li><a href="#">바른소개</a>
-                                <ul class="header-nav-sub-dep">
-                                    <li><a href="#">바른소개</a></li>
-                                    <li><a href="#">바른연락</a></li>
-                                    <li><a href="#">오시는길</a></li>
-                                    <li><a href="#">싱가포르<br>대표사무소</a></li>
-                                    <li><a href="#">블로그</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">업무분야</a>
-                                <ul class="header-nav-sub-dep">
-                                    <li><a href="#">분야별</a></li>
-                                    <li><a href="#">산업별</a></li>
-                                    <li><a href="#">국가별</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">구성원</a></li>
-                            <li><a href="#">소삭/자료</a>
-                                <ul class="header-nav-sub-dep">
-                                    <li><a href="#">바른뉴스</a></li>
-                                    <li><a href="#">언론보도</a></li>
-                                    <li><a href="#">최근업무사례</a></li>
-                                    <li><a href="#">뉴스레터</a></li>
-                                    <li><a href="#">저서 및 자료</a></li>
-                                    <li><a href="#">코로나19자료실</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">아카데미</a>
-                                <ul class="header-nav-sub-dep">
-                                    <li><a href="#">연구회</a></li>
-                                    <li><a href="#">강좌</a></li>
-                                    <li><a href="#">연구자료</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">공익활동</a>
-                                <ul class="header-nav-sub-dep">
-                                    <li><a href="#">사단법인 정</a></li>
-                                    <li><a href="#">사회공헌활동</a></li>
-                                    <li><a href="#">사회공헌소식</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">인재채용</a>
-                                <ul class="header-nav-sub-dep">
-                                    <li><a href="#">채용안내</a></li>
-                                    <li><a href="#">채용점수</a></li>
-                                    <li><a href="#">채용게시판</a></li>
-                                </ul>
-                            </li>
-
-                        </ul>
-
-
-                        <li class="nav_search">
-                            <a href="#" class="nav_search_btn"></a>
-                            <!-- <button class="search-btn" img src="img/srch-button.png"></button > -->
-
-                            <div class="search">
-                                <input type="text" placeholder="검색어를 입력하세요">
-                                <!-- <button class="search-box"><a href="#"></a></button> -->
-                            </div>
+            <div class="header-bottom">
+                <a href="#" class="logo"></a>
+                <nav class="header-nav">
+                    <ul class="header-nav-dep">
+                        <li><a href="#">바른소개</a>
+                            <ul class="header-nav-sub-dep">
+                                <li><a href="#">바른소개</a></li>
+                                <li><a href="#">바른연락</a></li>
+                                <li><a href="#">오시는길</a></li>
+                                <li><a href="#">싱가포르<br>대표사무소</a></li>
+                                <li><a href="#">블로그</a></li>
+                            </ul>
                         </li>
+                        <li><a href="#">업무분야</a>
+                            <ul class="header-nav-sub-dep">
+                                <li><a href="#">분야별</a></li>
+                                <li><a href="#">산업별</a></li>
+                                <li><a href="#">국가별</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">구성원</a></li>
+                        <li><a href="#">소삭/자료</a>
+                            <ul class="header-nav-sub-dep">
+                                <li><a href="#">바른뉴스</a></li>
+                                <li><a href="#">언론보도</a></li>
+                                <li><a href="#">최근업무사례</a></li>
+                                <li><a href="#">뉴스레터</a></li>
+                                <li><a href="#">저서 및 자료</a></li>
+                                <li><a href="#">코로나19자료실</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">아카데미</a>
+                            <ul class="header-nav-sub-dep">
+                                <li><a href="#">연구회</a></li>
+                                <li><a href="#">강좌</a></li>
+                                <li><a href="#">연구자료</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">공익활동</a>
+                            <ul class="header-nav-sub-dep">
+                                <li><a href="#">사단법인 정</a></li>
+                                <li><a href="#">사회공헌활동</a></li>
+                                <li><a href="#">사회공헌소식</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">인재채용</a>
+                            <ul class="header-nav-sub-dep">
+                                <li><a href="#">채용안내</a></li>
+                                <li><a href="#">채용점수</a></li>
+                                <li><a href="#">채용게시판</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- <li class="nav_search_wrap">
+                        <button type="button" class="nav_search_btn"><img src="img/srch-button.png"></button>
+
+
+                        <div class="nav_search_box_wrap">
+                            <input type="text" class="nav_search_box" placeholder="검색어를 입력하세요">
+                        </div>
+                    </li> -->
+
+
+                    <div class="nav_search_wrap">
+                        <button type="button" class="nav_search_btn"><img src="img/srch-button.png"></button>
+
+                        <div class="modal hidden">
+                            <div class="modal_overlay"></div>
+                            <input type="text" class="modal_search_box" placeholder="검색어를 입력하세요">
+                                <button type="button" class="modal_search_box_btn" placeholder="검색어를 입력하세요"><img src="img/srch-button.png"></button>
+                        </div>
+                    </div>
+                    
 
 
 
-                    </nav>
-                </div>
-                <!--header-bottom-->
+
+
+                </nav>
+            </div>
+            <!--header-bottom-->
             </div>
             <!--header-container-->
         </header>
 
 
 
-        
+
         <div class="visual">
 
             <div class="visual_box">
@@ -119,6 +132,12 @@
                 </div>
                 <!--visual_search-->
             </div>
+
+
+
+            <!-- <button type="button" class="scroll_btn" onclock = "pageScroll()">scroll
+                <img src="img/arrow-down.png" alt="스크롤"></button> -->
+
 
             <div class="scroll_btn">
                 <a href="#">scroll
@@ -330,13 +349,13 @@
             <!--content_box-->
 
 
-            <!-- <div class="slide_pagination">
+            <div class="slide_pagination">
                 <ul class="slide_btn">
-                    <li class="dots"></li>
-                    <li class="dots"></li>
-                    <li class="dots"></li>
+                    <li class="dots1"></li>
+                    <li class="dots2"></li>
+                    <li class="dots3"></li>
                 </ul>
-            </div> -->
+            </div>
 
         </div>
         <!--content_inner-->
