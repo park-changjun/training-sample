@@ -40,7 +40,7 @@ header{
     align-content: center;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #32c9da11;
+    border-bottom: 1px solid #7cd1d8;
     z-index: 3;
 }
 
@@ -253,6 +253,7 @@ main .container .submit {
     display: flex;
     justify-content: center;
     width: 100%;
+    background-image: url(img/layer-4.png);
 }
 
 /* 스태이터스 바 */
@@ -268,6 +269,11 @@ main .container .submit {
     display: flex;
     width: 112px;
 }
+
+.intro .status-bar div span{
+    height: 1px;
+}
+
 
 .status-bar div span{
     display: block;
@@ -335,11 +341,11 @@ main .container .submit {
     margin-right: 62px;
     height: 270px;
     display: flex;
-    justify-content: space-between;
 }
 
 .slogan-wrap div{
     position: relative;
+    margin: 0 auto;
 }
 
 .slogan-wrap .anytime h4::after{
@@ -347,11 +353,11 @@ main .container .submit {
         content: '';
         display: block;
         width: inherit;
-        width: 215px;
+        width: 200px;
         height: 1px;
         opacity: 0.2;
         background-color: #2f4475;
-        top: 95px;
+        top: 78px;
 }
 
 .slogan-wrap .anywhere h4::after{
@@ -359,11 +365,11 @@ main .container .submit {
     content: '';
     display: block;
     width: inherit;
-    width: 283px;
+    width: 264px;
     height: 1px;
     opacity: 0.2;
     background-color: #f4af64;
-    top: 95px;
+    top: 78px;
 }
 
 .slogan-wrap .anyone h4::after{
@@ -371,11 +377,11 @@ main .container .submit {
     content: '';
     display: block;
     width: inherit;
-    width: 215px;
+    width: 200px;
     height: 1px;
     opacity: 0.2;
     background-color: #3f5381;
-    top: 95px;
+    top: 78px;
 }
 
 .intro .container .anytime{
@@ -436,7 +442,6 @@ main .container .submit {
 }
 
 .intro .container .anywhere h1{
-  width: 102px;
   height: 28px;
   opacity: 0.2;
   font-family: Montserrat;
@@ -472,7 +477,6 @@ main .container .submit {
 }
 
 .intro .container .anyone h1{
-  width: 102px;
   height: 28px;
   opacity: 0.2;
   font-family: Montserrat;
@@ -522,6 +526,7 @@ main .container .submit {
 
 .program .container{
     margin: auto;
+    margin-top: 81px;
     width: 1140px;
     display: flex;
     flex-direction: column;
@@ -831,12 +836,13 @@ flex-direction: column;
     width: 100%;
     height: 1120px;
     position: relative;
+    background-image: url(img/layer-4.png);
     display: flex;
-    align-items: center;
 }
 
 .schedule .container{
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 81px;
     width: 1140px;
 }
 
@@ -1195,6 +1201,9 @@ flex-direction: column;
  text-align: center;
  border-radius: 50%;
  margin-right: 22px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
 
 .line-1{
