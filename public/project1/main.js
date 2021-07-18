@@ -60,7 +60,7 @@ const cardSliderNext = () => {
         case 6:
             elementsBoxs.forEach(item => {
                 item.style.transition = '1.5s';
-                item.style.transform = `translateX(${0}px)`;
+                item.style.transform = `translateX(0px)`;
                 currentTransform = 0;
             });
             setTimeout(() => {
@@ -82,38 +82,19 @@ const cardSliderNext = () => {
 }
 
 const showByGroup = (e) => {
-    switch (e.target.id) {
-        case '0':
-            dotArr[0].classList.add('active');
-            dotArr[1].classList.remove('active');
-            dotArr[2].classList.remove('active');
-            elementsBoxs.forEach(item => {
-                item.style.transition = '0.7s';
-                item.style.transform = `translateX(${0}px)`;
-                currentTransform = 0;
-            });
-            break;
-        case '1':
-            dotArr[0].classList.remove('active');
-            dotArr[1].classList.add('active');
-            dotArr[2].classList.remove('active');
-            elementsBoxs.forEach(item => {
-                item.style.transition = '0.7s';
-                item.style.transform = `translateX(-1224px)`;
-                currentTransform = 3;
-            });
-            break;
-        case 'thirdDot':
-            dotArr[0].classList.remove('active');
-            dotArr[1].classList.remove('active');
-            dotArr[2].classList.add('active');
-            elementsBoxs.forEach(item => {
-                item.style.transition = '0.7s';
-                item.style.transform = `translateX(-2448px)`;
-                currentTransform = 6;
-            });
-            break;
-    }
+
+    dotArr.forEach(dot => {
+        dot.classList.remove('active');
+    });
+
+    dotArr[e.target.id].classList.add('active');
+
+    elementsBoxs.forEach(item => {
+        item.style.transition = '0.7s';
+        // 카드가 세 개씩 이동하므로 3을 곱해줘야 한다.
+        item.style.transform = `translateX(-${e.target.id * 3 * TRANSFORM_UNIT}px)`;
+        currentTransform = e.target.id * 3;
+    });
     setTimeout(() => {
         elementsBoxs.forEach(item => {
             item.style.transition = '0.5s';
@@ -121,9 +102,10 @@ const showByGroup = (e) => {
     }, 700);
 };
 
-dotArr[0].addEventListener('click', (e) => showByGroup(e));
-dotArr[1].addEventListener('click', (e) => showByGroup(e));
-dotArr[2].addEventListener('click', (e) => showByGroup(e));
+dotArr.forEach(dot => {
+    dot.addEventListener('click', (e) => showByGroup(e));
+});
+
 prvBtn.addEventListener('click', cardSliderPrv);
 nextBtn.addEventListener('click', cardSliderNext);
 /* 슬라이드 끝 */
