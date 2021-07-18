@@ -11,23 +11,45 @@ dropBtn.addEventListener('click', () => {
 
 
 
-//header nav search
 
+//header nav search
 const searchBtn = document.querySelector('.nav_search_btn');
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.modal_overlay');
 const closeBtn = document.querySelector('.modal_search_box_btn');
+
 const openModal = () => {
-    modal.classList.remove('hidden');
+    modal.classList.remove('hidden'); //block
 }
 const closeModal = () => {
-    modal.classList.add('hidden');
+    modal.classList.add('hidden');  //none
 }
 
+searchBtn.addEventListener('click', openModal);
 overlay.addEventListener('click', closeModal);
 closeBtn.addEventListener('click', closeModal);
-searchBtn.addEventListener('click', openModal);
 
+
+
+
+
+
+// visual search
+const visualSearchBox = document.querySelector('.visual_search_box');
+const visualSearchBtn = document.querySelector('.visual_search_btn');
+
+function input_click() {
+    // alert("검색할 수 없습니다.")
+    // visualSearchBox.style.display = 'block';
+    visualSearchBox.classList.add('noneSearchBox');
+}
+
+const closeSearchBox = () => {
+    visualSearchBox.classList.remove('noneSearchBox');
+    // visualSearchBox.style.display = 'none';
+}
+
+visualSearchBtn.addEventListener('click', closeSearchBox);
 
 
 
@@ -48,13 +70,7 @@ function onScroll() {
     function callbackFnc() {
         const y = window.pageYOffset;  //수직으로 스크롤 된 만큼의 픽셀값을 계산(pageYOffset)
 
-
         y > 150 ? h.classList.add("scroll") : h.classList.remove("scroll");
-        // if(y > 300){
-        //   h.classList.add("scroll");
-        // } else {
-        //   h.classList.remove("scroll");
-        // }
     }
 }
 
@@ -62,12 +78,6 @@ window.onload = () => {
     onScroll();
     seTopPadding();
 };
-
-
-// visual search
-// function input_click() {
-//     alert("검색할 수 없습니다.")
-// }
 
 
 
@@ -108,78 +118,69 @@ contentMedia.addEventListener('click', () => {
 
 
 
+
 // content slide
+
 const slideWrapper = document.querySelector('.list-wrapper-slider');
 const slider = document.querySelector('.list-wrapper-slider ul');
 const slides = document.querySelectorAll('.list-wrapper-slider ul li');
-const totalSlides = slides.length/3;
+const totalSlides = slides.length;
 const nextBtn = document.querySelector('.next');
 const prevBtn = document.querySelector('.prev');
 
-// console.log('slideWrapper',slideWrapper)
 const sliderWidth = slideWrapper.clientWidth; // list-wrapper-slider width
 let slideIndex = 0;
 
 slider.style.width = sliderWidth * totalSlides + 'px';
 
+
+const slideDots1 = document.querySelector('.dots1');
+const slideDots2 = document.querySelector('.dots2');
+
+
 function showSlides(n) {
     slideIndex = n;
 
     (slideIndex == -1) ? slideIndex = totalSlides - 1 : (slideIndex == totalSlides) ? slideIndex = 0 : slideIndex = n;
-    // if (slideIndex == -1) {
-    //     slideIndex = totalSlides - 1;
-    // } else if (slideIndex === totalSlides) {
-    //     slideIndex = 0;
-    // } //조건부연산자로 변경
 
 
-    slider.style.left = -(sliderWidth * slideIndex) + 'px';
+    slider.style.left = -(n * 400) + 'px';
     // console.log(slideIndex);
+
+    // (slideIndex == 3) ? slideDots2.classList.add('btn_active') : slideDots2.classList.remove('btn_active');
+
 }
 
-
-const slidePagination = document.querySelector('.slide_btn');
-const slideDots1 = document.querySelector('.dots1');
-const slideDots2 = document.querySelector('.dots2');
-const slideDots3 = document.querySelector('.dots3');
-
-
-// function showDots(a){
-//     slideIndex = a;
-
-//     if(slideIndex == 0){
-//         slidesdots1.classList.add('active');
-//     }else if(slideIndex == 1){
-//         slidesdots2.classList.add('active');
-//     }else if(slideIndex == 2){
-//         slidesdots3.classList.add('active');
-//     }slidePagination.classList.remove('sctive');
-
-// }
 
 function plusSlides(n) {
     showSlides(slideIndex += n);  //next버튼을 클릭했을 때 현재 인덱스번호 +1을 대입한 li를 보여준다
     // console.log(slideIndex);
 
-    slideIndex == totalSlides - 1 ? nextBtn.classList.add('disabled') : nextBtn.classList.remove('disabled');
+    slideIndex == totalSlides - 3 ? nextBtn.classList.add('disabled') : nextBtn.classList.remove('disabled');
     slideIndex > 0 ? prevBtn.classList.add('disabled') : prevBtn.classList.remove('disabled');
-    // if(slideIndex == totalSlides - 1){
-    //     nextBtn.classList.add('disabled');
-    // }else{
-    //     nextBtn.classList.remove('disabled');
-    // }
+
+    console.log(slideIndex);
 }
-nextBtn.addEventListener('click', function () {
-    plusSlides(1);
-});
-prevBtn.addEventListener('click', function () {
-    plusSlides(-1);
-});
+
+nextBtn.addEventListener('click', () => plusSlides(1));
+prevBtn.addEventListener('click', () => plusSlides(-1));
 
 
 
+//slide pagination  
 
+slideDots1.addEventListener('click', () => {
+    slider.style.transform = 'translate(0px)';
+    // slideDots1.style.background = '#8a6e4f';
+    slideDots1.classList.add('btn_active');
+    slideDots2.classList.remove('btn_active');
+})
 
-
+slideDots2.addEventListener('click', () => {
+    slider.style.transform = 'translate(-1200px)';
+    // slideDots2.style.background = '#8a6e4f';
+    slideDots2.classList.add('btn_active');
+    slideDots1.classList.remove('btn_active');
+})
 
 

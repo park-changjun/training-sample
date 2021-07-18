@@ -256,6 +256,7 @@ body{
     top: 10px;
     border-radius: 50%;
     border: none;
+    cursor: pointer;
 }
 .modal_search_box{
     width: 350px;
@@ -305,6 +306,8 @@ body{
     color: #ffffff;
 }
 
+
+
 .visual_search{
     width: 500px;
     display: flex;
@@ -325,17 +328,35 @@ input:focus {
     outline:none;
 }
 
-.search_btn{
+.visual_search_btn{
     width: 54px;
     height: 54px;
     border-radius: 50%;
+    cursor: pointer;
+    background: transparent;
+    border: none;
 }
 
-.search_btn a{
+.visual_search_box{
+    width: 500;
+    height: 200;
+    background: #fff;
+    position: absolute;
+    top: 237px;
+    left: 0;
+    display: none;
+}
+
+.noneSearchBox{
+    display: block;
+}
+
+
+/* .search_btn a{
     width: 100%;
     height: 100%;
     display: block;
-}
+} */
 
 .scroll_btn{
     width: 56px;
@@ -572,7 +593,7 @@ input:focus {
 }
 
  .slide_btn{
-    width: 52px;
+    width: 30px;
     text-align: center;
     display: flex;
     justify-content: space-between;
@@ -580,7 +601,7 @@ input:focus {
     
 }
 
-.slide_btn li{
+.slide_btn button{
     width: 12px;
     height: 12px;
     background-color: #000000;
@@ -590,26 +611,10 @@ input:focus {
     cursor: pointer;
 }
 
-.dots1 .active{
-    background-color: #8a6e4f;
+.btn_active{
+    background: #8a6e4f;
     transition-duration: 0.3s;
 }
-.dots2 .active{
-    background-color: #8a6e4f;
-    transition-duration: 0.3s;
-}
-
-.dots3 .active{
-    background-color: #8a6e4f;
-    transition-duration: 0.3s;
-}
-
-
-
-/* .slide_btn li:hover{
-    background-color: #8a6e4f;
-    transition-duration: 0.3s;
-}  */
 
 
 
