@@ -25,7 +25,7 @@ body{
 #main{
     width: auto;
     height: 931px;
-    background-image: url(img/bg.png);
+    background-image: url(/img/bg.png);
     position: relative;
 }
 
@@ -76,7 +76,7 @@ body{
 /* 헤더 드롭다운바 */
 .dropbtn{
     background-color:transparent;
-    color: fff;
+    color: #fff;
     padding: 5px;
     /* font-size: 16px; */
     border: none;
@@ -141,7 +141,7 @@ body{
     width: 233px;
     height: 56px;
     margin: 27px;
-    background-image: url(img/logo.png);
+    background-image: url(/img/logo.png);
 }
 
 
@@ -386,7 +386,7 @@ input:focus {
     width: 100%;
     height: 766px;
     background-color: #eee;
-    background-image: url(img/tab-background.png);
+    background-image: url(/img/tab-background.png);
     background-size: cover;
 }
 
@@ -402,7 +402,7 @@ input:focus {
     top:0;
     right:0;
     height:270px;
-    background-image: url(img/gradient.png);
+    background-image: url(/img/gradient.png);
     z-index: -1;
 }
 

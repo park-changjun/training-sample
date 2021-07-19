@@ -139,16 +139,8 @@ const slideDots2 = document.querySelector('.dots2');
 
 
 function showSlides(n) {
-    slideIndex = n;
-
-    (slideIndex == -1) ? slideIndex = totalSlides - 1 : (slideIndex == totalSlides) ? slideIndex = 0 : slideIndex = n;
-
-
     slider.style.left = -(n * 400) + 'px';
     // console.log(slideIndex);
-
-    // (slideIndex == 3) ? slideDots2.classList.add('btn_active') : slideDots2.classList.remove('btn_active');
-
 }
 
 
