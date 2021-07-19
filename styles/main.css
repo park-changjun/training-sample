@@ -373,6 +373,8 @@ input:focus {
 
 .scroll_btn a{
     color: #ffffff;
+    display: flex;
+    flex-direction: column;
 }
 .scroll_btn img{
     text-align: center;
