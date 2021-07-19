@@ -153,7 +153,7 @@ navSearchBtn.onclick = function searchOpen(){
   }
 }
 
-// Language Drop-down
+// Language Drop-down - Clear
 const dropdown = document.querySelector('.lang');
 const dropdownList = document.querySelector('.lang-list');
 
