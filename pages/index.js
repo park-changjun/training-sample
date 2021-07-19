@@ -164,7 +164,7 @@ const ElementsBox = (props) => {
             <div>
                 <a className="category-block">M&A/기업지배구조1</a>
                 <br />
-                <img className="flag-back" src="/project1/img/flag-back.png" className="flag_back" />
+                <img className="flag-back" src="/project1/img/flag-back.png"/>
             </div>
             <h4 className="case-title">교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</h4>
             <div className="case-content">
