@@ -138,7 +138,6 @@ const PrevBtn = (props) => {
                 if (props.transformTime > 0) {
                     props.setTransformTime(props.transformTime--);
                     props.setTranslateX(`${-props.transformTime * props.TRANSFORM_UNIT}`);
-                    console.log(props.translateX);
                 } else {
                     props.setTranslateX('-10');
                     setTimeout(() => {
@@ -151,7 +150,7 @@ const PrevBtn = (props) => {
     
 }
 
-const NextBtn = () => {
+const NextBtn = (props) => {
     return (
         <button className="case-right-arrow" id="nextBtn" />
     )
@@ -204,7 +203,7 @@ const CaseSection = (props) => {
                             <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX}/>
                         </ul>
                     </div>
-                    <NextBtn transformTime={transformTime} setTransformTime={setTransformTime}/>
+                    <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX}/>
                 </div>
                 <div className="dot-wrap">
                     <div className="active" id="0"></div>
