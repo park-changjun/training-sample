@@ -199,7 +199,7 @@ const searchFilter = (e) => {
     searchOutput.innerHTML = (filteredArr.length === sampleArr.length || filteredArr.length == 0) ? '어떤 법률적 자문이 필요하신가요?' : filteredArr;
 }
 
-// keyon이나 keydown이 집 세팅에서는 먹히지 않는다. 왜 일까??
+// keyup이나 keydown이 집 세팅에서는 먹히지 않는다. 왜 일까??
 searchInput.addEventListener('keypress', searchFilter);
 /* 필터링 끝 */
 
