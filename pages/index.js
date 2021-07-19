@@ -15,9 +15,9 @@ const Language = (props) => {
             <div className="content" id="headerDropdown" style={{ opacity: headerVisible === true ? VISIBLE : INVISIBLE }}>
                 {LANGUAGES.map((language) => {
                     return (
-                        <li 
-                        key={`langauge_${language}`}
-                        onClick={() => props?.setLang?.(language)}>{language}</li>
+                        <li
+                            key={`langauge_${language}`}
+                            onClick={() => props?.setLang?.(language)}>{language}</li>
                     )
                 })}
             </div>
@@ -62,11 +62,10 @@ const MainTextBox = () => {
 };
 
 const SearchBox = () => {
-    
     return (
-        <div className="search-box" id="search"  onClick={()=>{
+        <div className="search-box" id="search" onClick={() => {
 
-            }}>
+        }}>
             <input className="search-text" />
             <span><img src="/project1/img/search-button-big.png" className="search_button-big" /></span>
         </div>
@@ -106,7 +105,7 @@ const MiddleNavBar = () => {
             <div className="middle-nav-background-font" id="bgFont">{backgroundText}</div>
             <nav className="category-container" id="categoryContainer">
                 <ul>
-                    <li className={barunNews} id="barunNews" onClick={()=>{
+                    <li className={barunNews} id="barunNews" onClick={() => {
                         setBarunNews('active');
                         setWorkCase('');
                         setReport('');
@@ -134,7 +133,7 @@ const MiddleNavBar = () => {
 const PrevBtn = (props) => {
     return (
         <button className="case-left-arrow" id="prvBtn" onClick={
-            ()=>{
+            () => {
                 if (props.transformTime > 0) {
                     props.setTransformTime(props.transformTime--);
                     props.setTranslateX(`${-props.transformTime * props.TRANSFORM_UNIT}`);
@@ -147,7 +146,6 @@ const PrevBtn = (props) => {
             }
         }></button>
     )
-    
 }
 
 const NextBtn = (props) => {
@@ -158,25 +156,25 @@ const NextBtn = (props) => {
 
 const ElementsBox = (props) => {
     return (
-    <li className="elements-box" style={{transform: `translateX(${props.translateX}px)`}}>
-        <div className="box-content">
-            <div>
-                <a className="category-block">M&A/기업지배구조1</a>
-                <br />
-                <img className="flag-back" src="/project1/img/flag-back.png"/>
+        <li className="elements-box" style={{ transform: `translateX(${props.translateX}px)` }}>
+            <div className="box-content">
+                <div>
+                    <a className="category-block">M&A/기업지배구조1</a>
+                    <br />
+                    <img className="flag-back" src="/project1/img/flag-back.png" />
+                </div>
+                <h4 className="case-title">교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</h4>
+                <div className="case-content">
+                    <p>법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “</p>
+                </div>
+                <p className="article-date">2021.04.01</p>
             </div>
-            <h4 className="case-title">교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</h4>
-            <div className="case-content">
-                <p>법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “</p>
+            <div className="profile-img-box-container">
+                <img src="/project1/img/defaultImg.svg" />
+                <img src="/project1/img/defaultImg.svg" />
+                <img src="/project1/img/defaultImg.svg" />
             </div>
-            <p className="article-date">2021.04.01</p>
-        </div>
-        <div className="profile-img-box-container">
-            <img src="/project1/img/defaultImg.svg" />
-            <img src="/project1/img/defaultImg.svg" />
-            <img src="/project1/img/defaultImg.svg" />
-        </div>
-    </li>)
+        </li>)
 };
 
 const CaseSection = (props) => {
@@ -187,23 +185,23 @@ const CaseSection = (props) => {
         <section className="case-section">
             <Grad />
             <div className="container">
-                <MiddleNavBar/>
+                <MiddleNavBar />
                 <div className="card-wrap">
-                    <PrevBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX}/>
+                    <PrevBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} />
                     <div className="box-wrap">
                         <ul className="elements-box-container" id="first">
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX}/>
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX}/>
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX}/>
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX}/>
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX}/>
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX}/>
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX}/>
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX}/>
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX}/>
+                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
+                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
+                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
+                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
+                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
+                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
+                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
+                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
+                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
                         </ul>
                     </div>
-                    <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX}/>
+                    <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} />
                 </div>
                 <div className="dot-wrap">
                     <div className="active" id="0"></div>
@@ -282,8 +280,8 @@ const Modal = () => {
     return (
         <section className="modal" id="modal">
             <div className="modal-text">
-                
-                어떤 법률적 자문이 필요하신가요?<br/>
+
+                어떤 법률적 자문이 필요하신가요?<br />
                 검색어를 입력 후, 엔터를 눌러주세요.
             </div>
         </section>
