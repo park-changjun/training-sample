@@ -47,7 +47,7 @@ const Nav = () => {
 const Header = (props) => {
     return (
         <header className="header">
-            <Language lang={props.lang} setLang={props.setLang} />
+            <Language lang={props?.lang} setLang={props.setLang} />
             <Nav />
         </header>
     )
@@ -64,7 +64,7 @@ const MainTextBox = () => {
 const SearchBox = () => {
     return (
         <div className="search-box" id="search" onClick={() => {
-
+            // 로직 작성 예정
         }}>
             <input className="search-text" />
             <span><img src="/project1/img/search-button-big.png" className="search_button-big" /></span>
@@ -95,11 +95,23 @@ const Grad = () => {
     )
 };
 
+const CardNewsCategory = () => {
+    const [cardNewsCategory, setCardNewsCategory] = React.useState("바른뉴스");
+    return (<ul>
+        {CARD_NEWS_CATEGORIES.map(c => {
+            return (<li key={`cardNewsCategory_${c}`} onClick={(e) => { setCardNewsCategory(c) }}>{c}</li>)
+        })
+    }
+    </ul>)
+}
+
 const MiddleNavBar = () => {
     const [barunNews, setBarunNews] = useState('active');
     const [workCase, setWorkCase] = useState('');
     const [report, setReport] = useState('');
     const [backgroundText, setBackgroundText] = useState('바른뉴스');
+    const CARD_NEWS_CATEGORIES= ["바른뉴스", "업무사례", "업무보도"]
+    const SampleComponent = () => {}
     return (
         <div className="middle-nav-bar">
             <div className="middle-nav-background-font" id="bgFont">{backgroundText}</div>
@@ -146,13 +158,44 @@ const PrevBtn = (props) => {
             }
         }></button>
     )
-}
+};
 
 const NextBtn = (props) => {
     return (
-        <button className="case-right-arrow" id="nextBtn" />
+        <button className="case-right-arrow" id="nextBtn" onClick={
+            () => {
+                switch (props.transformTime) {
+                    // 4번째 기사를 보여줄때 밑의 도트를 변경해준다.
+                    case 2:
+                        props.setTransformTime(props.transformTime + 1);
+                        props.setTranslateX(`-${props.transformTime * props.TRANSFORM_UNIT}`);
+                        //dotArr[0].classList.remove('active');
+                        //dotArr[1].classList.add('active');
+                        break;
+                    // 7번째 기사를 보여줄때 밑의 도트를 변경해준다.
+                    case 5:
+                        props.setTransformTime(props.transformTime + 1);
+                        props.setTranslateX(`-${props.transformTime * props.TRANSFORM_UNIT}`);
+                        //dotArr[1].classList.remove('active');
+                        //dotArr[2].classList.add('active');
+                        break;
+                    // 7번째, 8번째, 9번째 기사가 보여직 있을때 다음 버튼을 클릭하면 초기화면으로 돌아간다.
+                    case 6:
+                            props.setTranslateX('0');
+                            props.setTransformTime(0);
+                           // dotArr[2].classList.remove('active');
+                           // dotArr[0].classList.add('active');
+                        break;
+            
+                    default:
+                        props.setTransformTime(props.transformTime + 1);
+                        props.setTranslateX(`-${props.transformTime * props.TRANSFORM_UNIT}`);
+                        break;
+                }
+            }
+        }/>
     )
-}
+};
 
 const ElementsBox = (props) => {
     return (
@@ -181,6 +224,9 @@ const CaseSection = (props) => {
     const TRANSFORM_UNIT = 408;
     const [transformTime, setTransformTime] = useState(0);
     const [translateX, setTranslateX] = useState(0);
+    const [dot1Class, setDot1Class] = useState('active');
+    const [dot2Class, setDot2Class] = useState('');
+    const [dot3Class, setDot3Class] = useState('');
     return (
         <section className="case-section">
             <Grad />
@@ -204,14 +250,14 @@ const CaseSection = (props) => {
                     <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} />
                 </div>
                 <div className="dot-wrap">
-                    <div className="active" id="0"></div>
-                    <div id="1"></div>
-                    <div id="2"></div>
+                    <div className={dot1Class} id="0"></div>
+                    <div className={dot2Class} id="1"></div>
+                    <div className={dot3Class} id="2"></div>
                 </div>
             </div>
         </section>
     )
-}
+};
 
 const NewsLetterBox = () => {
     return (
@@ -222,7 +268,7 @@ const NewsLetterBox = () => {
             <br /><span className="more-info footer-more-info">+ 더보기</span>
         </div>
     )
-}
+};
 
 const NewsInfo = () => {
     return (
@@ -234,7 +280,7 @@ const NewsInfo = () => {
             </div>
         </div>
     )
-}
+};
 
 const NewsBox = () => {
     return (
@@ -243,7 +289,7 @@ const NewsBox = () => {
             <NewsInfo />
         </div>
     )
-}
+};
 
 const NewsLetterSection = () => {
     return (
@@ -254,7 +300,7 @@ const NewsLetterSection = () => {
             </div>
         </section>
     )
-}
+};
 
 const Footer = () => {
     return (
@@ -274,7 +320,7 @@ const Footer = () => {
             </div>
         </footer>
     )
-}
+};
 
 const Modal = () => {
     return (
@@ -288,7 +334,7 @@ const Modal = () => {
     )
 };
 
-const Index = (props) => {
+const Index = ({props}) => {
     return (
         <div>
             <Header lang={props.lang} setLang={props.setLang} />
@@ -299,6 +345,6 @@ const Index = (props) => {
             <Modal />
         </div>
     )
-}
+};
 
 export default Index;
