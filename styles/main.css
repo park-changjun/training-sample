@@ -9,7 +9,6 @@ body {
   box-sizing: border-box;
 }
 
-
 .nav-container{
   width: 1200px;
   display: flex;
@@ -18,10 +17,7 @@ body {
   justify-content: space-between;
 }
 
-
 /* 1페이지 시작 */
-
-
 
 main{
   width: 100%;
@@ -32,6 +28,13 @@ main{
   flex-direction: column;
   align-items: center;
   background-size: cover;
+  overflow: hidden;
+}
+
+main video{
+  position: absolute;
+  width: 100%;
+  z-index: 2;
 }
 
 .language{
@@ -104,7 +107,6 @@ header{
     border-bottom: solid 1px #ffffff1f;
 }
 
-
 .header-text-box{
   width: 400px;
   height: 80px;
@@ -129,7 +131,6 @@ main .container{
   margin-top: 398px;
   z-index: 4;
 }
-
 
 .search-text{
  all: unset;
@@ -167,7 +168,6 @@ main .container{
   position: relative;
 }
 
-
 .case-left-arrow {
   all: unset;
   cursor: pointer;
@@ -192,7 +192,6 @@ main .container{
   background-image: url(/img/tab-arrow-right.png);
 }
      
-
 .grad{
   background-image: url(/img/gradient.png);
   position: absolute;
@@ -251,7 +250,6 @@ main .container{
   color: black;
  }
 
-
  .category-container{
  width: 392px;
  height: 107px;
@@ -277,11 +275,6 @@ main .container{
  transition: 0.5s;
  overflow: hidden;
  }
- 
-
-
-
-
 
 .dot-wrap{
 user-select: auto;

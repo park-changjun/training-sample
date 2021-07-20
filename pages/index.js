@@ -13,8 +13,10 @@ const DEFAULT_LOGO_PATH = '/project1/img/logo.png'
 const CHANGE_LOGO_PATH = '/img/logo_sub.png'
 const DEFAULT_HEADER_SEARCH_IMG_PATH = '/project1/img/srch-button.png'
 const CHANGE_HEADER_SEARCH_IMG_PATH = '/img/sch_icon_sub.png'
+const VIDEO_PATH1 = '/video/bgVideo1.mp4';
+const VIDEO_PATH2 = '/video/bgVideo2.mp4';
 
-const Language = ({ lang, setLang}) => {
+const Language = ({ lang, setLang }) => {
     const [headerVisible, setHeaderVisible] = useState(false);
     return (
         <div className="language dropdown">Language
@@ -40,7 +42,7 @@ const Language = ({ lang, setLang}) => {
 
 
 
-const Header = ({ lang, setLang, setModalVisible}) => {
+const Header = ({ lang, setLang, setModalVisible }) => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const updateScroll = () => {
         setScrollPosition(window.scrollY || document.documentElement.scrollTop);
@@ -112,6 +114,9 @@ const MainSection = ({ setModalVisible, setKeyword }) => {
                 <SearchBox setModalVisible={setModalVisible} setKeyword={setKeyword} />
                 <MainScrollBtn />
             </div>
+                <video autoPlay={true} loop muted>
+                    <source src={Math.random()*10>5?VIDEO_PATH1:VIDEO_PATH2} type="video/mp4"/>
+                </video>
         </main>
     )
 };
@@ -367,7 +372,7 @@ const Index = ({ lang, setLang }) => {
     const [keyword, setKeyword] = useState('어떤 법률적 자문이 필요하신가요?')
     return (
         <div>
-            <Header lang={lang} setLang={setLang} setModalVisible={setModalVisible}/>
+            <Header lang={lang} setLang={setLang} setModalVisible={setModalVisible} />
             <MainSection setModalVisible={setModalVisible} setKeyword={setKeyword} />
             <CaseSection />
             <NewsLetterSection />
