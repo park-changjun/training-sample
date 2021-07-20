@@ -213,7 +213,7 @@ const ElementsBox = ({ translateX }) => {
                 <div>
                     <a className="category-block">M&A/기업지배구조1</a>
                     <br />
-                    <img className="flag-back" src="/project1/img/flag-back.png" />
+                    <img className="flag-back" src="/img/flag-back.png" />
                 </div>
                 <h4 className="case-title">교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</h4>
                 <div className="case-content">
@@ -222,9 +222,9 @@ const ElementsBox = ({ translateX }) => {
                 <p className="article-date">2021.04.01</p>
             </div>
             <div className="profile-img-box-container">
-                <img src="/project1/img/defaultImg.svg" />
-                <img src="/project1/img/defaultImg.svg" />
-                <img src="/project1/img/defaultImg.svg" />
+                <img src="/img/defaultImg.svg" />
+                <img src="/img/defaultImg.svg" />
+                <img src="/img/defaultImg.svg" />
             </div>
         </li>
     )

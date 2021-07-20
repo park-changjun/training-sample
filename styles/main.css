@@ -471,6 +471,7 @@ justify-content: center;
     
   
 .more-info {
+  position: relative;
     height: 18px;
    font-family: 'Noto Sans KR', sans-serif;
     font-size: 18px;
@@ -479,9 +480,19 @@ justify-content: center;
     font-style: normal;
     color: #333333;
     margin-right: 30px;
-    border-bottom: outset;
-    border-color: chartreuse;
-    border-width: thick;
+    cursor: pointer;
+}
+
+.more-info:hover::after{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 65px;
+  height: 5px;
+  background-color: #8a6e4f;
+  opacity: 0.6;
+  transition-duration: .2s;
+  bottom: 0px;
 }
 
 .change-header{
