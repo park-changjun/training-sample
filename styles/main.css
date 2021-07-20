@@ -186,7 +186,7 @@ body{
 }
 
 .header-nav-sub-dep{
-    display: none;
+    /* display: none; */
     /* margin-top: 30px; */
     white-space: nowrap;  /*줄바꿈방지*/
     position: absolute;

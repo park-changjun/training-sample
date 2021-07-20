@@ -35,32 +35,21 @@ const Dropdown = (props) => {
 
 // const HeaderMenu = ["바른소개", "바른소개", "바른소개", "바른소개", "바른소개", "바른소개", "바른소개"];
 
+
 const HeaderNav = (props) => {
   const ShowNav = 'block';
   const NoShowNav = 'none';
-  const [headerNav setHeaderNav] = useState('none');
-
+  const [headerNav, setHeaderNav] = useState(false);
 
   return (
     <div>
-      <ul className="header-nav-dep" />
+      <ul className="header-nav-dep" >
 
       <li onClick={() => {
         setHeaderNav(!headerNav);
       }}><a href="#">바른소개</a>
 
-        <ul className="header-nav-sub-dep" onClick={() => {
-          //ㅑㅑㅑㅑㅑ
-        }}
-          style={{ display: headerNav === true ? 'block' : 'none' }}>
-
-          {/* {HeaderMenu.map(headerMenu => {
-            return (
-              <li onClick={() => props?.setLang?.(HeaderMenu)}>{HeaderMenu}</li>
-            )
-          })} */}
-
-
+        <ul className="header-nav-sub-dep" style={{display : headerNav ? 'block' : 'none'}}>
 
           <li><a href="#">바른소개</a></li>
           <li><a href="#">바른연락</a></li>
@@ -68,6 +57,8 @@ const HeaderNav = (props) => {
           <li><a href="#">싱가포르<br />대표사무소</a></li>
           <li><a href="#">블로그</a></li>
         </ul>
+
+
       </li>
       <li><a href="#">업무분야</a>
         <ul className="header-nav-sub-dep">
