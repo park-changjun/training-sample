@@ -1,15 +1,18 @@
-import React, { useState, useRef } from "react";
+/* eslint-disable */
+import React, { useState, useEffect, useMemo } from "react";
 
 const Index = () => {
   const [isLangClicked, setIsLangClicked] = useState(false);
   const [isNavSearchClicked, setIsNavSearchClicked] = useState(false);
   const [isSearchInputClicked, setIsSearchInputClicked] = useState(false);
+
   const [searchInput, setSearchInput] = useState("");
   const [inputValue, setInputValue] = useState("");
 
   const carouselMenu = ["바른뉴스", "업무사례", "언론보도"];
-  const [bgMsg, setBgMsg] = useState("업무사례");
+  const [bgMsg, setBgMsg] = useState("바른뉴스");
   const [bgFlag, setBgFlag] = useState(0);
+  const [headerColor, setHeaderColor] = useState(false);
 
   return (
     <div>
@@ -18,51 +21,28 @@ const Index = () => {
         setIsLangClicked={setIsLangClicked}
         isNavSearchClicked={isNavSearchClicked}
         setIsNavSearchClicked={setIsNavSearchClicked}
+        headerColor={headerColor}
+        setHeaderColor={setHeaderColor}
       />
 
-      <div className="top section">
-        <div
-          className={(isSearchInputClicked
-            ? ["cover", "block"]
-            : ["cover"]
-          ).join(" ")}
-          onClick={() => {
-            if (isSearchInputClicked)
-              setIsSearchInputClicked(!isSearchInputClicked);
-          }}
-        />
-        <div className="container">
-          <Slogan
-            isSearchInputClicked={isSearchInputClicked}
-            setIsSearchInputClicked={setIsSearchInputClicked}
-            searchInput={searchInput}
-            setSearchInput={setSearchInput}
-            inputValue={inputValue}
-            setInputValue={setInputValue}
-          />
-          <div className="arr-down-display">
-            <p className="scroll">SCROLL</p>
-            <img className="scroll-down-arrow" src="img/down-arrow.svg" />
-          </div>
-        </div>
-      </div>
+      <SloganSection
+        isSearchInputClicked={isSearchInputClicked}
+        setIsSearchInputClicked={setIsSearchInputClicked}
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+      />
 
-      <div className="middle section">
-        <div className="middle-bg-gra"></div>
+      <CarouselSection
+        carouselMenu={carouselMenu}
+        bgMsg={bgMsg}
+        setBgMsg={setBgMsg}
+        bgFlag={bgFlag}
+        setBgFlag={setBgFlag}
+      />
 
-        <div className="container">
-          <CarouselMenu
-            carouselMenu={carouselMenu}
-            bgMsg={bgMsg}
-            setBgMsg={setBgMsg}
-            bgFlag={bgFlag}
-            setBgFlag={setBgFlag}
-          />
-          <Carousel />
-        </div>
-      </div>
-
-      <Newsletter />
+      <NewsletterSection />
 
       <Footer />
     </div>
@@ -70,8 +50,20 @@ const Index = () => {
 };
 
 const Header = (props) => {
+  const scrollY = () => {
+    if (window.scrollY > window.innerHeight - 111) {
+      props.setHeaderColor(true);
+    } else {
+      props.setHeaderColor(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollY);
+  }, []);
+
   return (
-    <header>
+    <header className={props.headerColor ? "header-active" : "block"}>
       <div className="container">
         <button
           className="lang"
@@ -93,7 +85,11 @@ const Header = (props) => {
             </ul>
           </div>
         </button>
-        <nav className="nav">
+        <nav
+          className={(props.headerColor ? ["nav-active", "nav"] : ["nav"]).join(
+            " "
+          )}
+        >
           <a href="index.html">
             <img className="nav-logo" src="img/toplogo.png" alt="" />
           </a>
@@ -180,6 +176,53 @@ const NavMenuDropdown = () => {
   );
 };
 
+const SloganSection = (props) => {
+  function showMovie() {
+    const num = Math.round(Math.random());
+    const src = `/movie/movie${num}.mp4`;
+    return src;
+  }
+  const [videoSrc, setVideoSrc] = useState("");
+
+  useEffect(() => {
+    setVideoSrc(showMovie());
+  }, []);
+
+  return (
+    <div className="top section">
+      {videoSrc && (
+        <video autoPlay={true} loop muted>
+          <source src={videoSrc} type="video/mp4" />
+        </video>
+      )}
+      <div
+        className={(props.isSearchInputClicked
+          ? ["cover", "block"]
+          : ["cover"]
+        ).join(" ")}
+        onClick={() => {
+          if (props.isSearchInputClicked)
+            props.setIsSearchInputClicked(!props.isSearchInputClicked);
+        }}
+      />
+      <div className="container">
+        <Slogan
+          isSearchInputClicked={props.isSearchInputClicked}
+          setIsSearchInputClicked={props.setIsSearchInputClicked}
+          searchInput={props.searchInput}
+          setSearchInput={props.setSearchInput}
+          inputValue={props.inputValue}
+          setInputValue={props.setInputValue}
+        />
+        <div className="arr-down-display">
+          <p className="scroll">SCROLL</p>
+          <img className="scroll-down-arrow" src="img/down-arrow.svg" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Slogan = (props) => {
   return (
     <div className="visual-content">
@@ -225,6 +268,25 @@ const Slogan = (props) => {
   );
 };
 
+const CarouselSection = (props) => {
+  return (
+    <div className="middle section">
+      <div className="middle-bg-gra"></div>
+
+      <div className="container">
+        <CarouselMenu
+          carouselMenu={props.carouselMenu}
+          bgMsg={props.bgMsg}
+          setBgMsg={props.setBgMsg}
+          bgFlag={props.bgFlag}
+          setBgFlag={props.setBgFlag}
+        />
+        <Carousel />
+      </div>
+    </div>
+  );
+};
+
 const CarouselMenu = (props) => {
   return (
     <>
@@ -257,42 +319,108 @@ const CarouselMenu = (props) => {
 };
 
 const Carousel = () => {
+  const [animation, setAnimation] = useState(false);
+  const [slidesLeft, setSlidesLeft] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const arr = [1, 2, 3];
+  const slide = [<Card />, <Card />, <Card />, <Card />];
+  const slideCount = slide.length;
+  const slideWidth = 384;
+  const slideMargin = 24;
+
+
+  const slidesStyle = {
+    transform:
+      "translateX(" + (-(slideWidth + slideMargin) * slideCount + 4) + "px)",
+    width: (slideWidth + slideMargin) * (slideCount * 3) - slideMargin + "px",
+    left: slidesLeft + "px",
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimation(true);
+    }, 10);
+  }, []);
+
+  const prevBtn = () => {
+    moveSlide(currentIndex - 1);
+  };
+  const nextBtn = () => {
+    moveSlide(currentIndex + 1);
+  };
+
+  function moveSlide(num) {
+    setSlidesLeft(-num * (slideWidth + slideMargin));
+    setCurrentIndex(num);
+
+    // push next button at last slide
+    if (num === slideCount) {
+      setTimeout(function () {
+        setAnimation(false);
+        setSlidesLeft(0);
+        setCurrentIndex(0);
+      }, 300);
+      setTimeout(function () {
+        setAnimation(true);
+      }, 400);
+    } 
+    
+    // push prev button at first slide
+    else if (num === -1) {
+      setTimeout(function () {
+        setAnimation(false);
+        setSlidesLeft(-1 * (slideCount - 1) * (slideWidth + slideMargin));
+        setCurrentIndex(slideCount - 1);
+      }, 300);
+      setTimeout(function () {
+        setAnimation(true);
+      }, 400);
+    }
+  }
+
   return (
     <>
       <div className="box-content-wrapper">
-        <a className="middle-box-arrow left">
+        <a className="middle-box-arrow left" onClick={prevBtn}>
           <img src="img/left-arrow.svg" alt="" />
         </a>
-        <a className="middle-box-arrow right" id="right">
+        <a className="middle-box-arrow right" id="right" onClick={nextBtn}>
           <img src="img/right-arrow.svg" alt="" />
         </a>
 
         <div className="box-container">
-          <ul>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+          <ul style={slidesStyle} className={animation ? "animated" : "block"}>
+            {arr.map((a) => {
+              return slide.map((item, index) => <Card index={index} />);
+            })}
           </ul>
         </div>
       </div>
 
-      {/* <!-- 아래 점 3개 --> */}
       <div className="dot-container">
-        <span className="dot dot-active">·</span>
-        <span className="dot">·</span>
+        <span
+          className={(currentIndex < 3 ? ["dot", "dot-active"] : ["dot"]).join(" ")}
+        >
+          ·
+        </span>
+        <span
+          className={(currentIndex >= 3 ? ["dot", "dot-active"] : ["dot"]).join(" ")}
+        >
+          ·
+        </span>
       </div>
     </>
   );
 };
 
-const Card = () => {
+const Card = (props) => {
   return (
     <li>
       <article className="box">
         <div className="box-top">
           <img className="flag" src="img/flag.svg" alt="" />
-          <span>엔터테인먼트2</span>
+          <span>엔터테인먼트{props.index + 1}</span>
         </div>
         <p className="box-title">
           <a href="#">
@@ -318,7 +446,7 @@ const Card = () => {
   );
 };
 
-const Newsletter = () => {
+const NewsletterSection = () => {
   return (
     <>
       <div className="bottom section">

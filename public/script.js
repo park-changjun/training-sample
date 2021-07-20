@@ -90,7 +90,6 @@ function moveSlide(num){
   }
 
   setTimeout(function(){
-    console.log(currentIndex);
     dotMove(currentIndex);
   },300);
 }
