@@ -1,46 +1,14 @@
 /* eslint-disable */
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Index = () => {
-  const [isLangClicked, setIsLangClicked] = useState(false);
-  const [isNavSearchClicked, setIsNavSearchClicked] = useState(false);
-  const [isSearchInputClicked, setIsSearchInputClicked] = useState(false);
-
-  const [searchInput, setSearchInput] = useState("");
-  const [inputValue, setInputValue] = useState("");
-
-  const carouselMenu = ["바른뉴스", "업무사례", "언론보도"];
-  const [bgMsg, setBgMsg] = useState("바른뉴스");
-  const [bgFlag, setBgFlag] = useState(0);
-  const [headerColor, setHeaderColor] = useState(false);
-
   return (
     <div>
-      <Header
-        isLangClicked={isLangClicked}
-        setIsLangClicked={setIsLangClicked}
-        isNavSearchClicked={isNavSearchClicked}
-        setIsNavSearchClicked={setIsNavSearchClicked}
-        headerColor={headerColor}
-        setHeaderColor={setHeaderColor}
-      />
+      <Header />
 
-      <SloganSection
-        isSearchInputClicked={isSearchInputClicked}
-        setIsSearchInputClicked={setIsSearchInputClicked}
-        searchInput={searchInput}
-        setSearchInput={setSearchInput}
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-      />
+      <SloganSection />
 
-      <CarouselSection
-        carouselMenu={carouselMenu}
-        bgMsg={bgMsg}
-        setBgMsg={setBgMsg}
-        bgFlag={bgFlag}
-        setBgFlag={setBgFlag}
-      />
+      <CarouselSection />
 
       <NewsletterSection />
 
@@ -49,12 +17,17 @@ const Index = () => {
   );
 };
 
-const Header = (props) => {
+const Header = () => {
+  const [lang, setLang] = useState("KOR");
+  const [isLangClicked, setIsLangClicked] = useState(false);
+  const [isNavSearchClicked, setIsNavSearchClicked] = useState(false);
+  const [headerColor, setHeaderColor] = useState(false);
+
   const scrollY = () => {
     if (window.scrollY > window.innerHeight - 111) {
-      props.setHeaderColor(true);
+      setHeaderColor(true);
     } else {
-      props.setHeaderColor(false);
+      setHeaderColor(false);
     }
   };
 
@@ -63,39 +36,55 @@ const Header = (props) => {
   }, []);
 
   return (
-    <header className={props.headerColor ? "header-active" : "block"}>
+    <header className={headerColor ? "header-active" : undefined}>
       <div className="container">
         <button
           className="lang"
           onClick={() => {
-            props.setIsLangClicked(!props.isLangClicked);
+            setIsLangClicked(!isLangClicked);
           }}
         >
           <span>Language</span>
           <img src="img/lan-arrow.png" alt="" />
           <div
-            className={(props.isLangClicked
+            className={(isLangClicked
               ? ["lang-list", "block"]
               : ["lang-list"]
             ).join(" ")}
           >
             <ul>
-              <li onClick={() => alert("페이지 영어로 바꾸기")}>English</li>
-              <li onClick={() => alert("페이지 한글로 바꾸기")}>한국어</li>
+              <li
+                onClick={() => {
+                  if (lang === "KOR") {
+                    setLang("ENG");
+                    alert("페이지 영어로 바꾸기");
+                  }
+                }}
+              >
+                English
+              </li>
+              <li
+                onClick={() => {
+                  if (lang === "ENG") {
+                    setLang("KOR");
+                    alert("페이지 한글로 바꾸기");
+                  }
+                }}
+              >
+                한국어
+              </li>
             </ul>
           </div>
         </button>
         <nav
-          className={(props.headerColor ? ["nav-active", "nav"] : ["nav"]).join(
-            " "
-          )}
+          className={(headerColor ? ["nav-active", "nav"] : ["nav"]).join(" ")}
         >
           <a href="index.html">
             <img className="nav-logo" src="img/toplogo.png" alt="" />
           </a>
           <NavMenu
-            isNavSearchClicked={props.isNavSearchClicked}
-            setIsNavSearchClicked={props.setIsNavSearchClicked}
+            isNavSearchClicked={isNavSearchClicked}
+            setIsNavSearchClicked={setIsNavSearchClicked}
           />
         </nav>
       </div>
@@ -104,6 +93,8 @@ const Header = (props) => {
 };
 
 const NavMenu = (props) => {
+  const [navSearchInput, setNavSearchInput] = useState("");
+
   return (
     <div className="nav-menu">
       <ul>
@@ -139,17 +130,29 @@ const NavMenu = (props) => {
           ).join(" ")}
         ></div>
         <input
+          value={navSearchInput}
           className={(props.isNavSearchClicked
             ? ["search-input", "block"]
             : ["search-input"]
           ).join(" ")}
           type="text"
           placeholder="검색어를 입력하세요."
-          style={props.isNavSearchClicked ? { width: "300px" } : {}}
+          style={
+            props.isNavSearchClicked ? { width: "300px" } : { width: "0px" }
+          }
+          onChange={(e) => {
+            setNavSearchInput(e.target.value);
+          }}
         />
         <button
           type="submit"
           onClick={() => {
+            if (props.isNavSearchClicked && navSearchInput === "") {
+              alert("검색어를 입력해주세요.");
+            } else if (props.isNavSearchClicked && navSearchInput !== "") {
+              alert("검색 결과 페이지 이동!");
+              setNavSearchInput("");
+            }
             props?.setIsNavSearchClicked?.(!props.isNavSearchClicked);
           }}
         >
@@ -176,7 +179,9 @@ const NavMenuDropdown = () => {
   );
 };
 
-const SloganSection = (props) => {
+const SloganSection = () => {
+  const [isSearchInputClicked, setIsSearchInputClicked] = useState(false);
+
   function showMovie() {
     const num = Math.round(Math.random());
     const src = `/movie/movie${num}.mp4`;
@@ -196,23 +201,18 @@ const SloganSection = (props) => {
         </video>
       )}
       <div
-        className={(props.isSearchInputClicked
-          ? ["cover", "block"]
-          : ["cover"]
-        ).join(" ")}
+        className={(isSearchInputClicked ? ["cover", "block"] : ["cover"]).join(
+          " "
+        )}
         onClick={() => {
-          if (props.isSearchInputClicked)
-            props.setIsSearchInputClicked(!props.isSearchInputClicked);
+          if (isSearchInputClicked)
+            setIsSearchInputClicked(!isSearchInputClicked);
         }}
       />
       <div className="container">
         <Slogan
-          isSearchInputClicked={props.isSearchInputClicked}
-          setIsSearchInputClicked={props.setIsSearchInputClicked}
-          searchInput={props.searchInput}
-          setSearchInput={props.setSearchInput}
-          inputValue={props.inputValue}
-          setInputValue={props.setInputValue}
+          isSearchInputClicked={isSearchInputClicked}
+          setIsSearchInputClicked={setIsSearchInputClicked}
         />
         <div className="arr-down-display">
           <p className="scroll">SCROLL</p>
@@ -224,6 +224,16 @@ const SloganSection = (props) => {
 };
 
 const Slogan = (props) => {
+  const [inputValue, setInputValue] = useState("");
+
+  const inputBtnRef = useRef();
+  const inputRef = useRef();
+  const Search = () => {
+    alert(inputValue);
+    setInputValue("");
+    inputRef.current.blur();
+    props.setIsSearchInputClicked(false);
+  };
   return (
     <div className="visual-content">
       <p className="slogan">
@@ -232,76 +242,73 @@ const Slogan = (props) => {
       </p>
       <div className="search">
         <input
-          value={props.inputValue}
+          ref={inputRef}
+          value={inputValue}
           type="text"
           onFocus={(e) => {
             if (e.target.value !== "") e.target.value = "";
-            props.setIsSearchInputClicked(!props.isSearchInputClicked);
+            props.setIsSearchInputClicked(true);
           }}
           onChange={(e) => {
             const msg = e.target.value;
-            props.setInputValue(msg);
-            props.setSearchInput(msg);
+            setInputValue(msg);
+          }}
+          onKeyDown={(e) => {
+            if (e.key == "Enter") {
+              inputBtnRef.current.click();
+              props.setIsSearchInputClicked(false);
+            }
           }}
         ></input>
-        <button
-          type="submit"
-          onClick={() => {
-            alert(props.searchInput);
-            props.setIsSearchInputClicked(!props.isSearchInputClicked);
-            props.setInputValue("");
-            props.setSearchInput("");
-          }}
-        >
+        <button ref={inputBtnRef} type="submit" onClick={Search}>
           <img src="img/search.png" />
         </button>
       </div>
+
       <div
         className={(props.isSearchInputClicked
           ? ["search-result", "block"]
           : ["search-result"]
         ).join(" ")}
       >
-        {props.searchInput}
+        {inputValue}
       </div>
     </div>
   );
 };
 
-const CarouselSection = (props) => {
+const CarouselSection = () => {
   return (
     <div className="middle section">
       <div className="middle-bg-gra"></div>
 
       <div className="container">
-        <CarouselMenu
-          carouselMenu={props.carouselMenu}
-          bgMsg={props.bgMsg}
-          setBgMsg={props.setBgMsg}
-          bgFlag={props.bgFlag}
-          setBgFlag={props.setBgFlag}
-        />
+        <CarouselMenu />
         <Carousel />
       </div>
     </div>
   );
 };
 
-const CarouselMenu = (props) => {
+const CarouselMenu = () => {
+  const carouselMenu = ["바른뉴스", "업무사례", "언론보도"];
+  const [bgMsg, setBgMsg] = useState("바른뉴스");
+  const [bgFlag, setBgFlag] = useState(0);
+
   return (
     <>
-      <div className="middle-bg-msg">{props.bgMsg}</div>
+      <div className="middle-bg-msg">{bgMsg}</div>
       <div className="middle-menu">
         <ul>
-          {props.carouselMenu.map((item, index) => {
+          {carouselMenu.map((item, index) => {
             return (
               <li key={index}>
                 <a
                   key={index}
-                  className={props.bgFlag === index ? "menu-active" : "block"}
+                  className={bgFlag === index ? "menu-active" : undefined}
                   onClick={() => {
-                    props.setBgMsg(item);
-                    props.setBgFlag(index);
+                    setBgMsg(item);
+                    setBgFlag(index);
                   }}
                 >
                   {item}
@@ -322,13 +329,20 @@ const Carousel = () => {
   const [animation, setAnimation] = useState(false);
   const [slidesLeft, setSlidesLeft] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
-  
-  const arr = [1, 2, 3];
-  const slide = [<Card />, <Card />, <Card />, <Card />];
+
+  const slide = [
+    <Card />,
+    <Card />,
+    <Card />,
+    <Card />,
+    <Card />,
+    <Card />,
+    <Card />,
+    <Card />,
+  ];
   const slideCount = slide.length;
   const slideWidth = 384;
   const slideMargin = 24;
-
 
   const slidesStyle = {
     transform:
@@ -364,8 +378,8 @@ const Carousel = () => {
       setTimeout(function () {
         setAnimation(true);
       }, 400);
-    } 
-    
+    }
+
     // push prev button at first slide
     else if (num === -1) {
       setTimeout(function () {
@@ -379,6 +393,10 @@ const Carousel = () => {
     }
   }
 
+  // dots
+  const dotsCount =
+    slideCount % 3 === 0 ? slideCount / 3 : parseInt(slideCount / 3) + 1;
+
   return (
     <>
       <div className="box-content-wrapper">
@@ -390,25 +408,33 @@ const Carousel = () => {
         </a>
 
         <div className="box-container">
-          <ul style={slidesStyle} className={animation ? "animated" : "block"}>
-            {arr.map((a) => {
-              return slide.map((item, index) => <Card index={index} />);
+          <ul
+            style={slidesStyle}
+            className={animation ? "animated" : undefined}
+          >
+            {[...Array(3)].map((a) => {
+              return slide.map((item, index) => (
+                <Card index={index} key={index} />
+              ));
             })}
           </ul>
         </div>
       </div>
 
       <div className="dot-container">
-        <span
-          className={(currentIndex < 3 ? ["dot", "dot-active"] : ["dot"]).join(" ")}
-        >
-          ·
-        </span>
-        <span
-          className={(currentIndex >= 3 ? ["dot", "dot-active"] : ["dot"]).join(" ")}
-        >
-          ·
-        </span>
+        {[...Array(dotsCount)].map((n, index) => {
+          let idx = 3 * (index + 1);
+          return (
+            <span
+              className={(currentIndex < idx && idx - 3 <= currentIndex
+                ? ["dot", "dot-active"]
+                : ["dot"]
+              ).join(" ")}
+            >
+              ·
+            </span>
+          );
+        })}
       </div>
     </>
   );
