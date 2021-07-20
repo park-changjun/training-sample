@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react'
 import Head from 'next/head'
 import dummyCards from '../data/dummyCard'
 import dummyLetters from '../data/dummyLetters'
+import dummyNav from '../data/dummyNav'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 // isSub => header 110px 이하로 내려올때 색 변경하는 기준 프롭
 const HeaderLogo = ({ isSub }) => {
@@ -9,157 +12,175 @@ const HeaderLogo = ({ isSub }) => {
 }
 
 const HeaderLanguageSelect = ({}) => {
-  return <></>
-}
-
-const HeaderNav = ({ isSub, selectedLang = 'KOREAN' }) => {
+  const [openLanguageOpt, setOpenLanguageOpt] = useState(false)
+  const [nowLang, setNowLang] = useState('KOREAN')
   return (
-    <div className="header-content">
-      <div className="header-language-selecter">
-        <p>{selectedLang}</p>
-        <i className="fas fa-chevron-down"></i>
-        <select>
-          <option value="KOREAN">KOREAN</option>
-          <option value="ENGLISH">ENGLISH</option>
-        </select>
-      </div>
-      <div className="header-nav">
-        <ul>
-          <li className="header-list">
-            <a href="#">바른소개</a>
-            <ul>
-              <li>
-                <a>바른소개</a>
-              </li>
-              <li>
-                <a>바른소개</a>
-              </li>
-              <li>
-                <a>바른소개</a>
-              </li>
-              <li>
-                <a>바른소개</a>
-              </li>
-              <li>
-                <a>바른소개</a>
-              </li>
-            </ul>
-          </li>
-          <li className="header-list">
-            <a href="#">업무분야</a>
-            <ul>
-              <li>
-                <a>업무분야</a>
-              </li>
-              <li>
-                <a>업무분야</a>
-              </li>
-              <li>
-                <a>업무분야</a>
-              </li>
-            </ul>
-          </li>
-          <li className="header-list">
-            <a href="#">구성원</a>
-            <ul>
-              <li>
-                <a>구성원</a>
-              </li>
-              <li>
-                <a>구성원</a>
-              </li>
-              <li>
-                <a>구성원</a>
-              </li>
-              <li>
-                <a>구성원</a>
-              </li>
-            </ul>
-          </li>
-          <li className="header-list">
-            <a href="#">자료실</a>
-            <ul>
-              <li>
-                <a>자료실</a>
-              </li>
-              <li>
-                <a>자료실</a>
-              </li>
-              <li>
-                <a>자료실</a>
-              </li>
-              <li>
-                <a>자료실</a>
-              </li>
-              <li>
-                <a>자료실</a>
-              </li>
-              <li>
-                <a>자료실</a>
-              </li>
-              <li>
-                <a>자료실</a>
-              </li>
-            </ul>
-          </li>
-          <li className="header-list">
-            <a href="#">사회공원</a>
-            <ul>
-              <li>
-                <a>사회공원</a>
-              </li>
-              <li>
-                <a>사회공원</a>
-              </li>
-              <li>
-                <a>사회공원</a>
-              </li>
-              <li>
-                <a>사회공원</a>
-              </li>
-            </ul>
-          </li>
-          <li className="header-list">
-            <a href="#">인재채용</a>
-            <ul>
-              <li>
-                <a>인재채용</a>
-              </li>
-              <li>
-                <a>인재채용</a>
-              </li>
-              <li>
-                <a>인재채용</a>
-              </li>
-              <li>
-                <a>인재채용</a>
-              </li>
-              <li>
-                <a>인재채용</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <div className="search-box">
-          <div className="search-input-wrapper">
-            <input className="search-input" placeholder="검색어를 입력하세요" />
-          </div>
-          <button className="toggle-search-button">
-            <div></div>
-          </button>
-        </div>
-        <div className="modal-mask"></div>
-      </div>
+    <div
+      className="header-language-selecter"
+      onClick={() => {
+        setOpenLanguageOpt((prev) => !prev)
+      }}
+    >
+      <p>{nowLang}</p>
+      <FontAwesomeIcon icon={faChevronDown} />
+      {/* <i className="fas fa-chevron-down"></i> */}
+      <ul className={openLanguageOpt ? `active` : ''}>
+        <li
+          data-value="KOREAN"
+          onClick={(e) => {
+            setNowLang(e.target.dataset.value)
+          }}
+        >
+          KOREAN
+        </li>
+        <li
+          data-value="ENGLISH"
+          onClick={(e) => {
+            setNowLang(e.target.dataset.value)
+          }}
+        >
+          ENGLISH
+        </li>
+      </ul>
     </div>
   )
 }
 
-const HeaderContainer = ({ isSub }) => {
+const HeaderLists = ({ navLists }) => {
+  return (
+    <ul>
+      {navLists &&
+        navLists.map((nav) => (
+          <li key={nav.title} className="header-list">
+            <a href="#">{nav.title}</a>
+            <ul>
+              {nav.sub &&
+                nav.sub.map((sub, index) => (
+                  <li key={`${sub}${index}`}>
+                    <a>{sub}</a>
+                  </li>
+                ))}
+            </ul>
+          </li>
+        ))}
+    </ul>
+  )
+}
+
+const HeaderSearchBox = ({
+  headerModalOpen,
+  setHeaderModalOpen,
+  setAppTakeClick,
+}) => {
+  const [searchText, setSearchText] = useState('')
+  const inputRef = useRef()
+
+  React.useEffect(() => {
+    console.log(`__headerModalOpen : ${headerModalOpen}`)
+  }, [headerModalOpen])
+
+  const checkInputText = (e) => {
+    if (searchText) {
+      alert(`현재 입력된 input ${searchText}`)
+    } else {
+      alert('검색어를 입력해야 합니다.')
+    }
+    inputRef.current.focus()
+  }
+
+  const openHeaderModal = (e) => {
+    console.log('openHeaderModal')
+    setHeaderModalOpen(true)
+    setAppTakeClick(true)
+  }
+
+  return (
+    <div className={`search-box ${headerModalOpen ? 'active' : ''}`}>
+      <div
+        className={`search-input-wrapper ${headerModalOpen ? 'active' : ''}`}
+      >
+        <input
+          ref={inputRef}
+          className="search-input"
+          placeholder="검색어를 입력하세요"
+          onChange={(e) => {
+            setSearchText(e.target.value)
+          }}
+          value={searchText}
+        />
+      </div>
+      <button className="toggle-search-button">
+        <div
+          onClick={(e) => {
+            console.log(headerModalOpen)
+            headerModalOpen ? checkInputText(e) : openHeaderModal(e)
+          }}
+        />
+      </button>
+    </div>
+  )
+}
+
+const HeaderModal = ({ headerModalOpen }) => {
+  return <div className={`modal-mask ${headerModalOpen && 'active'}`}></div>
+}
+
+const HeaderNav = ({
+  navLists,
+  setAppTakeClick,
+  headerModalOpen,
+  setHeaderModalOpen,
+}) => {
+  return (
+    <div className="header-nav">
+      <HeaderLists navLists={navLists} />
+      <HeaderSearchBox
+        headerModalOpen={headerModalOpen}
+        setHeaderModalOpen={setHeaderModalOpen}
+        setAppTakeClick={setAppTakeClick}
+      />
+      <HeaderModal headerModalOpen={headerModalOpen} />
+    </div>
+  )
+}
+
+const HeaderContents = ({
+  isSub,
+  navLists,
+  setAppTakeClick,
+  headerModalOpen,
+  setHeaderModalOpen,
+}) => {
+  return (
+    <div className="header-content">
+      <HeaderLanguageSelect />
+      <HeaderNav
+        navLists={navLists}
+        setAppTakeClick={setAppTakeClick}
+        headerModalOpen={headerModalOpen}
+        setHeaderModalOpen={setHeaderModalOpen}
+      />
+    </div>
+  )
+}
+
+const HeaderContainer = ({
+  isSub,
+  navLists,
+  setAppTakeClick,
+  headerModalOpen,
+  setHeaderModalOpen,
+}) => {
   return (
     <div id="wrapper-header">
       <header>
         <HeaderLogo />
-        <HeaderNav />
+        <HeaderContents
+          navLists={navLists}
+          setAppTakeClick={setAppTakeClick}
+          headerModalOpen={headerModalOpen}
+          setHeaderModalOpen={setHeaderModalOpen}
+        />
       </header>
     </div>
   )
@@ -177,20 +198,19 @@ const MainText = ({ mainText }) => {
 }
 
 const SearchBox = ({}) => {
-
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState('')
 
   return (
     <>
       <div className="search-section-content-wrapper">
         <div className="input-wrapper">
-          <input 
-            placeholder="검색할 내용을 입력해주세요" 
-            type="text" 
+          <input
+            placeholder="검색할 내용을 입력해주세요"
+            type="text"
             value={inputValue}
             onChange={(e) => {
-              setInputValue(e.target.value);
-            }}  
+              setInputValue(e.target.value)
+            }}
           />
           <button>
             <img src="images/search-button-big.png" alt="search-button-big" />
@@ -265,14 +285,14 @@ const ShowMoreButton = ({ which }) => {
   )
 }
 
-const Card = ({ card }) => {
+const Card = ({ card, cloned }) => {
   return (
-    <article className="card">
-      <div className="card-label">{card.label}</div>
+    <article className={`card ${cloned ? 'cloned' : ''}`}>
+      <div className="card-label">{card.label || '라벨'}</div>
       <div className="card-label-shadow"></div>
-      <p className="card-title">{card.title}</p>
-      <p className="card-content">{card.content}</p>
-      <p className="card-date">{card.date}</p>
+      <p className="card-title">{card?.title || '타이틀'}</p>
+      <p className="card-content">{card?.content || '컨텐츠'}</p>
+      <p className="card-date">{card?.date || '날짜'}</p>
       <div className="card-img-wrapper">
         {card.characters.length &&
           card.characters.map((character, index) => (
@@ -285,11 +305,20 @@ const Card = ({ card }) => {
   )
 }
 
-const CardsBox = ({ cards }) => {
+const CardsBox = ({ currentIndex, cards }) => {
+  const cardsBoxStyle = {
+    left: currentIndex * -399,
+    transform: `translateX(-399px)`,
+  }
+
   return (
-    <div className="cards-box">
+    <div className="cards-box animated" style={cardsBoxStyle}>
+      <Card card={cards[cards.length - 1]} cloned />
       {cards.map((card, index) => (
         <Card key={`${card.label}${index}`} card={card} />
+      ))}
+      {cards.map((card, index) => (
+        <Card key={`${card.label}${index}`} card={card} cloned />
       ))}
     </div>
   )
@@ -299,30 +328,58 @@ const CardPagenation = ({}) => {
   return <div className="card-pagenation"></div>
 }
 
-const CardButtons = ({}) => {
+const CardButtons = ({ setCurrentIndex, currentIndex }) => {
+  const [isDisabled, setIsDisabled] = useState(false)
+
+  const moveCardHandle = (index) => {
+    setIsDisabled(true)
+    setCurrentIndex(index)
+    setTimeout(() => {
+      setIsDisabled(false)
+    }, 500)
+  }
+
   return (
     <>
-      <button className="tab-arrow-left">
+      <button
+        disabled={isDisabled}
+        className="tab-arrow-left"
+        onClick={() => moveCardHandle(--currentIndex)}
+      >
         <img src="images/tab-arrow-left.png" alt="image-tab-arrow-left" />
       </button>
-      <button className="tab-arrow-right">
+      <button
+        disabled={isDisabled}
+        className="tab-arrow-right"
+        onClick={() => moveCardHandle(++currentIndex)}
+      >
         <img src="images/tab-arrow-right.png" alt="image-tab-arrow-right" />
       </button>
     </>
   )
 }
 
-const CardContainer = ({}) => {
+const CardContainer = ({ cards }) => {
+  const [isAnimated, setIsAnimated] = useState(false)
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    console.log(currentIndex)
+  }, [currentIndex])
+
   return (
     <div id="wrapper-card-section">
       <section id="card-section">
         <CardLetterNav letterList={['바른뉴스', '업무사례', '언론보도']} />
         <ShowMoreButton which="cards" />
         <div className="cards-wrapper">
-          <CardsBox cards={dummyCards} />
+          <CardsBox currentIndex={currentIndex} cards={cards} />
         </div>
         <CardPagenation />
-        <CardButtons />
+        <CardButtons
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+        />
       </section>
     </div>
   )
@@ -345,23 +402,15 @@ const NewsLetterDesc = () => {
 const LatestTwoLetters = ({ latestTwoLetters }) => {
   return (
     <div id="latest-letters">
-      {
-        latestTwoLetters &&
+      {latestTwoLetters &&
         latestTwoLetters.map((letter, index) => (
-          <a
-            key={`${letter.date}${index}`}
-            href={letter.href}
-            target="_blank"
-          >
+          <a key={`${letter.date}${index}`} href={letter.href} target="_blank">
             <div className="letter-ractangle">
               <p className="ractangle-date">{letter.date}</p>
-              <p className="ractangle-content">
-                {letter.content}
-              </p>
+              <p className="ractangle-content">{letter.content}</p>
             </div>
           </a>
-        ))
-      }
+        ))}
     </div>
   )
 }
@@ -404,18 +453,48 @@ const FooterContainer = ({}) => {
 }
 
 const Index = () => {
+  const [appTakeClick, setAppTakeClick] = useState(false)
+  const [headerModalOpen, setHeaderModalOpen] = useState(false)
+
+  React.useEffect(() => {
+    console.log(`Index __headerModalOpen : ${headerModalOpen}`)
+  }, [headerModalOpen])
+
   return (
-    <div id="wrapper">
+    <div
+      id="wrapper"
+      onClick={
+        appTakeClick
+          ? (e) => {
+              if (e.target.parentElement.closest('.search-box')) {
+                return
+              } else {
+                setHeaderModalOpen(false)
+                setAppTakeClick(false)
+              }
+            }
+          : null
+      }
+    >
       <Head>
         <title>테스트</title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* <script src="https://kit.fontawesome.com/5c7b32b093.js" crossorigin="anonymous"></script> */}
       </Head>
-      <HeaderContainer />
+      <HeaderContainer
+        headerModalOpen={headerModalOpen}
+        setHeaderModalOpen={(isOpen) => {
+          console.log(`-----isOpen : ${isOpen}`)
+
+          setHeaderModalOpen(isOpen)
+        }}
+        navLists={dummyNav}
+        setAppTakeClick={setAppTakeClick}
+      />
+
       <SearchContainer />
-      <CardContainer />
+      <CardContainer cards={dummyCards} />
       <LetterContainer />
       <FooterContainer />
     </div>
