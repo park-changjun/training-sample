@@ -31,9 +31,79 @@ const Dropdown = (props) => {
   )
 }
 
+const NavMenuData = [
+  {
+    title:'바른소개',
+    subMenus:[
+      '바른소개',
+      '바른연락',
+      '오시는길',
+      '싱가포르대표사무소',
+      '블로그',
+    ]
+  },
+  {
+    title:'업무분야',
+    subMenus:[
+      '분야별',
+      '산업별',
+      '국가별',
+    ]
+  },
+  {
+    title:'구성원',
+  },
+  {
+    title:'소식/자료',
+    subMenus:[
+      '바른뉴스',
+      '언론보도',
+      '최근업무사례',
+      '뉴스레터',
+      '저서 및 자료',
+      '코로나19자료실',
+    ]
+  },
+  {
+    title:'아카데미',
+    subMenus:[
+      '연구회',
+      '강좌',
+      '연구자료',
+    ]
+  },
+  {
+    title:'공익활동',
+    subMenus:[
+      '사단법인 정',
+      '사회공헌활동',
+      '사회공헌소식',
+    ]
+  },
+  {
+    title:'인재채용',
+    subMenus:[
+      '채용안내',
+      '채용점수',
+      '채용게시판',
+    ]
+  }
+]
 
+const NavMenu = (props) => {
+  const {headerMenuData} = props; // props.headerMenuDate 와 같음
+  const [headerNav, setHeaderNav] = useState(false);
+  return (
+    <li onClick={() => {
+      setHeaderNav(!headerNav);
+    }}><a href="#">{headerMenuData.title}</a>
 
-// const HeaderMenu = ["바른소개", "바른소개", "바른소개", "바른소개", "바른소개", "바른소개", "바른소개"];
+      <ul className="header-nav-sub-dep" style={{display : headerNav ? 'block' : 'none'}}>
+        {headerMenuData.subMenus?.map((data) => <li><a href="#">{data}</a></li>)}
+      </ul>
+    </li>
+  )
+}
 
 
 const HeaderNav = (props) => {
@@ -45,62 +115,15 @@ const HeaderNav = (props) => {
     <div>
       <ul className="header-nav-dep" >
 
-      <li onClick={() => {
-        setHeaderNav(!headerNav);
-      }}><a href="#">바른소개</a>
-
-        <ul className="header-nav-sub-dep" style={{display : headerNav ? 'block' : 'none'}}>
-
-          <li><a href="#">바른소개</a></li>
-          <li><a href="#">바른연락</a></li>
-          <li><a href="#">오시는길</a></li>
-          <li><a href="#">싱가포르<br />대표사무소</a></li>
-          <li><a href="#">블로그</a></li>
-        </ul>
+ {NavMenuData.map((headerMenuData) => <NavMenu headerMenuData={headerMenuData}/>)}
 
 
-      </li>
-      <li><a href="#">업무분야</a>
-        <ul className="header-nav-sub-dep">
-          <li><a href="#">분야별</a></li>
-          <li><a href="#">산업별</a></li>
-          <li><a href="#">국가별</a></li>
-        </ul>
-      </li>
-      <li><a href="#">구성원</a></li>
-      <li><a href="#">소삭/자료</a>
-        <ul className="header-nav-sub-dep">
-          <li><a href="#">바른뉴스</a></li>
-          <li><a href="#">언론보도</a></li>
-          <li><a href="#">최근업무사례</a></li>
-          <li><a href="#">뉴스레터</a></li>
-          <li><a href="#">저서 및 자료</a></li>
-          <li><a href="#">코로나19자료실</a></li>
-        </ul>
-      </li>
-      <li><a href="#">아카데미</a>
-        <ul className="header-nav-sub-dep">
-          <li><a href="#">연구회</a></li>
-          <li><a href="#">강좌</a></li>
-          <li><a href="#">연구자료</a></li>
-        </ul>
-      </li>
-      <li><a href="#">공익활동</a>
-        <ul className="header-nav-sub-dep">
-          <li><a href="#">사단법인 정</a></li>
-          <li><a href="#">사회공헌활동</a></li>
-          <li><a href="#">사회공헌소식</a></li>
-        </ul>
-      </li>
-      <li><a href="#">인재채용</a>
-        <ul className="header-nav-sub-dep">
-          <li><a href="#">채용안내</a></li>
-          <li><a href="#">채용점수</a></li>
-          <li><a href="#">채용게시판</a></li>
-        </ul>
-      </li>
+
+
+
       </ul>
-    </div >
+      
+    </div>
   )
 }
 
