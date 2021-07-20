@@ -41,6 +41,7 @@ text-align: right;
 }
 
 .language img{
+  margin-left: 10px;
   cursor: pointer;
 }
 
@@ -102,6 +103,7 @@ header{
     transition: 0.5s;
     border-bottom: solid 1px #ffffff1f;
 }
+
 
 .header-text-box{
   width: 400px;
@@ -489,12 +491,29 @@ justify-content: center;
     border-width: thick;
 }
 
+.change-header{
+  background-color: rgba(255, 255, 255);
+}
 
+.change-header .language img{
+  background-color:rgba(114, 114, 114, 0.3);
+}
+
+.change-header .main-menu li{
+  color:rgb(114, 114, 114);
+}
+
+.change-header .language{
+  color:rgb(114, 114, 114);
+}
+
+.change-header .content{
+  color: white;
+}
 
 .header-logo{
     width: 233px;
     height: 56px;
-    background-color: blanchedalmond;
 }
 
 .main-menu{
@@ -506,6 +525,16 @@ justify-content: center;
 .nav-bar{
   display: flex;
   align-items: center;
+}
+
+.nav-bar img{
+  width: 34px;
+  height: 34px;
+  border-radius: 17px;
+}
+
+.change-header .nav-bar img{
+  background-color:rgba(114, 114, 114, 0.1);
 }
 
 .scroll-wrap p{

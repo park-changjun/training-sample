@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const LANGUAGES = ["KOREAN", "ENGLISH", "CHINESE", "FRENCH", "RUSSIAN", "JAPANESE", "VIETNAMESE"];
 const CARD_NEWS_CATEGORIES = ["바른뉴스", "업무사례", "업무보도"];
 const DOT_ARR = ['dot1', 'dot2', 'dot3'];
@@ -9,55 +9,64 @@ const VISIBLE = '1';
 const INVISIBLE = '0';
 const MODAL_ON = '3';
 const MODAL_OFF = '-1';
+const DEFAULT_LOGO_PATH = '/project1/img/logo.png'
+const CHANGE_LOGO_PATH = '/img/logo_sub.png'
+const DEFAULT_HEADER_SEARCH_IMG_PATH = '/project1/img/srch-button.png'
+const CHANGE_HEADER_SEARCH_IMG_PATH = '/img/sch_icon_sub.png'
 
-const Language = ({ lang, setLang }) => {
+const Language = ({ lang, setLang}) => {
     const [headerVisible, setHeaderVisible] = useState(false);
     return (
         <div className="language dropdown">Language
-            <img src="/project1/img/arrow-down.svg" alt="" id="language" onClick={() => {
+            <img src="/project1/img/arrow-down.svg" alt="" onClick={() => {
                 setHeaderVisible(!headerVisible);
             }} />
-            <div className="content" id="headerDropdown" style={{ opacity: headerVisible === true ? VISIBLE : INVISIBLE }}>
+            <div className="content" style={{ opacity: headerVisible === true ? VISIBLE : INVISIBLE }}>
                 {
-                LANGUAGES.map((language) => {
-                    return (
-                        <li
-                            key={`langauge_${language}`}
-                            onClick={() => {
-                                setLang(language);
-                                console.log(`${lang}으로 바뀌었다!`)
-                            }}>{language}</li>
-                    )
-                })}
+                    LANGUAGES.map((language) => {
+                        return (
+                            <li
+                                key={`langauge_${language}`}
+                                onClick={() => {
+                                    setLang(language);
+                                    console.log(`${lang}으로 바뀌었다!`)
+                                }}>{language}</li>
+                        )
+                    })}
             </div>
         </div>
     )
 };
 
-const Nav = () => {
-    return (
-        <div className="nav-container">
-            <img src="/project1/img/logo.png" className="logo" />
-            <nav className="nav-bar">
-                <ul className="main-menu">
-                    <li><a>바론소개</a></li>
-                    <li><a>업무분야</a></li>
-                    <li><a>구성원</a></li>
-                    <li><a>자료실</a></li>
-                    <li><a>사회공헌</a></li>
-                    <li><a>인재채용</a></li>
-                </ul>
-                <img src="/project1/img/srch-button.png" className="srch_button" />
-            </nav>
-        </div>
-    )
-};
 
-const Header = ({ lang, setLang }) => {
+
+const Header = ({ lang, setLang, setModalVisible}) => {
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const updateScroll = () => {
+        setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+        setModalVisible(false);
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', updateScroll);
+    });
     return (
-        <header className="header">
+        <header className={scrollPosition > 821 ? 'change-header' : 'header'}>
             <Language lang={lang} setLang={setLang} />
-            <Nav />
+            <div className="nav-container">
+                <img src={scrollPosition > 821 ? CHANGE_LOGO_PATH : DEFAULT_LOGO_PATH}
+                    className="logo" />
+                <nav className="nav-bar">
+                    <ul className="main-menu">
+                        <li><a>바론소개</a></li>
+                        <li><a>업무분야</a></li>
+                        <li><a>구성원</a></li>
+                        <li><a>자료실</a></li>
+                        <li><a>사회공헌</a></li>
+                        <li><a>인재채용</a></li>
+                    </ul>
+                    <img src={scrollPosition > 821 ? CHANGE_HEADER_SEARCH_IMG_PATH : DEFAULT_HEADER_SEARCH_IMG_PATH} className="srch_button" />
+                </nav>
+            </div>
         </header>
     )
 };
@@ -70,17 +79,17 @@ const MainTextBox = () => {
     )
 };
 
-const SearchBox = ({ setModalVisible, setKeyword}) => {
+const SearchBox = ({ setModalVisible, setKeyword }) => {
     return (
-        <div className="search-box" id="search" onClick={() => {
-            setModalVisible(true); 
+        <div className="search-box" onClick={() => {
+            setModalVisible(true);
         }}
         >
-            <input className="search-text" onChange={(e) =>{
+            <input className="search-text" onChange={(e) => {
                 const globalRegex = new RegExp(`${e.target.value}/*`);
                 const filteredArr = SEARCH_SAMPLE_ARR.filter(filterd => globalRegex.test(filterd) && filterd);
-                setKeyword(filteredArr.length===SEARCH_SAMPLE_ARR.length||filteredArr.length===0?'어떤 법률적 자문이 필요하신가요?':filteredArr.toString());
-            }}/>
+                setKeyword(filteredArr.length === SEARCH_SAMPLE_ARR.length || filteredArr.length === 0 ? '어떤 법률적 자문이 필요하신가요?' : filteredArr.toString());
+            }} />
             <span><img src="/project1/img/search-button-big.png" className="search_button-big" /></span>
         </div>
     )
@@ -100,7 +109,7 @@ const MainSection = ({ setModalVisible, setKeyword }) => {
         <main>
             <div className="container">
                 <MainTextBox />
-                <SearchBox  setModalVisible={setModalVisible} setKeyword={setKeyword}/>
+                <SearchBox setModalVisible={setModalVisible} setKeyword={setKeyword} />
                 <MainScrollBtn />
             </div>
         </main>
@@ -132,8 +141,8 @@ const MiddleNavBar = () => {
     const [backgroundText, setBackgroundText] = useState('바른뉴스');
     return (
         <div className="middle-nav-bar">
-            <div className="middle-nav-background-font" id="bgFont">{backgroundText}</div>
-            <nav className="category-container" id="categoryContainer">
+            <div className="middle-nav-background-font" >{backgroundText}</div>
+            <nav className="category-container" >
                 <CardNewsCategory setBackgroundText={setBackgroundText} />
             </nav>
             <div className="more-info">+ 더보기</div>
@@ -141,13 +150,13 @@ const MiddleNavBar = () => {
     )
 };
 
-const PrevBtn = ({transformTime, TRANSFORM_UNIT, setTransformTime, setTranslateX}) => {
+const PrevBtn = ({ transformTime, TRANSFORM_UNIT, setTransformTime, setTranslateX }) => {
     return (
-        <button className="case-left-arrow" id="prvBtn" onClick={
+        <button className="case-left-arrow" onClick={
             () => {
                 if (transformTime > 0) {
                     setTransformTime(transformTime - 1);
-                    setTranslateX(`${-(transformTime-1) * TRANSFORM_UNIT}`);
+                    setTranslateX(`${-(transformTime - 1) * TRANSFORM_UNIT}`);
                 } else {
                     setTranslateX('-10');
                     setTimeout(() => {
@@ -159,10 +168,10 @@ const PrevBtn = ({transformTime, TRANSFORM_UNIT, setTransformTime, setTranslateX
     )
 };
 
-const NextBtn = ({TRANSFORM_UNIT, setCurrentDot, setTransformTime, setTranslateX, transformTime}) => {
-    
+const NextBtn = ({ TRANSFORM_UNIT, setCurrentDot, setTransformTime, setTranslateX, transformTime }) => {
+
     return (
-        <button className="case-right-arrow" id="nextBtn" onClick={
+        <button className="case-right-arrow" onClick={
             () => {
                 switch (transformTime) {
                     // 4번째 기사를 보여줄때 밑의 도트를 변경해준다.
@@ -229,7 +238,7 @@ const CaseSection = () => {
                 <div className="card-wrap">
                     <PrevBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} />
                     <div className="box-wrap">
-                        <ul className="elements-box-container" id="first">
+                        <ul className="elements-box-container">
                             <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
                             <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
                             <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
@@ -335,13 +344,13 @@ const Footer = () => {
     )
 };
 
-const Modal = ({ modalVisible, setModalVisible, keyword}) => {
+const Modal = ({ modalVisible, setModalVisible, keyword }) => {
     return (
         <section className="modal"
             style={
                 modalVisible ? { opacity: VISIBLE, zIndex: MODAL_ON } : { opacity: INVISIBLE, zIndex: MODAL_OFF }
             }
-            onClick={ () => {
+            onClick={() => {
                 setModalVisible(!modalVisible)
             }
             }
@@ -358,12 +367,12 @@ const Index = ({ lang, setLang }) => {
     const [keyword, setKeyword] = useState('어떤 법률적 자문이 필요하신가요?')
     return (
         <div>
-            <Header lang={lang} setLang={setLang} />
+            <Header lang={lang} setLang={setLang} setModalVisible={setModalVisible}/>
             <MainSection setModalVisible={setModalVisible} setKeyword={setKeyword} />
             <CaseSection />
             <NewsLetterSection />
             <Footer />
-            <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} keyword={keyword}/>
+            <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} keyword={keyword} />
         </div>
     )
 };
