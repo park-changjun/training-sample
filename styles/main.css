@@ -104,21 +104,22 @@ body{
 }
 
 .dropdown-menu{
-    display: none;
+    /* display: none; */
     position: absolute;
     background: rgba(0,0,0,0.7);
     min-width: 60px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     margin-top: 35px;
+    cursor: pointer;
 }
 
-.dropdown-menu a{
+.dropdown-menu li{
     color: #d4d4d4;
     padding: 14px 15px;
     display: block;
-    font-size: 14;
+    font-size: 14px;
 }
-.dropdown-menu a:hover{
+.dropdown-menu li:hover{
     color: #fff;
 }
 
@@ -172,9 +173,10 @@ body{
     height: 70px;
 }
 
-.header-nav-dep > li:hover > .header-nav-sub-dep{
+/* .header-nav-dep > li:hover > .header-nav-sub-dep{
     display: block;
-}
+} */
+
 .header-nav-dep > li a{
     display: block;  /* a의 크기를 li와 동일하게 */
     color: #fff;
@@ -771,6 +773,7 @@ input:focus {
 .letter_date{
     font-size: 16px;
     margin: 35px 0px 0px 30px;
+    color: #333333;
 }
 
 .letter_title{
