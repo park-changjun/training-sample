@@ -1,17 +1,16 @@
 import React from "react";
 import { useState } from "react";
-
-
 const LANGUAGES = ["KOREAN", "ENGLISH", "CHINESE", "FRENCH", "RUSSIAN", "JAPANESE", "VIETNAMESE"];
 const CARD_NEWS_CATEGORIES = ["바른뉴스", "업무사례", "업무보도"];
 const DOT_ARR = ['dot1', 'dot2', 'dot3'];
+const SEARCH_SAMPLE_ARR = ['노동법률', '노동자', '노동 전문가', '근로', '근로 기준', '근로법', '형사', '형사법', '형사사건'];
 const TRANSFORM_UNIT = 408;
 const VISIBLE = '1';
 const INVISIBLE = '0';
 const MODAL_ON = '3';
 const MODAL_OFF = '-1';
 
-const Language = ({ setLang }) => {
+const Language = ({ lang, setLang }) => {
     const [headerVisible, setHeaderVisible] = useState(false);
     return (
         <div className="language dropdown">Language
@@ -19,12 +18,14 @@ const Language = ({ setLang }) => {
                 setHeaderVisible(!headerVisible);
             }} />
             <div className="content" id="headerDropdown" style={{ opacity: headerVisible === true ? VISIBLE : INVISIBLE }}>
-                {LANGUAGES.map((language) => {
+                {
+                LANGUAGES.map((language) => {
                     return (
                         <li
                             key={`langauge_${language}`}
                             onClick={() => {
                                 setLang(language);
+                                console.log(`${lang}으로 바뀌었다!`)
                             }}>{language}</li>
                     )
                 })}
@@ -55,7 +56,7 @@ const Nav = () => {
 const Header = ({ lang, setLang }) => {
     return (
         <header className="header">
-            <Language setLang={setLang} />
+            <Language lang={lang} setLang={setLang} />
             <Nav />
         </header>
     )
@@ -69,12 +70,17 @@ const MainTextBox = () => {
     )
 };
 
-const SearchBox = ({ modalVisible, setModalVisible }) => {
+const SearchBox = ({ setModalVisible, setKeyword}) => {
     return (
         <div className="search-box" id="search" onClick={() => {
-            setModalVisible(true);
-        }}>
-            <input className="search-text" />
+            setModalVisible(true); 
+        }}
+        >
+            <input className="search-text" onChange={(e) =>{
+                const globalRegex = new RegExp(`${e.target.value}/*`);
+                const filteredArr = SEARCH_SAMPLE_ARR.filter(filterd => globalRegex.test(filterd) && filterd);
+                setKeyword(filteredArr.length===SEARCH_SAMPLE_ARR.length||filteredArr.length===0?'어떤 법률적 자문이 필요하신가요?':filteredArr);
+            }}/>
             <span><img src="/project1/img/search-button-big.png" className="search_button-big" /></span>
         </div>
     )
@@ -89,12 +95,12 @@ const MainScrollBtn = () => {
     )
 };
 
-const MainSection = ({ modalVisible, setModalVisible }) => {
+const MainSection = ({ setModalVisible, setKeyword }) => {
     return (
         <main>
             <div className="container">
                 <MainTextBox />
-                <SearchBox modalVisible={modalVisible} setModalVisible={setModalVisible} />
+                <SearchBox  setModalVisible={setModalVisible} setKeyword={setKeyword}/>
                 <MainScrollBtn />
             </div>
         </main>
@@ -115,7 +121,7 @@ const CardNewsCategory = ({ setBackgroundText }) => {
                 return (<li key={`cardNewsCategory_${category}`} onClick={(e) => {
                     setCardNewsCategory(category);
                     setBackgroundText(category);
-                }} className={category === cardNewsCategory ? 'active' : 'inactive'} >{category}</li>)
+                }} className={category === cardNewsCategory ? 'active' : ''} >{category}</li>)
             })
             }
         </ul>
@@ -153,32 +159,33 @@ const PrevBtn = ({transformTime, TRANSFORM_UNIT, setTransformTime, setTranslateX
     )
 };
 
-const NextBtn = (props) => {
+const NextBtn = ({TRANSFORM_UNIT, setCurrentDot, setTransformTime, setTranslateX, transformTime}) => {
+    
     return (
         <button className="case-right-arrow" id="nextBtn" onClick={
             () => {
-                switch (props.transformTime) {
+                switch (transformTime) {
                     // 4번째 기사를 보여줄때 밑의 도트를 변경해준다.
                     case 2:
-                        props.setTransformTime(props.transformTime + 1);
-                        props.setTranslateX(`-${(props.transformTime + 1) * props.TRANSFORM_UNIT}`);
-                        props.setCurrentDot('dot2');
+                        setTransformTime(transformTime + 1);
+                        setTranslateX(`-${(transformTime + 1) * TRANSFORM_UNIT}`);
+                        setCurrentDot('dot2');
                         break;
                     // 7번째 기사를 보여줄때 밑의 도트를 변경해준다.
                     case 5:
-                        props.setTransformTime(props.transformTime + 1);
-                        props.setTranslateX(`-${(props.transformTime + 1) * props.TRANSFORM_UNIT}`);
-                        props.setCurrentDot('dot3');
+                        setTransformTime(transformTime + 1);
+                        setTranslateX(`-${(transformTime + 1) * TRANSFORM_UNIT}`);
+                        setCurrentDot('dot3');
                         break;
                     // 7번째, 8번째, 9번째 기사가 보여직 있을때 다음 버튼을 클릭하면 초기화면으로 돌아간다.
                     case 6:
-                        props.setTranslateX('0');
-                        props.setTransformTime(0);
-                        props.setCurrentDot('dot1');
+                        setTranslateX('0');
+                        setTransformTime(0);
+                        setCurrentDot('dot1');
                         break;
                     default:
-                        props.setTransformTime(props.transformTime + 1);
-                        props.setTranslateX(`-${(props.transformTime + 1) * props.TRANSFORM_UNIT}`);
+                        setTransformTime(transformTime + 1);
+                        setTranslateX(`-${(transformTime + 1) * TRANSFORM_UNIT}`);
                         break;
                 }
             }
@@ -254,7 +261,7 @@ const CaseSection = () => {
                                             setTranslateX(`-${5 * TRANSFORM_UNIT}`);
                                         }
                                     }}
-                                    className={dot === currentDot ? 'active' : 'inactive'}></div>
+                                    className={dot === currentDot ? 'active' : ''}></div>
                             )
                         })
 
@@ -328,7 +335,7 @@ const Footer = () => {
     )
 };
 
-const Modal = ({ modalVisible, setModalVisible }) => {
+const Modal = ({ modalVisible, setModalVisible, keyword}) => {
     return (
         <section className="modal"
             style={
@@ -340,8 +347,7 @@ const Modal = ({ modalVisible, setModalVisible }) => {
             }
         >
             <div className="modal-text">
-                어떤 법률적 자문이 필요하신가요?<br />
-                검색어를 입력 후, 엔터를 눌러주세요.
+                {keyword}
             </div>
         </section>
     )
@@ -349,14 +355,15 @@ const Modal = ({ modalVisible, setModalVisible }) => {
 
 const Index = ({ lang, setLang }) => {
     const [modalVisible, setModalVisible] = useState(false);
+    const [keyword, setKeyword] = useState('어떤 법률적 자문이 필요하신가요?')
     return (
         <div>
             <Header lang={lang} setLang={setLang} />
-            <MainSection modalVisible={modalVisible} setModalVisible={setModalVisible} />
+            <MainSection setModalVisible={setModalVisible} setKeyword={setKeyword} />
             <CaseSection />
             <NewsLetterSection />
             <Footer />
-            <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+            <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} keyword={keyword}/>
         </div>
     )
 };
