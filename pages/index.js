@@ -15,6 +15,18 @@ const DEFAULT_HEADER_SEARCH_IMG_PATH = '/project1/img/srch-button.png'
 const CHANGE_HEADER_SEARCH_IMG_PATH = '/img/sch_icon_sub.png'
 const VIDEO_PATH1 = '/video/bgVideo1.mp4';
 const VIDEO_PATH2 = '/video/bgVideo2.mp4';
+const DEFAULT_PROFILE_IMG_PATH = '/img/defaultImg.svg';
+
+const SAMPLE_CARD_DATA_FROM_SERVER = [
+    {
+     cardCategory: 'M&A 기업지배구조',
+     cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
+     cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
+     caseDate: `2021.04.01`,
+     contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+    },
+];
+
 
 const Language = ({ lang, setLang }) => {
     const [headerVisible, setHeaderVisible] = useState(false);
