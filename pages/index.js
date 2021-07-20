@@ -31,7 +31,6 @@ const Language = ({ lang, setLang }) => {
                                 key={`langauge_${language}`}
                                 onClick={() => {
                                     setLang(language);
-                                    console.log(`${lang}으로 바뀌었다!`)
                                 }}>{language}</li>
                         )
                     })}
@@ -114,9 +113,9 @@ const MainSection = ({ setModalVisible, setKeyword }) => {
                 <SearchBox setModalVisible={setModalVisible} setKeyword={setKeyword} />
                 <MainScrollBtn />
             </div>
-                <video autoPlay={true} loop muted>
-                    <source src={Math.random()*10>5?VIDEO_PATH1:VIDEO_PATH2} type="video/mp4"/>
-                </video>
+            <video autoPlay={true} loop muted>
+                <source src={Math.random() * 10 > 5 ? VIDEO_PATH1 : VIDEO_PATH2} type="video/mp4" />
+            </video>
         </main>
     )
 };
@@ -372,6 +371,9 @@ const Index = ({ lang, setLang }) => {
     const [keyword, setKeyword] = useState('어떤 법률적 자문이 필요하신가요?')
     return (
         <div>
+            <head>
+                <title>{`${lang} page`}</title>
+            </head>
             <Header lang={lang} setLang={setLang} setModalVisible={setModalVisible} />
             <MainSection setModalVisible={setModalVisible} setKeyword={setKeyword} />
             <CaseSection />
