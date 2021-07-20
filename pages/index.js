@@ -79,7 +79,7 @@ const SearchBox = ({ setModalVisible, setKeyword}) => {
             <input className="search-text" onChange={(e) =>{
                 const globalRegex = new RegExp(`${e.target.value}/*`);
                 const filteredArr = SEARCH_SAMPLE_ARR.filter(filterd => globalRegex.test(filterd) && filterd);
-                setKeyword(filteredArr.length===SEARCH_SAMPLE_ARR.length||filteredArr.length===0?'어떤 법률적 자문이 필요하신가요?':filteredArr);
+                setKeyword(filteredArr.length===SEARCH_SAMPLE_ARR.length||filteredArr.length===0?'어떤 법률적 자문이 필요하신가요?':filteredArr.toString());
             }}/>
             <span><img src="/project1/img/search-button-big.png" className="search_button-big" /></span>
         </div>
