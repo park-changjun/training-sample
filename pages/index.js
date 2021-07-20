@@ -1,11 +1,17 @@
 import React from "react";
 import { useState } from "react";
 
-const LANGUAGES = ["KOREAN", "ENGLISH", "CHINESE", "FRENCH", "RUSSIAN", "JAPANESE", "VIETNAMESE"];
 
-const Language = (props) => {
-    const VISIBLE = '1';
-    const INVISIBLE = '0';
+const LANGUAGES = ["KOREAN", "ENGLISH", "CHINESE", "FRENCH", "RUSSIAN", "JAPANESE", "VIETNAMESE"];
+const CARD_NEWS_CATEGORIES = ["바른뉴스", "업무사례", "업무보도"];
+const DOT_ARR = ['dot1', 'dot2', 'dot3'];
+const TRANSFORM_UNIT = 408;
+const VISIBLE = '1';
+const INVISIBLE = '0';
+const MODAL_ON = '3';
+const MODAL_OFF = '-1';
+
+const Language = ({ setLang }) => {
     const [headerVisible, setHeaderVisible] = useState(false);
     return (
         <div className="language dropdown">Language
@@ -17,7 +23,9 @@ const Language = (props) => {
                     return (
                         <li
                             key={`langauge_${language}`}
-                            onClick={() => props?.setLang?.(language)}>{language}</li>
+                            onClick={() => {
+                                setLang(language);
+                            }}>{language}</li>
                     )
                 })}
             </div>
@@ -44,10 +52,10 @@ const Nav = () => {
     )
 };
 
-const Header = (props) => {
+const Header = ({ lang, setLang }) => {
     return (
         <header className="header">
-            <Language lang={props?.lang} setLang={props.setLang} />
+            <Language setLang={setLang} />
             <Nav />
         </header>
     )
@@ -61,10 +69,10 @@ const MainTextBox = () => {
     )
 };
 
-const SearchBox = () => {
+const SearchBox = ({ modalVisible, setModalVisible }) => {
     return (
         <div className="search-box" id="search" onClick={() => {
-            // 로직 작성 예정
+            setModalVisible(true);
         }}>
             <input className="search-text" />
             <span><img src="/project1/img/search-button-big.png" className="search_button-big" /></span>
@@ -73,20 +81,24 @@ const SearchBox = () => {
 };
 
 const MainScrollBtn = () => {
-    return (<button className="scroll-wrap">
-        <p>SCROLL</p>
-        <img src="/project1/img/arrow-down.svg" className="arrow-down" />
-    </button>)
+    return (
+        <button className="scroll-wrap">
+            <p>SCROLL</p>
+            <img src="/project1/img/arrow-down.svg" className="arrow-down" />
+        </button>
+    )
 };
 
-const MainSection = () => {
-    return (<main>
-        <div className="container">
-            <MainTextBox />
-            <SearchBox />
-            <MainScrollBtn />
-        </div>
-    </main>)
+const MainSection = ({ modalVisible, setModalVisible }) => {
+    return (
+        <main>
+            <div className="container">
+                <MainTextBox />
+                <SearchBox modalVisible={modalVisible} setModalVisible={setModalVisible} />
+                <MainScrollBtn />
+            </div>
+        </main>
+    )
 };
 
 const Grad = () => {
@@ -95,64 +107,45 @@ const Grad = () => {
     )
 };
 
-const CardNewsCategory = () => {
-    const [cardNewsCategory, setCardNewsCategory] = React.useState("바른뉴스");
-    return (<ul>
-        {CARD_NEWS_CATEGORIES.map(c => {
-            return (<li key={`cardNewsCategory_${c}`} onClick={(e) => { setCardNewsCategory(c) }}>{c}</li>)
-        })
-    }
-    </ul>)
-}
+const CardNewsCategory = ({ setBackgroundText }) => {
+    const [cardNewsCategory, setCardNewsCategory] = useState("바른뉴스");
+    return (
+        <ul>
+            {CARD_NEWS_CATEGORIES.map(category => {
+                return (<li key={`cardNewsCategory_${category}`} onClick={(e) => {
+                    setCardNewsCategory(category);
+                    setBackgroundText(category);
+                }} className={category === cardNewsCategory ? 'active' : 'inactive'} >{category}</li>)
+            })
+            }
+        </ul>
+    )
+};
 
 const MiddleNavBar = () => {
-    const [barunNews, setBarunNews] = useState('active');
-    const [workCase, setWorkCase] = useState('');
-    const [report, setReport] = useState('');
     const [backgroundText, setBackgroundText] = useState('바른뉴스');
-    const CARD_NEWS_CATEGORIES= ["바른뉴스", "업무사례", "업무보도"]
-    const SampleComponent = () => {}
     return (
         <div className="middle-nav-bar">
             <div className="middle-nav-background-font" id="bgFont">{backgroundText}</div>
             <nav className="category-container" id="categoryContainer">
-                <ul>
-                    <li className={barunNews} id="barunNews" onClick={() => {
-                        setBarunNews('active');
-                        setWorkCase('');
-                        setReport('');
-                        setBackgroundText('바른뉴스');
-                    }}>바른뉴스</li>
-                    <li className={workCase} id="workCase" onClick={() => {
-                        setBarunNews('');
-                        setWorkCase('active');
-                        setReport('');
-                        setBackgroundText('업무사례');
-                    }}>업무사례</li>
-                    <li className={report} id="report" onClick={() => {
-                        setBarunNews('');
-                        setWorkCase('');
-                        setReport('active');
-                        setBackgroundText('언론보도');
-                    }}>언론보도</li>
-                </ul>
+                <CardNewsCategory setBackgroundText={setBackgroundText} />
             </nav>
             <div className="more-info">+ 더보기</div>
         </div>
     )
 };
 
-const PrevBtn = (props) => {
+const PrevBtn = ({transformTime, TRANSFORM_UNIT, setTransformTime, setTranslateX}) => {
     return (
         <button className="case-left-arrow" id="prvBtn" onClick={
             () => {
-                if (props.transformTime > 0) {
-                    props.setTransformTime(props.transformTime--);
-                    props.setTranslateX(`${-props.transformTime * props.TRANSFORM_UNIT}`);
+                if (transformTime > 0) {
+                    setTransformTime(transformTime - 1);
+                    setTranslateX(`${-(transformTime-1) * TRANSFORM_UNIT}`);
                 } else {
-                    props.setTranslateX('-10');
+                    setTranslateX('-10');
                     setTimeout(() => {
-                        props.setTranslateX('0');
+                        setTranslateX('0');
                     }, 500)
                 }
             }
@@ -168,38 +161,34 @@ const NextBtn = (props) => {
                     // 4번째 기사를 보여줄때 밑의 도트를 변경해준다.
                     case 2:
                         props.setTransformTime(props.transformTime + 1);
-                        props.setTranslateX(`-${props.transformTime * props.TRANSFORM_UNIT}`);
-                        //dotArr[0].classList.remove('active');
-                        //dotArr[1].classList.add('active');
+                        props.setTranslateX(`-${(props.transformTime + 1) * props.TRANSFORM_UNIT}`);
+                        props.setCurrentDot('dot2');
                         break;
                     // 7번째 기사를 보여줄때 밑의 도트를 변경해준다.
                     case 5:
                         props.setTransformTime(props.transformTime + 1);
-                        props.setTranslateX(`-${props.transformTime * props.TRANSFORM_UNIT}`);
-                        //dotArr[1].classList.remove('active');
-                        //dotArr[2].classList.add('active');
+                        props.setTranslateX(`-${(props.transformTime + 1) * props.TRANSFORM_UNIT}`);
+                        props.setCurrentDot('dot3');
                         break;
                     // 7번째, 8번째, 9번째 기사가 보여직 있을때 다음 버튼을 클릭하면 초기화면으로 돌아간다.
                     case 6:
-                            props.setTranslateX('0');
-                            props.setTransformTime(0);
-                           // dotArr[2].classList.remove('active');
-                           // dotArr[0].classList.add('active');
+                        props.setTranslateX('0');
+                        props.setTransformTime(0);
+                        props.setCurrentDot('dot1');
                         break;
-            
                     default:
                         props.setTransformTime(props.transformTime + 1);
-                        props.setTranslateX(`-${props.transformTime * props.TRANSFORM_UNIT}`);
+                        props.setTranslateX(`-${(props.transformTime + 1) * props.TRANSFORM_UNIT}`);
                         break;
                 }
             }
-        }/>
+        } />
     )
 };
 
-const ElementsBox = (props) => {
+const ElementsBox = ({ translateX }) => {
     return (
-        <li className="elements-box" style={{ transform: `translateX(${props.translateX}px)` }}>
+        <li className="elements-box" style={{ transform: `translateX(${translateX}px)` }}>
             <div className="box-content">
                 <div>
                     <a className="category-block">M&A/기업지배구조1</a>
@@ -217,16 +206,14 @@ const ElementsBox = (props) => {
                 <img src="/project1/img/defaultImg.svg" />
                 <img src="/project1/img/defaultImg.svg" />
             </div>
-        </li>)
+        </li>
+    )
 };
 
-const CaseSection = (props) => {
-    const TRANSFORM_UNIT = 408;
+const CaseSection = () => {
     const [transformTime, setTransformTime] = useState(0);
     const [translateX, setTranslateX] = useState(0);
-    const [dot1Class, setDot1Class] = useState('active');
-    const [dot2Class, setDot2Class] = useState('');
-    const [dot3Class, setDot3Class] = useState('');
+    const [currentDot, setCurrentDot] = useState('dot1');
     return (
         <section className="case-section">
             <Grad />
@@ -247,12 +234,31 @@ const CaseSection = (props) => {
                             <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
                         </ul>
                     </div>
-                    <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} />
+                    <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} setCurrentDot={setCurrentDot} />
                 </div>
                 <div className="dot-wrap">
-                    <div className={dot1Class} id="0"></div>
-                    <div className={dot2Class} id="1"></div>
-                    <div className={dot3Class} id="2"></div>
+                    {
+                        DOT_ARR.map(dot => {
+                            return (
+                                <div key={dot}
+                                    onClick={(e) => {
+                                        setCurrentDot(dot);
+                                        if (dot === 'dot1') {
+                                            setTransformTime(0);
+                                            setTranslateX('0');
+                                        } else if (dot === 'dot2') {
+                                            setTransformTime(3);
+                                            setTranslateX(`-${2 * TRANSFORM_UNIT}`);
+                                        } else {
+                                            setTransformTime(6);
+                                            setTranslateX(`-${5 * TRANSFORM_UNIT}`);
+                                        }
+                                    }}
+                                    className={dot === currentDot ? 'active' : 'inactive'}></div>
+                            )
+                        })
+
+                    }
                 </div>
             </div>
         </section>
@@ -322,11 +328,18 @@ const Footer = () => {
     )
 };
 
-const Modal = () => {
+const Modal = ({ modalVisible, setModalVisible }) => {
     return (
-        <section className="modal" id="modal">
+        <section className="modal"
+            style={
+                modalVisible ? { opacity: VISIBLE, zIndex: MODAL_ON } : { opacity: INVISIBLE, zIndex: MODAL_OFF }
+            }
+            onClick={ () => {
+                setModalVisible(!modalVisible)
+            }
+            }
+        >
             <div className="modal-text">
-
                 어떤 법률적 자문이 필요하신가요?<br />
                 검색어를 입력 후, 엔터를 눌러주세요.
             </div>
@@ -334,15 +347,16 @@ const Modal = () => {
     )
 };
 
-const Index = ({props}) => {
+const Index = ({ lang, setLang }) => {
+    const [modalVisible, setModalVisible] = useState(false);
     return (
         <div>
-            <Header lang={props.lang} setLang={props.setLang} />
-            <MainSection />
+            <Header lang={lang} setLang={setLang} />
+            <MainSection modalVisible={modalVisible} setModalVisible={setModalVisible} />
             <CaseSection />
             <NewsLetterSection />
             <Footer />
-            <Modal />
+            <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
         </div>
     )
 };
