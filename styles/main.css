@@ -38,13 +38,12 @@ main{
   right: 0;
   top:0;
   width: 100%;
-  background: #000;
   overflow: hidden;
 }
 
 main video{
-  padding-bottom: 50%;
   object-fit: contain;
+  display: block;
   width: 100%;
   height: auto;
   opacity: 0.92;
@@ -72,21 +71,20 @@ position: relative;
 }
 
 .dropdown li{
-  list-style-type:none
+  list-style-type:none;
+  cursor: pointer;
 }
 
-.dropdown li a{
-  text-decoration: none;
-  color: #ffffff
-}
 
 .content{
   position: absolute;
-  opacity: 0;
+  opacity: 1;
   transition: .5s;
   margin-top: 13px;
   right: 0px;
   z-index: 1;
+  overflow: hidden;
+  height: 0;
   background-color:rgba(68, 66, 63, 0.7);
 }
 
@@ -848,12 +846,11 @@ opacity: 0.2;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.95);
-  opacity: 0;
-  z-index: -1;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: .5s;
+  transition: 1s;
 }
 
 .modal .modal-text{
@@ -869,5 +866,6 @@ opacity: 0.2;
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: 1s;
+  transition: 0.3s;
+  z-index: -1;
 }

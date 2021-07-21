@@ -7,8 +7,6 @@ const SEARCH_SAMPLE_ARR = ['노동법률', '노동자', '노동 전문가', '근
 const TRANSFORM_UNIT = 408;
 const VISIBLE = '1';
 const INVISIBLE = '0';
-const MODAL_ON = '3';
-const MODAL_OFF = '-1';
 const SAMPLE_CARD_DATA_FROM_SERVER = [
     {
         id: 0,
@@ -94,7 +92,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
 const SLIDE_STOP_POINT = SAMPLE_CARD_DATA_FROM_SERVER?.length - 3;
 const DOT_NUM = Math.ceil(SAMPLE_CARD_DATA_FROM_SERVER?.length / 3);
 const DOT_ARR = new Array(DOT_NUM).fill('dot')?.map((dot, index) => `${dot}_${index + 1}`);
-const HEADER_CHANGE_POINT  = 821;
+const HEADER_CHANGE_POINT = 821;
 const RANDOM_IMAGE = Math.random() * 10 > 5;
 const LAST_DOT = DOT_ARR.length - 1;
 const LAST_CHANGE_POINT = SAMPLE_CARD_DATA_FROM_SERVER?.length - 4;
@@ -102,12 +100,13 @@ const MAIN_MENUS = ['바론소개', '업무분야', '구성원', '자료실', '�
 
 const Language = ({ setLang }) => {
     const [headerVisible, setHeaderVisible] = useState(false);
+
     return (
         <div className="language dropdown">Language
             <img src="/img/arrow-down.svg" alt="" onClick={() => {
                 setHeaderVisible(!headerVisible);
             }} />
-            <div className="content" style={{ opacity: headerVisible === true ? VISIBLE : INVISIBLE }}>
+            <div className="content" style={{ height: headerVisible ? 'auto' : '0' }}>
                 {
                     LANGUAGES.map((language) => {
                         return (
@@ -115,6 +114,7 @@ const Language = ({ setLang }) => {
                                 key={`langauge_${language}`}
                                 onClick={() => {
                                     setLang(language);
+                                    alert(`${language} page`);
                                 }}>{language}</li>
                         )
                     })}
@@ -127,17 +127,20 @@ const Language = ({ setLang }) => {
 
 const Header = ({ lang, setLang, setModalVisible }) => {
     const [scrollPosition, setScrollPosition] = useState(0);
+
     useEffect(() => {
         const updateScroll = () => {
-            setScrollPosition(window.scrollY);
             setModalVisible(false);
+            if(window.scrollY>HEADER_CHANGE_POINT)
+            console.log('hi');
+            setScrollPosition(window.scrollY);
         };
         window.addEventListener("scroll", updateScroll);
         return () => {
             window.removeEventListener("scroll", updateScroll);
-          };
+        };
     });
-    // 스크롤 이벤트 변경 필요, 클린? 같은 키워드로 검색
+
     return (
         <header className={scrollPosition > HEADER_CHANGE_POINT ? 'change-header' : 'header'}>
             <Language setLang={setLang} />
@@ -159,15 +162,9 @@ const Header = ({ lang, setLang, setModalVisible }) => {
     )
 };
 
-const MainTextBox = () => {
-    return (
-        <div className="main-text-box">
-            WE DO THINGS RIGHT<br />FOR YOUR RIGHT
-        </div>
-    )
-};
 
 const SearchBox = ({ setModalVisible, setKeyword }) => {
+
     return (
         <div className="search-box" onClick={() => {
             setModalVisible(true);
@@ -183,22 +180,20 @@ const SearchBox = ({ setModalVisible, setKeyword }) => {
     )
 };
 
-const MainScrollBtn = () => {
-    return (
-        <button className="scroll-wrap">
-            <p>SCROLL</p>
-            <img src="/img/arrow-down.svg" className="arrow-down" />
-        </button>
-    )
-};
 
 const MainSection = ({ setModalVisible, setKeyword }) => {
+
     return (
         <main>
             <div className="container">
-                <MainTextBox />
+                <div className="main-text-box">
+                    WE DO THINGS RIGHT<br />FOR YOUR RIGHT
+                </div>
                 <SearchBox setModalVisible={setModalVisible} setKeyword={setKeyword} />
-                <MainScrollBtn />
+                <button className="scroll-wrap">
+                    <p>SCROLL</p>
+                    <img src="/img/arrow-down.svg" className="arrow-down" />
+                </button>
             </div>
             <div className="videoWrap">
                 <video autoPlay={true} loop muted>
@@ -209,14 +204,10 @@ const MainSection = ({ setModalVisible, setKeyword }) => {
     )
 };
 
-const Grad = () => {
-    return (
-        <div className="grad"></div>
-    )
-};
 
 const CardNewsCategory = ({ setBackgroundText }) => {
     const [cardNewsCategory, setCardNewsCategory] = useState("바른뉴스");
+
     return (
         <ul>
             {CARD_NEWS_CATEGORIES.map(category => {
@@ -297,6 +288,7 @@ const NextBtn = ({ transformTime, setTransformTime, setTranslateX, setCurrentDot
 };
 
 const ElementsBox = ({ cardData, translateX }) => {
+
     return (
         <li className="elements-box" style={{ transform: `translateX(${translateX}px)` }}>
             <div className="box-content">
@@ -329,9 +321,10 @@ const CaseSection = () => {
     const [transformTime, setTransformTime] = useState(0);
     const [translateX, setTranslateX] = useState(0);
     const [currentDot, setCurrentDot] = useState(0);
+
     return (
         <section className="case-section">
-            <Grad />
+            <div className="grad"></div>
             <div className="container">
                 <MiddleNavBar />
                 <div className="card-wrap">
@@ -381,6 +374,7 @@ const CaseSection = () => {
 };
 
 const NewsLetterBox = () => {
+
     return (
         <div className="news-info-box">
             <h4 className="news-letter">뉴스레터</h4>
@@ -392,6 +386,7 @@ const NewsLetterBox = () => {
 };
 
 const NewsInfo = () => {
+
     return (
         <div className="news-info">
             <a className="news-date">2021. March</a>
@@ -404,6 +399,7 @@ const NewsInfo = () => {
 };
 
 const NewsBox = () => {
+
     return (
         <div className="news-box">
             <NewsInfo />
@@ -413,6 +409,7 @@ const NewsBox = () => {
 };
 
 const NewsLetterSection = () => {
+
     return (
         <section className="newsletter-section">
             <div className="container">
@@ -424,6 +421,7 @@ const NewsLetterSection = () => {
 };
 
 const Footer = () => {
+
     return (
         <footer>
             <div className="container">
@@ -444,17 +442,20 @@ const Footer = () => {
 };
 
 const Modal = ({ modalVisible, setModalVisible, keyword }) => {
+
     return (
         <section className="modal"
             style={
-                modalVisible ? { opacity: VISIBLE, zIndex: MODAL_ON } : { opacity: INVISIBLE, zIndex: MODAL_OFF }
+                modalVisible ? { height: '100%' } : { height: 0 }
             }
             onClick={() => {
                 setModalVisible(!modalVisible)
             }
             }
         >
-            <div className="modal-text">
+            <div className="modal-text" style={
+                modalVisible ? { opacity: VISIBLE } : { opacity: INVISIBLE }
+            }>
                 {keyword}
             </div>
         </section>
@@ -464,6 +465,7 @@ const Modal = ({ modalVisible, setModalVisible, keyword }) => {
 const Index = ({ lang, setLang }) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [keyword, setKeyword] = useState('어떤 법률적 자문이 필요하신가요?')
+
     return (
         <div>
             <title>{`${lang} page`}</title>
