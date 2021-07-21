@@ -31,11 +31,23 @@ main{
   overflow: hidden;
 }
 
-main video{
-  width: 100%;
+.videoWrap{
   position: absolute;
-  z-index: 2;
-  top: 0;
+  display: block;
+  left: 0;
+  right: 0;
+  top:0;
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+}
+
+main video{
+  padding-bottom: 50%;
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  opacity: 0.92;
 }
 
 .language{
@@ -411,12 +423,14 @@ justify-content: center;
         letter-spacing: -1.2px;
         text-align: left;
         color: #666666;
+        
     }
 
     .case-content p{
       width: 312px;
       height: 65px;
       margin-top: 29px;
+      margin-bottom: 29px;
       margin-left: 31px;
       margin-right: 41px;
       font-family: 'Noto Sans KR', sans-serif;

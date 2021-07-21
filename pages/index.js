@@ -20,15 +20,15 @@ const DEFAULT_PROFILE_IMG_PATH = '/img/defaultImg.svg';
 const SAMPLE_CARD_DATA_FROM_SERVER = [
     {
         cardCategory: '데이터 배열[0]',
-        cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
-        cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
+        cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례 ',
+        cardContent: `내용의 글자수 세기를 테스트 하고 있습니다. 컴포넌트는 this.props를 이용해 입력 데이터를 다루는 것 외에도 내부적인 상태 데이터를 가질 수 있습니다. 이는 this.state로 접근할 수 있습니다. 컴포넌트의 상태 데이터가 바뀌면 render()가 다시 호출되어 마크업이 갱신됩니다.`,
         caseDate: `2021.04.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
     {
         cardCategory: '데이터 배열[1]',
-        cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
-        cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
+        cardTitle: '제목의 글자수 세기를 테스트 하고 있습니다. props와 state를 사용해서 간단한 Todo 애플리케이션을 만들 수 있습니다. 이 예제에서는 state를 사용해 사용자가 입력한 텍스트와 할 일 목록을 관리합니다. 이벤트 핸들러들이 인라인으로 각각 존재하는 것처럼 보이지만, 실제로는 이벤트 위임을 통해 하나로 구현됩니다.',
+        cardContent: `무죄 판결`,
         caseDate: `2021.04.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
@@ -183,9 +183,11 @@ const MainSection = ({ setModalVisible, setKeyword }) => {
                 <SearchBox setModalVisible={setModalVisible} setKeyword={setKeyword} />
                 <MainScrollBtn />
             </div>
+            <div className="videoWrap">
             <video autoPlay={true} loop muted>
                 <source src={Math.random() * 10 > 5 ? VIDEO_PATH1 : VIDEO_PATH2} type="video/mp4" />
             </video>
+            </div>
         </main>
     )
 };
@@ -280,18 +282,20 @@ const ElementsBox = ({cardData, translateX}) => {
         <li className="elements-box" style={{ transform: `translateX(${translateX}px)` }}>
             <div className="box-content">
                 <div>
-                    <a className="category-block">{cardData.cardCategory}</a>
+                    <a className="category-block">{cardData?.cardCategory}</a>
                     <br />
                     <img className="flag-back" src="/img/flag-back.png" />
                 </div>
-                <h4 className="case-title">{cardData.cardTitle}</h4>
+                <h4 className="case-title">{cardData?.cardTitle.length<58?cardData?.cardTitle:`${cardData?.cardTitle?.substring(0,56)}...`}</h4>
                 <div className="case-content">
-                    <p>{cardData.cardContent}</p>
+                    <p>{
+                    cardData?.cardContent?.length<90?cardData?.cardContent:`${cardData?.cardContent?.substring(0,90)} ...`
+                    }</p>
                 </div>
-                <p className="article-date">{cardData.caseDate}</p>
+                <p className="article-date">{cardData?.caseDate}</p>
             </div>
             <div className="profile-img-box-container">
-            {cardData.contributorImg.map(
+            {cardData?.contributorImg?.map(
                 (path)=>{
                     return(<img src={path}/>)
                 }
