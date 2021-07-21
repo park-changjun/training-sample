@@ -100,10 +100,9 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
 ];
 
 const DOT_NUM = Math.ceil(SAMPLE_CARD_DATA_FROM_SERVER.length / 3);
-const DOT_ARR = new Array(DOT_NUM).fill('dot').map((dot, index) => `${dot}_${index + 1}`);
+const DOT_ARR = new Array(DOT_NUM).fill('dot')?.map((dot, index) => `${dot}_${index + 1}`);
 
 const Language = ({ lang, setLang }) => {
-    console.log(DOT_ARR);
     const [headerVisible, setHeaderVisible] = useState(false);
     return (
         <div className="language dropdown">Language
@@ -311,7 +310,7 @@ const ElementsBox = ({ cardData, translateX }) => {
             <div className="profile-img-box-container">
                 {cardData?.contributorImg?.map(
                     (path, index) => {
-                        return (<img key={`${cardData.id}_${index}`} src={path} />)
+                        return (<img key={`${cardData?.id}_${index}`} src={path} />)
                     }
                 )}
             </div>
@@ -336,7 +335,7 @@ const CaseSection = () => {
                                 SAMPLE_CARD_DATA_FROM_SERVER.map(
                                     (data) => {
                                         return (
-                                            <ElementsBox key={`ElementsBox_${data.id}`} cardData={data} translateX={translateX} />
+                                            <ElementsBox key={`ElementsBox_${data?.id}`} cardData={data} translateX={translateX} />
                                         )
                                     }
                                 )
@@ -349,11 +348,19 @@ const CaseSection = () => {
                     {
                         DOT_ARR.map((dot, index) => {
                             return (
-                                <div key={`dot_${index}`}
-                                    onClick={(e) => {
+                                <div key={dot}
+                                    onClick={ 
+                                        index === DOT_ARR.length-1 ?
+                                        (e) => {
+                                            setCurrentDot(index);
+                                        setTransformTime(SAMPLE_CARD_DATA_FROM_SERVER.length-3);
+                                        setTranslateX(`-${(SAMPLE_CARD_DATA_FROM_SERVER.length-3) * TRANSFORM_UNIT}`);
+                                        }
+                                        :
+                                        (e) => {
                                         setCurrentDot(index);
                                         setTransformTime(3 * index);
-                                        setTranslateX(`-${(index + 1) * TRANSFORM_UNIT}`);
+                                        setTranslateX(`-${(3 * index) * TRANSFORM_UNIT}`);
                                     }}
                                     className={index === currentDot ? 'active' : ''}></div>
                             )
