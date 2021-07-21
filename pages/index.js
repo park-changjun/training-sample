@@ -243,9 +243,18 @@ const MiddleNavBar = () => {
     )
 };
 
-const PrevBtn = ({ transformTime, TRANSFORM_UNIT, setTransformTime, setTranslateX }) => {
+const PrevBtn = ({ transformTime, TRANSFORM_UNIT, setTransformTime, setTranslateX, setCurrentDot, currentDot }) => {
     return (
-        <button className="case-left-arrow" onClick={transformTime > 0 ? () => {
+        <button className="case-left-arrow" onClick={transformTime > 0 ? 
+            transformTime === SAMPLE_CARD_DATA_FROM_SERVER.length - 3 ?
+            () => {
+                setCurrentDot(currentDot -1)
+                setTransformTime(transformTime - 1);
+                setTranslateX(`${-(transformTime - 1) * TRANSFORM_UNIT}`);
+            }
+            :
+            () => {
+            setCurrentDot(transformTime % 3 === 0 ?currentDot -1:currentDot)
             setTransformTime(transformTime - 1);
             setTranslateX(`${-(transformTime - 1) * TRANSFORM_UNIT}`);
         } : () => {
@@ -266,15 +275,14 @@ const NextBtn = ({ transformTime, setTransformTime, TRANSFORM_UNIT, setTranslate
                 setTimeout(() => {
                     setTranslateX(`${-(transformTime) * TRANSFORM_UNIT}`);
                 }, 500)
-            } : transformTime === SAMPLE_CARD_DATA_FROM_SERVER.length -4 ?
-                    () => {
-                    console.log('요기들어옴?');
-                    setCurrentDot(currentDot+1);
+            } : transformTime === SAMPLE_CARD_DATA_FROM_SERVER.length - 4 ?
+                () => {
+                    setCurrentDot(currentDot + 1);
                     setTransformTime(transformTime + 1);
                     setTranslateX(`${-(transformTime + 1) * TRANSFORM_UNIT}`);
-                    }
+                }
                 : () => {
-                    setCurrentDot(transformTime%3===2?currentDot+1:currentDot);
+                    setCurrentDot(transformTime % 3 === 2 ? currentDot + 1 : currentDot);
                     setTransformTime(transformTime + 1);
                     setTranslateX(`${-(transformTime + 1) * TRANSFORM_UNIT}`);
                 }
@@ -321,7 +329,7 @@ const CaseSection = () => {
             <div className="container">
                 <MiddleNavBar />
                 <div className="card-wrap">
-                    <PrevBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} />
+                    <PrevBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} setCurrentDot={setCurrentDot} currentDot={currentDot} />
                     <div className="box-wrap">
                         <ul className="elements-box-container">
                             {
