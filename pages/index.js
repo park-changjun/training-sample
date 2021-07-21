@@ -17,28 +17,32 @@ const VIDEO_PATH2 = '/video/bgVideo2.mp4';
 const DEFAULT_PROFILE_IMG_PATH = '/img/defaultImg.svg';
 
 const SAMPLE_CARD_DATA_FROM_SERVER = [
-    {   id: 0,
+    {
+        id: 0,
         cardCategory: '데이터 배열[0]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례 ',
         cardContent: `내용의 글자수 세기를 테스트 하고 있습니다. 컴포넌트는 this.props를 이용해 입력 데이터를 다루는 것 외에도 내부적인 상태 데이터를 가질 수 있습니다. 이는 this.state로 접근할 수 있습니다. 컴포넌트의 상태 데이터가 바뀌면 render()가 다시 호출되어 마크업이 갱신됩니다.`,
         caseDate: `2021.04.30`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {   id: 1,
+    {
+        id: 1,
         cardCategory: '데이터 배열[1]',
         cardTitle: '제목의 글자수 세기를 테스트 하고 있습니다. props와 state를 사용해서 간단한 Todo 애플리케이션을 만들 수 있습니다. 이 예제에서는 state를 사용해 사용자가 입력한 텍스트와 할 일 목록을 관리합니다. 이벤트 핸들러들이 인라인으로 각각 존재하는 것처럼 보이지만, 실제로는 이벤트 위임을 통해 하나로 구현됩니다.',
         cardContent: `무죄 판결`,
         caseDate: `2021.04.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {   id: 2,
+    {
+        id: 2,
         cardCategory: '데이터 배열[2]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2021.02.11`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {   id: 3,
+    {
+        id: 3,
         cardCategory: '데이터 배열[3]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
@@ -53,7 +57,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         caseDate: `2021.05.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH]
     },
-    {   
+    {
         id: 5,
         cardCategory: '데이터 배열[5]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
@@ -61,7 +65,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         caseDate: `2021.06.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {   
+    {
         id: 6,
         cardCategory: '데이터 배열[6]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
@@ -69,7 +73,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         caseDate: `2020.12.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {   
+    {
         id: 7,
         cardCategory: '데이터 배열[7]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
@@ -77,7 +81,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         caseDate: `2021.03.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {   
+    {
         id: 8,
         cardCategory: '데이터 배열[8]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
@@ -85,7 +89,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         caseDate: `2021.04.11`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {   
+    {
         id: 9,
         cardCategory: '데이터 배열[9]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
@@ -95,8 +99,8 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
     }
 ];
 
-const DOT_NUM = Math.ceil(SAMPLE_CARD_DATA_FROM_SERVER.length/3);
-const DOT_ARR = new Array(DOT_NUM).fill('dot').map((dot, index)=>`${dot}_${index+1}`);
+const DOT_NUM = Math.ceil(SAMPLE_CARD_DATA_FROM_SERVER.length / 3);
+const DOT_ARR = new Array(DOT_NUM).fill('dot').map((dot, index) => `${dot}_${index + 1}`);
 
 const Language = ({ lang, setLang }) => {
     console.log(DOT_ARR);
@@ -250,25 +254,32 @@ const PrevBtn = ({ transformTime, TRANSFORM_UNIT, setTransformTime, setTranslate
                 setTranslateX('0');
             }, 500)
         }
-
         }></button>
     )
 };
 
-const NextBtn = ({ TRANSFORM_UNIT, setCurrentDot, setTransformTime, setTranslateX, transformTime, translateX }) => {
+const NextBtn = ({ transformTime, setTransformTime, TRANSFORM_UNIT, setTranslateX, setCurrentDot, currentDot }) => {
     return (
-        <button className="case-right-arrow" onClick={transformTime === (SAMPLE_CARD_DATA_FROM_SERVER.length-3) ? () => {
-            // 여기 렝쓰 부분 로직 수정 해줘야함!!!!!!!
-            setTranslateX(`${-(transformTime) * TRANSFORM_UNIT+10}`);
-           setTimeout(() => {
-           setTranslateX(`${-(transformTime) * TRANSFORM_UNIT}`);
-           }, 500)
-        } : () => {
-            setTransformTime(transformTime + 1);
-            setTranslateX(`${-(transformTime + 1) * TRANSFORM_UNIT}`);
+        <button className="case-right-arrow" onClick={
+            transformTime === SAMPLE_CARD_DATA_FROM_SERVER.length - 3 ? () => {
+                setTranslateX(`${-(transformTime) * TRANSFORM_UNIT + 10}`);
+                setTimeout(() => {
+                    setTranslateX(`${-(transformTime) * TRANSFORM_UNIT}`);
+                }, 500)
+            } : transformTime === SAMPLE_CARD_DATA_FROM_SERVER.length -4 ?
+                    () => {
+                    console.log('요기들어옴?');
+                    setCurrentDot(currentDot+1);
+                    setTransformTime(transformTime + 1);
+                    setTranslateX(`${-(transformTime + 1) * TRANSFORM_UNIT}`);
+                    }
+                : () => {
+                    setCurrentDot(transformTime%3===2?currentDot+1:currentDot);
+                    setTransformTime(transformTime + 1);
+                    setTranslateX(`${-(transformTime + 1) * TRANSFORM_UNIT}`);
+                }
         }
-        }
-        />
+        ></button>
     )
 };
 
@@ -292,7 +303,7 @@ const ElementsBox = ({ cardData, translateX }) => {
             <div className="profile-img-box-container">
                 {cardData?.contributorImg?.map(
                     (path, index) => {
-                        return (<img key={`${cardData.id}_${index}`}src={path} />)
+                        return (<img key={`${cardData.id}_${index}`} src={path} />)
                     }
                 )}
             </div>
@@ -303,7 +314,7 @@ const ElementsBox = ({ cardData, translateX }) => {
 const CaseSection = () => {
     const [transformTime, setTransformTime] = useState(0);
     const [translateX, setTranslateX] = useState(0);
-    const [currentDot, setCurrentDot] = useState('dot1');
+    const [currentDot, setCurrentDot] = useState(0);
     return (
         <section className="case-section">
             <Grad />
@@ -324,27 +335,19 @@ const CaseSection = () => {
                             }
                         </ul>
                     </div>
-                    <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} setCurrentDot={setCurrentDot} translateX={translateX}/>
+                    <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} setCurrentDot={setCurrentDot} currentDot={currentDot} />
                 </div>
                 <div className="dot-wrap">
-                    {   
+                    {
                         DOT_ARR.map((dot, index) => {
                             return (
                                 <div key={`dot_${index}`}
                                     onClick={(e) => {
-                                        setCurrentDot(dot);
-                                        if (dot === 'dot1') {
-                                            setTransformTime(0);
-                                            setTranslateX('0');
-                                        } else if (dot === 'dot2') {
-                                            setTransformTime(3);
-                                            setTranslateX(`-${2 * TRANSFORM_UNIT}`);
-                                        } else {
-                                            setTransformTime(6);
-                                            setTranslateX(`-${5 * TRANSFORM_UNIT}`);
-                                        }
+                                        setCurrentDot(index);
+                                        setTransformTime(3 * index);
+                                        setTranslateX(`-${(index + 1) * TRANSFORM_UNIT}`);
                                     }}
-                                    className={dot === currentDot ? 'active' : ''}></div>
+                                    className={index === currentDot ? 'active' : ''}></div>
                             )
                         })
 
