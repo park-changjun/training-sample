@@ -22,7 +22,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         cardCategory: '데이터 배열[0]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례 ',
         cardContent: `내용의 글자수 세기를 테스트 하고 있습니다. 컴포넌트는 this.props를 이용해 입력 데이터를 다루는 것 외에도 내부적인 상태 데이터를 가질 수 있습니다. 이는 this.state로 접근할 수 있습니다. 컴포넌트의 상태 데이터가 바뀌면 render()가 다시 호출되어 마크업이 갱신됩니다.`,
-        caseDate: `2021.04.01`,
+        caseDate: `2021.04.30`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
     {
@@ -36,53 +36,61 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         cardCategory: '데이터 배열[2]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
-        caseDate: `2021.04.01`,
+        caseDate: `2021.02.11`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
     {
         cardCategory: '데이터 배열[3]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
-        caseDate: `2021.04.01`,
+        caseDate: `2020.11.21`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
     {
         cardCategory: '데이터 배열[4]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
-        caseDate: `2021.04.01`,
+        caseDate: `2021.05.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH]
     },
     {
         cardCategory: '데이터 배열[5]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
-        caseDate: `2021.04.01`,
+        caseDate: `2021.06.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
     {
         cardCategory: '데이터 배열[6]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
-        caseDate: `2021.04.01`,
+        caseDate: `2020.12.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
     {
         cardCategory: '데이터 배열[7]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
-        caseDate: `2021.04.01`,
+        caseDate: `2021.03.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
     {
         cardCategory: '데이터 배열[8]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
-        caseDate: `2021.04.01`,
+        caseDate: `2021.04.11`,
+        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+    },
+    {
+        cardCategory: '데이터 배열[9]',
+        cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
+        cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
+        caseDate: `2021.04.11`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     }
 ];
 
+const DOT_NUM = Math.ceil(SAMPLE_CARD_DATA_FROM_SERVER.length/3);
 
 
 
@@ -244,7 +252,7 @@ const PrevBtn = ({ transformTime, TRANSFORM_UNIT, setTransformTime, setTranslate
 
 const NextBtn = ({ TRANSFORM_UNIT, setCurrentDot, setTransformTime, setTranslateX, transformTime, translateX }) => {
     return (
-        <button className="case-right-arrow" onClick={transformTime === (SEARCH_SAMPLE_ARR.length-3) ? () => {
+        <button className="case-right-arrow" onClick={transformTime === (SEARCH_SAMPLE_ARR.length-2) ? () => {
             setTranslateX(`${-(transformTime) * TRANSFORM_UNIT+10}`);
            setTimeout(() => {
            setTranslateX(`${-(transformTime) * TRANSFORM_UNIT-10}`);
