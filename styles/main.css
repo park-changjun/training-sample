@@ -244,6 +244,7 @@ main .container{
   letter-spacing: -1.5px;
   text-align: left;
   color: #999999;
+  cursor: pointer;
  }
 
  .card-wrap {
@@ -346,6 +347,17 @@ justify-content: center;
        transition: 0.3s;
      }
 
+     .case-title{
+       margin-bottom: 0px;
+      word-wrap:break-word;
+      display:block;
+      display:-webkit-box;
+      -webkit-line-clamp:3;
+      -webkit-box-orient:vertical; 
+      overflow:hidden;
+      text-overflow:ellipsis;
+     }
+
      .category-block{
         position: relative;
         all: unset;
@@ -386,7 +398,6 @@ justify-content: center;
 }
 
 .box-content h4{
-  all: unset;
   width: 324px;
   height: 83px;
   font-family: 'Noto Sans KR', sans-serif;
@@ -442,6 +453,13 @@ justify-content: center;
       letter-spacing: -1.2px;
       text-align: left;
       color: #666666;
+      word-wrap:break-word;
+      display:block;
+      display:-webkit-box;
+      -webkit-line-clamp:3;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
     .box-content{

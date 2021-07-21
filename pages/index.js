@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+
 const LANGUAGES = ["KOREAN", "ENGLISH", "CHINESE", "FRENCH", "RUSSIAN", "JAPANESE", "VIETNAMESE"];
 const CARD_NEWS_CATEGORIES = ["바른뉴스", "업무사례", "업무보도"];
 const SEARCH_SAMPLE_ARR = ['노동법률', '노동자', '노동 전문가', '근로', '근로 기준', '근로법', '형사', '형사법', '형사사건'];
@@ -8,14 +9,13 @@ const VISIBLE = '1';
 const INVISIBLE = '0';
 const MODAL_ON = '3';
 const MODAL_OFF = '-1';
-const DEFAULT_LOGO_PATH = '/project1/img/logo.png'
+const DEFAULT_LOGO_PATH = '/img/logo.png'
 const CHANGE_LOGO_PATH = '/img/logo_sub.png'
-const DEFAULT_HEADER_SEARCH_IMG_PATH = '/project1/img/srch-button.png'
+const DEFAULT_HEADER_SEARCH_IMG_PATH = '/img/srch-button.png'
 const CHANGE_HEADER_SEARCH_IMG_PATH = '/img/sch_icon_sub.png'
 const VIDEO_PATH1 = '/video/bgVideo1.mp4';
 const VIDEO_PATH2 = '/video/bgVideo2.mp4';
 const DEFAULT_PROFILE_IMG_PATH = '/img/defaultImg.svg';
-
 const SAMPLE_CARD_DATA_FROM_SERVER = [
     {
         id: 0,
@@ -98,15 +98,19 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     }
 ];
-
-const DOT_NUM = Math.ceil(SAMPLE_CARD_DATA_FROM_SERVER.length / 3);
+const SLIDE_STOP_POINT = SAMPLE_CARD_DATA_FROM_SERVER?.length - 3;
+const DOT_NUM = Math.ceil(SAMPLE_CARD_DATA_FROM_SERVER?.length / 3);
 const DOT_ARR = new Array(DOT_NUM).fill('dot')?.map((dot, index) => `${dot}_${index + 1}`);
+const HEADER_CHANGE_POINT  = 821;
+const RANDOM_IMAGE = Math.random() * 10 > 5;
+const LAST_DOT = DOT_ARR.length - 1;
+const LAST_CHANGE_POINT = SAMPLE_CARD_DATA_FROM_SERVER?.length - 4;
 
-const Language = ({ lang, setLang }) => {
+const Language = ({ setLang }) => {
     const [headerVisible, setHeaderVisible] = useState(false);
     return (
         <div className="language dropdown">Language
-            <img src="/project1/img/arrow-down.svg" alt="" onClick={() => {
+            <img src="/img/arrow-down.svg" alt="" onClick={() => {
                 setHeaderVisible(!headerVisible);
             }} />
             <div className="content" style={{ opacity: headerVisible === true ? VISIBLE : INVISIBLE }}>
@@ -137,10 +141,10 @@ const Header = ({ lang, setLang, setModalVisible }) => {
         window.addEventListener('scroll', updateScroll);
     });
     return (
-        <header className={scrollPosition > 821 ? 'change-header' : 'header'}>
-            <Language lang={lang} setLang={setLang} />
+        <header className={scrollPosition > HEADER_CHANGE_POINT ? 'change-header' : 'header'}>
+            <Language setLang={setLang} />
             <div className="nav-container">
-                <img src={scrollPosition > 821 ? CHANGE_LOGO_PATH : DEFAULT_LOGO_PATH}
+                <img src={scrollPosition > HEADER_CHANGE_POINT ? CHANGE_LOGO_PATH : DEFAULT_LOGO_PATH}
                     className="logo" />
                 <nav className="nav-bar">
                     <ul className="main-menu">
@@ -151,7 +155,7 @@ const Header = ({ lang, setLang, setModalVisible }) => {
                         <li><a>사회공헌</a></li>
                         <li><a>인재채용</a></li>
                     </ul>
-                    <img src={scrollPosition > 821 ? CHANGE_HEADER_SEARCH_IMG_PATH : DEFAULT_HEADER_SEARCH_IMG_PATH} className="srch_button" />
+                    <img src={scrollPosition > HEADER_CHANGE_POINT ? CHANGE_HEADER_SEARCH_IMG_PATH : DEFAULT_HEADER_SEARCH_IMG_PATH} className="srch_button" />
                 </nav>
             </div>
         </header>
@@ -177,7 +181,7 @@ const SearchBox = ({ setModalVisible, setKeyword }) => {
                 const filteredArr = SEARCH_SAMPLE_ARR.filter(filterd => globalRegex.test(filterd) && filterd);
                 setKeyword(filteredArr.length === SEARCH_SAMPLE_ARR.length || filteredArr.length === 0 ? '어떤 법률적 자문이 필요하신가요?' : filteredArr.toString());
             }} />
-            <span><img src="/project1/img/search-button-big.png" className="search_button-big" /></span>
+            <span><img src="/img/search-button-big.png" className="search_button-big" /></span>
         </div>
     )
 };
@@ -186,7 +190,7 @@ const MainScrollBtn = () => {
     return (
         <button className="scroll-wrap">
             <p>SCROLL</p>
-            <img src="/project1/img/arrow-down.svg" className="arrow-down" />
+            <img src="/img/arrow-down.svg" className="arrow-down" />
         </button>
     )
 };
@@ -201,7 +205,7 @@ const MainSection = ({ setModalVisible, setKeyword }) => {
             </div>
             <div className="videoWrap">
                 <video autoPlay={true} loop muted>
-                    <source src={Math.random() * 10 > 5 ? VIDEO_PATH1 : VIDEO_PATH2} type="video/mp4" />
+                    <source src={RANDOM_IMAGE ? VIDEO_PATH1 : VIDEO_PATH2} type="video/mp4" />
                 </video>
             </div>
         </main>
@@ -231,6 +235,7 @@ const CardNewsCategory = ({ setBackgroundText }) => {
 
 const MiddleNavBar = () => {
     const [backgroundText, setBackgroundText] = useState('바른뉴스');
+
     return (
         <div className="middle-nav-bar">
             <div className="middle-nav-background-font" >{backgroundText}</div>
@@ -242,46 +247,50 @@ const MiddleNavBar = () => {
     )
 };
 
-const PrevBtn = ({ transformTime, TRANSFORM_UNIT, setTransformTime, setTranslateX, setCurrentDot, currentDot }) => {
+const PrevBtn = ({ transformTime, setTransformTime, setTranslateX, setCurrentDot, currentDot }) => {
+    const PREV_CHANGE_POINT = transformTime % 3 === 0;
+
     return (
-        <button className="case-left-arrow" onClick={transformTime > 0 ? 
-            transformTime === SAMPLE_CARD_DATA_FROM_SERVER.length - 3 ?
-            () => {
-                setCurrentDot(currentDot -1)
-                setTransformTime(transformTime - 1);
-                setTranslateX(`${-(transformTime - 1) * TRANSFORM_UNIT}`);
-            }
-            :
-            () => {
-            setCurrentDot(transformTime % 3 === 0 ?currentDot -1:currentDot)
-            setTransformTime(transformTime - 1);
-            setTranslateX(`${-(transformTime - 1) * TRANSFORM_UNIT}`);
-        } : () => {
-            setTranslateX('-10');
-            setTimeout(() => {
-                setTranslateX('0');
-            }, 500)
-        }
+        <button className="case-left-arrow" onClick={transformTime > 0 ?
+            transformTime === SLIDE_STOP_POINT ?
+                () => {
+                    setCurrentDot(currentDot - 1)
+                    setTransformTime(transformTime - 1);
+                    setTranslateX(`${-(transformTime - 1) * TRANSFORM_UNIT}`);
+                }
+                :
+                () => {
+                    setCurrentDot(PREV_CHANGE_POINT ? currentDot - 1 : currentDot)
+                    setTransformTime(transformTime - 1);
+                    setTranslateX(`${-(transformTime - 1) * TRANSFORM_UNIT}`);
+                } : () => {
+                    setTranslateX('-10');
+                    setTimeout(() => {
+                        setTranslateX('0');
+                    }, 500)
+                }
         }></button>
     )
 };
 
-const NextBtn = ({ transformTime, setTransformTime, TRANSFORM_UNIT, setTranslateX, setCurrentDot, currentDot }) => {
+const NextBtn = ({ transformTime, setTransformTime, setTranslateX, setCurrentDot, currentDot }) => {
+    const NEXT_CHANGE_POINT = transformTime % 3 === 2;
+
     return (
         <button className="case-right-arrow" onClick={
-            transformTime === SAMPLE_CARD_DATA_FROM_SERVER.length - 3 ? () => {
+            transformTime === SLIDE_STOP_POINT ? () => {
                 setTranslateX(`${-(transformTime) * TRANSFORM_UNIT + 10}`);
                 setTimeout(() => {
                     setTranslateX(`${-(transformTime) * TRANSFORM_UNIT}`);
                 }, 500)
-            } : transformTime === SAMPLE_CARD_DATA_FROM_SERVER.length - 4 ?
+            } : transformTime === LAST_CHANGE_POINT ?
                 () => {
                     setCurrentDot(currentDot + 1);
                     setTransformTime(transformTime + 1);
                     setTranslateX(`${-(transformTime + 1) * TRANSFORM_UNIT}`);
                 }
                 : () => {
-                    setCurrentDot(transformTime % 3 === 2 ? currentDot + 1 : currentDot);
+                    setCurrentDot(NEXT_CHANGE_POINT ? currentDot + 1 : currentDot);
                     setTransformTime(transformTime + 1);
                     setTranslateX(`${-(transformTime + 1) * TRANSFORM_UNIT}`);
                 }
@@ -299,10 +308,11 @@ const ElementsBox = ({ cardData, translateX }) => {
                     <br />
                     <img className="flag-back" src="/img/flag-back.png" />
                 </div>
-                <h4 className="case-title">{cardData?.cardTitle.length < 58 ? cardData?.cardTitle : `${cardData?.cardTitle?.substring(0, 58)}...`}</h4>
+                <h4 className="case-title">{cardData?.cardTitle}</h4>
                 <div className="case-content">
                     <p>{
-                        cardData?.cardContent?.length < 90 ? cardData?.cardContent : `${cardData?.cardContent?.substring(0, 90)} ...`
+                        // cardData?.cardContent?.length < 90 ? cardData?.cardContent : `${cardData?.cardContent?.substring(0, 90)} ...`
+                        cardData?.cardContent
                     }</p>
                 </div>
                 <p className="article-date">{cardData?.caseDate}</p>
@@ -328,11 +338,11 @@ const CaseSection = () => {
             <div className="container">
                 <MiddleNavBar />
                 <div className="card-wrap">
-                    <PrevBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} setCurrentDot={setCurrentDot} currentDot={currentDot} />
+                    <PrevBtn transformTime={transformTime} setTransformTime={setTransformTime} setTranslateX={setTranslateX} setCurrentDot={setCurrentDot} currentDot={currentDot} />
                     <div className="box-wrap">
                         <ul className="elements-box-container">
                             {
-                                SAMPLE_CARD_DATA_FROM_SERVER.map(
+                                SAMPLE_CARD_DATA_FROM_SERVER?.map(
                                     (data) => {
                                         return (
                                             <ElementsBox key={`ElementsBox_${data?.id}`} cardData={data} translateX={translateX} />
@@ -342,26 +352,26 @@ const CaseSection = () => {
                             }
                         </ul>
                     </div>
-                    <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} setCurrentDot={setCurrentDot} currentDot={currentDot} />
+                    <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} setTranslateX={setTranslateX} setCurrentDot={setCurrentDot} currentDot={currentDot} />
                 </div>
                 <div className="dot-wrap">
                     {
                         DOT_ARR.map((dot, index) => {
                             return (
                                 <div key={dot}
-                                    onClick={ 
-                                        index === DOT_ARR.length-1 ?
-                                        (e) => {
-                                            setCurrentDot(index);
-                                        setTransformTime(SAMPLE_CARD_DATA_FROM_SERVER.length-3);
-                                        setTranslateX(`-${(SAMPLE_CARD_DATA_FROM_SERVER.length-3) * TRANSFORM_UNIT}`);
-                                        }
-                                        :
-                                        (e) => {
-                                        setCurrentDot(index);
-                                        setTransformTime(3 * index);
-                                        setTranslateX(`-${(3 * index) * TRANSFORM_UNIT}`);
-                                    }}
+                                    onClick={
+                                        index === LAST_DOT ?
+                                            (e) => {
+                                                setCurrentDot(index);
+                                                setTransformTime(SLIDE_STOP_POINT);
+                                                setTranslateX(`-${(SLIDE_STOP_POINT) * TRANSFORM_UNIT}`);
+                                            }
+                                            :
+                                            (e) => {
+                                                setCurrentDot(index);
+                                                setTransformTime(3 * index);
+                                                setTranslateX(`-${(3 * index) * TRANSFORM_UNIT}`);
+                                            }}
                                     className={index === currentDot ? 'active' : ''}></div>
                             )
                         })
@@ -390,7 +400,7 @@ const NewsInfo = () => {
             <a className="news-date">2021. March</a>
             <div>
                 <a className="news-cotent">법무법인(유한) 바른 뉴스레터 - 제 94호 (2021.03)</a><img className="right-arrow"
-                    src="/project1/img/news-arrow-hover.png" />
+                    src="/img/news-arrow-hover.png" />
             </div>
         </div>
     )
@@ -420,7 +430,7 @@ const Footer = () => {
     return (
         <footer>
             <div className="container">
-                <div className="gray-logo"><img src="/project1/img/gray-logo.png" /> </div>
+                <div className="gray-logo"><img src="/img/gray-logo.png" /> </div>
                 <nav>
                     <ul>
                         <li><a>면책공고</a></li> <span className="footer-nav-div-icon">|</span>
