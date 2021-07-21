@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 const LANGUAGES = ["KOREAN", "ENGLISH", "CHINESE", "FRENCH", "RUSSIAN", "JAPANESE", "VIETNAMESE"];
 const CARD_NEWS_CATEGORIES = ["바른뉴스", "업무사례", "업무보도"];
-const DOT_ARR = ['dot1', 'dot2', 'dot3'];
 const SEARCH_SAMPLE_ARR = ['노동법률', '노동자', '노동 전문가', '근로', '근로 기준', '근로법', '형사', '형사법', '형사사건'];
 const TRANSFORM_UNIT = 408;
 const VISIBLE = '1';
@@ -18,28 +17,28 @@ const VIDEO_PATH2 = '/video/bgVideo2.mp4';
 const DEFAULT_PROFILE_IMG_PATH = '/img/defaultImg.svg';
 
 const SAMPLE_CARD_DATA_FROM_SERVER = [
-    {
+    {   id: 0,
         cardCategory: '데이터 배열[0]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례 ',
         cardContent: `내용의 글자수 세기를 테스트 하고 있습니다. 컴포넌트는 this.props를 이용해 입력 데이터를 다루는 것 외에도 내부적인 상태 데이터를 가질 수 있습니다. 이는 this.state로 접근할 수 있습니다. 컴포넌트의 상태 데이터가 바뀌면 render()가 다시 호출되어 마크업이 갱신됩니다.`,
         caseDate: `2021.04.30`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {
+    {   id: 1,
         cardCategory: '데이터 배열[1]',
         cardTitle: '제목의 글자수 세기를 테스트 하고 있습니다. props와 state를 사용해서 간단한 Todo 애플리케이션을 만들 수 있습니다. 이 예제에서는 state를 사용해 사용자가 입력한 텍스트와 할 일 목록을 관리합니다. 이벤트 핸들러들이 인라인으로 각각 존재하는 것처럼 보이지만, 실제로는 이벤트 위임을 통해 하나로 구현됩니다.',
         cardContent: `무죄 판결`,
         caseDate: `2021.04.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {
+    {   id: 2,
         cardCategory: '데이터 배열[2]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2021.02.11`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {
+    {   id: 3,
         cardCategory: '데이터 배열[3]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
@@ -47,41 +46,47 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
     {
+        id: 4,
         cardCategory: '데이터 배열[4]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2021.05.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH]
     },
-    {
+    {   
+        id: 5,
         cardCategory: '데이터 배열[5]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2021.06.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {
+    {   
+        id: 6,
         cardCategory: '데이터 배열[6]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2020.12.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {
+    {   
+        id: 7,
         cardCategory: '데이터 배열[7]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2021.03.01`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {
+    {   
+        id: 8,
         cardCategory: '데이터 배열[8]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2021.04.11`,
         contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
-    {
+    {   
+        id: 9,
         cardCategory: '데이터 배열[9]',
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
@@ -91,10 +96,10 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
 ];
 
 const DOT_NUM = Math.ceil(SAMPLE_CARD_DATA_FROM_SERVER.length/3);
-
-
+const DOT_ARR = new Array(DOT_NUM).fill('dot').map((dot, index)=>`${dot}_${index+1}`);
 
 const Language = ({ lang, setLang }) => {
+    console.log(DOT_ARR);
     const [headerVisible, setHeaderVisible] = useState(false);
     return (
         <div className="language dropdown">Language
@@ -252,10 +257,11 @@ const PrevBtn = ({ transformTime, TRANSFORM_UNIT, setTransformTime, setTranslate
 
 const NextBtn = ({ TRANSFORM_UNIT, setCurrentDot, setTransformTime, setTranslateX, transformTime, translateX }) => {
     return (
-        <button className="case-right-arrow" onClick={transformTime === (SEARCH_SAMPLE_ARR.length-2) ? () => {
+        <button className="case-right-arrow" onClick={transformTime === (SAMPLE_CARD_DATA_FROM_SERVER.length-3) ? () => {
+            // 여기 렝쓰 부분 로직 수정 해줘야함!!!!!!!
             setTranslateX(`${-(transformTime) * TRANSFORM_UNIT+10}`);
            setTimeout(() => {
-           setTranslateX(`${-(transformTime) * TRANSFORM_UNIT-10}`);
+           setTranslateX(`${-(transformTime) * TRANSFORM_UNIT}`);
            }, 500)
         } : () => {
             setTransformTime(transformTime + 1);
@@ -285,8 +291,8 @@ const ElementsBox = ({ cardData, translateX }) => {
             </div>
             <div className="profile-img-box-container">
                 {cardData?.contributorImg?.map(
-                    (path) => {
-                        return (<img src={path} />)
+                    (path, index) => {
+                        return (<img key={`${cardData.id}_${index}`}src={path} />)
                     }
                 )}
             </div>
@@ -309,9 +315,9 @@ const CaseSection = () => {
                         <ul className="elements-box-container">
                             {
                                 SAMPLE_CARD_DATA_FROM_SERVER.map(
-                                    (data, index) => {
+                                    (data) => {
                                         return (
-                                            <ElementsBox key={index} cardData={data} translateX={translateX} />
+                                            <ElementsBox key={`ElementsBox_${data.id}`} cardData={data} translateX={translateX} />
                                         )
                                     }
                                 )
@@ -321,10 +327,10 @@ const CaseSection = () => {
                     <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} setCurrentDot={setCurrentDot} translateX={translateX}/>
                 </div>
                 <div className="dot-wrap">
-                    {
-                        DOT_ARR.map(dot => {
+                    {   
+                        DOT_ARR.map((dot, index) => {
                             return (
-                                <div key={dot}
+                                <div key={`dot_${index}`}
                                     onClick={(e) => {
                                         setCurrentDot(dot);
                                         if (dot === 'dot1') {
@@ -435,9 +441,7 @@ const Index = ({ lang, setLang }) => {
     const [keyword, setKeyword] = useState('어떤 법률적 자문이 필요하신가요?')
     return (
         <div>
-            <head>
-                <title>{`${lang} page`}</title>
-            </head>
+            <title>{`${lang} page`}</title>
             <Header lang={lang} setLang={setLang} setModalVisible={setModalVisible} />
             <MainSection setModalVisible={setModalVisible} setKeyword={setKeyword} />
             <CaseSection />
