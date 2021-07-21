@@ -19,13 +19,71 @@ const DEFAULT_PROFILE_IMG_PATH = '/img/defaultImg.svg';
 
 const SAMPLE_CARD_DATA_FROM_SERVER = [
     {
-     cardCategory: 'M&A 기업지배구조',
-     cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
-     cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
-     caseDate: `2021.04.01`,
-     contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+        cardCategory: '데이터 배열[0]',
+        cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
+        cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
+        caseDate: `2021.04.01`,
+        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
     },
+    {
+        cardCategory: '데이터 배열[1]',
+        cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
+        cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
+        caseDate: `2021.04.01`,
+        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+    },
+    {
+        cardCategory: '데이터 배열[2]',
+        cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
+        cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
+        caseDate: `2021.04.01`,
+        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+    },
+    {
+        cardCategory: '데이터 배열[3]',
+        cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
+        cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
+        caseDate: `2021.04.01`,
+        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+    },
+    {
+        cardCategory: '데이터 배열[4]',
+        cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
+        cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
+        caseDate: `2021.04.01`,
+        contributorImg: [DEFAULT_PROFILE_IMG_PATH]
+    },
+    {
+        cardCategory: '데이터 배열[5]',
+        cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
+        cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
+        caseDate: `2021.04.01`,
+        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+    },
+    {
+        cardCategory: '데이터 배열[6]',
+        cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
+        cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
+        caseDate: `2021.04.01`,
+        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+    },
+    {
+        cardCategory: '데이터 배열[7]',
+        cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
+        cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
+        caseDate: `2021.04.01`,
+        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+    },
+    {
+        cardCategory: '데이터 배열[8]',
+        cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
+        cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
+        caseDate: `2021.04.01`,
+        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+    }
 ];
+
+
 
 
 const Language = ({ lang, setLang }) => {
@@ -185,7 +243,6 @@ const PrevBtn = ({ transformTime, TRANSFORM_UNIT, setTransformTime, setTranslate
 };
 
 const NextBtn = ({ TRANSFORM_UNIT, setCurrentDot, setTransformTime, setTranslateX, transformTime }) => {
-
     return (
         <button className="case-right-arrow" onClick={
             () => {
@@ -218,25 +275,27 @@ const NextBtn = ({ TRANSFORM_UNIT, setCurrentDot, setTransformTime, setTranslate
     )
 };
 
-const ElementsBox = ({ translateX }) => {
+const ElementsBox = ({cardData, translateX}) => {
     return (
         <li className="elements-box" style={{ transform: `translateX(${translateX}px)` }}>
             <div className="box-content">
                 <div>
-                    <a className="category-block">M&A/기업지배구조1</a>
+                    <a className="category-block">{cardData.cardCategory}</a>
                     <br />
                     <img className="flag-back" src="/img/flag-back.png" />
                 </div>
-                <h4 className="case-title">교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤집고 무죄를 받아낸 사례</h4>
+                <h4 className="case-title">{cardData.cardTitle}</h4>
                 <div className="case-content">
-                    <p>법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “</p>
+                    <p>{cardData.cardContent}</p>
                 </div>
-                <p className="article-date">2021.04.01</p>
+                <p className="article-date">{cardData.caseDate}</p>
             </div>
             <div className="profile-img-box-container">
-                <img src="/img/defaultImg.svg" />
-                <img src="/img/defaultImg.svg" />
-                <img src="/img/defaultImg.svg" />
+            {cardData.contributorImg.map(
+                (path)=>{
+                    return(<img src={path}/>)
+                }
+            )}
             </div>
         </li>
     )
@@ -255,15 +314,15 @@ const CaseSection = () => {
                     <PrevBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} />
                     <div className="box-wrap">
                         <ul className="elements-box-container">
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
-                            <ElementsBox transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} translateX={translateX} setTranslateX={setTranslateX} />
+                            {
+                                SAMPLE_CARD_DATA_FROM_SERVER.map(
+                                    (data, index) => {
+                                        return(
+                                            <ElementsBox key={index} cardData={data} translateX={translateX}/>
+                                        )
+                                    }
+                                )
+                            }
                         </ul>
                     </div>
                     <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} setCurrentDot={setCurrentDot} />
