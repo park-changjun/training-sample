@@ -184,9 +184,9 @@ const MainSection = ({ setModalVisible, setKeyword }) => {
                 <MainScrollBtn />
             </div>
             <div className="videoWrap">
-            <video autoPlay={true} loop muted>
-                <source src={Math.random() * 10 > 5 ? VIDEO_PATH1 : VIDEO_PATH2} type="video/mp4" />
-            </video>
+                <video autoPlay={true} loop muted>
+                    <source src={Math.random() * 10 > 5 ? VIDEO_PATH1 : VIDEO_PATH2} type="video/mp4" />
+                </video>
             </div>
         </main>
     )
@@ -228,56 +228,37 @@ const MiddleNavBar = () => {
 
 const PrevBtn = ({ transformTime, TRANSFORM_UNIT, setTransformTime, setTranslateX }) => {
     return (
-        <button className="case-left-arrow" onClick={
-            () => {
-                if (transformTime > 0) {
-                    setTransformTime(transformTime - 1);
-                    setTranslateX(`${-(transformTime - 1) * TRANSFORM_UNIT}`);
-                } else {
-                    setTranslateX('-10');
-                    setTimeout(() => {
-                        setTranslateX('0');
-                    }, 500)
-                }
-            }
+        <button className="case-left-arrow" onClick={transformTime > 0 ? () => {
+            setTransformTime(transformTime - 1);
+            setTranslateX(`${-(transformTime - 1) * TRANSFORM_UNIT}`);
+        } : () => {
+            setTranslateX('-10');
+            setTimeout(() => {
+                setTranslateX('0');
+            }, 500)
+        }
+
         }></button>
     )
 };
 
-const NextBtn = ({ TRANSFORM_UNIT, setCurrentDot, setTransformTime, setTranslateX, transformTime }) => {
+const NextBtn = ({ TRANSFORM_UNIT, setCurrentDot, setTransformTime, setTranslateX, transformTime, translateX }) => {
     return (
-        <button className="case-right-arrow" onClick={
-            () => {
-                switch (transformTime) {
-                    // 4번째 기사를 보여줄때 밑의 도트를 변경해준다.
-                    case 2:
-                        setTransformTime(transformTime + 1);
-                        setTranslateX(`-${(transformTime + 1) * TRANSFORM_UNIT}`);
-                        setCurrentDot('dot2');
-                        break;
-                    // 7번째 기사를 보여줄때 밑의 도트를 변경해준다.
-                    case 5:
-                        setTransformTime(transformTime + 1);
-                        setTranslateX(`-${(transformTime + 1) * TRANSFORM_UNIT}`);
-                        setCurrentDot('dot3');
-                        break;
-                    // 7번째, 8번째, 9번째 기사가 보여직 있을때 다음 버튼을 클릭하면 초기화면으로 돌아간다.
-                    case 6:
-                        setTranslateX('0');
-                        setTransformTime(0);
-                        setCurrentDot('dot1');
-                        break;
-                    default:
-                        setTransformTime(transformTime + 1);
-                        setTranslateX(`-${(transformTime + 1) * TRANSFORM_UNIT}`);
-                        break;
-                }
-            }
-        } />
+        <button className="case-right-arrow" onClick={transformTime === (SEARCH_SAMPLE_ARR.length-3) ? () => {
+            setTranslateX(`${-(transformTime) * TRANSFORM_UNIT+10}`);
+           setTimeout(() => {
+           setTranslateX(`${-(transformTime) * TRANSFORM_UNIT-10}`);
+           }, 500)
+        } : () => {
+            setTransformTime(transformTime + 1);
+            setTranslateX(`${-(transformTime + 1) * TRANSFORM_UNIT}`);
+        }
+        }
+        />
     )
 };
 
-const ElementsBox = ({cardData, translateX}) => {
+const ElementsBox = ({ cardData, translateX }) => {
     return (
         <li className="elements-box" style={{ transform: `translateX(${translateX}px)` }}>
             <div className="box-content">
@@ -286,20 +267,20 @@ const ElementsBox = ({cardData, translateX}) => {
                     <br />
                     <img className="flag-back" src="/img/flag-back.png" />
                 </div>
-                <h4 className="case-title">{cardData?.cardTitle.length<58?cardData?.cardTitle:`${cardData?.cardTitle?.substring(0,58)}...`}</h4>
+                <h4 className="case-title">{cardData?.cardTitle.length < 58 ? cardData?.cardTitle : `${cardData?.cardTitle?.substring(0, 58)}...`}</h4>
                 <div className="case-content">
                     <p>{
-                    cardData?.cardContent?.length<90?cardData?.cardContent:`${cardData?.cardContent?.substring(0,90)} ...`
+                        cardData?.cardContent?.length < 90 ? cardData?.cardContent : `${cardData?.cardContent?.substring(0, 90)} ...`
                     }</p>
                 </div>
                 <p className="article-date">{cardData?.caseDate}</p>
             </div>
             <div className="profile-img-box-container">
-            {cardData?.contributorImg?.map(
-                (path)=>{
-                    return(<img src={path}/>)
-                }
-            )}
+                {cardData?.contributorImg?.map(
+                    (path) => {
+                        return (<img src={path} />)
+                    }
+                )}
             </div>
         </li>
     )
@@ -321,15 +302,15 @@ const CaseSection = () => {
                             {
                                 SAMPLE_CARD_DATA_FROM_SERVER.map(
                                     (data, index) => {
-                                        return(
-                                            <ElementsBox key={index} cardData={data} translateX={translateX}/>
+                                        return (
+                                            <ElementsBox key={index} cardData={data} translateX={translateX} />
                                         )
                                     }
                                 )
                             }
                         </ul>
                     </div>
-                    <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} setCurrentDot={setCurrentDot} />
+                    <NextBtn transformTime={transformTime} setTransformTime={setTransformTime} TRANSFORM_UNIT={TRANSFORM_UNIT} setTranslateX={setTranslateX} setCurrentDot={setCurrentDot} translateX={translateX}/>
                 </div>
                 <div className="dot-wrap">
                     {
