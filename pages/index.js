@@ -1,17 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import Head from 'next/head'
 import dummyCards from '../data/dummyCard'
 import dummyLetters from '../data/dummyLetters'
 import dummyNav from '../data/dummyNav'
+import dummySearchData from '../data/dummySearchData'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
+
+// Header components section
 // isSub => header 110px 이하로 내려올때 색 변경하는 기준 프롭
-const HeaderLogo = ({ isSub }) => {
+const HeaderLogo = () => {
   return <a className="header-logo"></a>
 }
 
-const HeaderLanguageSelect = ({}) => {
+const HeaderLanguageSelect = () => {
   const [openLanguageOpt, setOpenLanguageOpt] = useState(false)
   const [nowLang, setNowLang] = useState('KOREAN')
   return (
@@ -40,6 +43,14 @@ const HeaderLanguageSelect = ({}) => {
           }}
         >
           ENGLISH
+        </li>
+        <li
+          data-value="FRENCH"
+          onClick={(e) => {
+            setNowLang(e.target.dataset.value)
+          }}
+        >
+          FRENCH
         </li>
       </ul>
     </div>
@@ -75,7 +86,7 @@ const HeaderSearchBox = ({
   const [searchText, setSearchText] = useState('')
   const inputRef = useRef()
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log(`__headerModalOpen : ${headerModalOpen}`)
   }, [headerModalOpen])
 
@@ -165,14 +176,27 @@ const HeaderContents = ({
 }
 
 const HeaderContainer = ({
-  isSub,
   navLists,
   setAppTakeClick,
   headerModalOpen,
   setHeaderModalOpen,
 }) => {
+
+  const [isSubMode, setIsSubMode] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      console.log(window.pageYOffset);
+      if(window.pageYOffset > 110) {
+        setIsSubMode(true);
+      } else {
+        setIsSubMode(false);
+      }
+    })
+  }, []);
+
   return (
-    <div id="wrapper-header">
+    <div id="wrapper-header" className={`${isSubMode ? 'active' : ''}`}>
       <header>
         <HeaderLogo />
         <HeaderContents
@@ -185,8 +209,10 @@ const HeaderContainer = ({
     </div>
   )
 }
-// 여기 위에 까지 Header component
+// Header components section end
 
+
+// search components section
 const MainText = ({ mainText }) => {
   return (
     <p>
@@ -197,27 +223,39 @@ const MainText = ({ mainText }) => {
   )
 }
 
-const SearchBox = ({}) => {
+const SearchBox = ({ modalOpen, setModalOpen }) => {
   const [inputValue, setInputValue] = useState('')
+
+
+  const focusHandle = (e) => {
+    setModalOpen(true);
+  }
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('submit!!');
+  }
 
   return (
     <>
-      <div className="search-section-content-wrapper">
-        <div className="input-wrapper">
+      <div className={`main-search-box ${modalOpen ? 'active' : ''}`}>
+        <form className="input-wrapper" onSubmit={handleSubmit}>
           <input
             placeholder="검색할 내용을 입력해주세요"
             type="text"
             value={inputValue}
+            onFocus={focusHandle}
             onChange={(e) => {
               setInputValue(e.target.value)
             }}
           />
-          <button>
+          <button type="submit" disabled={!modalOpen}>
             <img src="images/search-button-big.png" alt="search-button-big" />
           </button>
-        </div>
+        </form>
       </div>
-      <ul>
+      <ul className={`${modalOpen ? 'active' : ''}`}>
         <li>
           <a>test</a>
         </li>
@@ -235,27 +273,71 @@ const ScrollButton = ({}) => {
   )
 }
 
-const SearchModal = ({}) => {
-  return <div className="search-modal-mask"></div>
+const SearchModal = ({ modalOpen, setModalOpen, emptyInput}) => {
+
+  const scrollModalDown = useCallback(
+    () => {
+      emptyInput.current.focus();
+      setModalOpen(false); 
+    },
+    [],
+  )
+
+
+  useEffect(() => {
+    console.log('modalOpen', modalOpen)
+    console.log('useEffect');
+
+    if(modalOpen) {
+      window.addEventListener('scroll', scrollModalDown)
+    } else {
+      window.removeEventListener('scroll', scrollModalDown)
+    }
+    
+  }, [modalOpen])
+  
+
+
+  return <div className={`search-modal-mask ${modalOpen ? 'active' : ''}`}></div>
 }
 
+
 const SearchContainer = ({}) => {
+
+
+  // let selectedVideo = useMemo(() => Math.round(Math.random()), []);
+  const [selectedVideo, setselectedVideo] = useState(Math.round(Math.random()))
+
+  console.log('selectedVideo', selectedVideo);
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const emptyInput = useRef();
+
   return (
     <div id="wrapper-search-section">
+      <video 
+        autoPlay 
+        loop
+        muted
+        src={`${selectedVideo ? "videos/city-view.mp4" : "videos/river-view.mp4"}`}
+      />
       <section id="search-section">
         <MainText
           mainText={{ top: 'WE DO THINGS RIGHT', bottom: 'FOR YOUR RIGHT' }}
         />
-        <SearchBox />
+        <SearchBox modalOpen={modalOpen} setModalOpen={setModalOpen}/>
         <ScrollButton />
-        <SearchModal />
+        <SearchModal modalOpen={modalOpen} setModalOpen={setModalOpen} emptyInput={emptyInput}/>
+        <input type="text" className="unvisible-input" ref={emptyInput}/>
       </section>
     </div>
   )
 }
+// search components section end
 
-// 위에 까지 search section
 
+
+// card components section
 const CardLetterNav = ({ letterList }) => {
   const [selected, setSelected] = useState('')
   return (
@@ -269,7 +351,7 @@ const CardLetterNav = ({ letterList }) => {
               setSelected(item)
             }}
           >
-            <a>{item}</a>
+            <a className={selected === item ? 'active' : ''}>{item}</a>
           </li>
         ))}
       </ul>
@@ -305,30 +387,47 @@ const Card = ({ card, cloned }) => {
   )
 }
 
-const CardsBox = ({ currentIndex, cards }) => {
+const CardsBox = ({ currentIndex, cards, isAnimated }) => {
   const cardsBoxStyle = {
     left: currentIndex * -399,
     transform: `translateX(-399px)`,
   }
 
   return (
-    <div className="cards-box animated" style={cardsBoxStyle}>
+    <div
+      className={`cards-box ${isAnimated ? 'animated' : ''}`}
+      style={cardsBoxStyle}
+    >
       <Card card={cards[cards.length - 1]} cloned />
       {cards.map((card, index) => (
         <Card key={`${card.label}${index}`} card={card} />
       ))}
       {cards.map((card, index) => (
-        <Card key={`${card.label}${index}`} card={card} cloned />
+        <Card key={`${card.label}${index} cloned`} card={card} cloned />
       ))}
     </div>
   )
 }
 
-const CardPagenation = ({}) => {
-  return <div className="card-pagenation"></div>
+const CardPagenation = ({ nowIndex }) => {
+  useEffect(() => {
+    console.log('nowIndex', nowIndex)
+  }, [nowIndex])
+
+  return (
+    <div className="card-pagenation">
+      <button className={nowIndex === 0 ? 'active' : ''}></button>
+      <button className={nowIndex === 1 ? 'active' : ''}></button>
+    </div>
+  )
 }
 
-const CardButtons = ({ setCurrentIndex, currentIndex }) => {
+const CardButtons = ({
+  setCurrentIndex,
+  currentIndex,
+  cardLength,
+  setIsAnimated,
+}) => {
   const [isDisabled, setIsDisabled] = useState(false)
 
   const moveCardHandle = (index) => {
@@ -336,7 +435,27 @@ const CardButtons = ({ setCurrentIndex, currentIndex }) => {
     setCurrentIndex(index)
     setTimeout(() => {
       setIsDisabled(false)
-    }, 500)
+    }, 300)
+    if (index < 0) {
+      setTimeout(() => {
+        setIsAnimated(false)
+        moveCardHandle(cardLength - 1)
+        setTimeout(() => {
+          setIsAnimated(true)
+        }, 100)
+      }, 200)
+    }
+
+    if (index >= cardLength) {
+      // console.log('cardLength', cardLength)
+      setTimeout(() => {
+        setIsAnimated(false)
+        moveCardHandle(0)
+        setTimeout(() => {
+          setIsAnimated(true)
+        }, 100)
+      }, 200)
+    }
   }
 
   return (
@@ -360,7 +479,7 @@ const CardButtons = ({ setCurrentIndex, currentIndex }) => {
 }
 
 const CardContainer = ({ cards }) => {
-  const [isAnimated, setIsAnimated] = useState(false)
+  const [isAnimated, setIsAnimated] = useState(true)
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
@@ -373,10 +492,16 @@ const CardContainer = ({ cards }) => {
         <CardLetterNav letterList={['바른뉴스', '업무사례', '언론보도']} />
         <ShowMoreButton which="cards" />
         <div className="cards-wrapper">
-          <CardsBox currentIndex={currentIndex} cards={cards} />
+          <CardsBox
+            currentIndex={currentIndex}
+            cards={cards}
+            isAnimated={isAnimated}
+          />
         </div>
-        <CardPagenation />
+        <CardPagenation nowIndex={parseInt(currentIndex / 3)} />
         <CardButtons
+          setIsAnimated={setIsAnimated}
+          cardLength={cards.length}
           currentIndex={currentIndex}
           setCurrentIndex={setCurrentIndex}
         />
@@ -384,7 +509,10 @@ const CardContainer = ({ cards }) => {
     </div>
   )
 }
+// card components section end
 
+
+// letter components section
 const NewsLetterDesc = () => {
   return (
     <div id="letter-desc">
@@ -425,7 +553,10 @@ const LetterContainer = ({}) => {
     </div>
   )
 }
+// letter components section end
 
+
+// footer component
 const FooterContainer = ({}) => {
   return (
     <div id="wrapper-footer">
@@ -451,13 +582,14 @@ const FooterContainer = ({}) => {
     </div>
   )
 }
+// footer component end
 
 const Index = () => {
   const [appTakeClick, setAppTakeClick] = useState(false)
   const [headerModalOpen, setHeaderModalOpen] = useState(false)
 
   React.useEffect(() => {
-    console.log(`Index __headerModalOpen : ${headerModalOpen}`)
+    // console.log(`Index __headerModalOpen : ${headerModalOpen}`)
   }, [headerModalOpen])
 
   return (
@@ -477,7 +609,7 @@ const Index = () => {
       }
     >
       <Head>
-        <title>테스트</title>
+        <title>법무법인(유한) 바른-김예찬</title>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
