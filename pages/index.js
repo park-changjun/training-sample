@@ -286,7 +286,7 @@ const ElementsBox = ({cardData, translateX}) => {
                     <br />
                     <img className="flag-back" src="/img/flag-back.png" />
                 </div>
-                <h4 className="case-title">{cardData?.cardTitle.length<58?cardData?.cardTitle:`${cardData?.cardTitle?.substring(0,56)}...`}</h4>
+                <h4 className="case-title">{cardData?.cardTitle.length<58?cardData?.cardTitle:`${cardData?.cardTitle?.substring(0,58)}...`}</h4>
                 <div className="case-content">
                     <p>{
                     cardData?.cardContent?.length<90?cardData?.cardContent:`${cardData?.cardContent?.substring(0,90)} ...`
