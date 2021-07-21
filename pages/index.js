@@ -9,13 +9,6 @@ const VISIBLE = '1';
 const INVISIBLE = '0';
 const MODAL_ON = '3';
 const MODAL_OFF = '-1';
-const DEFAULT_LOGO_PATH = '/img/logo.png'
-const CHANGE_LOGO_PATH = '/img/logo_sub.png'
-const DEFAULT_HEADER_SEARCH_IMG_PATH = '/img/srch-button.png'
-const CHANGE_HEADER_SEARCH_IMG_PATH = '/img/sch_icon_sub.png'
-const VIDEO_PATH1 = '/video/bgVideo1.mp4';
-const VIDEO_PATH2 = '/video/bgVideo2.mp4';
-const DEFAULT_PROFILE_IMG_PATH = '/img/defaultImg.svg';
 const SAMPLE_CARD_DATA_FROM_SERVER = [
     {
         id: 0,
@@ -23,7 +16,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례 ',
         cardContent: `내용의 글자수 세기를 테스트 하고 있습니다. 컴포넌트는 this.props를 이용해 입력 데이터를 다루는 것 외에도 내부적인 상태 데이터를 가질 수 있습니다. 이는 this.state로 접근할 수 있습니다. 컴포넌트의 상태 데이터가 바뀌면 render()가 다시 호출되어 마크업이 갱신됩니다.`,
         caseDate: `2021.04.30`,
-        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+        contributorImg: ['/img/defaultImg.svg', '/img/defaultImg.svg', '/img/defaultImg.svg']
     },
     {
         id: 1,
@@ -31,7 +24,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         cardTitle: '제목의 글자수 세기를 테스트 하고 있습니다. props와 state를 사용해서 간단한 Todo 애플리케이션을 만들 수 있습니다. 이 예제에서는 state를 사용해 사용자가 입력한 텍스트와 할 일 목록을 관리합니다. 이벤트 핸들러들이 인라인으로 각각 존재하는 것처럼 보이지만, 실제로는 이벤트 위임을 통해 하나로 구현됩니다.',
         cardContent: `무죄 판결`,
         caseDate: `2021.04.01`,
-        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+        contributorImg: ['/img/defaultImg.svg', '/img/defaultImg.svg']
     },
     {
         id: 2,
@@ -39,7 +32,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2021.02.11`,
-        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+        contributorImg: ['/img/defaultImg.svg', '/img/defaultImg.svg', '/img/defaultImg.svg', '/img/defaultImg.svg']
     },
     {
         id: 3,
@@ -47,7 +40,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2020.11.21`,
-        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+        contributorImg: ['/img/defaultImg.svg', '/img/defaultImg.svg', '/img/defaultImg.svg']
     },
     {
         id: 4,
@@ -55,7 +48,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2021.05.01`,
-        contributorImg: [DEFAULT_PROFILE_IMG_PATH]
+        contributorImg: ['/img/defaultImg.svg']
     },
     {
         id: 5,
@@ -63,7 +56,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2021.06.01`,
-        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+        contributorImg: ['/img/defaultImg.svg', '/img/defaultImg.svg']
     },
     {
         id: 6,
@@ -71,7 +64,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2020.12.01`,
-        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+        contributorImg: ['/img/defaultImg.svg', '/img/defaultImg.svg']
     },
     {
         id: 7,
@@ -79,7 +72,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2021.03.01`,
-        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+        contributorImg: ['/img/defaultImg.svg', '/img/defaultImg.svg', '/img/defaultImg.svg']
     },
     {
         id: 8,
@@ -87,7 +80,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2021.04.11`,
-        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+        contributorImg: ['/img/defaultImg.svg', '/img/defaultImg.svg']
     },
     {
         id: 9,
@@ -95,7 +88,7 @@ const SAMPLE_CARD_DATA_FROM_SERVER = [
         cardTitle: '교정시설에 녹화장비 반입한 독립 PD들 변호하여 1심 뒤지고 무죄를 받아낸 사례',
         cardContent: `법무법인(유한) 바른의 최재웅 변호사, 장은진 변호사, 황유진 변호사는 주식회사 중앙고속(이하 “중앙고속”) 을 위하여 서울 고속 버스 터미널 주식회사(이하 “`,
         caseDate: `2021.04.11`,
-        contributorImg: [DEFAULT_PROFILE_IMG_PATH, DEFAULT_PROFILE_IMG_PATH]
+        contributorImg: ['/img/defaultImg.svg', '/img/defaultImg.svg']
     }
 ];
 const SLIDE_STOP_POINT = SAMPLE_CARD_DATA_FROM_SERVER?.length - 3;
@@ -105,6 +98,7 @@ const HEADER_CHANGE_POINT  = 821;
 const RANDOM_IMAGE = Math.random() * 10 > 5;
 const LAST_DOT = DOT_ARR.length - 1;
 const LAST_CHANGE_POINT = SAMPLE_CARD_DATA_FROM_SERVER?.length - 4;
+const MAIN_MENUS = ['바론소개', '업무분야', '구성원', '자료실', '사회공헌', '인재채용'];
 
 const Language = ({ setLang }) => {
     const [headerVisible, setHeaderVisible] = useState(false);
@@ -133,29 +127,32 @@ const Language = ({ setLang }) => {
 
 const Header = ({ lang, setLang, setModalVisible }) => {
     const [scrollPosition, setScrollPosition] = useState(0);
-    const updateScroll = () => {
-        setScrollPosition(window.scrollY || document.documentElement.scrollTop);
-        setModalVisible(false);
-    }
     useEffect(() => {
-        window.addEventListener('scroll', updateScroll);
+        const updateScroll = () => {
+            setScrollPosition(window.scrollY);
+            setModalVisible(false);
+        };
+        window.addEventListener("scroll", updateScroll);
+        return () => {
+            window.removeEventListener("scroll", updateScroll);
+          };
     });
+    // 스크롤 이벤트 변경 필요, 클린? 같은 키워드로 검색
     return (
         <header className={scrollPosition > HEADER_CHANGE_POINT ? 'change-header' : 'header'}>
             <Language setLang={setLang} />
             <div className="nav-container">
-                <img src={scrollPosition > HEADER_CHANGE_POINT ? CHANGE_LOGO_PATH : DEFAULT_LOGO_PATH}
+                <img src={scrollPosition > HEADER_CHANGE_POINT ? '/img/logo_sub.png' : '/img/logo.png'}
                     className="logo" />
                 <nav className="nav-bar">
                     <ul className="main-menu">
-                        <li><a>바론소개</a></li>
-                        <li><a>업무분야</a></li>
-                        <li><a>구성원</a></li>
-                        <li><a>자료실</a></li>
-                        <li><a>사회공헌</a></li>
-                        <li><a>인재채용</a></li>
+                        {MAIN_MENUS?.map(
+                            (menu) => {
+                                return (<li key={`menu_${menu}`}><a>{menu}</a></li>)
+                            }
+                        )}
                     </ul>
-                    <img src={scrollPosition > HEADER_CHANGE_POINT ? CHANGE_HEADER_SEARCH_IMG_PATH : DEFAULT_HEADER_SEARCH_IMG_PATH} className="srch_button" />
+                    <img src={scrollPosition > HEADER_CHANGE_POINT ? '/img/sch_icon_sub.png' : '/img/srch-button.png'} className="srch_button" />
                 </nav>
             </div>
         </header>
@@ -205,7 +202,7 @@ const MainSection = ({ setModalVisible, setKeyword }) => {
             </div>
             <div className="videoWrap">
                 <video autoPlay={true} loop muted>
-                    <source src={RANDOM_IMAGE ? VIDEO_PATH1 : VIDEO_PATH2} type="video/mp4" />
+                    <source src={RANDOM_IMAGE ? '/video/bgVideo1.mp4' : '/video/bgVideo2.mp4'} type="video/mp4" />
                 </video>
             </div>
         </main>
