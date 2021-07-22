@@ -5,12 +5,14 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "json-server": "json-server --watch db.json --routes routes.json --port 8100"
   },
   "dependencies": {
     "classnames": "2.3.1",
     "date-fns": "2.21.3",
     "gray-matter": "4.0.3",
+    "json-server": "^0.16.3",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
