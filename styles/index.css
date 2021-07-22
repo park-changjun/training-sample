@@ -128,7 +128,7 @@ header {
   box-sizing: border-box;
   transition: all 0.3s;
   display: block;
-  padding: 15px 14px 15px 0;
+  padding: 10px 0;
   box-sizing: border-box;
   font-size: 12px;
   color: rgba(224, 224, 224, 0.7);
@@ -646,7 +646,7 @@ header {
 }
 
 .cards-box.animated {
-  transition: left ease-in 200ms;
+  transition: left ease-in 280ms;
 }
 
 .cards-wrapper > ul {
@@ -702,10 +702,9 @@ header {
 
 .card-title {
   width: 325px;
-  height: 83px;
   margin: 0 0 29px;
   font-family: NotoSansCJKkr;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -715,11 +714,17 @@ header {
   color: #333333;
   padding-left: 30px;
   padding-top: 29px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
 }
 
 .card-content {
   width: 312px;
-  height: 74px;
+  margin-bottom: 12px;
   font-family: NotoSansCJKkr;
   font-size: 14px;
   font-weight: 300;
@@ -730,11 +735,16 @@ header {
   text-align: left;
   color: #666666;
   padding-left: 31px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
 }
 
 .card-date {
   width: 76px;
-  height: 13px;
   font-family: Montserrat;
   font-size: 16px;
   font-weight: 300;

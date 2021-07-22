@@ -1,0 +1,11 @@
+:root {
+  --white: #ffffff;
+  --black: black;
+  --gray: #cccccc;
+  --light-gray: #f5f5f5;
+  --text-deep-gray: #666666;
+  --text-middle-gray: #888888;
+  --text-light-gray: #999999;
+  --content-width: 1200px;
+}
+

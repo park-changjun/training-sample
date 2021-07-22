@@ -436,6 +436,7 @@ const CardButtons = ({
     setTimeout(() => {
       setIsDisabled(false)
     }, 300)
+
     if (index < 0) {
       setTimeout(() => {
         setIsAnimated(false)
@@ -443,7 +444,7 @@ const CardButtons = ({
         setTimeout(() => {
           setIsAnimated(true)
         }, 100)
-      }, 200)
+      }, 300)
     }
 
     if (index >= cardLength) {
@@ -454,7 +455,7 @@ const CardButtons = ({
         setTimeout(() => {
           setIsAnimated(true)
         }, 100)
-      }, 200)
+      }, 300)
     }
   }
 

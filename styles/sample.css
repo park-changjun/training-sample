@@ -1,0 +1,70 @@
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  margin: 20px;
+  padding: 20px;
+}
+
+.title-input {
+  color: 'red';
+  min-width: 100px;
+}
+
+.author-input {
+  color: black;
+  min-width: 100px;
+}
+
+
+.submit-button {
+  border: 1px solid aqua;
+  padding: 10px;
+  font-size: 20px;
+  background-color: aquamarine;
+  margin-left: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.update-button,
+.close-button {
+  border: 1px solid rgb(226, 139, 98);
+  padding: 10px;
+  font-size: 20px;
+  background-color: rgb(255, 178, 127);
+  margin-left: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.post-wrapper {
+  background-color: #e5f8ee;
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  margin: 10px 20px;
+  padding: 10px;
+  width: fit-content;
+}
+
+.id-box,
+.title-box,
+.author-box {
+  margin-right: 30px;
+}
+
+.btn {
+  border: 1px solid darkorange;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 5px;
+  transition: all ease-in 300ms;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color:rgb(245, 180, 101)
+}
+

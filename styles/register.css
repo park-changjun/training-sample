@@ -1,0 +1,21 @@
+.Register {
+  
+}
+
+.Register .wrapper {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 0 180px;
+}
+
+.register-content  {
+  width: 450px;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 36px;
+}

@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@import url('./global.css');
+@import url('./login.css');
+@import url('./register.css');
+
+
+* {
+  font-family : 'Noto Sans KR', sans-serif;
+  box-sizing: border-box;
+}
+
+input {
+  border-width: 0
+}
+
+/*********************** Header ***********************/
+.Header {
+  width: 100%;
+  height: 100%;
+}
+
+.sub-header {
+  height: 37px;
+  width: 100%;
+  background-color: var(--black)
+}
+
+.sub-header .content {
+  height: 37px;
+  display: flex;
+  justify-content:space-between;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  align-items: center;
+}
+
+.sub-header .content > p{
+  font-size: 13px;
+  color: var(--white);
+}
+
+.sub-header .content > ul {
+  display: flex;
+}
+
+.sub-header .content > ul > li {
+  position: relative;
+}
+
+.sub-header .content > ul > li > a{
+  color: var(--text-middle-gray);
+  padding-left: 20px;
+}
+
+
+.sub-header .content > ul > li:first-child::after {
+  height: 17px;
+  position: absolute;
+  content: "";
+  right: -10px;
+  top: 1px;
+  border-right: 1px solid var(--text-middle-gray);
+} 
+
+.main-header {
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.main-header .content {
+  height: 100%;
+  display: flex;
+  justify-content:space-between;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  align-items: center;
+}
+
+.main-header .content .logo-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex:1;
+}
+
+.main-header .content .logo-wrapper > img {
+  width: 135px;
+  height: 40px;
+}
+
+
+.main-header .content > ul {
+  width: 30%;
+  min-width: 318px;
+  display: flex;
+  justify-content:space-between
+}
+
+.main-header .content > ul > li {
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: -1.2px;
+  text-align: left;
+  color: var(--black);
+}
+
+
+
+/*********************** Footer ***********************/
+.Footer {
+  border-top: 1px solid var(--light-gray);
+  width: 100%;
+  height: 100%;
+}
+
+.Footer .content {
+  height: 100%;
+  display: flex;
+  justify-content:space-between;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  /* align-items: center; */
+}
+
+.footer-notice {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer-notice .notice-content {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.footer-notice .notice-content > span:first-child {
+  margin-right: 30px;
+}
+
+.footer-notice .notice-content > span:last-child {
+  color: var(--text-light-gray);
+}
+
+.Footer .content .info {
+  padding-top: 40px;
+}
+
+.Footer .content .info .terms {
+  display: flex;
+}
+
+.Footer .content .info .terms > li {
+  margin-right: 40px;
+  font-size: 16px;
+}
+
+.Footer .content .info .terms > li:last-child {
+  margin-right: 0
+}
+
+.Footer .content .info .detail {
+  color: var(--text-light-gray);
+  font-size: 14px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.86;
+  letter-spacing: -1.05px;
+  text-align: left;
+  padding: 40px 0 20px;
+}
+
+.copyright {
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: -0.9px;
+  text-align: left;
+  color: var(--text-light-gray);
+}
+
+.social-wrapper {
+  padding-top: 40px;
+  display: flex;
+  justify-content:flex-end;
+  flex: 1;
+}
+
+.social-wrapper > ul {
+  display: flex;
+}
+
+.social-wrapper > ul > li {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--light-gray);
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+/*********************** Input ***********************/
+.Input {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/*********************** Check ***********************/
+
+
+
+
+/*********************** Button ***********************/
