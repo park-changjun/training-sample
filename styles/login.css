@@ -235,4 +235,11 @@ input:focus {
   height: 48px;
 }
 .register-box-container .email button {
+  width: 80px;
+  height: 35px;
+  background-color: #1faf83;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  /* padding: 10px 16px 11px; */
 }
