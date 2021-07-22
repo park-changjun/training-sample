@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 :root {
  --white: #FFFFFF;
@@ -50,7 +52,6 @@ header {
 .header-slogan{
     font-size: 12px;
     line-height: 12px;
-    font-weight: normal;
     font-stretch: normal;
     font-style: normal;
 }
@@ -60,7 +61,6 @@ header {
     color: #cccccc;
     font-size: 12px;
     line-height: 12px;
-    font-weight: 300;
     font-stretch: normal;
     font-style: normal;
     letter-spacing: -0.9px;
@@ -115,8 +115,10 @@ header {
 
 .login-main .container{
     display: flex;
-    justify-content: center;
     margin-top: 119px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .login-wrap {
@@ -173,9 +175,140 @@ input:checked {
 }
 
 .login-form-submenu{
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     font-size: 14px;
     line-height: 14px;
     color: #333333;
+}
+
+.login-form-submenu span{
+    opacity: 0.5;
+    margin: 0 20px;
+}
+
+.social-login-title{
+    display: flex;
+    font-size: 21px;
+    line-height: 22px;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -1.65px;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 39px;
+    align-items: center;
+}
+
+.social-login-title span{
+ margin: 0 20px;   
+}
+
+
+.line {
+    height: 1px;
+    width: 138px;
+    opacity: 0.5;
+    background-color: #999999;
+}
+
+.social-icon-wrap{
+    display: flex;
+    justify-content: center;
+}
+
+.social-icon-wrap img{
+    margin: 0 10px;
+    margin-bottom: 31px;
+}
+
+.social-comment{
+    color: #666666;
+    size: 14px;
+    line-height: 14px;
+    font-size: 14px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normasl;
+}
+
+.notice-wrap {
+    width: 100%;
+    display: flex;
+    font-size: 14px;
+    padding: 20px 0;
+}
+
+.notice{
+    margin-right: 30px;
+}
+
+.notice-content{
+    color: #666666;
+}
+
+/* Main Section END */
+
+/* Footer Start */
+
+footer{
+    height: 320px;
+    border-top: 1px solid rgba(0, 0, 0, 0.048);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-info{
+    padding: 40px 0;
+}
+
+.footer-info span{
+    margin-right: 40px;
+}
+
+.footer-addr{
+    width: 387px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #999999;
+    letter-spacing: -1.05px;
+    font-weight: 300;
+}
+
+.footer-addr span{
+    font-size: 11px;
+    line-height: 11px;
+    font-weight: 300;
+}
+
+.footer-icon-wrap{
+    display: flex;
+    margin-top: 40px;
+}
+
+.footer-icon-wrap div{
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+}
+/* Footer end */
+
+/* fixed */
+.fixed-kakao{
+    position: fixed;
+    bottom: 80px;
+    right: 50px;
+    cursor: pointer;
 }
