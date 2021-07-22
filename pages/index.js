@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 const Index = () => {
   return (
-    <div>
+    <div onScroll={(e) => console.log("scroll", e.target)}>
       <Header />
 
       <SloganSection />
@@ -426,6 +426,7 @@ const Carousel = () => {
           let idx = 3 * (index + 1);
           return (
             <span
+              key={index}
               className={(currentIndex < idx && idx - 3 <= currentIndex
                 ? ["dot", "dot-active"]
                 : ["dot"]
