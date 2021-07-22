@@ -126,19 +126,16 @@ const Language = ({ setLang }) => {
 
 
 const Header = ({ setLang, setModalVisible }) => {
-    const [scrollPosition, setScrollPosition] = useState(0);
-
-    useEffect(() => {
-        const updateScroll = () => {
-            setModalVisible(false);
-            setScrollPosition(window.scrollY);
-            console.log('함수 실행');
-        };
-        window.addEventListener("scroll", updateScroll);
-        return () => {
-            window.removeEventListener("scroll", updateScroll);
-        };
-    },[]);
+    const useScroll = () => {
+        const [scrollPosition, setScrollPosition] = useState(0);
+        const onScroll = (event) => { setScrollPosition(window.scrollY);}
+        useEffect(()=>{
+             window.addEventListener("scroll", onScroll);
+             return () => { window.removeEventListener("scroll", onScroll)  };
+        }, [])
+        return scrollPosition;
+    }
+   const scrollPosition = useScroll();
 
     return (
         <header className={scrollPosition > HEADER_CHANGE_POINT ? 'change-header' : 'header'}>
