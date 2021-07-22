@@ -1,7 +1,10 @@
-import '../styles/main.css'
+// import '../styles/main.css' // 법무법인 바른 css
+import '../styles/cultureLife.css' 
+
 import React from "react";
 
 export default function MyApp({ Component, pageProps }) {
-    const [lang, setLang] = React.useState("KOREAN");
-    return (<Component {...pageProps} setLang={setLang} lang={lang} />)
+    // const [lang, setLang] = React.useState("KOREAN"); 
+    // return (<Component {...pageProps} setLang={setLang} lang={lang} />)
+    return (<Component {...pageProps}/>)
 }

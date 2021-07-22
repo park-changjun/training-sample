@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+
 const LANGUAGES = ["KOREAN", "ENGLISH", "CHINESE", "FRENCH", "RUSSIAN", "JAPANESE", "VIETNAMESE"];
 const CARD_NEWS_CATEGORIES = ["바른뉴스", "업무사례", "업무보도"];
 const SEARCH_SAMPLE_ARR = ['노동법률', '노동자', '노동 전문가', '근로', '근로 기준', '근로법', '형사', '형사법', '형사사건'];
