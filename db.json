@@ -1,9 +1,53 @@
 {
   "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+    {
+      "id": 6,
+      "title": "ㅇㄴㅇㄴㄴㅇㅇ",
+      "author": "asdsd"
+    },
+    {
+      "id": 7,
+      "title": "하비비",
+      "author": "dsdsd"
+    },
+    {
+      "id": 8,
+      "title": "Havivi",
+      "author": "dssd"
+    },
+    {
+      "id": 9,
+      "title": "da",
+      "author": "sdsad"
+    },
+    {
+      "id": 10,
+      "title": "",
+      "author": ""
+    },
+    {
+      "id": 11,
+      "title": "asdsSas",
+      "author": ""
+    },
+    {
+      "id": 12,
+      "title": "",
+      "author": ""
+    },
+    {
+      "id": 13,
+      "title": "",
+      "author": ""
+    },
+    {
+      "id": 14,
+      "title": "",
+      "author": ""
+    }
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
 }

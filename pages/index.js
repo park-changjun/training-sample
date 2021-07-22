@@ -2,8 +2,15 @@
 import React, { useEffect, useRef, useState } from "react";
 // import { transform } from "typescript";
 // import { isReturnStatement } from "typescript";
+
+
+
 const languageMenu = ["Korean", "English"];
 const SlideNavMenu = ["바른뉴스", "업무사례", "언론보도"];
+
+
+
+
 
 const Dropdown = (props) => {
   const Show = "block";
@@ -31,7 +38,7 @@ const Dropdown = (props) => {
         >
           {languageMenu.map((languageMenu, i) => {
             return (
-              <li onClick={() => props?.setLang?.(languageMenu)} key={''+i}>
+              <li onClick={() => props?.setLang?.(languageMenu)} key={"" + i}>
                 {languageMenu}
               </li>
             );
@@ -49,14 +56,13 @@ const HeaderScroll = () => {
     window.scrollY >= 150 ? setHeaderScroll(true) : setHeaderScroll(false);
   };
 
-  useEffect(() =>{
+  useEffect(() => {
     window.addEventListener("scroll", changeBgHeader);
-    return () => window.removeEventListener('scroll',changeBgHeader)
-  },[])
-  
+    return () => window.removeEventListener("scroll", changeBgHeader);
+  }, []);
 
   return (
-    <header className= {headerScroll ? "header scroll" : "header"}>
+    <header className={headerScroll ? "header scroll" : "header"}>
       <div className="header-container">
         <div className="header-top">
           <Dropdown />
@@ -72,12 +78,16 @@ const HeaderScroll = () => {
     </header>
   );
 };
-
 const NavMenuData = [
   {
     title: "바른소개",
     subMenus: [
-      "바른소개","바른연락","오시는길","싱가포르대표사무소","블로그"],
+      "바른소개",
+      "바른연락",
+      "오시는길",
+      "싱가포르대표사무소",
+      "블로그",
+    ],
   },
   {
     title: "업무분야",
@@ -89,7 +99,13 @@ const NavMenuData = [
   {
     title: "소식/자료",
     subMenus: [
-      "바른뉴스","언론보도","최근업무사례", "뉴스레터","저서 및 자료","코로나19자료실"],
+      "바른뉴스",
+      "언론보도",
+      "최근업무사례",
+      "뉴스레터",
+      "저서 및 자료",
+      "코로나19자료실",
+    ],
   },
   {
     title: "아카데미",
@@ -113,14 +129,14 @@ const HeaderNav = (props) => {
     <div>
       <ul className="header-nav-dep">
         {NavMenuData.map((headerMenuData, i) => (
-          <HeaderSubNav headerMenuData={headerMenuData} key={''+i} />
+          <HeaderSubNav headerMenuData={headerMenuData} key={"" + i} />
         ))}
       </ul>
     </div>
   );
 };
 const HeaderSubNav = (props) => {
-  const { headerMenuData } = props; // props.headerMenuDate 
+  const { headerMenuData } = props; // props.headerMenuDate
   const [headerNav, setHeaderNav] = useState(false);
 
   return (
@@ -140,7 +156,9 @@ const HeaderSubNav = (props) => {
       >
         {headerMenuData.subMenus?.map((data, i) => (
           <li>
-            <a href="#" key={''+i}>{data}</a>
+            <a href="#" key={"" + i}>
+              {data}
+            </a>
           </li>
         ))}
       </ul>
@@ -149,7 +167,7 @@ const HeaderSubNav = (props) => {
 };
 const HeaderSearch = () => {
   const [headerinput, setHeaderInput] = useState(false);
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const buttonRef = React.useRef();
 
   return (
@@ -205,6 +223,18 @@ const HeaderSearch = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+const Main = (props) => {
+  return (
+    <main id="main">
+        {/* <video className="bg-video" autoPlay loop muted>
+          <source
+            src="../public/img/bgVideo.mp4" type="video.mp4"></source>
+        </video> */}
+      <Visual />
+    </main>
   );
 };
 
@@ -276,10 +306,11 @@ const SlideNav = () => {
             const ischecked = menu === checked;
             return (
               <li
-                onClick={(e) => setChecked(menu)} key={''+i}
+                onClick={(e) => setChecked(menu)}
+                key={"" + i}
                 style={{ color: ischecked ? "#333333" : "#aaaaaa" }}
               >
-                {menu} 
+                {menu}
               </li>
             );
           })}
@@ -303,7 +334,7 @@ const SlideWrap = (props) => {
 
   const slides = [<Slides cardData={cardData} />];
   const slideCount = 6;
-  const slideWidth = 400;
+  const slideWidth = 402;
 
   const showSlides = (n) => {
     setSlideLeft(-(n * slideWidth));
@@ -370,7 +401,7 @@ const SlideWrap = (props) => {
                   newsData: "2021.07.01",
                 },
               ].map((cardData, i) => (
-                <Slides cardData={cardData} key={''+i}/>
+                <Slides cardData={cardData} key={"" + i} />
               ))}
             </ul>
           </div>
@@ -441,12 +472,15 @@ const Slides = (props) => {
 
 const News = () => {
   return (
-    <section id="news">
-      <div className="news_inner">
-        <NewsLeft />
-        <NewsRight />
-      </div>
-    </section>
+    <>
+      <section id="news">
+        <div className="news_inner">
+          <NewsLeft />
+          <NewsRight />
+        </div>
+      </section>
+      <hr />
+    </>
   );
 };
 const NewsLeft = () => {
@@ -477,7 +511,7 @@ const NewsRight = () => {
           letterTitle: "법무법인(유한) 바른 뉴스레터 - 제93호 (2021.02)",
         },
       ].map((letterData, i) => (
-        <NewsLetter letterData={letterData} key={''+i} />
+        <NewsLetter letterData={letterData} key={"" + i} />
       ))}
     </div>
   );
@@ -533,12 +567,9 @@ const Index = () => {
   return (
     <div>
       <HeaderScroll />
-      <main id="main">
-        <Visual />
-      </main>
+      <Main />
       <SlideWrap />
       <News />
-      <hr />
       <Footer />
     </div>
   );
