@@ -1,9 +1,28 @@
 {
   "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+    {
+      "id": 1,
+      "title": "재연",
+      "author": "재연재연"
+    },
+    {
+      "id": 2,
+      "title": "재연22",
+      "author": "재연재연222"
+    },
+    {
+      "id": 3,
+      "title": "재연223333",
+      "author": "재연재연223332"
+    },
+    {
+      "id": 4,
+      "title": "재연224443333",
+      "author": "재연재444연223332"
+    }
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
 }

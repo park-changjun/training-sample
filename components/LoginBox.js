@@ -1,8 +1,10 @@
 import React from 'react';
-import { GrCheckboxSelected } from 'react-icons/gr';
+
 import SnsButton from './SnsButton';
 import Input from './Input';
 import LoginButton from './LoginButton';
+
+import { IoIosCheckboxOutline } from 'react-icons/io';
 
 const LoginBox = () => {
   return (
@@ -18,7 +20,7 @@ const LoginBox = () => {
           value=''
         />
         <div className='checkbox'>
-          <GrCheckboxSelected className='check' />
+          <IoIosCheckboxOutline className='check' color='#dbdbdb' size='24' />
           <span>로그인 상태 유지</span>
         </div>
 

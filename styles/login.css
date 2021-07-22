@@ -118,11 +118,12 @@ footer .container:nth-child(3) {
 }
 
 .login-box-container .checkbox {
-  margin-top: 10px;
+  margin-top: 20px;
   color: var(--ligh);
+  display: flex;
+  align-items: center;
 }
 .login-box-container .checkbox .check {
-  color: red;
   margin-right: 10px;
 }
 .login-box-container .checkbox span {
@@ -184,23 +185,35 @@ footer .container:nth-child(3) {
 }
 
 /* input */
-input {
+.input-box {
+  display: block;
   width: 100%;
   height: 50px;
   margin-bottom: 10px;
-  opacity: 0.5;
   border-radius: 2px;
-  border: solid 1px #999999;
+  border: solid 1px rgb(153, 153, 153, 0.5);
   background-color: #ffffff;
 }
+input {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 0 0 0 20px;
+  height: 48px;
+}
 input::-webkit-input-placeholder {
-  padding-inline-start: 20px;
+  /* padding-inline-start: 20px; */
   font-size: 14px;
   font-weight: 300;
 }
 
 input:focus {
   outline: none;
+}
+input[type='text'],
+input[type='password'] {
+  color: #666666;
+  font-weight: 300;
 }
 
 /* login-button */
@@ -218,28 +231,52 @@ input:focus {
   margin-top: 50px;
 }
 /* Register */
+.register-box-container .title {
+  font-weight: 300;
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
 .register-box-container .email {
   display: flex;
   width: 100%;
   height: 50px;
   margin-bottom: 10px;
-  opacity: 0.5;
   border-radius: 2px;
-  border: solid 1px #999999;
+  border: solid 1px rgb(153, 153, 153, 0.5);
   background-color: #ffffff;
 }
-.register-box-container .email input {
+.register-box-container .email .input-box {
   border: none;
-  margin: 0;
-  padding: 0;
   height: 48px;
+}
+.register-box-container .email .input-box input {
+  border: none;
+  padding: 0 0 0 20px;
 }
 .register-box-container .email button {
   width: 80px;
-  height: 35px;
+  height: 33px;
   background-color: #1faf83;
   color: white;
   border: none;
   border-radius: 2px;
-  /* padding: 10px 16px 11px; */
+  margin: 8px;
+}
+.register-box-container .checkbox-wrapper {
+  margin-top: 30px;
+}
+.register-box-container .checkbox {
+  display: flex;
+}
+.register-box-container .checkbox .lists {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+.register-box-container .checkbox .lists .list {
+  color: var(--black);
+}
+.detail {
+  border-bottom: 1px solid #999999;
 }
