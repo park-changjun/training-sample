@@ -132,8 +132,8 @@ const Header = ({ setLang, setModalVisible }) => {
         const [scrollPosition, setScrollPosition] = useState(0);
         const onScroll = (event) => { setScrollPosition(window.scrollY);}
         useEffect(()=>{
+            Router.push("/main");
              window.addEventListener("scroll", onScroll);
-             Router.push("/main");
              return () => { window.removeEventListener("scroll", onScroll)  };
         }, [])
         return scrollPosition;
