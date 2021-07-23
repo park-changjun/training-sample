@@ -8,6 +8,14 @@ import { useState, useEffect } from 'react';
 
 const RegisterMain = () => {
     const [registerForm, setRegisterForm] = useState({ name: '', email: '', password: '', phoneNum: '' });
+    const [isActive, setIsActive] =useState(false);
+    
+    useEffect(() => {
+        registerForm.name&&registerForm.email&&registerForm.password&&registerForm.phoneNum?
+        setIsActive(true):
+        setIsActive(false)
+    }, [registerForm]);
+   
     return (
         <main className="register-main">
             <div className="container">
@@ -27,7 +35,7 @@ const RegisterMain = () => {
                         <CheckInput text={'[필수] 개인정보수집 및 이용 동의'} detail={'보기'} />
                         <CheckInput text={'[선택] 이벤트 및 정보 수신 동의'} />
                     </div>
-                    <BigConfirmButton text={'가입하기'} registerForm={registerForm}/>
+                    <BigConfirmButton text={'가입하기'} registerForm={registerForm} isActive={isActive}/>
                 </div>
                 <div className="notice-wrap">
                     <div className="notice">공지사항</div>

@@ -3,17 +3,17 @@ import FormInput from './formInput';
 import BigConfirmButtonLogin from './bigConfirmButtonLogin';
 import CheckInput from './checkInput';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-const API_URL = 'http://localhost:8100/api/posts';
-
 
 const LoginMain = () => {
-    const [memberList, setMemberList] = useState([]);
     const [loginForm, setLoginForm] = useState({email: '', password: ''});
+    const [isActive, setIsActive] =useState(false);
+    
     useEffect(() => {
-        axios({ url: API_URL, method: 'GET' })
-            .then(({ data }) => setMemberList(data))
-    }, [])
+        loginForm.email&&loginForm.password?
+        setIsActive(true):
+        setIsActive(false)
+    }, [loginForm]);
+     
     return (
         <main className='login-main'>
             <div className="container">
@@ -22,7 +22,7 @@ const LoginMain = () => {
                     <FormInput text={'이메일을 입력하세요.'} btnText={false} setForm={setLoginForm} info={'email'}/>
                     <FormInput text={'비밀번호를 입력하세요.'} btnText={false} setForm={setLoginForm} info={'password'} />
                     <CheckInput text={'로그인 상태 유지'} />
-                    <BigConfirmButtonLogin text={'로그인'} loginForm={loginForm} memberList={memberList}/>
+                    <BigConfirmButtonLogin text={'로그인'} loginForm={loginForm} isActive={isActive}/>
                     <div className="login-form-submenu">
                         <div><a>간편 회원가입</a></div>
                         <span>|</span>

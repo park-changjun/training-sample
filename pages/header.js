@@ -1,4 +1,7 @@
 import React from 'react';
+import Link from 'next/dist/client/link';
+
+//<button><Link href="/register"><a>회원가입으로이동</a></Link></button>
 
 const Header = () => {
     return(
@@ -9,9 +12,9 @@ const Header = () => {
             도시 속 문화 충전소, 문화로운생활
             </div>
             <div className="header-nav">
-                <div><a>회원가입</a></div>
+                <div><Link href="/register"><a>회원가입</a></Link ></div>
                 <span>|</span>
-                <div><a>로그인</a></div>
+                <div><Link href="/login"><a>로그인</a></Link></div>
             </div>
         </div>
     </div>

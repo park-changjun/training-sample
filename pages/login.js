@@ -5,8 +5,6 @@ import LoginMain from './loginMain';
 import Footer from './footer';
 import FixedKakaoChat from './fixedKakaoChat';
 
-//<button><Link href="/register"><a>회원가입으로이동</a></Link></button>
-
 const Login = () => {
     return (
         <div>
