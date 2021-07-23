@@ -3,11 +3,11 @@ import Header from './header';
 import Footer from './footer';
 import FixedKakaoChat from './fixedKakaoChat';
 
-const Main = ({isLogin, seLogin}) => {
+const Main = ({isLogin, setIsLogin}) => {
     if(isLogin){
         return (
             <div>
-                <Header />
+                <Header isLogin={isLogin} setIsLogin={setIsLogin}/>
                 <section
                     style={{ height: '800px', fontSize: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center'}}>
                     <div className="container">
@@ -21,7 +21,7 @@ const Main = ({isLogin, seLogin}) => {
     }else{
         return (
             <div>
-            <Header />
+            <Header isLogin={isLogin} setIsLogin={setIsLogin}/>
             <section
                 style={{ height: '800px', fontSize: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center'}}>
                 <div className="container">

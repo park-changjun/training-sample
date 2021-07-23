@@ -1,15 +1,14 @@
 import React from 'react';
-import Link from 'next/link';
 import Header from './header';
 import LoginMain from './loginMain';
 import Footer from './footer';
 import FixedKakaoChat from './fixedKakaoChat';
 
-const Login = () => {
+const Login = ({isLogin, setIsLogin}) => {
     return (
         <div>
-            <Header />
-            <LoginMain />
+            <Header isLogin={isLogin} setIsLogin={setIsLogin}/>
+            <LoginMain isLogin={isLogin} setIsLogin={setIsLogin}/>
             <Footer/>
             <FixedKakaoChat/>
         </div>

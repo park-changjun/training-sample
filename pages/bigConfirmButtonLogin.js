@@ -1,18 +1,25 @@
 import React from 'react'
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Router from 'next/router'
 const API_URL = 'http://localhost:8100/api/posts';
 
 
-const BigConfirmButtonLogin = ({ text, loginForm, isActive }) => {
+const BigConfirmButtonLogin = ({ text, loginForm, isActive, isLogin, setIsLogin }) => {
+    const [isCorrect, setIsCorrect] =useState(false);
+
+    useEffect(() => {
+        setIsLogin(true);
+        isCorrect&&Router.push('/main');
+    }, [isCorrect]);
+
 
     if (isActive) {
         return (
             <button className="bigConfirmButton-active" onClick={() => {
                 axios({ url: API_URL, method: 'GET' })
                     .then(({ data }) =>  { data.filter(member => member.email === loginForm.email && member.password === loginForm.password).length 
-                        ? alert("환영합니다!")
+                        ? setIsCorrect(true)
                         : alert("로그인 정보가 일치하지 않습니다.") }
                     )
             }

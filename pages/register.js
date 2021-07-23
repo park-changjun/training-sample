@@ -6,10 +6,10 @@ import RegisterMain from './registerMain';
 
 
 
-const Register = () => {
+const Register = ({isLogin, setIsLogin}) => {
     return (
         <div>
-            <Header />
+            <Header isLogin={isLogin} setIsLogin={setIsLogin} />
             <RegisterMain />
             <Footer />
             <FixedKakaoChat />
