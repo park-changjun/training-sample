@@ -230,6 +230,9 @@ input[type='password'] {
   text-align: center;
   margin-top: 50px;
 }
+.login-button:hover {
+  background-color: var(--green);
+}
 /* Register */
 .register-box-container .title {
   font-weight: 300;

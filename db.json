@@ -6,14 +6,20 @@
       "author": "작가1"
     },
     {
-      "id": 2,
-      "title": "제목2",
-      "author": "작가2수정수정"
+      "name": "재연",
+      "email": "1",
+      "password": "1",
+      "password2": "1",
+      "phone": "1",
+      "id": 2
     },
     {
-      "id": 3,
-      "title": "1234",
-      "author": "작가3수정"
+      "name": "재연2",
+      "email": "2",
+      "password": "2",
+      "password2": "2",
+      "phone": "2",
+      "id": 3
     }
   ],
   "comments": [],

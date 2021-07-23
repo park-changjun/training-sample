@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import SnsButton from './SnsButton';
 import Input from './Input';
@@ -7,30 +8,71 @@ import LoginButton from './LoginButton';
 import { IoIosCheckboxOutline } from 'react-icons/io';
 
 const LoginBox = () => {
+  const [loginInput, setLoginInput] = useState({
+    email: '',
+    password: '',
+  });
+  const { email, password } = loginInput;
+  const [keepLogin, setKeepLogin] = useState(false);
+  const [userData, setUserData] = useState([]);
+
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    setLoginInput({ ...loginInput, [name]: value });
+  };
+
+  useEffect(() => {
+    axios({ url: 'http://localhost:8100/api/posts', method: 'GET' })
+      .then(({ data }) => setUserData(data))
+      .then(() => console.log(userData))
+      .catch(() => {
+        console.log('error');
+      });
+  }, []);
+
+  console.log(loginInput);
   return (
     <div className='login-box-container'>
       <p className='login'>로그인</p>
 
-      <form action=''>
-        <Input name='email' placeholder='이메일을 입력하세요.' value='' />
-        <Input
-          name='password'
-          placeholder='비밀번호를 입력하세요.'
-          type='password'
-          value=''
+      <Input
+        name='email'
+        placeholder='이메일을 입력하세요.'
+        value={email}
+        onChange={onChange}
+      />
+      <Input
+        name='password'
+        placeholder='비밀번호를 입력하세요.'
+        type='password'
+        value={password}
+        onChange={onChange}
+      />
+      <div className='checkbox'>
+        <IoIosCheckboxOutline
+          className='check'
+          color={keepLogin ? '#efcf34' : '#dbdbdb'}
+          size='24'
+          onClick={() => {
+            setKeepLogin(!keepLogin);
+          }}
         />
-        <div className='checkbox'>
-          <IoIosCheckboxOutline className='check' color='#dbdbdb' size='24' />
-          <span>로그인 상태 유지</span>
-        </div>
+        <span>로그인 상태 유지</span>
+      </div>
 
-        <LoginButton>로그인</LoginButton>
-        <div className='login-option'>
-          <span>간편 회원가입</span>
-          <span>|</span>
-          <span>비밀번호 재설정</span>
-        </div>
-      </form>
+      <LoginButton
+        email={email}
+        password={password}
+        userData={userData}
+        setLoginInput={setLoginInput}
+      >
+        로그인
+      </LoginButton>
+      <div className='login-option'>
+        <span>간편 회원가입</span>
+        <span>|</span>
+        <span>비밀번호 재설정</span>
+      </div>
 
       <span className='line'></span>
       <span className='social-login-txt'>간편 소셜 로그인</span>
