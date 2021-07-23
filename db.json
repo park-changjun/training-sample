@@ -38,74 +38,83 @@
       "id": 6
     },
     {
-      "name": "a",
+      "name": "테스터a",
       "email": "a",
       "password": "a",
       "phoneNum": "a",
       "id": 7
     },
     {
-      "name": "ㄴ",
-      "email": "ㄴ",
-      "password": "ㄴ",
-      "phoneNum": "ㄴ",
+      "name": "testb",
+      "email": "b",
+      "password": "b",
+      "phoneNum": "b",
       "id": 8
     },
     {
-      "name": "",
-      "email": "",
-      "password": "",
-      "phoneNum": "",
+      "name": "testc",
+      "email": "testc",
+      "password": "testc",
+      "phoneNum": "testc",
       "id": 9
     },
     {
-      "name": "f",
-      "email": "f",
-      "password": "f",
-      "phoneNum": "f",
+      "name": "testD",
+      "email": "testD",
+      "password": "testD",
+      "phoneNum": "testD",
       "id": 10
     },
     {
-      "name": "d",
-      "email": "d",
-      "password": "d",
-      "phoneNum": "d",
+      "name": "testE",
+      "email": "testE",
+      "password": "testE",
+      "phoneNum": "testE",
       "id": 11
     },
     {
-      "name": "d",
-      "email": "d",
-      "password": "d",
-      "phoneNum": "d",
+      "name": "testF",
+      "email": "testF",
+      "password": "testF",
+      "phoneNum": "testF",
       "id": 12
     },
     {
-      "name": "d",
-      "email": "d",
-      "password": "d",
-      "phoneNum": "d",
+      "name": "testG",
+      "email": "testG",
+      "password": "testG",
+      "phoneNum": "testG",
       "id": 13
     },
     {
-      "name": "d",
-      "email": "d",
-      "password": "d",
-      "phoneNum": "d",
+      "name": "testH",
+      "email": "testH",
+      "password": "testH",
+      "phoneNum": "testH",
       "id": 14
     },
     {
-      "name": "d",
-      "email": "d",
-      "password": "d",
-      "phoneNum": "d",
+      "name": "testI",
+      "email": "testI",
+      "password": "testI",
+      "phoneNum": "testI",
       "id": 15
     },
     {
-      "name": "d",
-      "email": "d",
-      "password": "d",
-      "phoneNum": "d",
+      "name": "testJ",
+      "email": "testJ",
+      "password": "testJ",
+      "phoneNum": "testJ",
       "id": 16
+    },
+    {
+      "name": "김덕배",
+      "email": "db",
+      "password": "1125",
+      "phoneNum": "01027340740",
+      "terms": "on",
+      "personal": "on",
+      "id": 17
     }
   ],
   "comments": [],
