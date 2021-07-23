@@ -5,7 +5,7 @@ import Router from 'next/router'
 const API_URL = 'http://localhost:8100/api/posts';
 
 const BigConfirmButton = ({ text, registerForm, isActive }) => {
-    
+
     if (isActive) {
         return (
             <button className="bigConfirmButton-active" onClick={() => {
@@ -14,7 +14,7 @@ const BigConfirmButton = ({ text, registerForm, isActive }) => {
                     method: "POST",
                     data: registerForm
                 }).then(() => {
-                    alert(`${registerForm.name}님의 회원가입이 완료되었습니다. 새로 가입한 아이디로 로그인해주세요!`)
+                    alert(`${registerForm?.name}님의 회원가입이 완료되었습니다. 새로 가입한 아이디로 로그인해주세요!`)
                 }).then(Router.push("/login"))
             }
             }> {text}</button>

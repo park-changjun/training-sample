@@ -25,7 +25,7 @@ const Sample = () => {
                             url: API_URL,
                             method: "POST", data: form
                         }).then((isChanged) => setIsChanged(prev => !prev))
-                    }} style={{margin: '10px'}}>글 작성</button>
+                    }} style={{ margin: '10px' }}>글 작성</button>
                 </div>
                 {posts.map(post => {
                     return (

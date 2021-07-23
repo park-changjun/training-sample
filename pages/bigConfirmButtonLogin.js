@@ -19,9 +19,9 @@ const BigConfirmButtonLogin = ({ text, loginForm, isActive, isLogin, setIsLogin 
             <button className="bigConfirmButton-active" onClick={() => {
                 axios({ url: API_URL, method: 'GET' })
                     .then(({ data }) => {
-                        data.filter(member => member.email === loginForm.email && member.password === loginForm.password).length
-                        ? setIsCorrect(true)
-                        : alert("로그인 정보가 일치하지 않습니다.")
+                        data?.filter(member => member?.email === loginForm?.email && member?.password === loginForm?.password)?.length
+                            ? setIsCorrect(true)
+                            : alert("로그인 정보가 일치하지 않습니다.")
                     }
                     )
             }

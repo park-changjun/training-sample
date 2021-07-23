@@ -13,13 +13,13 @@ const FormInput = ({ text, btnText, setForm, info, registerForm, setIsConfirm, s
                 <input placeholder={text} onChange={(e) => {
                     setForm((prev) => (
                         {
-                            ...prev, [info]: e.target.value
+                            ...prev, [info]: e.target?.value
                         }))
                 }} />
                 <button onClick={() => {
                     axios({ url: API_URL, method: 'GET' })
                         .then(({ data }) => {
-                            data.filter(member => member.email === registerForm.email).length
+                            data.filter(member => member?.email === registerForm?.email).length
                                 ? alert('사용할 수 없는 이메일입니다. 다른 이메일을 사용해주세요.')
                                 : emailOk()
                         }
@@ -33,12 +33,12 @@ const FormInput = ({ text, btnText, setForm, info, registerForm, setIsConfirm, s
             <div className="form-input-component">
                 {setIsEqual
                     ? <input placeholder={text} onChange={(e) => {
-                        e.target.value === registerForm.password ? setIsEqual(true) : setIsEqual(false)
+                        e.target?.value === registerForm?.password ? setIsEqual(true) : setIsEqual(false)
                     }} /> :
                     <input placeholder={text} onChange={(e) => {
                         setForm((prev) => (
                             {
-                                ...prev, [info]: e.target.value
+                                ...prev, [info]: e.target?.value
                             }))
                     }} />
 

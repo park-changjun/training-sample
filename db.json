@@ -115,6 +115,15 @@
       "terms": "on",
       "personal": "on",
       "id": 17
+    },
+    {
+      "name": "testHome",
+      "email": "home",
+      "password": "home",
+      "phoneNum": "01012345678",
+      "terms": "on",
+      "personal": "on",
+      "id": 18
     }
   ],
   "comments": [],
