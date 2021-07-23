@@ -4,29 +4,8 @@ import { useState } from 'react';
 import Router from 'next/router'
 const API_URL = 'http://localhost:8100/api/posts';
 
-// 서버에 POST로 보내기
-// const BigConfirmButtonLogin = ({ text, loginForm, memberList}) => {
-//     return (
-//         <button className="bigConfirmButton" onClick={() => {
-//             axios({
-//                 url: API_URL,
-//                 method: "POST",
-//                 data: loginForm
-//             }).then(()=>alert(`서버에 비교를 요청한 결과!`))
-//         }
-//     }> {text}</button>
-//     )
-// };
 
 const BigConfirmButtonLogin = ({ text, loginForm, isActive }) => {
-
-    
-    // useEffect(() => {
-    //     registerForm.name&&registerForm.email&&registerForm.password&&registerForm.phoneNum?
-    //     setIsActive(true):
-    //     setIsActive(false)
-    // }, [registerForm]);
-
 
     if (isActive) {
         return (
@@ -47,4 +26,19 @@ const BigConfirmButtonLogin = ({ text, loginForm, isActive }) => {
     }
 };
 
+// 서버에 POST로 보내기
+// const BigConfirmButtonLogin = ({ text, loginForm, memberList}) => {
+//     return (
+//         <button className="bigConfirmButton" onClick={() => {
+//             axios({
+//                 url: API_URL,
+//                 method: "POST",
+//                 data: loginForm
+//             }).then(()=>alert(`서버에 비교를 요청한 결과!`))
+//         }
+//     }> {text}</button>
+//     )
+// };
+
 export default BigConfirmButtonLogin;
+
