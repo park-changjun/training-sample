@@ -5,12 +5,16 @@ import Check from '../components/Common/Check'
 import Button from '../components/Common/Button'
 import { register } from '../api'
 import Router from 'next/router';
+import Loading from '../components/Common/Loading'
 
 const passwordRule = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,20}$/;
 const phoneRule = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
 
 
 const Register = () => {
+
+  const [isRegistering, setIsRegistering] = useState(false)
+
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -93,9 +97,17 @@ const Register = () => {
         }
       }
 
+
+      setIsRegistering(true);
+
       const { data: newUser } = await register(form)
 
-      alert(`${newUser.name}님 가입을 축하합니다.`)
+      setIsRegistering(false);
+
+
+      setTimeout(() => {
+        alert(`${newUser.name}님 가입을 축하합니다.`)
+      }, 200);
 
       setTimeout(() => {
         Router.push('login');
@@ -104,6 +116,7 @@ const Register = () => {
       
     } catch (e) {
       console.log(e)
+      setIsRegistering(false);
     }},
     [form, passwordConfirm, checkBox]
   )
@@ -174,6 +187,7 @@ const Register = () => {
           </form>
         </div>
       </main>
+      <Loading page="회원가입" isOpen={isRegistering}/>
     </Layout>
   )
 }

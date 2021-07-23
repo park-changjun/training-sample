@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import Link from 'next/link'
 import Layout from '../components/Common/Layout'
 import { login } from '../api'
@@ -6,14 +6,18 @@ import Check from '../components/Common/Check'
 import Input from '../components/Common/Input'
 import Button from '../components/Common/Button'
 import SocialLogin from '../components/Login/SocialLogin'
+import Loading from '../components/Common/Loading'
 
 const Login = () => {
+
+  const [isLoading, setIsLoading] = useState(false);
+
   const [form, setForm] = useState({
     email: '',
     password: '',
   })
 
-  const { email, password } = form
+  const { email, password } = form;
 
   const [checkBox, setCheckBox] = useState([
     {
@@ -41,15 +45,22 @@ const Login = () => {
 
   const onSubmit = useCallback(
     async (e) => {
-      e.preventDefault();
-      console.log('submit');
+      try {
+        e.preventDefault();
+        console.log('submit');
 
-      const {data} = await login(form)
-      
-      if(!data.length) return alert('잘못된 정보를 입력하셨습니다. 확인하고 다시 입력해주세요.')
+        setIsLoading(true);
+        
+        const {data} = await login(form)
+        
+        if(!data.length) return alert('잘못된 정보를 입력하셨습니다. 확인하고 다시 입력해주세요.')
+        setIsLoading(false);
+        alert('로그인이 완료되었습니다!');
 
-      alert('로그인이 완료되었습니다!');
-
+      } catch (e) {
+        setIsLoading(false);
+        alert('서버 문제로 로그인에 실패 했습니다.')
+      }
     },
     [form],
   )
@@ -108,6 +119,7 @@ const Login = () => {
           </form>
         </div>
       </main>
+      <Loading page="로그인" isOpen={isLoading}/>
     </Layout>
   )
 }

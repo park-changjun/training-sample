@@ -359,3 +359,30 @@ input {
   background-image: url(/images/auth/chat-icon.png);
   width: 80px;
 }
+
+
+/*********************** Loading ***********************/
+.Loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.733);
+  z-index: 10;
+}
+
+.Loading > img {
+  width: 100px;
+  height: 100px;
+}
+
+.Loading > p {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: 700;
+}
