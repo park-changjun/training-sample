@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Link from 'next/link';
 
 import SnsButton from './SnsButton';
 import Input from './Input';
@@ -64,7 +65,11 @@ const LoginBox = () => {
         로그인
       </LoginButton>
       <div className='login-option'>
-        <span>간편 회원가입</span>
+        <span>
+          <Link href='/register'>
+            <a>회원가입</a>
+          </Link>
+        </span>
         <span>|</span>
         <span>비밀번호 재설정</span>
       </div>

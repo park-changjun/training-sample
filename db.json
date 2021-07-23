@@ -31,6 +31,15 @@
       "phone": "01012345678",
       "adAgree": false,
       "id": 4
+    },
+    {
+      "name": "재연2",
+      "email": "jaenny2",
+      "password": "123456789a",
+      "password2": "123456789a",
+      "phone": "01064968613",
+      "adAgree": false,
+      "id": 5
     }
   ],
   "comments": [],
