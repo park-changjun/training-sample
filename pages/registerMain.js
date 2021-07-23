@@ -16,7 +16,7 @@ const RegisterMain = ({ isLogin }) => {
         registerForm.name && registerForm.email && registerForm.password && registerForm.phoneNum && registerForm.terms && registerForm.personal && isConfirm && isEqual ?
             setIsActive(true) :
             setIsActive(false);
-    }, [registerForm]);
+    }, [registerForm,isEqual]);
 
     return (
         <main className="register-main">
