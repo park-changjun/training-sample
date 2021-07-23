@@ -104,7 +104,7 @@ header {
 
 /* Header Seciton END */
 
-/* Main Section Start */
+/* Login Main Section Start */
 
 .login-main{
     display: flex;
@@ -127,12 +127,12 @@ header {
     width: 450px;
 }
 
-.login-wrap .main-title {
+.main-title {
     font-size: 36px;
     line-height: 36px;
-    font-weight: 300;
     font-style: normal;
     margin-bottom: 60px;
+    text-align: center;
 }
 
 .form-input-component{
@@ -140,7 +140,32 @@ header {
     border: solid 1px #999999;
     border-radius: 2px;
     padding-left: 20px;
+    padding-right: 8px;
     margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.form-input-component input{
+    all: unset;
+    font-family: noto;
+    width: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -1.05px;
+    text-align: left;
+}
+
+.form-input-component button{
+    border: unset;
+    width: 80px;
+    height: 35px;
+    background-color: #1faf83;  
+    color: white;
+    border-radius: 2px;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .checkInputWrap{
@@ -154,7 +179,7 @@ header {
 .checkInput{
     width: 23px;
     height: 23px;
-    
+    margin-right: 15px;
 }
 
 input:checked {
@@ -172,6 +197,10 @@ input:checked {
     font-size: 18px;
     cursor: pointer;
     margin-top: 35px;
+}
+
+.bigConfirmButton:hover{
+background-color: #1faf83;
 }
 
 .login-form-submenu{
@@ -228,9 +257,8 @@ input:checked {
     size: 14px;
     line-height: 14px;
     font-size: 14px;
-    font-weight: 300;
     font-stretch: normal;
-    font-style: normasl;
+    font-style: normal;
 }
 
 .notice-wrap {
@@ -248,7 +276,7 @@ input:checked {
     color: #666666;
 }
 
-/* Main Section END */
+/* LoginMain Section END */
 
 /* Footer Start */
 
@@ -305,6 +333,71 @@ footer .container{
 }
 /* Footer end */
 
+/* Register start */
+
+.register-main{
+    height: 1129px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.register-main .container{
+    display: flex;
+    margin-top: 119px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.register-main .main-title{
+    margin-bottom: 35px;
+}
+
+.register-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+}
+
+
+.register-wrap .FormInputLabel{
+    font-size: 16px;
+    line-height: 16px;
+    margin-top: 25px;
+    margin-bottom: 9px;
+}
+
+.register-main .checkInputWrap{
+    color:#333333;
+    margin: 10px 0;
+}
+
+.register-main .checkInput-text{
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -1.05px;
+    display: flex;
+    justify-content: space-between;
+    width: -webkit-fill-available;
+    align-items: center;
+}
+
+.register-main .checkInput-detail{
+    font-size: 14px;
+    color: #999999;
+    border-bottom: 1px solid #999999;
+}
+
+.register-checklist{
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+
+
+/* Register end */
+
 /* fixed */
 .fixed-kakao{
     position: fixed;
@@ -312,3 +405,5 @@ footer .container{
     right: 50px;
     cursor: pointer;
 }
+
+/* fixed end */
