@@ -19,20 +19,29 @@ const API_URL = 'http://localhost:8100/api/posts';
 // };
 
 const BigConfirmButtonLogin = ({ text, loginForm, isActive }) => {
-    const [memberList, setMemberList] = useState([]);
-    if(isActive){
+
+    
+    // useEffect(() => {
+    //     registerForm.name&&registerForm.email&&registerForm.password&&registerForm.phoneNum?
+    //     setIsActive(true):
+    //     setIsActive(false)
+    // }, [registerForm]);
+
+
+    if (isActive) {
         return (
             <button className="bigConfirmButton-active" onClick={() => {
                 axios({ url: API_URL, method: 'GET' })
-                    .then(({ data }) => setMemberList(data)).then(
-                        memberList.filter(member => member.email === loginForm.email && member.password === loginForm.password).length ? alert("로그인!") : alert("로그인 정보가 일치하지 않습니다.")
+                    .then(({ data }) =>  { data.filter(member => member.email === loginForm.email && member.password === loginForm.password).length 
+                        ? alert("환영합니다!")
+                        : alert("로그인 정보가 일치하지 않습니다.") }
                     )
             }
             }> {text}</button>
         )
-    }else{
+    } else {
         return (<button className="bigConfirmButton" onClick={
-            ()=> {alert('남은 내용을 더 채워주세요!')}
+            () => { alert('남은 내용을 더 채워주세요!') }
         }> {text}</button>
         )
     }

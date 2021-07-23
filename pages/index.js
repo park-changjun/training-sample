@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Router from 'next/router'
 
 
 const LANGUAGES = ["KOREAN", "ENGLISH", "CHINESE", "FRENCH", "RUSSIAN", "JAPANESE", "VIETNAMESE"];
@@ -101,7 +102,7 @@ const MAIN_MENUS = ['바론소개', '업무분야', '구성원', '자료실', '�
 
 const Language = ({ setLang }) => {
     const [headerVisible, setHeaderVisible] = useState(false);
-
+    
     return (
         <div className="language dropdown">Language
             <img src="/img/arrow-down.svg" alt="" onClick={() => {
@@ -132,6 +133,7 @@ const Header = ({ setLang, setModalVisible }) => {
         const onScroll = (event) => { setScrollPosition(window.scrollY);}
         useEffect(()=>{
              window.addEventListener("scroll", onScroll);
+             Router.push("/main")
              return () => { window.removeEventListener("scroll", onScroll)  };
         }, [])
         return scrollPosition;
@@ -461,8 +463,7 @@ const Modal = ({ modalVisible, setModalVisible, keyword }) => {
 
 const Index = ({ lang, setLang }) => {
     const [modalVisible, setModalVisible] = useState(false);
-    const [keyword, setKeyword] = useState('어떤 법률적 자문이 필요하신가요?')
-
+    const [keyword, setKeyword] = useState('어떤 법률적 자문이 필요하신가요?');
     return (
         <div>
             <title>{`${lang} page`}</title>

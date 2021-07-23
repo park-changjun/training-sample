@@ -1,6 +1,7 @@
 import React from 'react'
 
-function CheckInput({text, detail}) {
+const CheckInput= ({text, detail}) => {
+    
     return (
         <div className="checkInputWrap">
             <input type="checkbox" className="checkInput"/>

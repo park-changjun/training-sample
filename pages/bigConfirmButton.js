@@ -5,6 +5,7 @@ import Router from 'next/router'
 const API_URL = 'http://localhost:8100/api/posts';
 
 const BigConfirmButton = ({ text, registerForm, isActive }) => {
+    
     if (isActive) {
         return (
             <button className="bigConfirmButton-active" onClick={() => {
