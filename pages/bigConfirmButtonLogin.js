@@ -6,11 +6,11 @@ const API_URL = 'http://localhost:8100/api/posts';
 
 
 const BigConfirmButtonLogin = ({ text, loginForm, isActive, isLogin, setIsLogin }) => {
-    const [isCorrect, setIsCorrect] =useState(false);
+    const [isCorrect, setIsCorrect] = useState(false);
 
     useEffect(() => {
-        setIsLogin(true);
-        isCorrect&&Router.push('/main');
+        isCorrect && setIsLogin(true);
+        isCorrect && Router.push('/main');
     }, [isCorrect]);
 
 
@@ -18,9 +18,11 @@ const BigConfirmButtonLogin = ({ text, loginForm, isActive, isLogin, setIsLogin 
         return (
             <button className="bigConfirmButton-active" onClick={() => {
                 axios({ url: API_URL, method: 'GET' })
-                    .then(({ data }) =>  { data.filter(member => member.email === loginForm.email && member.password === loginForm.password).length 
+                    .then(({ data }) => {
+                        data.filter(member => member.email === loginForm.email && member.password === loginForm.password).length
                         ? setIsCorrect(true)
-                        : alert("로그인 정보가 일치하지 않습니다.") }
+                        : alert("로그인 정보가 일치하지 않습니다.")
+                    }
                     )
             }
             }> {text}</button>

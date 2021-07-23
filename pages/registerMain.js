@@ -6,14 +6,14 @@ import FormInputLabel from './formInputLabel';
 import { useState, useEffect } from 'react';
 
 
-const RegisterMain = () => {
-    const [registerForm, setRegisterForm] = useState({ name: '', email: '', password: '', phoneNum: '' });
-    const [isActive, setIsActive] =useState(false);
+const RegisterMain = ({isLogin}) => {
+    const [registerForm, setRegisterForm] = useState({ name: '', email: '', password: '', phoneNum: '', terms:false, personal: false });
+    const [isActive, setIsActive] = useState(false);
     
     useEffect(() => {
-        registerForm.name&&registerForm.email&&registerForm.password&&registerForm.phoneNum?
+        registerForm.name&&registerForm.email&&registerForm.password&&registerForm.phoneNum&&registerForm.terms&&registerForm.personal?
         setIsActive(true):
-        setIsActive(false)
+        setIsActive(false);
     }, [registerForm]);
    
     return (
@@ -31,8 +31,8 @@ const RegisterMain = () => {
                     <FormInputLabel text={'휴대폰 번호'} />
                     <FormInput text={'휴대폰번호를 입력하세요. (숫자만 입력)'} btnText={false} setForm={setRegisterForm} info={'phoneNum'}/>
                     <div className="register-checklist">
-                        <CheckInput text={'[필수] 이용약관 동의'} detail={'보기'} />
-                        <CheckInput text={'[필수] 개인정보수집 및 이용 동의'} detail={'보기'} />
+                        <CheckInput text={'[필수] 이용약관 동의'} detail={'보기'} setForm={setRegisterForm} info={'terms'}/>
+                        <CheckInput text={'[필수] 개인정보수집 및 이용 동의'} detail={'보기'} setForm={setRegisterForm} info={'personal'}/>
                         <CheckInput text={'[선택] 이벤트 및 정보 수신 동의'} />
                     </div>
                     <BigConfirmButton text={'가입하기'} registerForm={registerForm} isActive={isActive}/>
