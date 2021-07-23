@@ -16,6 +16,11 @@
   text-align: center;
 }
 
-.login-title {
+.register-title {
   font-size: 36px;
+}
+
+
+.register-check-wrapper {
+  padding-top: 30px;
 }

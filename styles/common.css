@@ -88,6 +88,7 @@ input {
 .main-header .content .logo-wrapper > img {
   width: 135px;
   height: 40px;
+  cursor: pointer;
 }
 
 
@@ -107,6 +108,7 @@ input {
   letter-spacing: -1.2px;
   text-align: left;
   color: var(--black);
+  cursor: pointer;
 }
 
 
@@ -219,13 +221,141 @@ input {
 .Input {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.Input .label {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 16px;
+  margin-top: 30px;
+  padding-bottom: 14px;
+}
+
+.Input > input {
+  height: 50px;
+  border: 1px solid var(--gray);
+  padding: 0 20px;
+}
+
+.Input > .verification-btn {
+  position: absolute;
+  width: 80px;
+  height: 35px;
+  line-height: 35px;
+  background-color: #1faf83;
+  border-radius: 2px;
+  bottom: 8px;
+  right: 8px;
+  color: var(--white);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/*********************** Check ***********************/
+.check-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.check-wrapper > p {
+  font-size: 14px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: -1.05px;
+  text-align: left;
+  color: var(--black);
+  flex: 1;
+}
+
+.check-wrapper > button {
+  color: var(--text-light-gray);
+  border-bottom: 1px solid var(--text-light-gray);
+  padding: 3px 0;
+  cursor: pointer;
+  transition: all ease-in 300ms;
+}
+
+.check-wrapper > button:hover {
+  color : var(--light-red);
+  border-bottom-color : var(--light-red);
+}
+
+
+.check-box {
+  display: flex;
+  height: 24px;
+  width: 24px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--gray);
+  transition: all ease-in 200ms;
+  margin-right: 11px;
+  cursor: pointer;
+}
+
+.check-box.active {
+  border-color: var(--light-red);
+}
+
+.check-box.active svg {
+  color: var(--light-red);
+}
+
+.check-box > svg {
+  transition: all ease-in 300ms;
+  color : var(--gray);
+}
+
+.check-wrapper .unvisible-box {
+  opacity: 0;
+  position: fixed;
+  /* width: 1px; */
+  /* height: 1px; */
+  left: -1px;
+  top: -1px;
+  overflow: hidden;
 }
 
 
 
-/*********************** Check ***********************/
-
-
-
-
 /*********************** Button ***********************/
+.Button {
+  margin-top: 40px;
+  color: var(--white);
+  border-radius: 2px;
+  background-color: var(--gray);
+  height: 60px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.11;
+  letter-spacing: -1.35px;
+  text-align: center;
+  color: var(--white);
+  cursor: pointer;
+  transition: all ease-in 300ms;
+}
+
+.Button:hover {
+  background-color: var(--text-deep-gray);
+}
+
+
+
+/*********************** Chat ***********************/
+.chat {
+  height: 80px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  background-image: url(/images/auth/chat-icon.png);
+  width: 80px;
+}

@@ -6,6 +6,48 @@
       "author": [
         "typicode"
       ]
+    },
+    {
+      "name": "sdadsasda",
+      "email": "dsadsa@naver.com",
+      "password": "aaaa1111",
+      "phone": "01099999999",
+      "id": 2
+    },
+    {
+      "name": "dasdsaasd",
+      "email": "ddas@naver.com",
+      "password": "aaaa1111",
+      "phone": "01099999999",
+      "id": 3
+    },
+    {
+      "name": "dasdsaasd",
+      "email": "ddas@naver.com",
+      "password": "aaaa1111",
+      "phone": "01099999999",
+      "id": 4
+    },
+    {
+      "name": "adsasdasd",
+      "email": "ksk616@naver.com",
+      "password": "aaaa1111",
+      "phone": "01099999999",
+      "id": 5
+    },
+    {
+      "name": "콩콩이",
+      "email": "ksk616@naver.com",
+      "password": "aaaa1111",
+      "phone": "01099999999",
+      "id": 6
+    },
+    {
+      "name": "테스터",
+      "email": "test1@naver.com",
+      "password": "aaaa1111",
+      "phone": "01099999999",
+      "id": 7
     }
   ],
   "comments": [
