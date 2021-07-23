@@ -4,7 +4,6 @@ import axios from 'axios';
 import SnsButton from './SnsButton';
 import Input from './Input';
 import LoginButton from './LoginButton';
-
 import { IoIosCheckboxOutline } from 'react-icons/io';
 
 const LoginBox = () => {
@@ -24,13 +23,9 @@ const LoginBox = () => {
   useEffect(() => {
     axios({ url: 'http://localhost:8100/api/posts', method: 'GET' })
       .then(({ data }) => setUserData(data))
-      .then(() => console.log(userData))
-      .catch(() => {
-        console.log('error');
-      });
+      .catch((e) => console.log(e));
   }, []);
 
-  console.log(loginInput);
   return (
     <div className='login-box-container'>
       <p className='login'>로그인</p>

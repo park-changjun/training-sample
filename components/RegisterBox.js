@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Input from './Input';
 import LoginButton from './LoginButton';
@@ -6,7 +6,6 @@ import CheckBox from './CheckBox';
 
 export default function RegisterBox() {
   const [userData, setUserData] = useState([]);
-  const [form, setForm] = useState({ id: '', title: '', author: '' });
   const [emailCheck, setEmailCheck] = useState(false);
 
   const [registerInput, setRegisterInput] = useState({
@@ -15,12 +14,12 @@ export default function RegisterBox() {
     password: '',
     password2: '',
     phone: '',
+    adAgree: false,
   });
 
   const onChange = (e) => {
     const { value, name } = e.target;
     setRegisterInput({ ...registerInput, [name]: value });
-    console.log(registerInput);
   };
 
   useEffect(() => {
@@ -55,8 +54,6 @@ export default function RegisterBox() {
     },
   ]);
 
-  const checkCount = useRef(0);
-
   return (
     <div className='register-box-container login-box-container'>
       <p className='login'>간편 회원가입</p>
@@ -81,8 +78,11 @@ export default function RegisterBox() {
               }
             });
             if (flag === false) {
-              alert('사용하셔도 됩니다.');
-              setEmailCheck(true);
+              if (registerInput.email === '') alert('이메일을 입력해주세요.');
+              else {
+                alert('사용하셔도 됩니다.');
+                setEmailCheck(true);
+              }
             }
           }}
         >
@@ -118,7 +118,6 @@ export default function RegisterBox() {
               item={item}
               id={item.id}
               key={item.id}
-              checkCount={checkCount}
               setCheckBoxInfo={setCheckBoxInfo}
             />
           ))}
@@ -128,6 +127,8 @@ export default function RegisterBox() {
         registerInput={registerInput}
         emailCheck={emailCheck}
         setUserData={setUserData}
+        checkBoxInfo={checkBoxInfo}
+        setRegisterInput={setRegisterInput}
       >
         가입하기
       </LoginButton>

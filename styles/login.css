@@ -283,3 +283,14 @@ input[type='password'] {
 .detail {
   border-bottom: 1px solid #999999;
 }
+.kakao-banner {
+  width: 79px;
+  height: 80px;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+}
+.kakao-banner img {
+  display: block;
+  width: 100%;
+}

@@ -1,8 +1,7 @@
-import PreviousMap from 'postcss/lib/previous-map';
 import React from 'react';
 import { IoIosCheckboxOutline } from 'react-icons/io';
 
-export default function CheckBox({ item, id, checkCount, setCheckBoxInfo }) {
+export default function CheckBox({ item, id, setCheckBoxInfo }) {
   return (
     <div className='checkbox'>
       <IoIosCheckboxOutline
@@ -15,7 +14,6 @@ export default function CheckBox({ item, id, checkCount, setCheckBoxInfo }) {
               return data.id === id ? { ...data, active: !data.active } : data;
             });
           });
-          checkCount.current += 1;
         }}
       />
       <div className='lists'>

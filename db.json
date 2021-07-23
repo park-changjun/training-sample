@@ -7,19 +7,30 @@
     },
     {
       "name": "재연",
-      "email": "1",
-      "password": "1",
-      "password2": "1",
-      "phone": "1",
+      "email": "jaenny",
+      "password": "a123456789",
+      "password2": "a123456789",
+      "phone": "01064968613",
+      "adAgree": false,
       "id": 2
     },
     {
-      "name": "재연2",
-      "email": "2",
-      "password": "2",
-      "password2": "2",
-      "phone": "2",
+      "name": "리액트",
+      "email": "react",
+      "password": "a123456789",
+      "password2": "a123456789",
+      "phone": "01012345678",
+      "adAgree": true,
       "id": 3
+    },
+    {
+      "name": "액시오스",
+      "email": "axios",
+      "password": "a123456789",
+      "password2": "a123456789",
+      "phone": "01012345678",
+      "adAgree": false,
+      "id": 4
     }
   ],
   "comments": [],
