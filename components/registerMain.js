@@ -1,9 +1,9 @@
 import React from 'react'
-import FormInput from './formInput';
-import BigConfirmButton from './bigConfirmButton';
 import CheckInput from './checkInput';
-import FormInputLabel from './formInputLabel';
 import { useState, useEffect } from 'react';
+import RegisterConfirmButton from './registerConfirmButton';
+import FormInput from './formInput';
+import FormInputLabel from './formInputLabel';
 
 
 const RegisterMain = ({ isLogin }) => {
@@ -37,7 +37,7 @@ const RegisterMain = ({ isLogin }) => {
                         <CheckInput text={'[필수] 개인정보수집 및 이용 동의'} detail={'보기'} setForm={setRegisterForm} info={'personal'} />
                         <CheckInput text={'[선택] 이벤트 및 정보 수신 동의'} setForm={setRegisterForm} info={'option'} />
                     </div>
-                    <BigConfirmButton text={'가입하기'} registerForm={registerForm} isActive={isActive} />
+                    <RegisterConfirmButton text={'가입하기'} registerForm={registerForm} isActive={isActive} />
                 </div>
                 <div className="notice-wrap">
                     <div className="notice">공지사항</div>

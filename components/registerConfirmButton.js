@@ -4,7 +4,7 @@ import Router from 'next/router'
 
 const API_URL = 'http://localhost:8100/api/posts';
 
-const BigConfirmButton = ({ text, registerForm, isActive }) => {
+const RegisterConfirmButton = ({ text, registerForm, isActive }) => {
 
     if (isActive) {
         return (
@@ -29,4 +29,4 @@ const BigConfirmButton = ({ text, registerForm, isActive }) => {
 
 }
 
-export default BigConfirmButton;
+export default RegisterConfirmButton;

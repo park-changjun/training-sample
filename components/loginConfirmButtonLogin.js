@@ -5,7 +5,7 @@ import Router from 'next/router'
 const API_URL = 'http://localhost:8100/api/posts';
 
 
-const BigConfirmButtonLogin = ({ text, loginForm, isActive, isLogin, setIsLogin }) => {
+const LoginConfirmButton = ({ text, loginForm, isActive, isLogin, setIsLogin }) => {
     const [isCorrect, setIsCorrect] = useState(false);
 
     useEffect(() => {
@@ -49,5 +49,5 @@ const BigConfirmButtonLogin = ({ text, loginForm, isActive, isLogin, setIsLogin 
 //     )
 // };
 
-export default BigConfirmButtonLogin;
+export default LoginConfirmButton;
 

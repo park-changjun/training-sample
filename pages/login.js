@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from './header';
-import LoginMain from './loginMain';
-import Footer from './footer';
-import FixedKakaoChat from './fixedKakaoChat';
+import Header from '../components/header';
+import Footer from '../components/footer';
+import FixedKakaoChat from '../components/fixedKakaoChat';
+import LoginMain from '../components/loginMain';
 
 const Login = ({ isLogin, setIsLogin }) => {
     return (
