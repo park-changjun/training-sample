@@ -9,7 +9,7 @@
     "server": "json-server --watch db.json --routes routes.json --port 8100"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.1",    
     "classnames": "2.3.1",
     "date-fns": "2.21.3",
     "gray-matter": "4.0.3",

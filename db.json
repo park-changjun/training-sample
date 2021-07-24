@@ -1,49 +1,67 @@
 {
   "posts": [
     {
-      "id": 6,
-      "title": "ㅇㄴㅇㄴㄴㅇㅇ",
-      "author": "asdsd"
+      "id": 1,
+      "title": "1",
+      "author": "1"
     },
     {
-      "id": 7,
-      "title": "하비비",
-      "author": "dsdsd"
+      "id": 2,
+      "title": "2",
+      "author": "2"
     },
     {
-      "id": 8,
-      "title": "Havivi",
-      "author": "dssd"
+      "id": 3,
+      "title": "3",
+      "author": "3"
     },
     {
-      "id": 9,
-      "title": "da",
-      "author": "sdsad"
+      "name": 4,
+      "email": "4",
+      "pw": "4",
+      "checkPw": "4",
+      "number": "4"
     },
     {
-      "id": 10,
-      "title": "",
-      "author": ""
+      "name": 5,
+      "email": "5",
+      "pw": "5",
+      "checkPw": "5",
+      "number": "5"
     },
     {
-      "id": 11,
-      "title": "asdsSas",
-      "author": ""
+      "name": 6,
+      "email": "6",
+      "pw": "6",
+      "checkPw": "6",
+      "number": "6"
     },
     {
-      "id": 12,
-      "title": "",
-      "author": ""
+      "id": 4
     },
     {
-      "id": 13,
-      "title": "",
-      "author": ""
+      "id": 5
     },
     {
-      "id": 14,
-      "title": "",
-      "author": ""
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
     }
   ],
   "comments": [],

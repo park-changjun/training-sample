@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+
+* {
+  padding: 0px;
+  margin: 0px;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --yellow: ##f7e317;
+  --grayIcon: ##f5f5f5;
+  --grayButton: #ccc;
+  --transparent: #00ff0000;
+  --black333: #333;
+  --black666: #666;
+  --gray999: #999;
+  --gray888: #888;
+  --grayF5: #f5f5f5;
+}
+
