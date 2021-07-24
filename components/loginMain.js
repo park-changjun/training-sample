@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import FormInput from './formInput';
 import LoginConfirmButton from './loginConfirmButtonLogin';
 import CheckInput from './checkInput';
+import Link from 'next/dist/client/link';
 
 const LoginMain = ({ isLogin, setIsLogin }) => {
     const [loginForm, setLoginForm] = useState({ email: '', password: '' });
@@ -24,7 +25,7 @@ const LoginMain = ({ isLogin, setIsLogin }) => {
                     <CheckInput text={'로그인 상태 유지'} />
                     <LoginConfirmButton text={'로그인'} loginForm={loginForm} isActive={isActive} isLogin={isLogin} setIsLogin={setIsLogin} />
                     <div className="login-form-submenu">
-                        <div><a>간편 회원가입</a></div>
+                        <div><Link href="/register"><a>간편 회원가입</a></Link ></div>
                         <span>|</span>
                         <div><a>비밀번호 재설정</a></div>
                     </div>
