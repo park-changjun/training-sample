@@ -15,7 +15,9 @@ const RegisterConfirmButton = ({ text, registerForm, isActive }) => {
                     data: registerForm
                 }).then(() => {
                     alert(`${registerForm?.name}님의 회원가입이 완료되었습니다. 새로 가입한 아이디로 로그인해주세요!`)
-                }).then(Router.push("/login"))
+                }).then(Router.push("/login")).catch(error => {
+                    console.log(error)
+                })
             }
             }> {text}</button>
         )
